@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prayer Force USA</title>
+  <meta name="description" content="Prayer Force USA — Standing in the Gap for Our Nation." />
+
+  <style>
+    :root{
+      /* Sage + warm neutrals (civilian-friendly, not “Army”) */
+      --bg1:#dbe4d3;
+      --bg2:#c7d2be;
+      --panel:#fbfbf9;
+      --panel2:#f4f5f0;
+      --text:#0b1220;
+      --muted:#334155;
+      --line:#a9b6a0;
+
+      /* Brand accents */
+      --green:#1f4f3c;
+      --brass:#8b6b1f;
+      --cream:#fff7e6;
+      --blue:#1d4ed8;
+
+      --radius:18px;
+      --max:1120px;
+      --shadow: 0 18px 50px rgba(0,0,0,.12);
+
+      /* Watermark controls (single source of truth) */
+      --wm-opacity: 0.045;          /* VERY faint */
+      --wm-size: 900px;
+      --wm-x: 75%;
+      --wm-y: 18%;
+      --wm-rotate: -8deg;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 15% 0%, rgba(31,79,60,.18), transparent 58%),
+        radial-gradient(900px 650px at 85% 10%, rgba(139,107,31,.16), transparent 52%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      line-height:1.5;
+    }
+    a{color:var(--blue)}
+    a:hover{opacity:.9}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 16px}
+    .row{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .grid2{display:grid; gap:16px; grid-template-columns: 1.2fr 0.8fr}
+    @media (max-width:960px){ .grid2{grid-template-columns:1fr} }
+    .grid2eq{display:grid; gap:16px; grid-template-columns:1fr 1fr}
+    @media (max-width:960px){ .grid2eq{grid-template-columns:1fr} }
+
+    .card{
+      background: rgba(251,251,249,.92);
+      border:1px solid rgba(169,182,160,.95);
+      border-radius: var(--radius);
+      padding:20px;
+      box-shadow: var(--shadow);
+    }
+    .card.alt{ background: rgba(244,245,240,.92); }
+
+    /* Announcement banner */
+    .announce{
+      background: linear-gradient(90deg, rgba(31,79,60,.92), rgba(139,107,31,.88));
+      color:#fff;
+      font-weight:900;
+      letter-spacing:.2px;
+      border-bottom:1px solid rgba(0,0,0,.08);
+    }
+    .announce .wrap{padding:10px 16px}
+    .announce a{color:#fff; text-decoration:underline}
+    .announce small{font-weight:700; opacity:.95}
+
+    /* Nav */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(251,251,249,.82);
+      border-bottom:1px solid rgba(169,182,160,.95);
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; text-decoration:none;
+      font-weight:1000; letter-spacing:.2px; color:var(--text);
+    }
+    .badge{
+      width:36px; height:36px; border-radius:12px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(31,79,60,.96), rgba(139,107,31,.90));
+      color:#fff;
+      box-shadow: 0 10px 22px rgba(0,0,0,.15);
+      font-weight:1000;
+    }
+    nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    nav a{
+      text-decoration:none;
+      color:rgba(11,18,32,.80);
+      font-weight:900;
+      font-size:14px;
+      padding:8px 10px;
+      border-radius:12px;
+    }
+    nav a:hover{background:rgba(31,79,60,.08)}
+
+    .section{padding:18px 0}
+    .hr{height:1px; background:rgba(169,182,160,.95); margin:16px 0}
+
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      color: rgba(31,79,60,.96);
+      font-weight:1000; letter-spacing:.8px;
+      font-size:12px; text-transform:uppercase;
+      flex-wrap:wrap;
+    }
+    .kicker .chip{
+      background: rgba(31,79,60,.10);
+      border:1px solid rgba(31,79,60,.18);
+      color: rgba(31,79,60,.95);
+      padding:4px 8px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:1000;
+      text-transform:none;
+      letter-spacing:.2px;
+    }
+
+    h1{
+      margin:10px 0 10px;
+      font-size:48px;
+      line-height:1.03;
+      letter-spacing:-.6px;
+    }
+    @media (max-width:520px){ h1{font-size:36px} }
+
+    .subhead{
+      font-size:18px;
+      font-weight:950;
+      color: rgba(11,18,32,.80);
+      margin-top:2px;
+    }
+    .lead{
+      color: rgba(11,18,32,.72);
+      margin: 12px 0 0;
+      font-size:16.5px;
+    }
+
+    .tag-strong{
+      margin-top:14px;
+      font-weight:1000;
+      font-size:19px;
+      letter-spacing:.25px;
+      color: rgba(11,18,32,.92);
+    }
+    .tag-motto{
+      margin-top:6px;
+      font-style:italic;
+      font-weight:850;
+      color: rgba(11,18,32,.70);
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      border-radius: 14px;
+      padding:12px 14px;
+      text-decoration:none;
+      font-weight:1000;
+      border:1px solid rgba(169,182,160,.95);
+      background: rgba(31,79,60,.06);
+      color: rgba(11,18,32,.92);
+      cursor:pointer;
+    }
+    .btn:hover{background: rgba(31,79,60,.10)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(31,79,60,.95), rgba(139,107,31,.55));
+      border:1px solid rgba(31,79,60,.30);
+      color:#fff;
+    }
+    .btn.alt{
+      background: linear-gradient(135deg, rgba(139,107,31,.92), rgba(31,79,60,.30));
+      border:1px solid rgba(139,107,31,.30);
+      color:#fff;
+    }
+    .btn.ghost{ background: rgba(255,255,255,.55); }
+
+/* HERO */
+.hero{
+  position: relative;
+  overflow: hidden;
+  isolation: isolate; /* creates a local stacking context so layers behave */
+}
+
+/* Watermark layer: ultra faint, always behind content */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-80px -40px -80px -40px;
+  background: url("logo.png") var(--wm-x) var(--wm-y) / var(--wm-size) no-repeat;
+  opacity: 0.018;              /* hard lock faintness */
+  transform: rotate(var(--wm-rotate));
+  filter: grayscale(1) brightness(1.5) contrast(0.9);
+  pointer-events:none;
+  z-index: 0;                  /* behind everything in hero */
+}
+
+/* Soft wash ABOVE watermark but still behind content */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    180deg,
+    rgba(251,251,249,0.78),
+    rgba(251,251,249,0.90)
+  );
+  pointer-events:none;
+  z-index: 1;                  /* above watermark */
+}
+
+/* Ensure actual hero content is always above both overlays */
+.hero > *{
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile: adjust only position/size, NOT opacity */
+@media (max-width:960px){
+  :root{
+    --wm-size: 720px;
+    --wm-x: 65%;
+    --wm-y: 6%;
+  }
+}
+
+
+    .hero-card{
+      position:relative;
+      background: rgba(251,251,249,.93);
+      border:1px solid rgba(169,182,160,.95);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:26px;
+      z-index:1; /* sits above watermark layers */
+    }
+
+    .hero-logo{
+      height:160px;
+      width:auto;
+      filter: drop-shadow(0 16px 32px rgba(0,0,0,.18));
+    }
+
+    /* Right-side feature panel adds depth */
+    .feature{
+      border-radius: var(--radius);
+      padding:18px;
+      border:1px solid rgba(169,182,160,.95);
+      background:
+        linear-gradient(180deg, rgba(31,79,60,.10), rgba(255,255,255,.55)),
+        rgba(255,255,255,.70);
+      box-shadow: 0 14px 35px rgba(0,0,0,.10);
+      z-index:1;
+      position:relative;
+    }
+    .feature h3{margin:6px 0 8px; font-size:18px}
+    .feature p{margin:0; color:rgba(11,18,32,.72)}
+    .mini{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:12px;
+      border-radius:14px;
+      background: rgba(255,255,255,.72);
+      border:1px solid rgba(169,182,160,.85);
+      margin-top:10px;
+    }
+    .icon{
+      width:34px; height:34px; border-radius:12px;
+      display:grid; place-items:center;
+      background: rgba(31,79,60,.12);
+      border:1px solid rgba(31,79,60,.18);
+      flex:0 0 auto;
+    }
+    .icon svg{width:18px; height:18px; fill: rgba(31,79,60,.95)}
+
+    .callout{
+      background: linear-gradient(90deg, rgba(255,247,230,.95), rgba(244,245,240,.95));
+      border:1px solid rgba(139,107,31,.25);
+      border-radius: var(--radius);
+      padding:14px 16px;
+    }
+    .callout strong{color: rgba(31,79,60,.95)}
+    .callout a{font-weight:1000}
+
+    /* Lane cards */
+    .lane{ position:relative; overflow:hidden; }
+    .lane::after{
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0;
+      height:6px;
+      background: linear-gradient(90deg, rgba(31,79,60,.95), rgba(139,107,31,.92));
+      opacity:.95;
+    }
+    .lane .title{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-top:10px; flex-wrap:wrap;
+    }
+    .lane h2{margin:0; font-size:24px}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px; border-radius:999px;
+      background: rgba(31,79,60,.06);
+      border:1px solid rgba(169,182,160,.95);
+      color: rgba(11,18,32,.72);
+      font-size:13px;
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    /* Expandables */
+    details{
+      margin-top:12px;
+      border-radius:16px;
+      border:1px solid rgba(169,182,160,.90);
+      background: rgba(255,255,255,.68);
+      padding:10px 12px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:1000;
+      color: rgba(11,18,32,.88);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    summary:after{
+      content:"▾";
+      float:right;
+      color: rgba(11,18,32,.65);
+      font-weight:1000;
+    }
+    details[open] summary:after{content:"▴"}
+
+    .muted{color: rgba(11,18,32,.72)}
+    .small{font-size:13px}
+
+    input, textarea, select{
+      width:100%;
+      padding:10px 11px;
+      border-radius:14px;
+      border:1px solid rgba(169,182,160,.95);
+      background: rgba(255,255,255,.75);
+      color: var(--text);
+      outline:none;
+    }
+    textarea{resize:vertical}
+    .form-grid{display:grid; gap:12px}
+    label span{display:block; margin-bottom:6px; color: rgba(11,18,32,.75); font-size:14px; font-weight:950}
+
+    .foot a{color: rgba(11,18,32,.78); text-decoration:none}
+    .foot a:hover{color: rgba(11,18,32,.92)}
+    [data-hidden="true"]{display:none !important;}
+
+    /* Back-to-top */
+    .to-top{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:60;
+      border-radius:999px;
+      padding:11px 14px;
+      font-weight:1000;
+      border:1px solid rgba(169,182,160,.95);
+      background: rgba(251,251,249,.94);
+      box-shadow: 0 18px 40px rgba(0,0,0,.12);
+      text-decoration:none;
+      color: rgba(11,18,32,.92);
+      display:none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Announcement banner -->
+  <div class="announce">
+    <div class="wrap row">
+      <div>
+        <strong>Answering the America Prays call:</strong>
+        <small> Prayer Force USA responds with a weekly broadcast rhythm and regular intercession most days.</small>
+      </div>
+      <div>
+        <a href="https://www.whitehouse.gov/america250/america-prays/" target="_blank" rel="noopener noreferrer">
+          View the America Prays page →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="wrap row">
+      <a class="brand" href="#top" aria-label="Prayer Force USA Home" id="top">
+        <span class="badge">PF</span>
+        <span>Prayer Force USA</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#lanes">Two Lanes</a>
+        <a href="#submit">Submit a Prayer</a>
+        <a href="#support">Support</a>
+        <a href="#footer">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- HERO -->
+    <section class="section">
+      <div class="hero-card hero">
+        <div class="grid2">
+          <div style="position:relative; z-index:1;">
+            <div class="kicker">
+              <span class="chip">Civilian-led</span>
+              <span class="chip">Nation-focused</span>
+              <span class="chip">Structured</span>
+            </div>
+
+            <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-top:10px;">
+              <img src="logo.png" alt="Prayer Force USA Logo" class="hero-logo">
+              <div>
+                <h1 style="margin:0;">Prayer Force USA</h1>
+                <div class="subhead">Standing in the Gap for Our Nation</div>
+                <div class="tag-strong">One Charge. Many Posts.</div>
+                <div class="tag-motto">Standing in the Gap — On Every Front.</div>
+              </div>
+            </div>
+
+            <p class="lead" style="max-width:860px;">
+              Prayer Force USA is a disciplined national prayer framework answering the
+              <a href="https://www.whitehouse.gov/america250/america-prays/" target="_blank" rel="noopener noreferrer">America Prays</a>
+              call with two clear lanes: <strong>regular intercession (most days)</strong> and a <strong>weekly broadcast rhythm</strong>.
+              (Independent—no affiliation with any government agency or military organization.)
+            </p>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+              <a class="btn primary" href="#lanes">See the Two Lanes</a>
+              <a class="btn alt" href="#submit">Submit a National Prayer</a>
+              <a class="btn ghost" href="#footer">Get Updates</a>
+            </div>
+
+            <div style="margin-top:14px;">
+              <span class="pill" data-hide-when-empty="true" data-content="intercession_focus">
+                Intercession focus: <span data-field="intercession_focus"></span>
+              </span>
+              <span class="pill" data-hide-when-empty="true" data-content="apb_schedule" style="margin-left:8px;">
+                Broadcast: <span data-field="apb_schedule"></span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Feature panel -->
+          <aside class="feature">
+            <div class="callout">
+              <strong>America Prays Broadcast = the direct answer.</strong>
+              <div class="muted" style="margin-top:4px;">
+                This broadcast lane exists specifically to respond to the America Prays call with a consistent weekly prayer hour.
+              </div>
+            </div>
+
+            <div class="mini">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z"/></svg>
+              </div>
+              <div>
+                <h3>Standing in the Gap</h3>
+                <p class="small">Regular intercession (most days). Drop in as often as you want, for as long as you want.</p>
+              </div>
+            </div>
+
+            <div class="mini">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM7 9h10v2H7zm0 4h7v2H7z"/></svg>
+              </div>
+              <div>
+                <h3>America Prays Broadcast</h3>
+                <p class="small">Weekly rhythm. Structured segments: Scripture → themes → closing.</p>
+              </div>
+            </div>
+
+            <div class="mini">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 6.5-7 11-7 11z"/></svg>
+              </div>
+              <div>
+                <h3>National Prayer Submissions</h3>
+                <p class="small">Submit prayers aligned to national themes—may be shared on camera if you permit.</p>
+              </div>
+            </div>
+
+            <div class="hr"></div>
+            <div class="small muted">
+              You’re always welcome—no attendance tracking, no pressure.
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- TWO LANES -->
+    <section id="lanes" class="section">
+      <div class="row" style="align-items:flex-end; flex-wrap:wrap;">
+        <div>
+          <div class="kicker">Two Lanes</div>
+          <h2 style="margin:8px 0 0; font-size:30px;">Stay focused. Stay consistent.</h2>
+          <div class="muted" style="margin-top:6px; max-width:820px;">
+            We avoid drifting into a typical “anything goes” prayer meeting by separating regular intercession (most days)
+            from a structured weekly broadcast rhythm.
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;" class="grid2eq">
+        <!-- Intercession lane -->
+        <div class="card lane">
+          <div class="title">
+            <h2>Standing in the Gap</h2>
+            <span class="pill">Regular intercession (most days)</span>
+          </div>
+
+          <p class="muted" style="margin:10px 0 0;">
+            Standing in the Gap is held most days with a consistent national focus.
+            <strong>Drop in as often as you want, for as long as you want</strong>—no roll call, no clock-watching.
+          </p>
+
+          <details>
+            <summary>What you can expect</summary>
+            <div class="muted" style="margin-top:10px;">
+              • National concerns first (leaders, justice, families, repentance, protection).<br>
+              • Short, focused prayer that stays on task.<br>
+              • Join freely; stay as long as you like.
+            </div>
+          </details>
+
+          <details>
+            <summary>Why it’s not “attendance-based”</summary>
+            <div class="muted" style="margin-top:10px;">
+              The goal is disciplined intercession for national needs—not building a roll-call culture.
+              Come when you can. Leave when you must.
+            </div>
+          </details>
+        </div>
+
+        <!-- Broadcast lane -->
+        <div class="card lane alt">
+          <div class="title">
+            <h2>America Prays Broadcast</h2>
+            <span class="pill">Weekly rhythm</span>
+          </div>
+
+          <p class="muted" style="margin:10px 0 0;">
+            A weekly national prayer hour—Prayer Force USA’s direct answer to the
+            <a href="https://www.whitehouse.gov/america250/america-prays/" target="_blank" rel="noopener noreferrer">America Prays</a>
+            call.
+          </p>
+
+          <details>
+            <summary>Why it exists</summary>
+            <div class="muted" style="margin-top:10px;">
+              It creates a dependable weekly “on-ramp” for national intercession—consistent, structured, and accessible.
+            </div>
+          </details>
+
+          <details>
+            <summary>Suggested broadcast segments</summary>
+            <div class="muted" style="margin-top:10px;">
+              • Welcome + scripture anchor<br>
+              • 2–3 thematic blocks (leaders, families, justice/mercy)<br>
+              • Repentance + blessing + close
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBMIT -->
+    <section id="submit" class="section">
+      <div class="card">
+        <div class="kicker">Submit</div>
+        <h2 style="margin:8px 0 6px; font-size:28px;">Submit a National Prayer</h2>
+        <div class="muted" style="max-width:920px;">
+          This is for prayers aligned to national needs. Submissions are reviewed privately.
+          If you grant permission, your prayer may be read on-camera at the discretion of Prayer Force USA.
+        </div>
+
+        <div class="hr"></div>
+
+        <form name="pfusa-national-prayer" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="pfusa-national-prayer" />
+          <p style="display:none;">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="form-grid">
+            <label>
+              <span>Your name (optional)</span>
+              <input type="text" name="name_optional" maxlength="80" autocomplete="name" />
+            </label>
+
+            <label>
+              <span>Prayer category <span style="color:#b91c1c">*</span></span>
+              <select name="category" required>
+                <option value="" selected disabled>Select one…</option>
+                <option>Wisdom for leaders</option>
+                <option>Integrity in public life</option>
+                <option>Protection of families</option>
+                <option>Justice and mercy</option>
+                <option>National repentance</option>
+                <option>Peace and protection</option>
+                <option>Spiritual awakening</option>
+                <option>Other national concern</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Your prayer <span style="color:#b91c1c">*</span></span>
+              <textarea name="prayer_text" required rows="8" maxlength="3000"
+                placeholder="Write the prayer as you would want it spoken. Keep it focused on national needs."></textarea>
+            </label>
+
+            <label>
+              <span>Email (optional — only if you want a reply)</span>
+              <input type="email" name="email_optional" maxlength="120" autocomplete="email" />
+            </label>
+
+            <label style="display:flex; gap:10px; align-items:flex-start;">
+              <input type="checkbox" name="permission_to_read_on_camera" value="yes" style="width:auto; margin-top:3px;" />
+              <span class="small muted">
+                You may read this prayer on-camera. If used, you may shorten or lightly edit for clarity while preserving intent.
+              </span>
+            </label>
+
+            <label style="display:flex; gap:10px; align-items:flex-start;">
+              <input type="checkbox" name="confirm_national_focus" value="yes" required style="width:auto; margin-top:3px;" />
+              <span class="small muted">
+                I confirm this submission is primarily focused on national concerns (not personal requests).
+              </span>
+            </label>
+
+            <button class="btn primary" type="submit" style="width:max-content;">Submit Prayer</button>
+            <div class="small muted">
+              Please avoid highly sensitive personal information. If this is an emergency, contact local emergency services.
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- SUPPORT (kept, subdued) -->
+    <section id="support" class="section">
+      <div class="card alt">
+        <div class="kicker">Support</div>
+        <h2 style="margin:8px 0 6px; font-size:26px;">Help sustain the work</h2>
+        <div class="muted" style="max-width:920px;">
+          This funds infrastructure (hosting, broadcasting, production) — not “charging for prayer.”
+          Keep it hidden until you’re ready.
+        </div>
+
+        <div class="hr"></div>
+
+        <a class="btn alt" data-hide-when-empty="true" data-content="donate" href="" data-field="donate">
+          Support / Donate
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="section">
+      <div class="card">
+        <div class="row" style="align-items:flex-start; flex-wrap:wrap;">
+          <div>
+            <strong>Prayer Force USA</strong>
+            <div class="small muted" style="margin-top:6px;">
+              <span data-hide-when-empty="true" data-content="footer_email">
+                Email: <a data-field="footer_email" href=""></a>
+              </span>
+              <span data-hide-when-empty="true" data-content="footer_social" style="margin-left:10px;">
+                Social: <a data-field="footer_social" href=""></a>
+              </span>
+            </div>
+          </div>
+
+          <div class="small muted" style="text-align:right;">
+            <div data-hide-when-empty="true" data-content="last_updated">
+              Last updated: <span data-field="last_updated"></span>
+            </div>
+            <div style="margin-top:6px;">
+              Prayer Force USA is an independent initiative and is not affiliated with any organization using similar names.
+            </div>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+        <a class="btn" href="#top">Back to Top ↑</a>
+      </div>
+    </footer>
+  </main>
+
+  <a class="to-top" href="#top" id="toTopBtn" aria-label="Back to top">Top ↑</a>
+
+  <script>
+    const PFUSA = {
+      last_updated: "09 Feb 2026",
+      apb_schedule: "TBD",
+      intercession_focus: "TBD",
+      donate: "",
+      footer_email: "",
+      footer_social: ""
+    };
+
+    document.querySelectorAll("[data-field]").forEach(el => {
+      const key = el.getAttribute("data-field");
+      if (!(key in PFUSA)) return;
+      const val = (PFUSA[key] ?? "").toString().trim();
+
+      if (el.tagName === "A") {
+        el.textContent = val.replace(/^mailto:/, "");
+        el.setAttribute("href", val);
+      } else {
+        el.textContent = val;
+      }
+    });
+
+    document.querySelectorAll("[data-hide-when-empty='true']").forEach(container => {
+      const contentKey = container.getAttribute("data-content");
+      const raw = (PFUSA[contentKey] ?? "").toString().trim();
+      const val = raw.toLowerCase();
+      const isEmpty = !val || val === "tbd";
+      if (isEmpty) container.setAttribute("data-hidden", "true");
+    });
+
+    const toTop = document.getElementById("toTopBtn");
+    window.addEventListener("scroll", () => {
+      toTop.style.display = (window.scrollY > 650) ? "inline-flex" : "none";
+    });
+  </script>
+</body>
+</html>
