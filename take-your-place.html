@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Take Your Place · Prayer Force USA</title>
+
+  <meta property="og:title" content="Take Your Place · Prayer Force USA" />
+  <meta property="og:description" content="Get the welcome email and next steps." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --paper: #f7f7f3;
+      --ink: #0b1220;
+      --muted: rgba(15,23,42,.72);
+      --card: rgba(255,255,255,.80);
+      --line: rgba(15,23,42,.10);
+      --shadow: 0 10px 30px rgba(2,6,23,.10);
+      --radius: 18px;
+      --gold: #c7a24a;
+      --gold2:#e2c57a;
+      --max: 900px;
+      --pad: clamp(18px, 3.2vw, 28px);
+      --h1: clamp(30px, 5vw, 44px);
+      --h2: clamp(18px, 3vw, 22px);
+      --p:  clamp(15px, 1.3vw, 17px);
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      color: var(--ink);
+      font: 400 var(--p)/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(1100px 700px at 15% 10%, rgba(226,197,122,.14), transparent 58%),
+        radial-gradient(1000px 700px at 85% 18%, rgba(199,162,74,.10), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(247,247,243,1) 30%, rgba(247,247,243,1) 100%);
+    }
+
+    .topbar{
+      background:
+        linear-gradient(90deg, rgba(15,23,42,.96), rgba(15,23,42,.88)),
+        radial-gradient(900px 400px at 20% 30%, rgba(199,162,74,.22), transparent 60%),
+        radial-gradient(900px 400px at 80% 30%, rgba(226,197,122,.14), transparent 62%);
+      color: rgba(255,255,255,.92);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .topbar .inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 10px var(--pad);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color: inherit;
+      font-weight:800;
+      letter-spacing:.3px;
+    }
+    .brand img{ width:34px; height:34px; object-fit:contain; }
+
+    main{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px var(--pad) 34px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(18px, 2.8vw, 26px);
+      overflow:hidden;
+    }
+
+    h1{ font-size: var(--h1); line-height:1.08; margin: 8px 0 10px; letter-spacing:-.02em; }
+    h2{ font-size: var(--h2); margin: 18px 0 8px; }
+    p{ margin: 0 0 12px; color: rgba(11,18,32,.86); }
+
+    .eyebrow{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color: rgba(15,23,42,.70);
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size: 12px;
+      margin: 0 0 10px;
+    }
+    .eyebrow .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: linear-gradient(180deg, var(--gold2), var(--gold));
+      box-shadow: 0 6px 20px rgba(199,162,74,.25);
+    }
+
+    label{ display:block; font-weight:900; margin: 10px 0 6px; }
+    input{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,23,42,.18);
+      background: rgba(255,255,255,.86);
+      font: inherit;
+      outline:none;
+    }
+
+    .btns{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-weight:900;
+      border: 1px solid rgba(15,23,42,.18);
+      background: rgba(255,255,255,.74);
+      color: rgba(15,23,42,.92);
+      box-shadow: 0 10px 26px rgba(2,6,23,.12);
+      transition: transform .15s ease, box-shadow .15s ease;
+      cursor:pointer;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 16px 44px rgba(2,6,23,.18); }
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(226,197,122,.92), rgba(199,162,74,.92));
+      border-color: rgba(199,162,74,.55);
+      color: rgba(15,23,42,.96);
+    }
+
+    .note{
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(15,23,42,.12);
+      background: rgba(255,255,255,.55);
+      color: rgba(15,23,42,.80);
+      font-weight:650;
+    }
+
+    footer{
+      margin-top: 20px;
+      color: rgba(15,23,42,.72);
+      font-weight:700;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:10px 14px;
+      padding: 6px 2px 0;
+    }
+    footer a{ color: rgba(15,23,42,.78); }
+
+    /* small screens */
+    @media (max-width: 560px){
+      .topbar .inner{ align-items:flex-start; flex-direction:column; }
+      footer{ flex-direction:column; align-items:flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="inner">
+      <a class="brand" href="index.html" aria-label="Back to Prayer Force USA home">
+        <img src="assets/Shield%20Logo%203D(1).png" alt="Prayer Force USA" />
+        <span>Prayer Force USA</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="card" role="region" aria-label="Take Your Place">
+      <div class="eyebrow"><span class="dot"></span>Take Your Place</div>
+      <h1>You’re invited</h1>
+
+      <p>
+        If Prayer Force USA resonates with you, take your place. Add your name and email below and we’ll send a simple welcome message with updates and next steps.
+      </p>
+
+      <h2>Get the Welcome Email</h2>
+
+      <!-- NOTE: This is intentionally NOT wired to a backend yet.
+           Next step will be connecting to Mailchimp (embedded form) or a form service. -->
+      <form id="joinForm" action="#" method="post">
+        <label for="firstName">First name</label>
+        <input id="firstName" name="firstName" type="text" autocomplete="given-name" />
+
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" autocomplete="email" required />
+
+        <div class="btns">
+          <button class="btn primary" type="submit">Send me the Welcome Email</button>
+          <a class="btn" href="index.html#choose">Back</a>
+        </div>
+      </form>
+
+      <div class="note">
+        This form is a placeholder right now. Next step: we connect it to your email platform so signups are real.
+        For now, use <a href="mailto:contact@prayerforceusa.net">contact@prayerforceusa.net</a> if you want to reach us.
+      </div>
+    </div>
+
+    <footer aria-label="Footer">
+      <div>© Prayer Force USA</div>
+      <div><a href="index.html">Home</a> • <a href="mailto:contact@prayerforceusa.net">contact@prayerforceusa.net</a></div>
+    </footer>
+  </main>
+
+  <script>
+    // Placeholder behavior (no backend wired yet)
+    (function(){
+      const form = document.getElementById("joinForm");
+      if(!form) return;
+      form.addEventListener("submit", function(e){
+        e.preventDefault();
+        alert("Saved locally only (not yet connected). Next step is wiring this form to your email platform so the Welcome Email sends automatically.");
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -196,12 +196,6 @@
       border-color: rgba(199,162,74,.55);
       color: rgba(15,23,42,.96);
     }
-    .btn.ghost{
-      background: rgba(255,255,255,.10);
-      color: rgba(255,255,255,.92);
-      border-color: rgba(255,255,255,.22);
-      box-shadow:none;
-    }
     .btn.small{
       padding: 10px 12px;
       border-radius: 12px;
@@ -357,18 +351,18 @@
       color: rgba(11,18,32,.88);
     }
 
-    /* Foundations: remove "words on words", make image more pronounced */
+    /* Foundations: bring image back (more pronounced) while keeping readability */
     .band.foundations .img{
-      filter: grayscale(.02) contrast(1.10) brightness(.95);
+      filter: grayscale(.00) contrast(1.18) brightness(.92);
     }
     .band.foundations .wash{
       background:
-        linear-gradient(180deg, rgba(247,247,243,.64) 0%, rgba(247,247,243,.56) 52%, rgba(247,247,243,.66) 100%),
-        radial-gradient(900px 420px at 20% 40%, rgba(226,197,122,.12), transparent 62%);
+        linear-gradient(180deg, rgba(247,247,243,.58) 0%, rgba(247,247,243,.50) 52%, rgba(247,247,243,.60) 100%),
+        radial-gradient(900px 420px at 20% 40%, rgba(226,197,122,.10), transparent 62%);
     }
     .band.foundations .overlay{
-      background: rgba(247,247,243,.92);
-      border: 1px solid rgba(15,23,42,.14);
+      background: rgba(247,247,243,.84);
+      border: 1px solid rgba(15,23,42,.16);
       border-radius: var(--radius);
       box-shadow: 0 10px 28px rgba(2,6,23,.12);
       backdrop-filter: blur(8px);
@@ -399,104 +393,78 @@
       color: rgba(15,23,42,.66);
     }
 
-    /* Pull quote */
-    .quote{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-top: 12px;
-      padding: 18px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(199,162,74,.24);
-      background: linear-gradient(180deg, rgba(226,197,122,.18), rgba(255,255,255,.64));
-    }
-    .quote p{
-      margin:0;
-      font-weight:800;
-      color: rgba(15,23,42,.90);
-    }
-
-    /* Anchors list */
-    .anchors{
-      margin-top: 14px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    .anchor{
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.62);
-      padding: 14px;
-    }
-    .anchor p{ margin: 0; }
-
-    /* Choose Path spotlight */
-    .spotlight{
-      display:grid;
-      grid-template-columns: 1fr .95fr;
-      gap: 18px;
-      align-items:stretch;
-      margin-top: 14px;
-    }
-    .crest{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:
-        radial-gradient(700px 420px at 50% 30%, rgba(226,197,122,.18), transparent 62%),
-        linear-gradient(180deg, rgba(15,23,42,.06), rgba(15,23,42,.02));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+    /* Modern pivot (readiness) */
+    .pivot{
+      border-radius: calc(var(--radius) + 8px);
+      overflow:hidden;
+      border: 1px solid rgba(15,23,42,.14);
       box-shadow: var(--shadow);
-      padding: 18px;
+      position:relative;
+      min-height: 210px;
+      background: #0b1220;
     }
-    .crest img{
-      width: min(300px, 70%);
-      height:auto;
-      object-fit:contain;
-      filter: drop-shadow(0 16px 34px rgba(2,6,23,.20));
+    .pivot .img{
+      position:absolute; inset:0;
+      background-size: cover;
+      background-position: center;
+      /* Swap image by changing ONLY the filename in the HTML style attribute */
+      filter: contrast(1.05) brightness(.92) saturate(1.02);
+      transform: scale(1.02);
     }
-
-    /* Modern bridge placeholder */
-    .modern-bridge .img{
-      filter: grayscale(.02) contrast(1.02) brightness(.98);
-    }
-    .modern-bridge .wash{
+    .pivot .wash{
+      position:absolute; inset:0;
       background:
-        linear-gradient(90deg, rgba(15,23,42,.68) 0%, rgba(15,23,42,.50) 55%, rgba(15,23,42,.34) 100%),
-        radial-gradient(900px 420px at 20% 40%, rgba(226,197,122,.14), transparent 62%);
-      mix-blend-mode: normal;
+        linear-gradient(90deg, rgba(15,23,42,.78) 0%, rgba(15,23,42,.58) 60%, rgba(15,23,42,.36) 100%),
+        radial-gradient(900px 420px at 25% 35%, rgba(226,197,122,.16), transparent 62%);
+      pointer-events:none;
     }
-    .modern-bridge .overlay{
+    .pivot .overlay{
+      position:relative;
+      z-index:2;
+      padding: clamp(18px, 3.6vw, 30px);
       color: rgba(255,255,255,.95);
       text-shadow: 0 14px 34px rgba(0,0,0,.45);
     }
-    .modern-bridge .overlay h2,
-    .modern-bridge .overlay p{
+    .pivot .overlay h2,
+    .pivot .overlay p{
       color: rgba(255,255,255,.95);
+      margin:0;
+    }
+    .pivot .lede{
+      font-weight:850;
+      letter-spacing:-.01em;
+      line-height:1.12;
+      margin-top: 2px;
+    }
+    .pivot .punch{
+      margin-top: 10px;
+      font-weight:900;
+      letter-spacing:.02em;
+      text-transform:none;
+      font-size: clamp(16px, 2.1vw, 20px);
+      color: rgba(255,255,255,.98);
     }
 
-    /* Form */
-    form{ margin-top: 14px; }
-    label{ display:block; font-weight:800; margin: 10px 0 6px; }
-    input, select, textarea{
-      width:100%;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(15,23,42,.18);
-      background: rgba(255,255,255,.86);
-      font: inherit;
-      outline: none;
+    /* Prayer Watch callout box */
+    .callout{
+      margin-top: 12px;
+      padding: 14px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(8px);
+      color: rgba(255,255,255,.92);
     }
-    textarea{ min-height: 140px; resize: vertical; }
-    .checkbox{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      margin-top: 10px;
+    .callout a{
+      color: rgba(255,255,255,.96);
+      font-weight:900;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
-    .checkbox input{ width:18px; height:18px; margin-top: 3px; }
+    .callout .line{
+      font-weight:850;
+      letter-spacing:.2px;
+    }
 
     /* Footer */
     footer{
@@ -522,22 +490,12 @@
       display:flex; flex-wrap:wrap; gap:10px;
       align-items:center;
     }
-    footer a{
-      color: rgba(15,23,42,.78);
-      text-decoration:none;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(15,23,42,.12);
-      background: rgba(255,255,255,.55);
-    }
 
     /* responsive */
     @media (max-width: 980px){
       .hero .content{ grid-template-columns: 1fr; }
       .hero .right{ align-items:flex-start; }
       .grid2{ grid-template-columns: 1fr; }
-      .anchors{ grid-template-columns: 1fr; }
-      .spotlight{ grid-template-columns: 1fr; }
       nav{ justify-content:flex-start; }
       .brand{ min-width: unset; }
     }
@@ -559,10 +517,12 @@
           <a href="#home">Home</a>
           <a href="#foundations">Our Foundations</a>
           <a href="#mission">Our Mission</a>
+          <a href="#pivot">Present Day</a>
           <a href="#sitgap">Standing in the Gap</a>
           <a href="#watch">The Prayer Watch</a>
-          <a href="#choose">Choose Your Path</a>
-          <a href="#submit">Submit a National Prayer</a>
+          <a href="#anchors">Historical Anchors</a>
+          <a href="#choose">Take Your Place</a>
+          <a href="#faq">Support</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -593,7 +553,7 @@
                   <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M12 2l8 4v6c0 5-3.6 9.6-8 10-4.4-.4-8-5-8-10V6l8-4z" fill="rgba(15,23,42,.95)"/>
                   </svg>
-                  Choose Your Path Within Prayer Force USA
+                  Take Your Place
                 </a>
               </div>
 
@@ -605,7 +565,7 @@
             <div class="right">
               <div class="badge">
                 <img src="assets/Shield%20Logo%203D(1).png" alt="" />
-                <span>Two ways to serve. One united purpose. You may serve through one path—or both.</span>
+                <span>Two ways to take your place. One united purpose. You may join through one path—or both.</span>
               </div>
             </div>
           </div>
@@ -649,28 +609,6 @@
             <p>
               From the Pilgrims in 1620 to the Continental Congress in 1774, American leaders publicly sought God’s guidance and blessing for future generations. Prayer Force USA continues that legacy.
             </p>
-
-            <div class="quote">
-              <h3>George Washington, Inaugural Address (1789)</h3>
-              <p>“It would be peculiarly improper to omit, in this first official act, my fervent supplications to that Almighty Being…”</p>
-            </div>
-
-            <h3 style="margin-top:12px;">Historical Anchors</h3>
-
-            <div class="anchors">
-              <div class="anchor">
-                <p><strong>11 Nov 1620</strong></p>
-                <p><strong>Mayflower Compact</strong></p>
-                <p>“…for the Glory of God, and advancement of the Christian Faith…”</p>
-              </div>
-              <div class="anchor">
-                <p><strong>1630</strong></p>
-                <p><strong>John Winthrop aboard the Arbella</strong></p>
-                <p>
-                  “For we must consider that we shall be as a city upon a hill. The eyes of all people are upon us. So that if we shall deal falsely with our God in this work we have undertaken, and so cause Him to withdraw His present help from us, we shall be made a story and a by-word through the world.”
-                </p>
-              </div>
-            </div>
 
             <div class="story-cta">
               <a class="btn small" href="#mission">Continue</a>
@@ -721,131 +659,55 @@
           </div>
 
           <div class="story-cta">
-            <a class="btn small" href="#choose">Continue</a>
+            <a class="btn small" href="#pivot">Continue</a>
           </div>
         </div>
       </section>
 
       <hr class="divider" />
 
-      <!-- Modern Bridge (placeholder image) -->
-      <section id="bridge">
-        <div class="band modern-bridge" role="region" aria-label="Modern Bridge">
+      <!-- Pivot (Readiness) -->
+      <section id="pivot">
+        <div class="pivot" role="region" aria-label="Present Day Pivot">
+          <!-- Swap image later by changing ONLY this filename (keep the rest): -->
           <div class="img" style="background-image:url('assets/modern-bridge.jpg')"></div>
           <div class="wash"></div>
           <div class="overlay">
             <div class="eyebrow" style="color: rgba(255,255,255,.85);"><span class="dot"></span>Present Day</div>
-            <h2>Faithful in this generation</h2>
-            <p> </p>
+            <h2 class="lede">Faithful in every generation. Faithful in ours.</h2>
+            <p class="punch">The watch is ours now.</p>
           </div>
         </div>
       </section>
 
       <hr class="divider" />
 
-      <!-- Choose Your Path -->
-      <section id="choose">
-        <div class="card pad">
-          <div class="eyebrow"><span class="dot"></span>Choose Your Path Within Prayer Force USA</div>
-          <h2>Choose your path.</h2>
-          <p>Every Prayer Warrior belongs to Prayer Force USA. Choose how you’ll participate:</p>
-
-          <div class="spotlight">
-            <div>
-              <div class="grid2" style="margin-top:0;">
-                <div class="mini">
-                  <div class="top">
-                    <div class="tag">Topical • Flexible</div>
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path d="M12 2l8 4v6c0 5-3.6 9.6-8 10-4.4-.4-8-5-8-10V6l8-4z" fill="rgba(15,23,42,.92)"/>
-                      <path d="M9 12l2 2 4-5" stroke="rgba(226,197,122,.95)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                  <h3>Standing in the Gap</h3>
-                  <p>
-                    Consistent, Scripture-based intercession focused on current national events and pressing issues. The format is fluid.
-                    We don’t watch the clock; Prayer Warriors join and depart sessions as schedules allow.
-                  </p>
-                  <ul style="margin:0; padding-left:18px; color: rgba(11,18,32,.86); font-weight:650;">
-                    <li>Topical sessions (most days; except Saturdays)</li>
-                    <li>Focused intercession for today’s needs</li>
-                    <li>Join live or participate as available</li>
-                  </ul>
-                  <div class="btns">
-                    <a class="btn small primary" href="#sitgap">Explore Standing in the Gap</a>
-                  </div>
-                </div>
-
-                <div class="mini">
-                  <div class="top">
-                    <div class="tag">Weekly • Structured</div>
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path d="M7 2v3M17 2v3M4 7h16v13H4V7z" stroke="rgba(15,23,42,.78)" stroke-width="2" stroke-linecap="round"/>
-                      <path d="M8 11h8M8 15h6" stroke="rgba(199,162,74,.95)" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                  </div>
-                  <h3>The Prayer Watch</h3>
-                  <p>
-                    A steady weekly rhythm of united prayer—Scripture-centered sessions built around enduring themes such as leadership, families,
-                    justice, mercy, and national renewal.
-                  </p>
-                  <p style="margin-top:10px; font-weight:800; color: rgba(15,23,42,.90);">
-                    Aligned with America 250’s America Prays initiative.
-                  </p>
-                  <ul style="margin:0; padding-left:18px; color: rgba(11,18,32,.86); font-weight:650;">
-                    <li>Weekly session rhythm</li>
-                    <li>Thematic, Scripture-anchored structure</li>
-                    <li>Designed for broad participation and consistency</li>
-                  </ul>
-                  <div class="btns">
-                    <a class="btn small primary" href="#watch">Explore The Prayer Watch</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mini" style="margin-top:16px;">
-                <h3>Serve in Both</h3>
-                <p><strong>One identity. Two expressions.</strong></p>
-                <p>Shared purpose; two service paths.</p>
-                <div class="btns">
-                  <a class="btn small" id="ctaSitgap" href="#">I’ll Serve Through Standing in the Gap</a>
-                  <a class="btn small" id="ctaWatch" href="#">I’ll Serve Through The Prayer Watch</a>
-                  <a class="btn small" id="ctaBoth" href="#">I’ll Serve Through Both</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="crest" aria-label="Prayer Force USA Crest">
-              <img src="assets/Shield%20Logo%203D(1).png" alt="Prayer Force USA" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <hr class="divider" />
-
-      <!-- Standing in the Gap (single instance) -->
+      <!-- Standing in the Gap (PFUSA proper first) -->
       <section id="sitgap">
         <div class="band" role="region" aria-label="Standing in the Gap">
           <div class="img" style="background-image:url('assets/Washington%27s%20Swearing-in.jpg')"></div>
           <div class="wash"></div>
           <div class="overlay">
             <div class="eyebrow"><span class="dot"></span>Standing in the Gap</div>
-            <h2>Consistent prayer for today’s needs</h2>
+            <h2>Standing to face the moment</h2>
 
-            <p>
+            <ul style="margin: 4px 0 0; padding-left: 18px;">
+              <li>When the moment demands prayer</li>
+              <li>When leadership requires wisdom</li>
+              <li>When our nation needs clarity</li>
+            </ul>
+
+            <p style="margin-top:10px;">
               Standing in the Gap is the original expression of Prayer Force USA—topical, Scripture-based prayer focused on current national events and pressing issues.
-              The format is fluid. We don’t watch the clock; Prayer Warriors join and depart sessions as their schedules allow.
+              The format is fluid. We don’t watch the clock; Prayer Warriors join and depart sessions as schedules allow.
             </p>
-
-            <p>Note: This expression will continue to develop in structure and rhythm as Prayer Force USA grows.</p>
           </div>
         </div>
       </section>
 
       <hr class="divider" />
 
-      <!-- The Prayer Watch (single instance) -->
+      <!-- The Prayer Watch (America Prays alignment) -->
       <section id="watch">
         <div class="band" role="region" aria-label="The Prayer Watch">
           <div class="img" style="background-image:url('assets/Signing-the-declaration-of-independenc-john-trumbull.jpg')"></div>
@@ -854,96 +716,150 @@
             <div class="eyebrow"><span class="dot"></span>The Prayer Watch</div>
             <h2>Weekly, structured prayer for enduring themes</h2>
 
-            <p>
+            <div class="callout" role="note" aria-label="America Prays Alignment">
+              <div class="line">Aligned with America 250’s America Prays initiative.</div>
+              <div style="margin-top:6px;">
+                <a href="https://www.whitehouse.gov/america250/america-prays/" target="_blank" rel="noopener">Visit America Prays</a>
+                &nbsp;•&nbsp;
+                <a href="https://www.whitehouse.gov/presidential-actions/2026/01/year-of-celebration-and-rededication-2026/" target="_blank" rel="noopener">
+                  Read the President’s Proclamation: “A Year of Celebration and Rededication, 2026”
+                </a>
+              </div>
+            </div>
+
+            <p style="margin-top:12px;">
               The Prayer Watch is Prayer Force USA’s weekly rhythm of united prayer—Scripture-centered sessions built around enduring themes such as leadership, families, justice, mercy, and national renewal.
               This expression is designed for broad participation and steady consistency.
             </p>
 
-            <p>The Prayer Watch is Prayer Force USA’s response to the national invitation to unite in prayer.</p>
+            <div class="mini" style="margin-top:12px; background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.18); color: rgba(255,255,255,.94);">
+              <p style="margin:0 0 8px; color: rgba(255,255,255,.95); font-weight:900;">The Ask:</p>
+              <p style="margin:0 0 12px; color: rgba(255,255,255,.94);">
+                “The Ask: What if one million Americans dedicated one hour a week to praying for our country and our people?”
+              </p>
+
+              <p style="margin:0 0 8px; color: rgba(255,255,255,.95); font-weight:900;">The Invitation:</p>
+              <p style="margin:0 0 12px; color: rgba(255,255,255,.94);">
+                “The Invitation: Will you join with at least 10 people to meet each week for one hour to pray for America?”
+              </p>
+
+              <p style="margin:0 0 8px; color: rgba(255,255,255,.95); font-weight:900;">The Opportunity:</p>
+              <p style="margin:0 0 12px; color: rgba(255,255,255,.94);">
+                “The Opportunity: As we celebrate 250 years of freedom, this is an opportunity to rededicate ourselves to the principles that gave birth to this land of liberty. As George Washington famously said in his Farewell Address, ‘Of all the dispositions and habits which lead to political prosperity, religion and morality are indispensable supports. In vain would that man claim the tribute of patriotism who should labor to subvert these great pillars of human happiness, these firmest props of the duties of men and citizens.’”
+              </p>
+
+              <p style="margin:0; color: rgba(255,255,255,.94);">
+                “This dedicated time of prayer is not only for our nation, but for its people because a nation is only as strong as its citizens.”
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       <hr class="divider" />
 
-      <!-- Cost -->
-      <section id="cost">
+      <!-- Historical Anchors (moved here for pacing + reinforcement) -->
+      <section id="anchors">
         <div class="card pad">
-          <div class="eyebrow"><span class="dot"></span>Cost</div>
-          <h3>There is no financial cost</h3>
-          <p>Participation requires only your time—freely given—because you believe prayer matters.</p>
+          <div class="eyebrow"><span class="dot"></span>Historical Anchors</div>
+          <h2>Faith expressed publicly</h2>
+
+          <div class="mini" style="margin-top:10px;">
+            <h3 style="margin:0 0 8px;">George Washington, Inaugural Address (1789)</h3>
+            <p style="margin:0; font-weight:800; color: rgba(15,23,42,.90);">
+              “It would be peculiarly improper to omit, in this first official act, my fervent supplications to that Almighty Being…”
+            </p>
+          </div>
+
+          <div class="grid2" style="margin-top:14px;">
+            <div class="mini">
+              <div class="top">
+                <div class="tag">11 Nov 1620</div>
+              </div>
+              <h3 style="margin-top:0;">Mayflower Compact</h3>
+              <p style="margin:0;">“…for the Glory of God, and advancement of the Christian Faith…”</p>
+            </div>
+
+            <div class="mini">
+              <div class="top">
+                <div class="tag">1630</div>
+              </div>
+              <h3 style="margin-top:0;">John Winthrop aboard the Arbella</h3>
+              <p style="margin:0;">
+                “For we must consider that we shall be as a city upon a hill. The eyes of all people are upon us. So that if we shall deal falsely with our God in this work we have undertaken, and so cause Him to withdraw His present help from us, we shall be made a story and a by-word through the world.”
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       <hr class="divider" />
 
-      <!-- Submit a National Prayer -->
-      <section id="submit">
+      <!-- Take Your Place -->
+      <section id="choose">
         <div class="card pad">
-          <div class="eyebrow"><span class="dot"></span>Submit a National Prayer</div>
-          <h2>Offer a prayer aligned to national needs</h2>
-
-          <p>Submissions are reviewed privately. If you grant permission, your prayer may be read on-camera at the discretion of Prayer Force USA.</p>
-
-          <form id="prayerForm" action="#" method="post">
-            <label for="name">Your name (optional)</label>
-            <input id="name" name="name" type="text" />
-
-            <label for="email">Email (optional — only if you want a reply)</label>
-            <input id="email" name="email" type="email" />
-
-            <label for="category">Prayer category *</label>
-            <select id="category" name="category" required>
-              <option selected disabled>Select one…</option>
-              <option>Wisdom for leaders</option>
-              <option>Integrity in public life</option>
-              <option>Protection of families</option>
-              <option>Justice and mercy</option>
-              <option>National repentance</option>
-              <option>Peace and protection</option>
-              <option>Spiritual awakening</option>
-              <option>Other national concern</option>
-            </select>
-
-            <label for="prayer">Your prayer *</label>
-            <textarea id="prayer" name="prayer" required></textarea>
-
-            <p style="margin-top:10px;">
-              You may read this prayer on-camera. If used, Prayer Force USA may shorten or lightly edit for clarity while preserving intent.
-            </p>
-
-            <div class="checkbox">
-              <input id="confirm" name="confirm" type="checkbox" />
-              <label for="confirm" style="margin:0;">I confirm this submission is primarily focused on national concerns (not personal requests).</label>
-            </div>
-
-            <div class="btns">
-              <button class="btn primary" type="submit">Submit Prayer</button>
-            </div>
-
-            <p style="margin-top:10px;">
-              Please avoid highly sensitive personal information. If this is an emergency, contact local emergency services.
-            </p>
-          </form>
-        </div>
-      </section>
-
-      <hr class="divider" />
-
-      <!-- Support -->
-      <section id="support">
-        <div class="card pad">
-          <div class="eyebrow"><span class="dot"></span>Support</div>
-          <h2>Optional support to sustain infrastructure</h2>
+          <div class="eyebrow"><span class="dot"></span>Take Your Place</div>
+          <h2>You’re invited</h2>
 
           <p>
-            Prayer Force USA is not a fundraising scheme, and participation is never dependent on financial contribution. Optional support helps cover infrastructure (hosting, broadcasting, production)
-            so the work can remain consistent and accessible.
+            If Prayer Force USA resonates with you, take your place. We’ll send a simple welcome message with updates and the next steps.
           </p>
 
-          <div class="btns">
-            <a class="btn small primary" href="#contact">Support / Donate</a>
-            <a class="btn small" href="#contact">Questions about support</a>
+          <div class="grid2">
+            <div class="mini">
+              <div class="top">
+                <div class="tag">Standing in the Gap</div>
+              </div>
+              <p style="margin:0;">
+                Topical, responsive prayer for the needs of the moment—most days (except Saturdays).
+              </p>
+            </div>
+
+            <div class="mini">
+              <div class="top">
+                <div class="tag">The Prayer Watch</div>
+              </div>
+              <p style="margin:0;">
+                A weekly rhythm of united prayer aligned with America 250’s America Prays initiative.
+              </p>
+            </div>
+          </div>
+
+          <div class="btns" style="margin-top:16px;">
+            <a class="btn primary" href="take-your-place.html">Take Your Place (Get the Welcome Email)</a>
+            <a class="btn" href="#sitgap">Revisit Standing in the Gap</a>
+            <a class="btn" href="#watch">Revisit The Prayer Watch</a>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- Support / FAQ -->
+      <section id="faq">
+        <div class="card pad">
+          <div class="eyebrow"><span class="dot"></span>Support</div>
+          <h2>Questions and support</h2>
+
+          <p>
+            Prayer Force USA is not a fundraising scheme, and participation is never dependent on financial contribution. Optional support helps cover infrastructure (hosting, broadcasting, production) so the work can remain consistent and accessible.
+          </p>
+
+          <h3 style="margin-top:12px;">FAQ (starter)</h3>
+          <ul style="margin: 0; padding-left: 18px; color: rgba(11,18,32,.86); font-weight:650;">
+            <li>What is Prayer Force USA, and who is it for?</li>
+            <li>How do I participate if I can’t attend live?</li>
+            <li>What’s the difference between Standing in the Gap and The Prayer Watch?</li>
+            <li>Do I have to agree with every viewpoint to participate?</li>
+            <li>Is there any cost to join?</li>
+            <li>How will I receive session links and updates?</li>
+            <li>How is optional support used?</li>
+            <li>How can I contact Prayer Force USA?</li>
+          </ul>
+
+          <div class="btns" style="margin-top:16px;">
+            <a class="btn small primary" href="#contact">Support / Questions</a>
+            <a class="btn small" href="#top">Back to top ↑</a>
           </div>
         </div>
       </section>
@@ -954,20 +870,26 @@
       <section id="contact">
         <div class="card pad">
           <div class="eyebrow"><span class="dot"></span>Contact</div>
-          <h2>Updates, session links, and service path routing</h2>
+          <h2>Get in touch</h2>
 
           <p>
-            Want updates, links to sessions, or to tell us which path you chose (Standing in the Gap, The Prayer Watch, or both)?
+            Email us for updates, questions, or to connect.
           </p>
 
-          <p><strong>Email:</strong> YOUR_EMAIL_HERE  |  <strong>Social:</strong> [add link]</p>
+          <p style="font-weight:800; color: rgba(15,23,42,.90);">
+            Email: <a href="mailto:contact@prayerforceusa.net">contact@prayerforceusa.net</a>
+            &nbsp;•&nbsp;
+            YouTube: <a href="https://www.youtube.com/@prayerforceusa" target="_blank" rel="noopener">youtube.com/@prayerforceusa</a>
+          </p>
 
-          <p>Prayer Force USA is an independent initiative and is not affiliated with any organization using similar names.</p>
+          <p style="margin-top:10px;">
+            Prayer Force USA is an independent initiative and is not affiliated with any organization using similar names.
+          </p>
 
           <div class="btns">
             <a class="btn small" href="#top">Back to top ↑</a>
-            <a class="btn small" href="#support">Support</a>
-            <a class="btn small primary" href="#contact">Contact</a>
+            <a class="btn small" href="#faq">Support</a>
+            <a class="btn small primary" href="take-your-place.html">Take Your Place</a>
           </div>
         </div>
       </section>
@@ -975,7 +897,7 @@
 
     <footer aria-label="Footer">
       <div class="inner">
-        <div>©  Prayer Force USA</div>
+        <div>© Prayer Force USA</div>
         <div class="links">
           <span>Last updated: <span id="lastUpdated"></span></span>
         </div>
@@ -995,73 +917,6 @@
       const mmm = months[d.getMonth()];
       const yyyy = d.getFullYear();
       el.textContent = dd + " " + mmm + " " + yyyy;
-    })();
-
-    // Block submission unless checkbox is checked
-    (function(){
-      const form = document.getElementById("prayerForm");
-      const confirm = document.getElementById("confirm");
-      if(!form || !confirm) return;
-
-      form.addEventListener("submit", function(e){
-        if(!confirm.checked){
-          e.preventDefault();
-          alert("Please check the confirmation box before submitting.");
-          confirm.focus();
-          return;
-        }
-        // No backend wired yet; keep behavior local
-        e.preventDefault();
-        alert("Submission received locally. (Next step is wiring this to email or a form service.)");
-      });
-    })();
-
-    // Service-path buttons -> open email draft (replace YOUR_EMAIL_HERE first)
-    (function(){
-      const CONTACT_EMAIL = "YOUR_EMAIL_HERE";
-
-      function openEmail(subject, body){
-        if(CONTACT_EMAIL === "YOUR_EMAIL_HERE"){
-          alert("Set your real email address where it says YOUR_EMAIL_HERE in the Contact section (and in the script), then these buttons will open a draft email automatically.");
-          return;
-        }
-        const to = encodeURIComponent(CONTACT_EMAIL);
-        const s = encodeURIComponent(subject);
-        const b = encodeURIComponent(body);
-        window.location.href = `mailto:${to}?subject=${s}&body=${b}`;
-      }
-
-      const sitgap = document.getElementById("ctaSitgap");
-      const watch  = document.getElementById("ctaWatch");
-      const both   = document.getElementById("ctaBoth");
-
-      if(sitgap){
-        sitgap.addEventListener("click", function(e){
-          e.preventDefault();
-          openEmail(
-            "Prayer Force USA — I will serve through Standing in the Gap",
-            "Hello Prayer Force USA,\\n\\nI will serve through Standing in the Gap.\\n\\nName (optional):\\nLocation (optional):\\n"
-          );
-        });
-      }
-      if(watch){
-        watch.addEventListener("click", function(e){
-          e.preventDefault();
-          openEmail(
-            "Prayer Force USA — I will serve through The Prayer Watch",
-            "Hello Prayer Force USA,\\n\\nI will serve through The Prayer Watch.\\n\\nName (optional):\\nLocation (optional):\\n"
-          );
-        });
-      }
-      if(both){
-        both.addEventListener("click", function(e){
-          e.preventDefault();
-          openEmail(
-            "Prayer Force USA — I will serve through both paths",
-            "Hello Prayer Force USA,\\n\\nI will serve through both paths (Standing in the Gap + The Prayer Watch).\\n\\nName (optional):\\nLocation (optional):\\n"
-          );
-        });
-      }
     })();
   </script>
 </body>
