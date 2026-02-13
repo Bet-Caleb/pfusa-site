@@ -69,39 +69,34 @@
     a{ color:inherit; }
     .wrap{ position:relative; z-index:1; }
 
-    /* Banner (more eye-catching: stronger accents + subtle sheen) */
+    /* Banner (eye-catching but not distracting: A + B) */
     .banner{
-      position:relative;
-      overflow:hidden;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+
       background:
-        linear-gradient(90deg, rgba(15,23,42,.98), rgba(15,23,42,.88)),
-        radial-gradient(900px 420px at 18% 35%, rgba(199,162,74,.26), transparent 62%),
-        radial-gradient(900px 420px at 82% 30%, rgba(226,197,122,.18), transparent 65%);
+        linear-gradient(90deg, rgba(15,23,42,.96), rgba(15,23,42,.88)),
+        radial-gradient(900px 400px at 20% 30%, rgba(199,162,74,.22), transparent 60%),
+        radial-gradient(900px 400px at 80% 30%, rgba(226,197,122,.14), transparent 62%);
       color: rgba(255,255,255,.92);
-      border-bottom: 1px solid rgba(255,255,255,.14);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+
+      /* B: a touch more depth */
+      box-shadow: 0 10px 30px rgba(2,6,23,.22);
     }
+    /* A: thin gold bottom bar */
     .banner::after{
       content:"";
       position:absolute;
-      inset:-140px -220px;
-      background:
-        linear-gradient(110deg, transparent 35%, rgba(255,255,255,.06) 48%, transparent 62%),
-        radial-gradient(360px 220px at 20% 40%, rgba(226,197,122,.18), transparent 65%),
-        radial-gradient(420px 260px at 80% 30%, rgba(199,162,74,.14), transparent 68%);
-      filter: blur(2px);
-      opacity:.85;
-      animation: bannerSheen 10.5s ease-in-out infinite;
+      left:0; right:0; bottom:0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(226,197,122,.95), rgba(199,162,74,.95), transparent);
+      opacity: .9;
       pointer-events:none;
-    }
-    @keyframes bannerSheen{
-      0%   { transform: translateX(-3%) translateY(0%) }
-      50%  { transform: translateX(3%) translateY(1.5%) }
-      100% { transform: translateX(-3%) translateY(0%) }
     }
 
     .banner .inner{
-      position:relative;
-      z-index:2;
       max-width: var(--max);
       margin: 0 auto;
       padding: 10px var(--pad);
@@ -117,13 +112,12 @@
       min-width: 240px;
     }
     .brand img{
-      width:38px; height:38px; object-fit:contain;
-      filter: drop-shadow(0 10px 26px rgba(0,0,0,.35));
+      width:36px; height:36px; object-fit:contain;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.25));
     }
     .brand strong{
-      letter-spacing:.4px;
-      font-weight:900;
-      text-shadow: 0 10px 30px rgba(0,0,0,.35);
+      letter-spacing:.3px;
+      font-weight:800;
     }
     nav{
       display:flex;
@@ -134,19 +128,19 @@
     }
     nav a{
       text-decoration:none;
-      color: rgba(255,255,255,.90);
-      font-weight:800;
+      color: rgba(255,255,255,.86);
+      font-weight:700;
       font-size: 14px;
       padding: 8px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
     nav a:hover{
       transform: translateY(-1px);
-      background: rgba(255,255,255,.09);
-      border-color: rgba(226,197,122,.35);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.20);
     }
 
     /* Layout rhythm */
@@ -179,7 +173,7 @@
       align-items:center;
       gap:10px;
       color: rgba(15,23,42,.70);
-      font-weight:800;
+      font-weight:900;
       letter-spacing:.12em;
       text-transform:uppercase;
       font-size: 12px;
@@ -196,7 +190,7 @@
     h3{ font-size: var(--h3); margin: 0 0 10px; }
     p{ margin: 0 0 12px; color: rgba(11,18,32,.86); }
 
-    /* Buttons (more color + 3D) */
+    /* Buttons */
     .btns{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
     .btn{
       display:inline-flex;
@@ -208,36 +202,16 @@
       border-radius: 14px;
       font-weight:900;
       border: 1px solid rgba(15,23,42,.18);
-      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
+      background: rgba(255,255,255,.74);
       color: rgba(15,23,42,.92);
-      box-shadow:
-        0 14px 28px rgba(2,6,23,.12),
-        inset 0 1px 0 rgba(255,255,255,.55),
-        inset 0 -1px 0 rgba(15,23,42,.08);
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+      box-shadow: 0 10px 26px rgba(2,6,23,.12);
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
     }
-    .btn:hover{
-      transform: translateY(-1px);
-      box-shadow:
-        0 18px 44px rgba(2,6,23,.18),
-        inset 0 1px 0 rgba(255,255,255,.60),
-        inset 0 -1px 0 rgba(15,23,42,.08);
-      border-color: rgba(199,162,74,.25);
-    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 16px 44px rgba(2,6,23,.18); }
     .btn.primary{
-      background: linear-gradient(180deg, rgba(226,197,122,.98), rgba(199,162,74,.92));
-      border-color: rgba(199,162,74,.60);
+      background: linear-gradient(180deg, rgba(226,197,122,.92), rgba(199,162,74,.92));
+      border-color: rgba(199,162,74,.55);
       color: rgba(15,23,42,.96);
-      box-shadow:
-        0 18px 44px rgba(2,6,23,.18),
-        inset 0 1px 0 rgba(255,255,255,.35),
-        inset 0 -2px 0 rgba(15,23,42,.10);
-    }
-    .btn.primary:hover{
-      box-shadow:
-        0 22px 56px rgba(2,6,23,.22),
-        inset 0 1px 0 rgba(255,255,255,.40),
-        inset 0 -2px 0 rgba(15,23,42,.10);
     }
     .btn.small{
       padding: 10px 12px;
@@ -251,6 +225,45 @@
       width:18px; height:18px;
       flex: 0 0 18px;
       opacity:.92;
+    }
+
+    /* Down arrows (replaces all Continue buttons) */
+    .down{
+      display:flex;
+      justify-content:center;
+      margin-top: 14px;
+    }
+    .down a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      text-decoration:none;
+      border: 1px solid rgba(15,23,42,.14);
+      background: rgba(255,255,255,.45);
+      box-shadow: 0 10px 26px rgba(2,6,23,.08);
+      color: rgba(15,23,42,.84);
+      font-size: 22px;
+      font-weight: 900;
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+    }
+    .down a:hover{
+      transform: translateY(2px);
+      background: rgba(255,255,255,.62);
+      box-shadow: 0 14px 34px rgba(2,6,23,.10);
+    }
+    /* dark-section arrow variant */
+    .down.dark a{
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.92);
+      box-shadow: none;
+    }
+    .down.dark a:hover{
+      background: rgba(255,255,255,.14);
+      transform: translateY(2px);
     }
 
     /* Hero */
@@ -328,7 +341,7 @@
       gap:12px;
       padding: 12px 14px;
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
       color: rgba(255,255,255,.88);
       backdrop-filter: blur(8px);
@@ -342,15 +355,6 @@
       font-weight:800;
       letter-spacing:.2px;
       line-height:1.25;
-    }
-
-    /* Story CTA blocks */
-    .story-cta{
-      margin-top: 18px;
-      display:flex;
-      justify-content:flex-start;
-      gap:10px;
-      flex-wrap:wrap;
     }
 
     /* Photo band */
@@ -368,7 +372,7 @@
       background-size: cover;
       background-position: center;
       filter: grayscale(.08) contrast(1.02) brightness(.98);
-      transform: scale(1.02);
+      transform: none; /* REMOVE extra zoom so you can see more of the image */
     }
     .band .wash{
       position:absolute; inset:0;
@@ -393,39 +397,29 @@
       color: rgba(11,18,32,.88);
     }
 
-    /* NEW: Image-only band (no text, no wash) */
-    .image-only{
-      border-radius: calc(var(--radius) + 8px);
-      overflow:hidden;
-      border: 1px solid rgba(15,23,42,.14);
-      box-shadow: var(--shadow);
-      background: #0b1220;
-      min-height: 240px;
-      position:relative;
-    }
-    .image-only .img{
-      position:absolute; inset:0;
-      background-size: cover;
-      background-position: center;
-      transform: scale(1.02);
-      filter: contrast(1.05) brightness(1.03) saturate(1.02);
-    }
-
-    /* Foundations: bring image back while keeping readability */
+    /* Foundations: better framing (words up top + more people) + easier-to-read font */
     .band.foundations .img{
-      filter: grayscale(.00) contrast(1.18) brightness(.92);
+      background-position: center 12%; /* shift upward to show top text */
+      filter: grayscale(0) contrast(1.10) brightness(.98);
     }
     .band.foundations .wash{
       background:
-        linear-gradient(180deg, rgba(247,247,243,.58) 0%, rgba(247,247,243,.50) 52%, rgba(247,247,243,.60) 100%),
-        radial-gradient(900px 420px at 20% 40%, rgba(226,197,122,.10), transparent 62%);
+        linear-gradient(180deg, rgba(247,247,243,.56) 0%, rgba(247,247,243,.46) 54%, rgba(247,247,243,.60) 100%),
+        radial-gradient(900px 420px at 20% 40%, rgba(226,197,122,.08), transparent 62%);
     }
     .band.foundations .overlay{
-      background: rgba(247,247,243,.84);
+      background: rgba(247,247,243,.86);
       border: 1px solid rgba(15,23,42,.16);
       border-radius: var(--radius);
       box-shadow: 0 10px 28px rgba(2,6,23,.12);
       backdrop-filter: blur(8px);
+    }
+    /* Our Foundations: readability improvement (no content changes) */
+    .band.foundations .overlay p{
+      font-size: clamp(16px, 1.35vw, 18px);
+      line-height: 1.75;
+      font-weight: 600;
+      color: rgba(11,18,32,.90);
     }
 
     /* Two-up cards */
@@ -453,7 +447,47 @@
       color: rgba(15,23,42,.66);
     }
 
-    /* Present Day pivot (LIGHTER background) */
+    /* Historical Anchors accents (restore gold left border) */
+    .mini.accent{
+      position: relative;
+      padding-left: 18px;
+      background: rgba(255,255,255,.66);
+      box-shadow: 0 10px 26px rgba(2,6,23,.08);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .mini.accent:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 16px 44px rgba(2,6,23,.12);
+    }
+    .mini.accent::before{
+      content:"";
+      position:absolute;
+      left: 0;
+      top: 14px;
+      bottom: 14px;
+      width: 4px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, rgba(226,197,122,.92), rgba(199,162,74,.92));
+      opacity: .95;
+    }
+    /* Accent to bring out the top card */
+    .mini.accent.primary{
+      border-color: rgba(199,162,74,.30);
+      box-shadow: 0 18px 60px rgba(2,6,23,.14);
+      background: linear-gradient(180deg, rgba(226,197,122,.14), rgba(255,255,255,.70));
+    }
+    .mini.accent.primary::after{
+      content:"";
+      position:absolute;
+      left: 0; right: 0; top: 0;
+      height: 3px;
+      background: linear-gradient(90deg, rgba(226,197,122,.95), rgba(199,162,74,.95));
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
+      opacity: .75;
+    }
+
+    /* Pivot (Readiness) */
     .pivot{
       border-radius: calc(var(--radius) + 8px);
       overflow:hidden;
@@ -467,16 +501,14 @@
       position:absolute; inset:0;
       background-size: cover;
       background-position: center;
-      /* was too dark; lighten */
-      filter: contrast(1.03) brightness(1.08) saturate(1.04);
-      transform: scale(1.02);
+      filter: contrast(1.03) brightness(1.06) saturate(1.02); /* lift exposure so it isn't "ridiculously dark" */
+      transform: none;
     }
     .pivot .wash{
       position:absolute; inset:0;
-      /* reduced opacity so the photo can breathe */
       background:
-        linear-gradient(90deg, rgba(15,23,42,.58) 0%, rgba(15,23,42,.42) 60%, rgba(15,23,42,.26) 100%),
-        radial-gradient(900px 420px at 25% 35%, rgba(226,197,122,.12), transparent 62%);
+        linear-gradient(90deg, rgba(15,23,42,.62) 0%, rgba(15,23,42,.46) 60%, rgba(15,23,42,.26) 100%),
+        radial-gradient(900px 420px at 25% 35%, rgba(226,197,122,.14), transparent 62%);
       pointer-events:none;
     }
     .pivot .overlay{
@@ -506,9 +538,34 @@
       color: rgba(255,255,255,.98);
     }
 
-    /* Slightly lighten SITGAP + Watch backgrounds */
-    .band.sitgap .img{ filter: grayscale(.08) contrast(1.02) brightness(1.03); }
-    .band.watch .img{  filter: grayscale(.08) contrast(1.02) brightness(1.03); }
+    /* Prayer Watch: keep ceremonial tone, fix readability (no text changes) */
+    .band.watch .img{
+      filter: grayscale(.08) contrast(1.05) brightness(.90);
+      background-position: center;
+    }
+    .band.watch .wash{
+      /* stronger dark wash to prevent white-on-tan conflict */
+      background:
+        linear-gradient(90deg, rgba(15,23,42,.78) 0%, rgba(15,23,42,.62) 58%, rgba(15,23,42,.46) 100%),
+        radial-gradient(900px 420px at 22% 35%, rgba(226,197,122,.12), transparent 62%);
+      mix-blend-mode: normal;
+    }
+    .band.watch .overlay{
+      /* subtle “panel” feel without changing the text */
+      background: rgba(15,23,42,.42);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      backdrop-filter: blur(8px);
+    }
+    .band.watch .overlay h2,
+    .band.watch .overlay p,
+    .band.watch .overlay li{
+      color: rgba(255,255,255,.95);
+      text-shadow: 0 14px 34px rgba(0,0,0,.45);
+    }
+    .band.watch .eyebrow{
+      color: rgba(255,255,255,.88); /* label stays ceremonial */
+    }
 
     /* Prayer Watch callout box */
     .callout{
@@ -531,32 +588,6 @@
       letter-spacing:.2px;
     }
 
-    /* FAQ */
-    .faq{
-      margin-top: 10px;
-      display:grid;
-      gap: 10px;
-    }
-    details.faq-item{
-      background: rgba(255,255,255,.70);
-      border: 1px solid rgba(15,23,42,.12);
-      border-radius: 14px;
-      padding: 12px 14px;
-      box-shadow: 0 10px 22px rgba(2,6,23,.08);
-    }
-    details.faq-item summary{
-      cursor:pointer;
-      font-weight:900;
-      color: rgba(15,23,42,.92);
-      list-style:none;
-    }
-    details.faq-item summary::-webkit-details-marker{ display:none; }
-    details.faq-item p{
-      margin: 10px 0 0;
-      color: rgba(11,18,32,.86);
-      font-weight:650;
-    }
-
     /* Footer */
     footer{
       margin-top: 26px;
@@ -575,7 +606,7 @@
       justify-content:space-between;
       gap: 10px 16px;
       color: rgba(15,23,42,.78);
-      font-weight:700;
+      font-weight:800;
     }
     footer .links{
       display:flex; flex-wrap:wrap; gap:10px;
@@ -648,8 +679,9 @@
                 </a>
               </div>
 
-              <div class="story-cta">
-                <a class="btn small" href="#what">Continue</a>
+              <!-- Down arrow instead of Continue -->
+              <div class="down dark">
+                <a href="#what" aria-label="Scroll to What is Prayer Force USA">↓</a>
               </div>
             </div>
 
@@ -676,24 +708,28 @@
 
           <p>Identity first: All who participate belong to Prayer Force USA. Standing in the Gap and The Prayer Watch are two expressions of the same shared mission.</p>
 
-          <div class="story-cta">
-            <a class="btn small" href="#foundationsImage">Continue</a>
+          <div class="down">
+            <a href="#foundations" aria-label="Scroll to Our Foundations">↓</a>
           </div>
         </div>
       </section>
 
       <hr class="divider" />
 
-      <!-- NEW: Image-only box BEFORE Our Foundations (pilgrims_arrive.png) -->
-      <section id="foundationsImage">
-        <div class="image-only" role="img" aria-label="Pilgrims arrive">
+      <!-- Image-only band BEFORE Our Foundations (as requested earlier) -->
+      <section aria-label="Foundations Image Lead-in">
+        <div class="band foundations" role="img" aria-label="Pilgrims Arrive">
           <div class="img" style="background-image:url('assets/pilgrims_arrive.png')"></div>
+          <div class="wash"></div>
+          <div class="overlay" style="background: rgba(247,247,243,.00); border: none; box-shadow: none; backdrop-filter:none; padding: 0;">
+            <!-- intentionally empty: image-only -->
+          </div>
         </div>
       </section>
 
       <hr class="divider" />
 
-      <!-- Our Foundations (canonical copy preserved) -->
+      <!-- Our Foundations -->
       <section id="foundations">
         <div class="band foundations" role="region" aria-label="Our Foundations">
           <div class="img" style="background-image:url('assets/pilgrims_arrive.png')"></div>
@@ -710,8 +746,8 @@
               From the Pilgrims in 1620 to the Continental Congress in 1774, American leaders publicly sought God’s guidance and blessing for future generations. Prayer Force USA continues that legacy.
             </p>
 
-            <div class="story-cta">
-              <a class="btn small" href="#mission">Continue</a>
+            <div class="down">
+              <a href="#mission" aria-label="Scroll to Our Mission">↓</a>
             </div>
           </div>
         </div>
@@ -758,8 +794,8 @@
             </div>
           </div>
 
-          <div class="story-cta">
-            <a class="btn small" href="#pivot">Continue</a>
+          <div class="down">
+            <a href="#pivot" aria-label="Scroll to Present Day">↓</a>
           </div>
         </div>
       </section>
@@ -775,15 +811,19 @@
             <div class="eyebrow" style="color: rgba(255,255,255,.85);"><span class="dot"></span>Present Day</div>
             <h2 class="lede">Faithful in every generation. Faithful in ours.</h2>
             <p class="punch">The watch is ours now.</p>
+
+            <div class="down dark">
+              <a href="#sitgap" aria-label="Scroll to Standing in the Gap">↓</a>
+            </div>
           </div>
         </div>
       </section>
 
       <hr class="divider" />
 
-      <!-- Standing in the Gap (PFUSA proper first) -->
+      <!-- Standing in the Gap -->
       <section id="sitgap">
-        <div class="band sitgap" role="region" aria-label="Standing in the Gap">
+        <div class="band" role="region" aria-label="Standing in the Gap">
           <div class="img" style="background-image:url('assets/Washington%27s%20Swearing-in.jpg')"></div>
           <div class="wash"></div>
           <div class="overlay">
@@ -800,13 +840,17 @@
               Standing in the Gap is the original expression of Prayer Force USA—topical, Scripture-based prayer focused on current national events and pressing issues.
               The format is fluid. We don’t watch the clock; Prayer Warriors join and depart sessions as schedules allow.
             </p>
+
+            <div class="down">
+              <a href="#watch" aria-label="Scroll to The Prayer Watch">↓</a>
+            </div>
           </div>
         </div>
       </section>
 
       <hr class="divider" />
 
-      <!-- The Prayer Watch (America Prays alignment) -->
+      <!-- The Prayer Watch -->
       <section id="watch">
         <div class="band watch" role="region" aria-label="The Prayer Watch">
           <div class="img" style="background-image:url('assets/Signing-the-declaration-of-independenc-john-trumbull.jpg')"></div>
@@ -831,7 +875,7 @@
               This expression is designed for broad participation and steady consistency.
             </p>
 
-            <div class="mini" style="margin-top:12px; background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.18); color: rgba(255,255,255,.94);">
+            <div class="mini" style="margin-top:12px; background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.16); color: rgba(255,255,255,.94);">
               <p style="margin:0 0 8px; color: rgba(255,255,255,.95); font-weight:900;">The Ask:</p>
               <p style="margin:0 0 12px; color: rgba(255,255,255,.94);">
                 “The Ask: What if one million Americans dedicated one hour a week to praying for our country and our people?”
@@ -851,6 +895,10 @@
                 “This dedicated time of prayer is not only for our nation, but for its people because a nation is only as strong as its citizens.”
               </p>
             </div>
+
+            <div class="down dark">
+              <a href="#anchors" aria-label="Scroll to Historical Anchors">↓</a>
+            </div>
           </div>
         </div>
       </section>
@@ -863,7 +911,7 @@
           <div class="eyebrow"><span class="dot"></span>Historical Anchors</div>
           <h2>Faith expressed publicly</h2>
 
-          <div class="mini" style="margin-top:10px;">
+          <div class="mini accent primary" style="margin-top:10px;">
             <h3 style="margin:0 0 8px;">George Washington, Inaugural Address (1789)</h3>
             <p style="margin:0; font-weight:800; color: rgba(15,23,42,.90);">
               “It would be peculiarly improper to omit, in this first official act, my fervent supplications to that Almighty Being…”
@@ -871,7 +919,7 @@
           </div>
 
           <div class="grid2" style="margin-top:14px;">
-            <div class="mini">
+            <div class="mini accent">
               <div class="top">
                 <div class="tag">11 Nov 1620</div>
               </div>
@@ -879,15 +927,19 @@
               <p style="margin:0;">“…for the Glory of God, and advancement of the Christian Faith…”</p>
             </div>
 
-            <div class="mini">
+            <div class="mini accent">
               <div class="top">
-                <div class="tag">1630</div>
+                <div class="tag">1630 — John Winthrop, aboard the Arbella</div>
               </div>
-              <h3 style="margin-top:0;">John Winthrop aboard the Arbella</h3>
+              <h3 style="margin-top:0;">“A Model of Christian Charity”</h3>
               <p style="margin:0;">
                 “For we must consider that we shall be as a city upon a hill. The eyes of all people are upon us. So that if we shall deal falsely with our God in this work we have undertaken, and so cause Him to withdraw His present help from us, we shall be made a story and a by-word through the world.”
               </p>
             </div>
+          </div>
+
+          <div class="down">
+            <a href="#choose" aria-label="Scroll to Take Your Place">↓</a>
           </div>
         </div>
       </section>
@@ -929,6 +981,10 @@
             <a class="btn" href="#sitgap">Revisit Standing in the Gap</a>
             <a class="btn" href="#watch">Revisit The Prayer Watch</a>
           </div>
+
+          <div class="down">
+            <a href="#faq" aria-label="Scroll to Support">↓</a>
+          </div>
         </div>
       </section>
 
@@ -945,42 +1001,24 @@
           </p>
 
           <h3 style="margin-top:12px;">FAQ (starter)</h3>
-
-          <div class="faq" aria-label="FAQ">
-            <details class="faq-item">
-              <summary>What is Prayer Force USA, and who is it for?</summary>
-              <p>Prayer Force USA is for believers devoted to Jesus Christ who want steady, Scripture-centered prayer for our nation—without needing to “fit” a denomination or a political club.</p>
-            </details>
-
-            <details class="faq-item">
-              <summary>What’s the difference between Standing in the Gap and The Prayer Watch?</summary>
-              <p>Standing in the Gap is topical and responsive (most days). The Prayer Watch is a weekly, structured rhythm aligned with America Prays—focused on enduring themes.</p>
-            </details>
-
-            <details class="faq-item">
-              <summary>How do I participate if I can’t attend live?</summary>
-              <p>You can still participate by praying along later when updates or recordings are posted. The goal is consistency, not perfect attendance.</p>
-            </details>
-
-            <details class="faq-item">
-              <summary>Is there any cost to join?</summary>
-              <p>No. There is no financial cost. Participation is your time—freely given—because you believe prayer matters.</p>
-            </details>
-
-            <details class="faq-item">
-              <summary>How is optional support used?</summary>
-              <p>Optional support helps cover basic infrastructure (hosting, broadcast tools, and production needs) so Prayer Force USA can remain stable and accessible.</p>
-            </details>
-
-            <details class="faq-item">
-              <summary>How will I receive session links and updates?</summary>
-              <p>Use the Contact section below to email us. We’ll route you to the right update channel and share the next session information as it becomes available.</p>
-            </details>
-          </div>
+          <ul style="margin: 0; padding-left: 18px; color: rgba(11,18,32,.86); font-weight:650;">
+            <li>What is Prayer Force USA, and who is it for?</li>
+            <li>How do I participate if I can’t attend live?</li>
+            <li>What’s the difference between Standing in the Gap and The Prayer Watch?</li>
+            <li>Do I have to agree with every viewpoint to participate?</li>
+            <li>Is there any cost to join?</li>
+            <li>How will I receive session links and updates?</li>
+            <li>How is optional support used?</li>
+            <li>How can I contact Prayer Force USA?</li>
+          </ul>
 
           <div class="btns" style="margin-top:16px;">
             <a class="btn small primary" href="#contact">Support / Questions</a>
             <a class="btn small" href="#top">Back to top ↑</a>
+          </div>
+
+          <div class="down">
+            <a href="#contact" aria-label="Scroll to Contact">↓</a>
           </div>
         </div>
       </section>
@@ -993,7 +1031,9 @@
           <div class="eyebrow"><span class="dot"></span>Contact</div>
           <h2>Get in touch</h2>
 
-          <p>Email us for updates, questions, or to connect.</p>
+          <p>
+            Email us for updates, questions, or to connect.
+          </p>
 
           <p style="font-weight:800; color: rgba(15,23,42,.90);">
             Email: <a href="mailto:contact@prayerforceusa.net">contact@prayerforceusa.net</a>
