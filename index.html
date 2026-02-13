@@ -69,13 +69,13 @@
     a{ color:inherit; }
     .wrap{ position:relative; z-index:1; }
 
-    /* Banner (bring to life: subtle animated sheen + breathing glow) */
+    /* Banner (eye-catching via richer contrast only) */
     .banner{
       position: relative;
       background:
-        linear-gradient(90deg, rgba(15,23,42,.96), rgba(15,23,42,.88)),
-        radial-gradient(900px 420px at 18% 35%, rgba(199,162,74,.22), transparent 62%),
-        radial-gradient(900px 420px at 82% 30%, rgba(226,197,122,.14), transparent 65%);
+        linear-gradient(90deg, rgba(7,12,26,.98), rgba(12,18,38,.92)),
+        radial-gradient(900px 420px at 16% 35%, rgba(199,162,74,.26), transparent 62%),
+        radial-gradient(900px 420px at 84% 30%, rgba(226,197,122,.18), transparent 65%);
       color: rgba(255,255,255,.92);
       border-bottom: 1px solid rgba(255,255,255,.12);
       overflow:hidden;
@@ -85,11 +85,11 @@
       position:absolute;
       inset:-120px -180px;
       background:
-        radial-gradient(320px 220px at 20% 40%, rgba(226,197,122,.18), transparent 65%),
-        radial-gradient(420px 260px at 80% 30%, rgba(199,162,74,.14), transparent 68%),
-        linear-gradient(90deg, transparent 0%, rgba(255,255,255,.06) 45%, transparent 70%);
+        radial-gradient(320px 220px at 18% 42%, rgba(226,197,122,.20), transparent 65%),
+        radial-gradient(420px 260px at 82% 30%, rgba(199,162,74,.16), transparent 68%),
+        linear-gradient(90deg, transparent 0%, rgba(255,255,255,.07) 45%, transparent 70%);
       filter: blur(2px);
-      opacity:.85;
+      opacity:.88;
       animation: bannerGlow 10.5s ease-in-out infinite;
       pointer-events:none;
     }
@@ -210,7 +210,7 @@
       background: rgba(255,255,255,.74);
       color: rgba(15,23,42,.92);
       box-shadow: 0 10px 26px rgba(2,6,23,.12);
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, filter .15s ease;
     }
     .btn:hover{ transform: translateY(-1px); box-shadow: 0 16px 44px rgba(2,6,23,.18); }
     .btn.primary{
@@ -223,6 +223,28 @@
       border-radius: 12px;
       font-weight:900;
       font-size: 14px;
+    }
+
+    /* Take Your Place 3D CTAs (only those buttons) */
+    .btn.cta3d{
+      background: linear-gradient(180deg, rgba(15,23,42,.96), rgba(10,16,32,.96));
+      border-color: rgba(226,197,122,.40);
+      color: rgba(255,255,255,.94);
+      box-shadow:
+        0 14px 34px rgba(2,6,23,.22),
+        inset 0 1px 0 rgba(255,255,255,.12);
+    }
+    .btn.cta3d:hover{
+      box-shadow:
+        0 18px 52px rgba(2,6,23,.28),
+        inset 0 1px 0 rgba(255,255,255,.14);
+      filter: brightness(1.02);
+    }
+    .btn.cta3d:active{
+      transform: translateY(0px);
+      box-shadow:
+        0 10px 24px rgba(2,6,23,.24),
+        inset 0 1px 0 rgba(255,255,255,.10);
     }
 
     /* Icon */
@@ -399,6 +421,13 @@
       color: rgba(11,18,32,.88);
     }
 
+    /* Image-only box (before Foundations) */
+    .band.image-only{
+      min-height: 280px;
+    }
+    .band.image-only .wash,
+    .band.image-only .overlay{ display:none; }
+
     /* Foundations: ensure Pilgrims_arrive.png is pronounced and readable */
     .band.foundations .img{
       filter: grayscale(0) contrast(1.08) brightness(.98);
@@ -521,11 +550,11 @@
       filter: drop-shadow(0 16px 34px rgba(2,6,23,.20));
     }
 
-    /* Modern Bridge: reliable even if the image file is missing */
+    /* Modern Bridge: set background to Quiet_DC_morning.png */
     .modern-bridge .img{
       background-image:
         linear-gradient(120deg, rgba(15,23,42,.92), rgba(15,23,42,.68)),
-        url("assets/modern-bridge.jpg");
+        url("assets/Quiet_DC_morning.png");
       background-size: cover;
       background-position: center;
       filter: none;
@@ -547,6 +576,14 @@
       color: rgba(255,255,255,.95);
     }
 
+    /* Lighten background images slightly (only these two bands) */
+    .band.sitgap .img{
+      filter: grayscale(.08) contrast(1.02) brightness(1.03);
+    }
+    .band.watch .img{
+      filter: grayscale(.08) contrast(1.02) brightness(1.03);
+    }
+
     /* Prayer Watch: make ALL text black (minimal change: text only) */
     .watch-black .overlay,
     .watch-black .overlay h2,
@@ -558,6 +595,29 @@
       color: rgba(11,18,32,.92) !important;
       text-shadow: none !important;
     }
+
+    /* FAQ */
+    .faq{
+      margin-top: 10px;
+      display:grid;
+      gap: 10px;
+    }
+    details{
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(15,23,42,.12);
+      border-radius: 14px;
+      padding: 12px 14px;
+      box-shadow: 0 10px 24px rgba(2,6,23,.06);
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 900;
+      color: rgba(15,23,42,.92);
+      list-style:none;
+      outline:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{ margin-top: 10px; }
 
     /* Form */
     form{ margin-top: 14px; }
@@ -644,6 +704,7 @@
           <a href="#sitgap">Standing in the Gap</a>
           <a href="#watch">The Prayer Watch</a>
           <a href="#choose">Choose Your Path</a>
+          <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -669,7 +730,7 @@
                 faithful in our generation, and watchful for those to come.
               </p>
 
-              <!-- NOT premature: start with understanding -->
+              <!-- Start with understanding -->
               <div class="btns">
                 <a class="btn primary" href="#what">
                   <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -677,7 +738,6 @@
                   </svg>
                   Start Here
                 </a>
-                <a class="btn" href="#choose">See the Two Paths</a>
               </div>
 
               <div class="down dark">
@@ -716,8 +776,16 @@
 
       <hr class="divider" />
 
-      <!-- Our Foundations (Pilgrims_arrive.png restored) -->
+      <!-- Our Foundations -->
       <section id="foundations">
+        <!-- Image-only box BEFORE Our Foundations -->
+        <div class="band image-only" role="region" aria-label="Foundations Image">
+          <div class="img" style="background-image:url('assets/pilgrim_arrive.png')"></div>
+        </div>
+
+        <div style="height:16px;"></div>
+
+        <!-- Our Foundations (existing band remains; duplicate image is your call later) -->
         <div class="band foundations" role="region" aria-label="Our Foundations">
           <div class="img" style="background-image:url('assets/Pilgrims_arrive.png')"></div>
           <div class="wash"></div>
@@ -742,7 +810,7 @@
 
             <div class="anchors">
               <div class="anchor">
-                <p><strong>21 Nov 1620</strong> <span style="color:rgba(15,23,42,.66); font-weight:800;">(11 Nov, Old Style)</span></p>
+                <p><strong>21 Nov 1620</strong></p>
                 <p><strong>Mayflower Compact</strong></p>
                 <p>“…for the Glory of God, and advancement of the Christian Faith…”</p>
               </div>
@@ -811,7 +879,7 @@
 
       <hr class="divider" />
 
-      <!-- Present Day (Pivot) -->
+      <!-- Present Day -->
       <section id="bridge">
         <div class="band modern-bridge" role="region" aria-label="Present Day">
           <div class="img"></div>
@@ -835,10 +903,6 @@
               <li>Consistency over bursts of emotion</li>
               <li>Prayer that outlasts the news cycle</li>
             </ul>
-
-            <p style="margin-top:10px; opacity:.92;">
-              (Soon, we’ll swap this background to a non-human image—Capitol silhouette, flag texture, or a quiet DC skyline—so it never feels staged.)
-            </p>
 
             <div class="down dark">
               <a href="#choose" aria-label="Scroll to Choose Your Path">↓</a>
@@ -914,9 +978,9 @@
                 <p><strong>One identity. Two expressions.</strong></p>
                 <p>Choose one path—or participate in both.</p>
                 <div class="btns">
-                  <a class="btn small" id="ctaSitgap" href="#">I’ll take my place in Standing in the Gap</a>
-                  <a class="btn small" id="ctaWatch" href="#">I’ll take my place in The Prayer Watch</a>
-                  <a class="btn small" id="ctaBoth" href="#">I’ll take my place in both paths</a>
+                  <a class="btn small cta3d" id="ctaSitgap" href="#">I’ll take my place in Standing in the Gap</a>
+                  <a class="btn small cta3d" id="ctaWatch" href="#">I’ll take my place in The Prayer Watch</a>
+                  <a class="btn small cta3d" id="ctaBoth" href="#">I’ll take my place in both paths</a>
                 </div>
               </div>
 
@@ -936,7 +1000,7 @@
 
       <!-- Standing in the Gap -->
       <section id="sitgap">
-        <div class="band" role="region" aria-label="Standing in the Gap">
+        <div class="band sitgap" role="region" aria-label="Standing in the Gap">
           <div class="img" style="background-image:url('assets/Washington%27s%20Swearing-in.jpg')"></div>
           <div class="wash"></div>
           <div class="overlay">
@@ -961,7 +1025,7 @@
 
       <!-- The Prayer Watch -->
       <section id="watch">
-        <div class="band watch-black" role="region" aria-label="The Prayer Watch">
+        <div class="band watch watch-black" role="region" aria-label="The Prayer Watch">
           <div class="img" style="background-image:url('assets/Signing-the-declaration-of-independenc-john-trumbull.jpg')"></div>
           <div class="wash"></div>
           <div class="overlay">
@@ -1005,10 +1069,64 @@
           <div class="eyebrow"><span class="dot"></span>Support</div>
           <h2>Support</h2>
 
-          <!-- Removed the paragraph you told me to delete -->
+          <div class="btns">
+            <a class="btn small primary" href="#faq">Questions? See FAQ</a>
+          </div>
+
+          <div class="down">
+            <a href="#faq" aria-label="Scroll to FAQ">↓</a>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- FAQ -->
+      <section id="faq">
+        <div class="card pad">
+          <div class="eyebrow"><span class="dot"></span>FAQ</div>
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq">
+            <details>
+              <summary>What is Prayer Force USA?</summary>
+              <p>
+                Prayer Force USA is a united prayer network—believers across America taking their place in steady, Scripture-centered intercession for our nation.
+              </p>
+            </details>
+
+            <details>
+              <summary>Do I have to choose one path?</summary>
+              <p>
+                No. You may participate through Standing in the Gap, The Prayer Watch, or both—according to your schedule and calling.
+              </p>
+            </details>
+
+            <details>
+              <summary>Is there a cost to participate?</summary>
+              <p>
+                There is no financial cost. Participation requires only your time—freely given—because you believe prayer matters.
+              </p>
+            </details>
+
+            <details>
+              <summary>How do I get session links and updates?</summary>
+              <p>
+                Email us and tell us which path you chose (Standing in the Gap, The Prayer Watch, or both). We’ll route you accordingly.
+                You can also follow our YouTube channel for updates.
+              </p>
+            </details>
+
+            <details>
+              <summary>Is Prayer Force USA political?</summary>
+              <p>
+                Prayer Force USA is focused on prayer (not arguments). We are not a political party and not a division movement. We pray with a clear conscience before God.
+              </p>
+            </details>
+          </div>
 
           <div class="btns">
-            <a class="btn small primary" href="#contact">Questions about support</a>
+            <a class="btn small" href="#contact">Still have a question? Contact us</a>
           </div>
 
           <div class="down">
