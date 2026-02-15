@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prayer Force USA</title>
+
+  <!-- Social preview -->
+  <meta property="og:title" content="Prayer Force USA" />
+  <meta property="og:description" content="United in prayer for our nation" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      /* Civilian-forward with military accent */
+      --bg0: #0f172a;        /* deep navy */
+      --bg1: #111c33;        /* navy mid */
+      --paper: #f7f7f3;      /* offwhite */
+      --ink: #0b1220;        /* near-black */
+      --muted: rgba(15,23,42,.72);
+      --card: rgba(255,255,255,.78);
+      --card2: rgba(255,255,255,.64);
+      --line: rgba(15,23,42,.10);
+      --shadow: 0 10px 30px rgba(2,6,23,.10);
+      --shadow2: 0 18px 60px rgba(2,6,23,.16);
+      --radius: 18px;
+
+      --gold: #c7a24a;
+      --gold2:#e2c57a;
+      --navy: #0f172a;
+
+      --max: 1100px;
+      --pad: clamp(18px, 3.2vw, 28px);
+
+      --h1: clamp(36px, 6vw, 58px);
+      --h2: clamp(22px, 3.2vw, 30px);
+      --h3: clamp(18px, 2.6vw, 22px);
+      --p:  clamp(15px, 1.3vw, 17px);
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      color: var(--ink);
+      font: 400 var(--p)/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1100px 700px at 15% 10%, rgba(226,197,122,.14), transparent 58%),
+        radial-gradient(1000px 700px at 85% 18%, rgba(199,162,74,.10), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(247,247,243,1) 30%, rgba(247,247,243,1) 100%);
+      overflow-x:hidden;
+    }
+
+    /* subtle texture overlay */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.07; /* reduced to prevent "words on words" in sections */
+      background-image: url("assets/Mayflower%20Compact%20depiction.jpg");
+      background-size: 420px;
+      background-repeat: repeat;
+      filter: grayscale(1) contrast(0.85) brightness(1.25);
+      mix-blend-mode: multiply;
+      z-index:0;
+    }
+
+    a{ color:inherit; }
+    .wrap{ position:relative; z-index:1; }
+
+    /* Banner (eye-catching but not distracting: A + B) */
+    .banner{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+
+      background:
+        linear-gradient(90deg, rgba(15,23,42,.96), rgba(15,23,42,.88)),
+        radial-gradient(900px 400px at 20% 30%, rgba(199,162,74,.22), transparent 60%),
+        radial-gradient(900px 400px at 80% 30%, rgba(226,197,122,.14), transparent 62%);
+      color: rgba(255,255,255,.92);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+
+      /* B: a touch more depth */
+      box-shadow: 0 10px 30px rgba(2,6,23,.22);
+    }
+    /* A: thin gold bottom bar */
+    .banner::after{
+      content:"";
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(226,197,122,.95), rgba(199,162,74,.95), transparent);
+      opacity: .9;
+      pointer-events:none;
+    }
+
+    .banner .inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 10px var(--pad);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 240px;
+    }
+    .brand img{
+      width:36px; height:36px; object-fit:contain;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.25));
+    }
+    .brand strong{
+      letter-spacing:.3px;
+      font-weight:800;
+    }
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px 16px;
+      justify-content:flex-end;
+      align-items:center;
+    }
+    nav a{
+      text-decoration:none;
+      color: rgba(255,255,255,.86);
+      font-weight:700;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    nav a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.20);
+    }
+
+    /* Layout rhythm */
+    main{ max-width: var(--max); margin: 0 auto; padding: 0 var(--pad) 34px; }
+
+    section{
+      padding: clamp(26px, 4.2vw, 44px) 0;
+    }
+
+    /* soft dividers */
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(15,23,42,.14), transparent);
+      margin: 0;
+      border:0;
+    }
+
+    /* Cards */
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card.pad{ padding: clamp(18px, 2.8vw, 26px); }
+
+    .eyebrow{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color: rgba(15,23,42,.70);
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size: 12px;
+      margin: 0 0 12px;
+    }
+    .eyebrow .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: linear-gradient(180deg, var(--gold2), var(--gold));
+      box-shadow: 0 6px 20px rgba(199,162,74,.25);
+    }
+
+    h1{ font-size: var(--h1); line-height:1.06; margin: 10px 0 10px; letter-spacing:-.02em; }
+    h2{ font-size: var(--h2); margin: 0 0 10px; letter-spacing:-.01em; }
+    h3{ font-size: var(--h3); margin: 0 0 10px; }
+    p{ margin: 0 0 12px; color: rgba(11,18,32,.86); }
+
+    /* Buttons */
+    .btns{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-weight:900;
+      border: 1px solid rgba(15,23,42,.18);
+      background: rgba(255,255,255,.74);
+      color: rgba(15,23,42,.92);
+      box-shadow: 0 10px 26px rgba(2,6,23,.12);
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 16px 44px rgba(2,6,23,.18); }
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(226,197,122,.92), rgba(199,162,74,.92));
+      border-color: rgba(199,162,74,.55);
+      color: rgba(15,23,42,.96);
+    }
+    .btn.small{
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight:900;
+      font-size: 14px;
+    }
+
+    /* Icon */
+    .icon{
+      width:18px; height:18px;
+      flex: 0 0 18px;
+      opacity:.92;
+    }
+
+    /* Down arrows (replaces all Continue buttons) */
+    .down{
+      display:flex;
+      justify-content:center;
+      margin-top: 14px;
+    }
+    .down a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      text-decoration:none;
+      border: 1px solid rgba(15,23,42,.14);
+      background: rgba(255,255,255,.45);
+      box-shadow: 0 10px 26px rgba(2,6,23,.08);
+      color: rgba(15,23,42,.84);
+      font-size: 22px;
+      font-weight: 900;
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+    }
+    .down a:hover{
+      transform: translateY(2px);
+      background: rgba(255,255,255,.62);
+      box-shadow: 0 14px 34px rgba(2,6,23,.10);
+    }
+    /* dark-section arrow variant */
+    .down.dark a{
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.92);
+      box-shadow: none;
+    }
+    .down.dark a:hover{
+      background: rgba(255,255,255,.14);
+      transform: translateY(2px);
+    }
+
+    /* Hero */
+    .hero{
+      position:relative;
+      margin-top: 18px;
+      border-radius: calc(var(--radius) + 8px);
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+      border: 1px solid rgba(15,23,42,.14);
+      background: #0b1220;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image: url("assets/hero.png");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05) contrast(1.02) brightness(.98);
+      transform: scale(1.02);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(15,23,42,.90) 0%, rgba(15,23,42,.70) 48%, rgba(15,23,42,.34) 100%),
+        radial-gradient(900px 600px at 20% 30%, rgba(199,162,74,.28), transparent 62%),
+        radial-gradient(900px 600px at 80% 20%, rgba(226,197,122,.18), transparent 65%);
+    }
+    .hero .content{
+      position:relative;
+      z-index:2;
+      padding: clamp(22px, 5vw, 56px);
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+      align-items:end;
+    }
+    .hero .kicker{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color: rgba(255,255,255,.90);
+      font-size: 13px;
+      margin-bottom: 10px;
+      text-shadow: 0 12px 28px rgba(0,0,0,.45);
+    }
+    .hero h1{
+      color:#fff;
+      text-shadow: 0 14px 40px rgba(0,0,0,.42);
+      margin-top: 0;
+    }
+    .hero p{
+      color: rgba(255,255,255,.93);
+      max-width: 64ch;
+      margin-bottom: 0;
+      font-weight:650;
+      text-shadow: 0 14px 34px rgba(0,0,0,.45);
+    }
+    .hero .right{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap: 12px;
+    }
+    .hero .badge{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.88);
+      backdrop-filter: blur(8px);
+      max-width: 360px;
+    }
+    .hero .badge img{
+      width: 48px; height: 48px; object-fit:contain;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,.35));
+    }
+    .hero .badge span{
+      font-weight:800;
+      letter-spacing:.2px;
+      line-height:1.25;
+    }
+
+    /* Photo band */
+    .band{
+      border-radius: calc(var(--radius) + 8px);
+      overflow:hidden;
+      border: 1px solid rgba(15,23,42,.14);
+      box-shadow: var(--shadow);
+      position:relative;
+      min-height: 220px;
+      background: #0b1220;
+    }
+    .band .img{
+      position:absolute; inset:0;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(.08) contrast(1.02) brightness(.98);
+      transform: scale(1.02);
+    }
+    .band .wash{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(247,247,243,.86) 0%, rgba(247,247,243,.74) 52%, rgba(247,247,243,.88) 100%),
+        radial-gradient(900px 420px at 20% 40%, rgba(226,197,122,.18), transparent 62%);
+      mix-blend-mode: screen;
+      pointer-events:none;
+    }
+    .band .overlay{
+      position:relative;
+      z-index:2;
+      padding: clamp(18px, 3.2vw, 28px);
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .band .overlay p{ max-width: 82ch; }
+    .band .overlay p,
+    .band .overlay li{
+      font-weight:650;
+      color: rgba(11,18,32,.88);
+    }
+
+    /* === MURAL SYSTEM (ONLY CHANGE AREA) === */
+    .mural{
+      border-radius: calc(var(--radius) + 8px);
+      overflow:hidden;
+      border: 1px solid rgba(15,23,42,.14);
+      box-shadow: var(--shadow2);
+      background: #fff;
+    }
+    .mural img{
+      display:block;
+      width:100%;
+      height:auto;            /* preserves brilliance; no object-fit tricks */
+    }
+
+    /* Foundations section elegant muted background (standalone; no mural inside) */
+    .foundations-bg{
+      border-radius: calc(var(--radius) + 8px);
+      overflow:hidden;
+      border: 1px solid rgba(15,23,42,.14);
+      box-shadow: var(--shadow);
+      background:
+        radial-gradient(900px 420px at 18% 18%, rgba(226,197,122,.18), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,250,.92) 0%, rgba(247,242,232,.92) 100%);
+    }
+    .foundations-bg .inner{
+      padding: clamp(18px, 3.2vw, 28px);
+    }
+    .foundations-bg p{
+      font-size: clamp(16px, 1.35vw, 18px);
+      line-height: 1.75;
+      font-weight: 600;
+      color: rgba(11,18,32,.90);
+    }
+    /* === END MURAL SYSTEM === */
+
+    /* Two-up cards */
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .mini{
+      background: var(--card2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 16px;
+    }
+    .mini .top{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      margin-bottom: 8px;
+    }
+    .tag{
+      font-weight:900;
+      font-size: 12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color: rgba(15,23,42,.66);
+    }
+
+    /* Historical Anchors accents (restore gold left border) */
+    .mini.accent{
+      position: relative;
+      padding-left: 18px;
+      background: rgba(255,255,255,.66);
+      box-shadow: 0 10px 26px rgba(2,6,23,.08);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .mini.accent:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 16px 44px rgba(2,6,23,.12);
+    }
+    .mini.accent::before{
+      content:"";
+      position:absolute;
+      left: 0;
+      top: 14px;
+      bottom: 14px;
+      width: 4px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, rgba(226,197,122,.92), rgba(199,162,74,.92));
+      opacity: .95;
+    }
+    /* Accent to bring out the top card */
+    .mini.accent.primary{
+      border-color: rgba(199,162,74,.30);
+      box-shadow: 0 18px 60px rgba(2,6,23,.14);
+      background: linear-gradient(180deg, rgba(226,197,122,.14), rgba(255,255,255,.70));
+    }
+    .mini.accent.primary::after{
+      content:"";
+      position:absolute;
+      left: 0; right: 0; top: 0;
+      height: 3px;
+      background: linear-gradient(90deg, rgba(226,197,122,.95), rgba(199,162,74,.95));
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
+      opacity: .75;
+    }
+
+    /* Pivot (Readiness) */
+    .pivot{
+      border-radius: calc(var(--radius) + 8px);
+      overflow:hidden;
+      border: 1px solid rgba(15,23,42,.14);
+      box-shadow: var(--shadow);
+      position:relative;
+      min-height: 210px;
+      background: #0b1220;
+    }
+    .pivot .img{
+      position:absolute; inset:0;
+      background-size: cover;
+      background-position: center;
+      filter: contrast(1.03) brightness(1.06) saturate(1.02);
+      transform: none;
+    }
+    .pivot .wash{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(15,23,42,.62) 0%, rgba(15,23,42,.46) 60%, rgba(15,23,42,.26) 100%),
+        radial-gradient(900px 420px at 25% 35%, rgba(226,197,122,.14), transparent 62%);
+      pointer-events:none;
+    }
+    .pivot .overlay{
+      position:relative;
+      z-index:2;
+      padding: clamp(18px, 3.6vw, 30px);
+      color: rgba(255,255,255,.95);
+      text-shadow: 0 14px 34px rgba(0,0,0,.45);
+    }
+    .pivot .overlay h2,
+    .pivot .overlay p{
+      color: rgba(255,255,255,.95);
+      margin:0;
+    }
+    .pivot .lede{
+      font-weight:850;
+      letter-spacing:-.01em;
+      line-height:1.12;
+      margin-top: 2px;
+    }
+    .pivot .punch{
+      margin-top: 10px;
+      font-weight:900;
+      letter-spacing:.02em;
+      text-transform:none;
+      font-size: clamp(16px, 2.1vw, 20px);
+      color: rgba(255,255,255,.98);
+    }
+
+    /* Prayer Watch: keep ceremonial tone, fix readability (no text changes) */
+    .band.watch .img{
+      filter: grayscale(.08) contrast(1.05) brightness(.90);
+      background-position: center;
+    }
+    .band.watch .wash{
+      background:
+        linear-gradient(90deg, rgba(15,23,42,.78) 0%, rgba(15,23,42,.62) 58%, rgba(15,23,42,.46) 100%),
+        radial-gradient(900px 420px at 22% 35%, rgba(226,197,122,.12), transparent 62%);
+      mix-blend-mode: normal;
+    }
+    .band.watch .overlay{
+      background: rgba(15,23,42,.42);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      backdrop-filter: blur(8px);
+    }
+    .band.watch .overlay h2,
+    .band.watch .overlay p,
+    .band.watch .overlay li{
+      color: rgba(255,255,255,.95);
+      text-shadow: 0 14px 34px rgba(0,0,0,.45);
+    }
+    .band.watch .eyebrow{
+      color: rgba(255,255,255,.88);
+    }
+
+    /* Prayer Watch callout box */
+    .callout{
+      margin-top: 12px;
+      padding: 14px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(8px);
+      color: rgba(255,255,255,.92);
+    }
+    .callout a{
+      color: rgba(255,255,255,.96);
+      font-weight:900;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .callout .line{
+      font-weight:850;
+      letter-spacing:.2px;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 26px;
+      padding: 22px var(--pad) 30px;
+      border-top: 1px solid rgba(15,23,42,.12);
+      background:
+        linear-gradient(180deg, rgba(247,247,243,.70), rgba(247,247,243,.92)),
+        radial-gradient(900px 500px at 25% 10%, rgba(226,197,122,.10), transparent 62%);
+    }
+    footer .inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px 16px;
+      color: rgba(15,23,42,.78);
+      font-weight:800;
+    }
+    footer .links{
+      display:flex; flex-wrap:wrap; gap:10px;
+      align-items:center;
+    }
+
+    /* responsive */
+    @media (max-width: 980px){
+      .hero .content{ grid-template-columns: 1fr; }
+      .hero .right{ align-items:flex-start; }
+      .grid2{ grid-template-columns: 1fr; }
+      nav{ justify-content:flex-start; }
+      .brand{ min-width: unset; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" id="top">
+
+    <!-- Banner -->
+    <header class="banner">
+      <div class="inner">
+        <div class="brand" aria-label="Prayer Force USA">
+          <img src="assets/Shield%20Logo%203D(1).png" alt="Prayer Force USA" />
+          <strong>Prayer Force USA</strong>
+        </div>
+
+        <nav aria-label="Primary">
+          <a href="#home">Home</a>
+          <a href="#foundations">Our Foundations</a>
+          <a href="#mission">Our Mission</a>
+          <a href="#pivot">Present Day</a>
+          <a href="#sitgap">Standing in the Gap</a>
+          <a href="#watch">The Prayer Watch</a>
+          <a href="#anchors">Historical Anchors</a>
+          <a href="#choose">Take Your Place</a>
+          <a href="#faq">Support</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="home">
+        <div class="hero" role="region" aria-label="Hero">
+          <div class="content">
+            <div>
+              <div class="kicker">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" fill="rgba(226,197,122,.95)"/>
+                </svg>
+                United in prayer for our nation
+              </div>
+
+              <h1>Prayer Force USA</h1>
+
+              <p>
+                Believers across America connecting in steady, Scripture-centered prayer—mindful of our history,
+                faithful in our generation, and watchful for those to come.
+              </p>
+
+              <div class="btns">
+                <a class="btn primary" href="#choose">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 2l8 4v6c0 5-3.6 9.6-8 10-4.4-.4-8-5-8-10V6l8-4z" fill="rgba(15,23,42,.95)"/>
+                  </svg>
+                  Take Your Place
+                </a>
+              </div>
+
+              <div class="down dark">
+                <a href="#what" aria-label="Scroll to What is Prayer Force USA">↓</a>
+              </div>
+            </div>
+
+            <div class="right">
+              <div class="badge">
+                <img src="assets/Shield%20Logo%203D(1).png" alt="" />
+                <span>Two ways to take your place. One united purpose. You may join through one path—or both.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- What is -->
+      <section id="what">
+        <div class="card pad">
+          <div class="eyebrow"><span class="dot"></span>What is Prayer Force USA?</div>
+
+          <h2>One identity. Two expressions. Shared mission.</h2>
+
+          <p>Prayer Force USA is a united prayer network—believers across America taking their place in intercession for our nation.</p>
+
+          <p>Identity first: All who participate belong to Prayer Force USA. Standing in the Gap and The Prayer Watch are two expressions of the same shared mission.</p>
+
+          <div class="down">
+            <a href="#mural" aria-label="Scroll to Pilgrims mural">↓</a>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- Standalone Mural (image-only; vivid; no overlays) -->
+      <section id="mural" aria-label="Pilgrims Mural">
+        <div class="mural" role="img" aria-label="Pilgrims arrive mural">
+          <img src="assets/pilgrims_arrive.png" alt="Pilgrims arrive" />
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- Our Foundations (NO mural inside; elegant muted background; text remains) -->
+      <section id="foundations">
+        <div class="foundations-bg" role="region" aria-label="Our Foundations">
+          <div class="inner">
+            <div class="eyebrow"><span class="dot"></span>Our Foundations</div>
+            <h2>Rooted in history; faithful in practice</h2>
+
+            <p>
+              The United States stands apart from other nations in a defining respect. Unlike nations that adopted Christianity after centuries of existence, many of the earliest settlements that eventually became the United States undertook a treacherous voyage to a distant land for the freedom to worship as Christians. These communities were founded with a singular purpose: to live out their faith—making America’s Christian roots not merely a matter of history, but a deliberate and profound choice.
+            </p>
+
+            <p>
+              From the Pilgrims in 1620 to the Continental Congress in 1774, American leaders publicly sought God’s guidance and blessing for future generations. Prayer Force USA continues that legacy.
+            </p>
+
+            <div class="down">
+              <a href="#mission" aria-label="Scroll to Our Mission">↓</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- Our Mission -->
+      <section id="mission">
+        <div class="card pad">
+          <div class="eyebrow"><span class="dot"></span>Our Mission</div>
+          <h2>Why Prayer Force USA exists</h2>
+
+          <p>Prayer Force USA exists to intercede before God, the Father of our Lord Jesus Christ, for the well-being and longevity of our nation.</p>
+
+          <div class="grid2">
+            <div class="mini">
+              <div class="top">
+                <div class="tag">We Are</div>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" fill="rgba(199,162,74,.95)"/>
+                </svg>
+              </div>
+              <ul style="margin:0; padding-left:18px; color: rgba(11,18,32,.86); font-weight:650;">
+                <li>Christ-centered</li>
+                <li>Scripture-anchored</li>
+                <li>Focused on prayer (not arguments)</li>
+                <li>Open to people devoted to Jesus across denominations</li>
+              </ul>
+            </div>
+
+            <div class="mini">
+              <div class="top">
+                <div class="tag">We Are Not</div>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 6l12 12M18 6L6 18" stroke="rgba(15,23,42,.70)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <ul style="margin:0; padding-left:18px; color: rgba(11,18,32,.86); font-weight:650;">
+                <li>A political party</li>
+                <li>A fundraising scheme</li>
+                <li>An outrage or division movement</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="down">
+            <a href="#pivot" aria-label="Scroll to Present Day">↓</a>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- Pivot (Readiness) -->
+      <section id="pivot">
+        <div class="pivot" role="region" aria-label="Present Day Pivot">
+          <div class="img" style="background-image:url('assets/Quiet_DC_morning.png')"></div>
+          <div class="wash"></div>
+          <div class="overlay">
+            <div class="eyebrow" style="color: rgba(255,255,255,.85);"><span class="dot"></span>Present Day</div>
+            <h2 class="lede">Faithful in every generation. Faithful in ours.</h2>
+            <p class="punch">The watch is ours now.</p>
+
+            <div class="down dark">
+              <a href="#sitgap" aria-label="Scroll to Standing in the Gap">↓</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- Standing in the Gap -->
+      <section id="sitgap">
+        <div class="band" role="region" aria-label="Standing in the Gap">
+          <div class="img" style="background-image:url('assets/Washington%27s%20Swearing-in.jpg')"></div>
+          <div class="wash"></div>
+          <div class="overlay">
+            <div class="eyebrow"><span class="dot"></span>Standing in the Gap</div>
+            <h2>Standing to face the moment</h2>
+
+            <ul style="margin: 4px 0 0; padding-left: 18px;">
+              <li>When the moment demands prayer</li>
+              <li>When leadership requires wisdom</li>
+              <li>When our nation needs clarity</li>
+            </ul>
+
+            <p style="margin-top:10px;">
+              Standing in the Gap is the original expression of Prayer Force USA—topical, Scripture-based prayer focused on current national events and pressing issues.
+              The format is fluid. We don’t watch the clock; Prayer Warriors join and depart sessions as schedules allow.
+            </p>
+
+            <div class="down">
+              <a href="#watch" aria-label="Scroll to The Prayer Watch">↓</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- The Prayer Watch -->
+      <section id="watch" class="watch-light">
+        <div class="band watch" role="region" aria-label="The Prayer Watch">
+          <div class="img" style="background-image:url('assets/Signing-the-declaration-of-independenc-john-trumbull.jpg')"></div>
+          <div class="wash"></div>
+          <div class="overlay">
+            <div class="eyebrow"><span class="dot"></span>The Prayer Watch</div>
+            <h2>Weekly, structured prayer for enduring themes</h2>
+
+            <div class="callout" role="note" aria-label="America Prays Alignment">
+              <div class="line">Aligned with America 250’s America Prays initiative.</div>
+              <div style="margin-top:6px;">
+                <a href="https://www.whitehouse.gov/america250/america-prays/" target="_blank" rel="noopener">Visit America Prays</a>
+                &nbsp;•&nbsp;
+                <a href="https://www.whitehouse.gov/presidential-actions/2026/01/year-of-celebration-and-rededication-2026/" target="_blank" rel="noopener">
+                  Read the President’s Proclamation: “A Year of Celebration and Rededication, 2026”
+                </a>
+              </div>
+            </div>
+
+            <p style="margin-top:12px;">
+              The Prayer Watch is Prayer Force USA’s weekly rhythm of united prayer—Scripture-centered sessions built around enduring themes such as leadership, families, justice, mercy, and national renewal.
+              This expression is designed for broad participation and steady consistency.
+            </p>
+
+            <div class="mini" style="margin-top:12px; background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.16); color: rgba(255,255,255,.94);">
+              <p style="margin:0 0 8px; color: rgba(255,255,255,.95); font-weight:900;">The Ask:</p>
+              <p style="margin:0 0 12px; color: rgba(255,255,255,.94);">
+                “The Ask: What if one million Americans dedicated one hour a week to praying for our country and our people?”
+              </p>
+
+              <p style="margin:0 0 8px; color: rgba(255,255,255,.95); font-weight:900;">The Invitation:</p>
+              <p style="margin:0 0 12px; color: rgba(255,255,255,.94);">
+                “The Invitation: Will you join with at least 10 people to meet each week for one hour to pray for America?”
+              </p>
+
+              <p style="margin:0 0 8px; color: rgba(255,255,255,.95); font-weight:900;">The Opportunity:</p>
+              <p style="margin:0 0 12px; color: rgba(255,255,255,.94);">
+                “The Opportunity: As we celebrate 250 years of freedom, this is an opportunity to rededicate ourselves to the principles that gave birth to this land of liberty. As George Washington famously said in his Farewell Address, ‘Of all the dispositions and habits which lead to political prosperity, religion and morality are indispensable supports. In vain would that man claim the tribute of patriotism who should labor to subvert these great pillars of human happiness, these firmest props of the duties of men and citizens.’”
+              </p>
+
+              <p style="margin:0; color: rgba(255,255,255,.94);">
+                “This dedicated time of prayer is not only for our nation, but for its people because a nation is only as strong as its citizens.”
+              </p>
+            </div>
+
+            <div class="down dark">
+              <a href="#anchors" aria-label="Scroll to Historical Anchors">↓</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- Historical Anchors -->
+      <section id="anchors">
+        <div class="card pad">
+          <div class="eyebrow"><span class="dot"></span>Historical Anchors</div>
+          <h2>Faith expressed publicly</h2>
+
+          <div class="mini accent primary" style="margin-top:10px;">
+            <h3 style="margin:0 0 8px;">George Washington, Inaugural Address (1789)</h3>
+            <p style="margin:0; font-weight:800; color: rgba(15,23,42,.90);">
+              “It would be peculiarly improper to omit, in this first official act, my fervent supplications to that Almighty Being…”
+            </p>
+          </div>
+
+          <div class="grid2" style="margin-top:14px;">
+            <div class="mini accent">
+              <div class="top">
+                <div class="tag">11 Nov 1620</div>
+              </div>
+              <h3 style="margin-top:0;">Mayflower Compact</h3>
+              <p style="margin:0;">“…for the Glory of God, and advancement of the Christian Faith…”</p>
+            </div>
+
+            <div class="mini accent">
+              <div class="top">
+                <div class="tag">1630 — John Winthrop, aboard the Arbella</div>
+              </div>
+              <h3 style="margin-top:0;">“A Model of Christian Charity”</h3>
+              <p style="margin:0;">
+                “For we must consider that we shall be as a city upon a hill. The eyes of all people are upon us. So that if we shall deal falsely with our God in this work we have undertaken, and so cause Him to withdraw His present help from us, we shall be made a story and a by-word through the world.”
+              </p>
+            </div>
+          </div>
+
+          <div class="down">
+            <a href="#choose" aria-label="Scroll to Take Your Place">↓</a>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- Take Your Place -->
+      <section id="choose">
+        <div class="card pad">
+          <div class="eyebrow"><span class="dot"></span>Take Your Place</div>
+          <h2>You’re invited</h2>
+
+          <p>
+            If Prayer Force USA resonates with you, take your place. We’ll send a simple welcome message with updates and the next steps.
+          </p>
+
+          <div class="grid2">
+            <div class="mini">
+              <div class="top">
+                <div class="tag">Standing in the Gap</div>
+              </div>
+              <p style="margin:0;">
+                Topical, responsive prayer for the needs of the moment—most days (except Saturdays).
+              </p>
+            </div>
+
+            <div class="mini">
+              <div class="top">
+                <div class="tag">The Prayer Watch</div>
+              </div>
+              <p style="margin:0;">
+                A weekly rhythm of united prayer aligned with America 250’s America Prays initiative.
+              </p>
+            </div>
+          </div>
+
+          <div class="btns" style="margin-top:16px;">
+            <a class="btn primary" href="take-your-place.html">Take Your Place (Get the Welcome Email)</a>
+            <a class="btn" href="#sitgap">Revisit Standing in the Gap</a>
+            <a class="btn" href="#watch">Revisit The Prayer Watch</a>
+          </div>
+
+          <div class="down">
+            <a href="#faq" aria-label="Scroll to Support">↓</a>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- Support / FAQ -->
+      <section id="faq">
+        <div class="card pad">
+          <div class="eyebrow"><span class="dot"></span>Support</div>
+          <h2>Questions and support</h2>
+
+          <p>
+            Prayer Force USA is not a fundraising scheme, and participation is never dependent on financial contribution. Optional support helps cover infrastructure (hosting, broadcasting, production) so the work can remain consistent and accessible.
+          </p>
+
+          <h3 style="margin-top:12px;">FAQ (starter)</h3>
+          <ul style="margin: 0; padding-left: 18px; color: rgba(11,18,32,.86); font-weight:650;">
+            <li>What is Prayer Force USA, and who is it for?</li>
+            <li>How do I participate if I can’t attend live?</li>
+            <li>What’s the difference between Standing in the Gap and The Prayer Watch?</li>
+            <li>Do I have to agree with every viewpoint to participate?</li>
+            <li>Is there any cost to join?</li>
+            <li>How will I receive session links and updates?</li>
+            <li>How is optional support used?</li>
+            <li>How can I contact Prayer Force USA?</li>
+          </ul>
+
+          <div class="btns" style="margin-top:16px;">
+            <a class="btn small primary" href="#contact">Support / Questions</a>
+            <a class="btn small" href="#top">Back to top ↑</a>
+          </div>
+
+          <div class="down">
+            <a href="#contact" aria-label="Scroll to Contact">↓</a>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="card pad">
+          <div class="eyebrow"><span class="dot"></span>Contact</div>
+          <h2>Get in touch</h2>
+
+          <p>
+            Email us for updates, questions, or to connect.
+          </p>
+
+          <p style="font-weight:800; color: rgba(15,23,42,.90);">
+            Email: <a href="mailto:contact@prayerforceusa.net">contact@prayerforceusa.net</a>
+            &nbsp;•&nbsp;
+            YouTube: <a href="https://www.youtube.com/@prayerforceusa" target="_blank" rel="noopener">youtube.com/@prayerforceusa</a>
+          </p>
+
+          <p style="margin-top:10px;">
+            Prayer Force USA is an independent initiative and is not affiliated with any organization using similar names.
+          </p>
+
+          <div class="btns">
+            <a class="btn small" href="#top">Back to top ↑</a>
+            <a class="btn small" href="#faq">Support</a>
+            <a class="btn small primary" href="take-your-place.html">Take Your Place</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer aria-label="Footer">
+      <div class="inner">
+        <div>© Prayer Force USA</div>
+        <div class="links">
+          <span>Last updated: <span id="lastUpdated"></span></span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Fill "Last updated:" with local date (no extra wording)
+    (function(){
+      const el = document.getElementById("lastUpdated");
+      if(!el) return;
+      const d = new Date();
+      const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      const dd = String(d.getDate()).padStart(2,"0");
+      const mmm = months[d.getMonth()];
+      const yyyy = d.getFullYear();
+      el.textContent = dd + " " + mmm + " " + yyyy;
+    })();
+  </script>
+</body>
+</html>

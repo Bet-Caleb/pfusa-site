@@ -290,7 +290,6 @@
       content:"";
       position:absolute;
       inset:0;
-      /* slightly stronger for small-text readability */
       background:
         linear-gradient(90deg, rgba(15,23,42,.90) 0%, rgba(15,23,42,.70) 48%, rgba(15,23,42,.34) 100%),
         radial-gradient(900px 600px at 20% 30%, rgba(199,162,74,.28), transparent 62%),
@@ -372,7 +371,7 @@
       background-size: cover;
       background-position: center;
       filter: grayscale(.08) contrast(1.02) brightness(.98);
-      transform: none; /* REMOVE extra zoom so you can see more of the image */
+      transform: scale(1.02);
     }
     .band .wash{
       position:absolute; inset:0;
@@ -397,30 +396,40 @@
       color: rgba(11,18,32,.88);
     }
 
-    /* Foundations: better framing (words up top + more people) + easier-to-read font */
-    .band.foundations .img{
-      background-position: center 12%; /* shift upward to show top text */
-      filter: grayscale(0) contrast(1.10) brightness(.98);
+    /* === MURAL SYSTEM (ONLY CHANGE AREA) === */
+    .mural{
+      border-radius: calc(var(--radius) + 8px);
+      overflow:hidden;
+      border: 1px solid rgba(15,23,42,.14);
+      box-shadow: var(--shadow2);
+      background: #fff;
     }
-    .band.foundations .wash{
+    .mural img{
+      display:block;
+      width:100%;
+      height:auto;            /* preserves brilliance; no object-fit tricks */
+    }
+
+    /* Foundations section elegant muted background (standalone; no mural inside) */
+    .foundations-bg{
+      border-radius: calc(var(--radius) + 8px);
+      overflow:hidden;
+      border: 1px solid rgba(15,23,42,.14);
+      box-shadow: var(--shadow);
       background:
-        linear-gradient(180deg, rgba(247,247,243,.56) 0%, rgba(247,247,243,.46) 54%, rgba(247,247,243,.60) 100%),
-        radial-gradient(900px 420px at 20% 40%, rgba(226,197,122,.08), transparent 62%);
+        radial-gradient(900px 420px at 18% 18%, rgba(226,197,122,.18), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,250,.92) 0%, rgba(247,242,232,.92) 100%);
     }
-    .band.foundations .overlay{
-      background: rgba(247,247,243,.86);
-      border: 1px solid rgba(15,23,42,.16);
-      border-radius: var(--radius);
-      box-shadow: 0 10px 28px rgba(2,6,23,.12);
-      backdrop-filter: blur(8px);
+    .foundations-bg .inner{
+      padding: clamp(18px, 3.2vw, 28px);
     }
-    /* Our Foundations: readability improvement (no content changes) */
-    .band.foundations .overlay p{
+    .foundations-bg p{
       font-size: clamp(16px, 1.35vw, 18px);
       line-height: 1.75;
       font-weight: 600;
       color: rgba(11,18,32,.90);
     }
+    /* === END MURAL SYSTEM === */
 
     /* Two-up cards */
     .grid2{
@@ -501,7 +510,7 @@
       position:absolute; inset:0;
       background-size: cover;
       background-position: center;
-      filter: contrast(1.03) brightness(1.06) saturate(1.02); /* lift exposure so it isn't "ridiculously dark" */
+      filter: contrast(1.03) brightness(1.06) saturate(1.02);
       transform: none;
     }
     .pivot .wash{
@@ -544,14 +553,12 @@
       background-position: center;
     }
     .band.watch .wash{
-      /* stronger dark wash to prevent white-on-tan conflict */
       background:
         linear-gradient(90deg, rgba(15,23,42,.78) 0%, rgba(15,23,42,.62) 58%, rgba(15,23,42,.46) 100%),
         radial-gradient(900px 420px at 22% 35%, rgba(226,197,122,.12), transparent 62%);
       mix-blend-mode: normal;
     }
     .band.watch .overlay{
-      /* subtle “panel” feel without changing the text */
       background: rgba(15,23,42,.42);
       border: 1px solid rgba(255,255,255,.12);
       border-radius: var(--radius);
@@ -564,7 +571,7 @@
       text-shadow: 0 14px 34px rgba(0,0,0,.45);
     }
     .band.watch .eyebrow{
-      color: rgba(255,255,255,.88); /* label stays ceremonial */
+      color: rgba(255,255,255,.88);
     }
 
     /* Prayer Watch callout box */
@@ -679,7 +686,6 @@
                 </a>
               </div>
 
-              <!-- Down arrow instead of Continue -->
               <div class="down dark">
                 <a href="#what" aria-label="Scroll to What is Prayer Force USA">↓</a>
               </div>
@@ -709,32 +715,26 @@
           <p>Identity first: All who participate belong to Prayer Force USA. Standing in the Gap and The Prayer Watch are two expressions of the same shared mission.</p>
 
           <div class="down">
-            <a href="#foundations" aria-label="Scroll to Our Foundations">↓</a>
+            <a href="#mural" aria-label="Scroll to Pilgrims mural">↓</a>
           </div>
         </div>
       </section>
 
       <hr class="divider" />
 
-      <!-- Image-only band BEFORE Our Foundations (as requested earlier) -->
-      <section aria-label="Foundations Image Lead-in">
-        <div class="band foundations" role="img" aria-label="Pilgrims Arrive">
-          <div class="img" style="background-image:url('assets/pilgrims_arrive.png')"></div>
-          <div class="wash"></div>
-          <div class="overlay" style="background: rgba(247,247,243,.00); border: none; box-shadow: none; backdrop-filter:none; padding: 0;">
-            <!-- intentionally empty: image-only -->
-          </div>
+      <!-- Standalone Mural (image-only; vivid; no overlays) -->
+      <section id="mural" aria-label="Pilgrims Mural">
+        <div class="mural" role="img" aria-label="Pilgrims arrive mural">
+          <img src="assets/pilgrims_arrive.png" alt="Pilgrims arrive" />
         </div>
       </section>
 
       <hr class="divider" />
 
-      <!-- Our Foundations -->
+      <!-- Our Foundations (NO mural inside; elegant muted background; text remains) -->
       <section id="foundations">
-        <div class="band foundations" role="region" aria-label="Our Foundations">
-          <div class="img" style="background-image:url('assets/pilgrims_arrive.png')"></div>
-          <div class="wash"></div>
-          <div class="overlay">
+        <div class="foundations-bg" role="region" aria-label="Our Foundations">
+          <div class="inner">
             <div class="eyebrow"><span class="dot"></span>Our Foundations</div>
             <h2>Rooted in history; faithful in practice</h2>
 
@@ -851,7 +851,7 @@
       <hr class="divider" />
 
       <!-- The Prayer Watch -->
-      <section id="watch">
+      <section id="watch" class="watch-light">
         <div class="band watch" role="region" aria-label="The Prayer Watch">
           <div class="img" style="background-image:url('assets/Signing-the-declaration-of-independenc-john-trumbull.jpg')"></div>
           <div class="wash"></div>
