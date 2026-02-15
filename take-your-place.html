@@ -225,7 +225,10 @@
         </div>
 
         <!-- Hidden path tag -->
-        <input type="hidden" name="tags" id="mc-path-tag" value="">
+<input type="hidden" name="tags[]" id="tag-sitgap" value="">
+<input type="hidden" name="tags[]" id="tag-watch" value="">
+<input type="hidden" name="tags[]" id="tag-both" value="">
+
 
         <div class="clear">
           <input type="submit"
@@ -257,17 +260,25 @@
   document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search);
     const path = params.get("path");
-    const tagField = document.getElementById("mc-path-tag");
+ const sitgap = document.getElementById("tag-sitgap");
+const watch  = document.getElementById("tag-watch");
+const both   = document.getElementById("tag-both");
 
-    if (!tagField) return;
+if (!sitgap || !watch || !both) return;
 
-    if (path === "sitgap") {
-      tagField.value = "SITGAP";
-    } else if (path === "watch") {
-      tagField.value = "PRAYER_WATCH";
-    } else if (path === "both") {
-      tagField.value = "BOTH";
-    }
+// clear all
+sitgap.value = "";
+watch.value  = "";
+both.value   = "";
+
+if (path === "sitgap") {
+  sitgap.value = "SITGAP";
+} else if (path === "watch") {
+  watch.value = "PRAYER_WATCH";
+} else if (path === "both") {
+  both.value = "BOTH";
+}
+
   });
 </script>
 </body>
