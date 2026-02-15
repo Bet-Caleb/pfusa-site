@@ -409,6 +409,16 @@
       width:100%;
       height:auto;            /* preserves brilliance; no object-fit tricks */
     }
+@media (max-width:768px){
+  .mural{
+    height:420px;   /* keeps container height same as desktop */
+  }
+  .mural img{
+    height:100%;
+    object-fit:cover;
+    object-position:center 65%;
+  }
+}
 
     /* Foundations section elegant muted background (standalone; no mural inside) */
     .foundations-bg{
