@@ -225,9 +225,7 @@
         </div>
 
         <!-- Hidden path tag -->
-<input type="hidden" name="tags[]" id="tag-sitgap" value="">
-<input type="hidden" name="tags[]" id="tag-watch" value="">
-<input type="hidden" name="tags[]" id="tag-both" value="">
+<input type="hidden" name="MMERGE8" id="prayer-path-field" value="">
 
 
         <div class="clear">
@@ -260,24 +258,19 @@
   document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search);
     const path = params.get("path");
- const sitgap = document.getElementById("tag-sitgap");
-const watch  = document.getElementById("tag-watch");
-const both   = document.getElementById("tag-both");
+ const pathField = document.getElementById("prayer-path-field");
+if (!pathField) return;
 
-if (!sitgap || !watch || !both) return;
-
-// clear all
-sitgap.value = "";
-watch.value  = "";
-both.value   = "";
+pathField.value = "";
 
 if (path === "sitgap") {
-  sitgap.value = "SITGAP";
+  pathField.value = "Standing in the Gap";
 } else if (path === "watch") {
-  watch.value = "PRAYER_WATCH";
+  pathField.value = "The Prayer Watch";
 } else if (path === "both") {
-  both.value = "BOTH";
+  pathField.value = "Both";
 }
+
 
   });
 </script>
