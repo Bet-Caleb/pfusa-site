@@ -638,6 +638,35 @@
       nav{ justify-content:flex-start; }
       .brand{ min-width: unset; }
     }
+
+    /* mobile banner height fix (prevents nav wrapping) */
+    @media (max-width: 600px){
+      .banner .inner{
+        padding: 8px var(--pad);
+        gap: 10px;
+      }
+      .brand img{
+        width:30px; height:30px;
+      }
+      nav{
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 8px;
+        width: 100%;
+      }
+      nav a{
+        white-space: nowrap;
+        font-size: 13px;
+        padding: 6px 8px;
+      }
+      nav{
+        scrollbar-width: none; /* Firefox */
+      }
+      nav::-webkit-scrollbar{
+        display:none; /* Chrome/Safari */
+      }
+    }
   </style>
  <link rel="icon" type="image/png" href="/favicon.png">
 
