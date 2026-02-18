@@ -712,7 +712,14 @@ nav details.nav-more .menu a:hover{
 
     /* mobile banner height fix (prevents nav wrapping) */
     @media (max-width: 600px){
-      
+      /* Mobile: keep More dropdown fully on-screen */
+nav details.nav-more .menu{
+  right: auto;
+  left: 0;
+  min-width: 0;
+  width: min(92vw, 340px);
+}
+
       overflow-y: visible;
       .banner .inner{
         padding: 8px var(--pad);
