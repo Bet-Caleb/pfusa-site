@@ -336,6 +336,17 @@ nav details.nav-more .menu a:hover{
       background: rgba(255,255,255,.14);
       transform: translateY(2px);
     }
+/* Mural down arrow positioning */
+.mural{
+  position: relative;
+}
+
+.mural-down{
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
     /* Hero */
     .hero{
@@ -645,15 +656,15 @@ nav details.nav-more .menu a:hover{
       border-radius: var(--radius);
       backdrop-filter: blur(8px);
     }
-    .band.watch .overlay h2,
-    .band.watch .overlay p,
-    .band.watch .overlay li{
-      color: rgba(255,255,255,.95);
-      text-shadow: 0 14px 34px rgba(0,0,0,.45);
-    }
-    .band.watch .eyebrow{
-      color: rgba(255,255,255,.88);
-    }
+ .band.watch .overlay h2,
+.band.watch .overlay h3,
+.band.watch .overlay p,
+.band.watch .overlay li,
+.band.watch .overlay blockquote{
+  color: rgba(255,255,255,.95);
+  text-shadow: 0 14px 34px rgba(0,0,0,.45);
+}
+
 
     /* Prayer Watch callout box */
     .callout{
@@ -807,18 +818,17 @@ overflow-x: visible;
                 faithful in our generation, and watchful for those to come.
               </p>
 
-              <div class="btns">
-                <a class="btn primary" href="#choose">
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M12 2l8 4v6c0 5-3.6 9.6-8 10-4.4-.4-8-5-8-10V6l8-4z" fill="rgba(15,23,42,.95)"/>
-                  </svg>
-                  Take Your Place
-                </a>
-              </div>
+ <div class="btns">
+  <a class="btn primary" href="#what">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 2l8 4v6c0 5-3.6 9.6-8 10-4.4-.4-8-5-8-10V6l8-4z" fill="rgba(15,23,42,.95)"/>
+    </svg>
+    Learn More
+  </a>
+</div>
 
-              <div class="down dark">
-                <a href="#what" aria-label="Scroll to What is Prayer Force USA">↓</a>
-              </div>
+
+              
             </div>
 
             <div class="right">
@@ -853,10 +863,18 @@ overflow-x: visible;
       <hr class="divider" />
 
       <!-- Standalone Mural (image-only; vivid; no overlays) -->
-      <section id="mural" aria-label="Pilgrims Mural">
-        <div class="mural" role="img" aria-label="Pilgrims arrive mural">
-          <img src="assets/pilgrims_arrive.png" alt="Pilgrims arrive" />
-        </div>
+     <section id="mural" aria-label="Pilgrims Mural">
+  <div class="mural" role="img" aria-label="Pilgrims arrive mural">
+    <img src="assets/pilgrims_arrive.png" alt="Pilgrims arrive" />
+
+    <div class="down mural-down">
+      <a href="#foundations" aria-label="Scroll to Our Foundations">↓</a>
+    </div>
+
+  </div>
+</section>
+
+
       </section>
 
       <hr class="divider" />
@@ -1000,30 +1018,56 @@ overflow-x: visible;
               </div>
             </div>
 
-            <p style="margin-top:12px;">
-              The Prayer Watch is Prayer Force USA’s weekly rhythm of united prayer—Scripture-centered sessions built around enduring themes such as leadership, families, justice, mercy, and national renewal.
-              This expression is designed for broad participation and steady consistency.
-            </p>
+    <p style="margin-top:12px;">
+  The Prayer Watch is a weekly call to stand watch in prayer for our nation. Rooted in Scripture and united in purpose, we gather around enduring themes — leadership, families, justice, mercy, and renewal.
+</p>
 
-            <div class="mini" style="margin-top:12px; background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.16); color: rgba(255,255,255,.94);">
-              <p style="margin:0 0 8px; color: rgba(255,255,255,.95); font-weight:900;">The Ask:</p>
-              <p style="margin:0 0 12px; color: rgba(255,255,255,.94);">
-                “The Ask: What if one million Americans dedicated one hour a week to praying for our country and our people?”
-              </p>
+<p>
+  As America approaches 250 years of freedom, we join the national call reflected in the America Prays initiative — not as spectators, but as participants.
+</p>
 
-              <p style="margin:0 0 8px; color: rgba(255,255,255,.95); font-weight:900;">The Invitation:</p>
-              <p style="margin:0 0 12px; color: rgba(255,255,255,.94);">
-                “The Invitation: Will you join with at least 10 people to meet each week for one hour to pray for America?”
-              </p>
+<h3 style="margin-top:18px;">The Question Before Us</h3>
+<p>
+  What could unfold if one million Americans set aside one hour each week to pray faithfully for our country and its people?
+</p>
 
-              <p style="margin:0 0 8px; color: rgba(255,255,255,.95); font-weight:900;">The Opportunity:</p>
-              <p style="margin:0 0 12px; color: rgba(255,255,255,.94);">
-                “The Opportunity: As we celebrate 250 years of freedom, this is an opportunity to rededicate ourselves to the principles that gave birth to this land of liberty. As George Washington famously said in his Farewell Address, ‘Of all the dispositions and habits which lead to political prosperity, religion and morality are indispensable supports. In vain would that man claim the tribute of patriotism who should labor to subvert these great pillars of human happiness, these firmest props of the duties of men and citizens.’”
-              </p>
+<h3 style="margin-top:18px;">The Invitation</h3>
+<p>
+  Join us each week online — from your home or wherever you are — for one focused hour of united prayer. Together, we will lift the nation before God with clarity and conviction.
+</p>
+<div style="margin:18px 0 18px 28px; padding:8px 12px; display:inline-block; max-width:640px; border-left:4px solid rgba(226,197,122,.85); background: rgba(226,197,122,.08); border-radius:8px;">
+<p style="margin:0 0 4px; font-weight:900; color:#fff;">
+  <span id="pfusaNextGathering"
+        data-weekday="Thursday"
+        data-time="7:00 PM"
+        data-tzlabel="ET"
+        data-suffix="— online"
+        data-override="">
+  </span>
+</p>
 
-              <p style="margin:0; color: rgba(255,255,255,.94);">
-                “This dedicated time of prayer is not only for our nation, but for its people because a nation is only as strong as its citizens.”
-              </p>
+  <p style="margin:0; color:rgba(255,255,255,.92); font-weight:600;">
+    The Prayer Watch gathers weekly at a scheduled time announced in advance.
+  </p>
+</div>
+
+<h3 style="margin-top:18px;">The Hour We Have Been Given</h3>
+<p>
+  This anniversary is more than celebration. It is a moment to rededicate ourselves to the principles that gave birth to this land of liberty.
+</p>
+
+<p>
+  As President George Washington warned in his Farewell Address:
+</p>
+
+<blockquote style="margin:12px 0; padding-left:16px; border-left:3px solid rgba(255,255,255,.35);">
+  “Of all the dispositions and habits which lead to political prosperity, religion and morality are indispensable supports. In vain would that man claim the tribute of patriotism who should labor to subvert these great pillars of human happiness, these firmest props of the duties of men and citizens.”
+</blockquote>
+
+<p>
+  The strength of a nation rests not only in its institutions, but in the character of its people. This hour of prayer is an act of stewardship — for our generation and for those to come.
+</p>
+
             </div>
 
             <div class="down dark">
@@ -1177,6 +1221,58 @@ overflow-x: visible;
       const yyyy = d.getFullYear();
       el.textContent = dd + " " + mmm + " " + yyyy;
     })();
+   // Auto-fill "Next gathering" (ET) with manual override option
+  (function(){
+    const el = document.getElementById("pfusaNextGathering");
+    if(!el) return;
+
+    const override = (el.getAttribute("data-override") || "").trim();
+    if(override){
+      el.textContent = override;
+      return;
+    }
+
+    const weekdayTarget = (el.getAttribute("data-weekday") || "Thursday").trim();
+    const timeText = (el.getAttribute("data-time") || "7:00 PM").trim();
+    const tzLabel = (el.getAttribute("data-tzlabel") || "ET").trim();
+    const suffix = (el.getAttribute("data-suffix") || "— online").trim();
+
+    const tz = "America/New_York";
+    const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    const weekdayIndex = { Sunday:0, Monday:1, Tuesday:2, Wednesday:3, Thursday:4, Friday:5, Saturday:6 };
+
+    // Get "today" as a date in ET (parts)
+    const now = new Date();
+    const parts = new Intl.DateTimeFormat("en-US", { timeZone: tz, year:"numeric", month:"numeric", day:"numeric", weekday:"long" })
+      .formatToParts(now)
+      .reduce((acc,p)=>{ acc[p.type]=p.value; return acc; }, {});
+    const y = Number(parts.year);
+    const m = Number(parts.month); // 1-12
+    const d = Number(parts.day);
+    const todayW = parts.weekday;
+
+    const targetIdx = weekdayIndex[weekdayTarget];
+    const todayIdx = weekdayIndex[todayW];
+
+    // Days until next target weekday (including today if same day)
+    let delta = (targetIdx - todayIdx + 7) % 7;
+    // If it's the target day, we still want "next gathering" to be today (good for the day-of)
+    // If you prefer always future, change the next line to: if(delta === 0) delta = 7;
+
+    // Create a "safe" anchor date at noon UTC for the ET date, then add delta days
+    const anchorUTC = new Date(Date.UTC(y, m - 1, d, 12, 0, 0));
+    const nextUTC = new Date(anchorUTC.getTime() + delta * 86400000);
+
+    // Format next date in ET
+    const nextParts = new Intl.DateTimeFormat("en-US", { timeZone: tz, year:"numeric", month:"numeric", day:"numeric", weekday:"long" })
+      .formatToParts(nextUTC)
+      .reduce((acc,p)=>{ acc[p.type]=p.value; return acc; }, {});
+    const nextWeekday = nextParts.weekday;
+    const nextMonthName = months[Number(nextParts.month) - 1];
+    const nextDayNum = Number(nextParts.day);
+
+    el.textContent = `Next gathering: ${nextWeekday}, ${nextDayNum} ${nextMonthName} at ${timeText} (${tzLabel}) ${suffix}`;
+  })();
   </script>
 </body>
 </html>
