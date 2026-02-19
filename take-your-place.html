@@ -165,15 +165,7 @@
     }
   </style>
   <link rel="icon" type="image/png" href="/favicon.png">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4PXCWLMJFC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-4PXCWLMJFC');
-</script>
 </head>
 
 <body>
@@ -282,6 +274,21 @@ if (path === "sitgap") {
 }
 
 
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var form = document.getElementById("mc-embedded-subscribe-form");
+    if (!form) return;
+
+    form.addEventListener("submit", function () {
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "sign_up", {
+          method: "Mailchimp",
+          page: "take-your-place"
+        });
+      }
+    });
   });
 </script>
 </body>
