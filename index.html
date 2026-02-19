@@ -1161,7 +1161,14 @@ overflow-x: visible;
             </div>
           </div>
 
-          <div class="btns" style="margin-top:16px;">
+          <div style="margin-top:16px;">
+            <label style="display:inline-flex; align-items:center; gap:10px; font-weight:900; color: rgba(15,23,42,.92); cursor:pointer;">
+              <input id="choosePathToggle" type="checkbox" />
+              Choose Your Path.
+            </label>
+          </div>
+
+          <div id="choosePathOptions" class="btns" style="margin-top:16px; display:none;">
 <a class="btn primary" href="take-your-place.html?path=sitgap">Join Standing in the Gap</a>
 <a class="btn primary" href="take-your-place.html?path=watch">Join The Prayer Watch</a>
 <a class="btn primary" href="take-your-place.html?path=both">Join Both</a>
@@ -1202,7 +1209,6 @@ overflow-x: visible;
           <div class="btns">
             <a class="btn small" href="#top">Back to top ↑</a>
             <a class="btn small" href="#faq">Support</a>
-            <a class="btn small primary" href="take-your-place.html">Take Your Place</a>
           </div>
         </div>
       </section>
@@ -1282,6 +1288,20 @@ overflow-x: visible;
     const nextDayNum = Number(nextParts.day);
 
     el.textContent = `Next gathering: ${nextWeekday}, ${nextDayNum} ${nextMonthName} at ${timeText} (${tzLabel}) ${suffix}`;
+  })();
+
+  // Reveal path options only after "Choose Your Path." is checked
+  (function(){
+    const toggle = document.getElementById("choosePathToggle");
+    const options = document.getElementById("choosePathOptions");
+    if(!toggle || !options) return;
+
+    const sync = () => {
+      options.style.display = toggle.checked ? "flex" : "none";
+    };
+
+    toggle.addEventListener("change", sync);
+    sync();
   })();
   </script>
 </body>
