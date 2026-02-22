@@ -1161,7 +1161,7 @@ overflow-x: visible;
           <div style="margin-top:16px;">
             <label style="display:inline-flex; align-items:center; gap:10px; font-weight:900; color: rgba(15,23,42,.92); cursor:pointer;">
               <input id="choosePathToggle" type="checkbox" />
-              Choose Your Path.
+              Choose Your Branch.
             </label>
           </div>
 
@@ -1379,7 +1379,7 @@ overflow-x: visible;
     el.textContent = `Next gathering: ${nextWeekday}, ${nextDayNum} ${nextMonthName} at ${timeText} (${tzLabel}) ${suffix}`;
   })();
 
-  // Reveal path options only after "Choose Your Path." is checked
+  // Reveal path options only after "Choose Your Branch." is checked
   (function(){
     const toggle = document.getElementById("choosePathToggle");
     const options = document.getElementById("choosePathOptions");
