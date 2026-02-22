@@ -202,7 +202,7 @@
           novalidate>
 
       <div id="mc_embed_signup_scroll">
-
+<input type="hidden" name="redirect" id="mc-redirect" value="" />
         <div class="mc-field-group">
           <label for="mce-FNAME">First Name</label>
           <input type="text" name="FNAME" id="mce-FNAME" />
@@ -280,7 +280,10 @@ if (path === "sitgap") {
   document.addEventListener("DOMContentLoaded", function () {
     var form = document.getElementById("mc-embedded-subscribe-form");
     if (!form) return;
-
+var redirectField = document.getElementById("mc-redirect");
+if (redirectField) {
+  redirectField.value = window.location.origin + "/thank-you/";
+}
     form.addEventListener("submit", function () {
       if (typeof window.gtag === "function") {
         window.gtag("event", "sign_up", {
