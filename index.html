@@ -777,8 +777,16 @@ overflow-x: visible;
         display:none; /* Chrome/Safari */
       }
     }
-  </style>
- <link rel="icon" type="image/png" href="/favicon.png">
+ /* Mobile safety for declaration layout */
+@media (max-width: 640px) {
+  #declaration .card div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+}
+
+ </style>
+   <link rel="icon" type="image/png" href="/favicon.png">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PXCWLMJFC"></script>
@@ -1145,6 +1153,49 @@ overflow-x: visible;
 
       <hr class="divider" />
 
+<hr class="divider" />
+
+<!-- Declaration (Summary) -->
+<section id="declaration">
+  <div class="card pad" style="max-width: 760px; margin: 0 auto; background: rgba(0,0,0,0.03);">
+    <div class="eyebrow"><span class="dot"></span>The Prayer Force</div>
+
+    <div style="display:grid; gap:14px; margin-top:14px;">
+      <div style="display:grid; grid-template-columns: 12rem 1fr; gap:16px; align-items:baseline;">
+        <div style="font-weight:900; letter-spacing:.08em; opacity:.75; font-size:.85rem;">WHO WE ARE</div>
+        <div>Together we stand in the gap before God through our Lord Jesus Christ in prayer for our nation.</div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 12rem 1fr; gap:16px; align-items:baseline;">
+        <div style="font-weight:900; letter-spacing:.08em; opacity:.75; font-size:.85rem;">HOW WE APPROACH</div>
+        <div>We approach God with humility, repentance, dependence, and joy.</div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 12rem 1fr; gap:16px; align-items:baseline;">
+        <div style="font-weight:900; letter-spacing:.08em; opacity:.75; font-size:.85rem;">WHAT WE SEEK</div>
+        <div>We seek the mercy and grace of God and the turning of hearts to Him.</div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 12rem 1fr; gap:16px; align-items:baseline;">
+        <div style="font-weight:900; letter-spacing:.08em; opacity:.75; font-size:.85rem;">WHEN WE PRAY</div>
+        <div>We join regularly for <em>Standing in the Gap</em> and gather weekly for <em>Prayer Watch</em>.</div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 12rem 1fr; gap:16px; align-items:baseline;">
+        <div style="font-weight:900; letter-spacing:.08em; opacity:.75; font-size:.85rem;">WHERE WE GATHER</div>
+        <div>We gather together online through Prayer Force USA.</div>
+      </div>
+    </div>
+
+    <p style="text-align:center; margin:18px 0 0 0;">
+      <em>If this is your heart also, you are welcome here.</em>
+    </p>
+  </div>
+</section>
+
+<!-- Safe anchor: scroll target for “Join” without touching the checkbox/form logic -->
+<div id="join"></div>
+
       <!-- Take Your Place -->
       <section id="choose">
         <div class="card pad">
@@ -1175,8 +1226,10 @@ overflow-x: visible;
               </p>
             </div>
           </div>
-
-          <div style="margin-top:16px;">
+<p style="margin:6px 0; opacity:.85;">
+When you're ready, select how you'd like to participate.
+</p>
+          <div style="margin-top:4px;">
             <label style="display:inline-flex; align-items:center; gap:10px; font-weight:900; color: rgba(15,23,42,.92); cursor:pointer;">
               <input id="choosePathToggle" type="checkbox" />
               Choose Your Branch.
@@ -1188,7 +1241,9 @@ overflow-x: visible;
 <a class="btn primary" href="take-your-place.html?path=watch">Join The Prayer Watch</a>
 <a class="btn primary" href="take-your-place.html?path=both">Join Both</a>
           </div>
-
+<p style="margin-top:12px;">
+You’ll receive a welcome email with session links and next steps.
+</p>
           <div class="down">
             <a href="#faq" aria-label="Scroll to Support">↓</a>
           </div>
