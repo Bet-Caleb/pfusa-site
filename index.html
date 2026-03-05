@@ -437,6 +437,24 @@ nav details.nav-more .menu a:hover{
       letter-spacing:.2px;
       line-height:1.25;
     }
+.hero-microlinks{
+  margin-top: 10px;
+}
+
+.micro-link{
+  display:inline-block;
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+  color: var(--gold2);
+  opacity:.95;
+}
+
+.micro-link:hover{
+  text-decoration:underline;
+  color: var(--gold);
+}
+
 
     /* Photo band */
     .band{
@@ -787,8 +805,8 @@ overflow-x: visible;
 
      <nav aria-label="Primary">
   <a href="#home">Home</a>
-  <a href="#faq">FAQ</a>
-  <a href="#contact">Contact</a>
+<a href="our-posture.html" target="_blank" rel="noopener">Prayer Posture</a>
+</a>  <a href="#contact">Contact</a>
 
   <details class="nav-more">
     <summary aria-label="Open more navigation links">More</summary>
@@ -836,9 +854,12 @@ overflow-x: visible;
     Learn More
   </a>
 </div>
-
-
-              
+<div class="hero-microlinks">
+  <a class="micro-link" href="our-posture.html" target="_blank" rel="noopener">
+    Prayer Posture: how we approach prayer together
+  </a>
+</div>
+            
             </div>
 
             <div class="right">
@@ -849,11 +870,8 @@ overflow-x: visible;
             </div>
           </div>
         </div>
-      </section>
-
-      <hr class="divider" />
-
-      <!-- What is -->
+     
+        <!-- What is -->
       <section id="what">
         <div class="card pad">
           <div class="eyebrow"><span class="dot"></span>What is Prayer Force USA?</div>

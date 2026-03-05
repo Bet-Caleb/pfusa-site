@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Posture in Prayer | Prayer Force USA</title>
+
+  <style>
+    :root{
+      /* Civilian-forward with military accent */
+      --bg0: #0f172a;        /* deep navy */
+      --bg1: #111c33;        /* navy mid */
+      --paper: #f7f7f3;      /* offwhite */
+      --ink: #0b1220;        /* near-black */
+      --muted: rgba(15,23,42,.72);
+      --card: rgba(255,255,255,.78);
+      --card2: rgba(255,255,255,.64);
+      --line: rgba(15,23,42,.10);
+      --shadow: 0 10px 30px rgba(2,6,23,.10);
+      --shadow2: 0 18px 60px rgba(2,6,23,.16);
+      --radius: 18px;
+
+      --gold: #c7a24a;
+      --gold2:#e2c57a;
+      --navy: #0f172a;
+
+      --max: 1100px;
+      --pad: clamp(18px, 3.2vw, 28px);
+
+      --h1: clamp(36px, 6vw, 58px);
+      --h2: clamp(22px, 3.2vw, 30px);
+      --h3: clamp(18px, 2.6vw, 22px);
+      --p:  clamp(15px, 1.3vw, 17px);
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      color: var(--ink);
+      font: 400 var(--p)/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1100px 700px at 15% 10%, rgba(226,197,122,.14), transparent 58%),
+        radial-gradient(1000px 700px at 85% 18%, rgba(199,162,74,.10), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(247,247,243,1) 30%, rgba(247,247,243,1) 100%);
+      overflow-x:hidden;
+    }
+
+    /* subtle texture overlay */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.07; /* reduced to prevent "words on words" in sections */
+      background-image: url("assets/Mayflower%20Compact%20depiction.jpg");
+      background-size: 420px;
+      background-repeat: repeat;
+      filter: grayscale(1) contrast(0.85) brightness(1.25);
+      mix-blend-mode: multiply;
+      z-index:0;
+    }
+
+    a{ color:inherit; }
+    .wrap{ position:relative; z-index:1; }
+
+    /* Banner (eye-catching but not distracting: A + B) */
+    .banner{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+
+      background:
+        linear-gradient(90deg, rgba(15,23,42,.96), rgba(15,23,42,.88)),
+        radial-gradient(900px 400px at 20% 30%, rgba(199,162,74,.22), transparent 60%),
+        radial-gradient(900px 400px at 80% 30%, rgba(226,197,122,.14), transparent 62%);
+      color: rgba(255,255,255,.92);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+
+      /* B: a touch more depth */
+      box-shadow: 0 10px 30px rgba(2,6,23,.22);
+    }
+    /* A: thin gold bottom bar */
+    .banner::after{
+      content:"";
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(226,197,122,.95), rgba(199,162,74,.95), transparent);
+      opacity: .9;
+      pointer-events:none;
+    }
+
+    .banner .inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 10px var(--pad);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 240px;
+    }
+    .brand img{
+      width:36px; height:36px; object-fit:contain;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.25));
+    }
+    .brand strong{
+      letter-spacing:.3px;
+      font-weight:800;
+    }
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px 16px;
+      justify-content:flex-end;
+      align-items:center;
+    }
+    nav a{
+      text-decoration:none;
+      color: rgba(255,255,255,.86);
+      font-weight:700;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    nav a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.20);
+    }
+
+    /* Layout rhythm */
+    main{ max-width: var(--max); margin: 0 auto; padding: 0 var(--pad) 34px; }
+    section{ padding: clamp(26px, 4.2vw, 44px) 0; }
+
+    /* Cards */
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card.pad{ padding: clamp(18px, 2.8vw, 26px); }
+
+    .eyebrow{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color: rgba(15,23,42,.70);
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size: 12px;
+      margin: 0 0 12px;
+    }
+    .eyebrow .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: linear-gradient(180deg, var(--gold2), var(--gold));
+      box-shadow: 0 6px 20px rgba(199,162,74,.25);
+    }
+
+    h1{ font-size: var(--h1); line-height:1.06; margin: 10px 0 10px; letter-spacing:-.02em; }
+    h2{ font-size: var(--h2); margin: 18px 0 10px; letter-spacing:-.01em; }
+    p{ margin: 0 0 12px; color: rgba(11,18,32,.86); }
+
+    /* === OUR-POSTURE CONTENT SPACING FIXES === */
+    .posture ol{ padding-left: 22px; margin: 12px 0 0; }
+    .posture ol > li{ margin: 0 0 18px; }
+    .posture ol > li p{ margin: 0 0 14px; }
+    .posture ol > li p:last-child{ margin-bottom: 0; }
+
+    /* Posture page intro */
+    .posture-preface{
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 6px;
+  margin-bottom: 18px;
+}
+.posture-divider{
+  height:1px;
+  background: var(--line);
+  margin: 22px 0 28px;
+}
+    /* Footer */
+    footer{
+      margin-top: 26px;
+      padding: 22px var(--pad) 30px;
+      border-top: 1px solid rgba(15,23,42,.12);
+      background:
+        linear-gradient(180deg, rgba(247,247,243,.70), rgba(247,247,243,.92)),
+        radial-gradient(900px 500px at 25% 10%, rgba(226,197,122,.10), transparent 62%);
+    }
+    footer .inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px 16px;
+      color: rgba(15,23,42,.78);
+      font-weight:800;
+    }
+    footer .links{
+      display:flex; flex-wrap:wrap; gap:10px;
+      align-items:center;
+    }
+    footer .links{
+  display:flex; flex-wrap:wrap; gap:10px;
+  align-items:center;
+}
+
+/* Footer text-style links (clean + intentional) */
+footer .text-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+}
+
+footer .text-links a{
+  text-decoration:none;
+  font-weight:700;
+  padding:0;
+  border:none;
+  background:none;
+}
+
+footer .text-links a:hover{
+  text-decoration:underline;
+}
+
+footer .muted-link{
+  opacity:.7;
+  cursor:default;
+}
+
+footer .sep{
+  opacity:.45;
+}
+ /* Footer text-style links (override pill buttons) */
+footer .links.text-links a{
+  text-decoration:none;
+  font-weight:700;
+  padding:0;
+  border:none;
+  background:none;
+  border-radius:0;
+  display:inline;
+  box-shadow:none;
+}
+
+footer .links.text-links a:hover{
+  text-decoration:underline;
+}
+
+footer .links.text-links .muted-link{
+  opacity:.7;
+  cursor:default;
+}
+
+footer .links.text-links .sep{
+  opacity:.45;
+}   
+    footer .links a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.70);
+    }
+    /* Non-clickable but visible */
+    footer .links .ghostlink{
+      cursor: default;
+      user-select: none;
+      opacity: .95;
+    }
+
+    /* --- Bullet correction (kept inside style where it works) --- */
+    header ul, header li,
+    nav ul, nav li,
+    footer ul, footer li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" id="top">
+    <div class="banner">
+      <div class="inner">
+        <div class="brand">
+          <img src="assets/logo.png" alt="Prayer Force USA logo" onerror="this.style.display='none'">
+          <strong><a href="index.html" style="color:inherit; text-decoration:none;">Prayer Force USA</a></strong>
+        </div>
+
+        <nav aria-label="Primary">
+          <a href="index.html">Home</a>
+        </nav>
+      </div>
+    </div>
+
+    <main>
+      <section class="posture">
+        <div class="card pad">
+          <div class="eyebrow"><span class="dot"></span>Our Posture in Prayer</div>
+          <h1>Our Posture in Prayer</h1>
+<p class="posture-preface">
+This brief statement explains the spirit in which we pray together.
+</p>
+<div class="posture-divider"></div>
+          <h2>We Pray Honestly</h2>
+          <p>
+            My style of talking with the Lord is fairly raw. I tell Him what's on my heart&mdash;even when it's not pretty. He knows anyway.
+            What good would it do for me to pretend before the God Who is a discerner of the thoughts and intents of the heart?
+          </p>
+
+          <h2>We Extend Grace in Disagreement</h2>
+          <p>
+            I mention it because there will inevitably be times when you and I will disagree with the direction I take our prayer.
+            In those moments, since we both know Jesus and want to do according to His will, let us agree to these things:
+          </p>
+
+          <ol>
+            <li>
+              <p>
+                We are but flesh. I could be wrong. You could be wrong. We both could be wrong. On some level and in some way, we both could be right.
+                Let's agree to extend each other grace.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                We cling to Jesus' sacrifice on the cross as payment for our sins. Because of His sacrifice we have been adopted into God's family, even engrafted.
+                That makes us siblings. Siblings disagree sometimes. They still love each other. Let's remember who we are and Whose we are.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                The old saying goes, "Prayer changes things." I would frame it this way:<br>
+                It is our Father Who changes things in response to the faith-filled prayers of His children.
+              </p>
+
+              <p>
+                However, He doesn't always answer prayers in the way that I, or you, may want. He is sovereign, and He is infinitely wise and infinitely good.
+                You may pray in one direction. I may pray in the exact opposite direction. The Omniscient One has already decided what He will do--when invited.
+                Behold, He stands at the door and knocks. He needs us to invite Him into our national (and personal) situations. Let's do it.
+              </p>
+
+              <p>
+                And by Prayer Force USA, we will.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="inner">
+        <div>© 2026 Prayer Force USA</div>
+        <div class="links">
+          <span class="ghostlink">Privacy Policy</span>
+          <span class="ghostlink">Terms of Use</span>
+          <a href="mailto:contact@prayerforceusa.net">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
