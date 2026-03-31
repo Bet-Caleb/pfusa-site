@@ -827,6 +827,16 @@
       }
     }
 
+    .mission-list{
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(11,18,32,.86);
+  font-weight: 650;
+}
+
+.mission-list li + li{
+  margin-top: 4px;
+}
     @media (max-width: 640px) {
       #declaration .card div[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
@@ -982,33 +992,32 @@
           <p>Prayer Force USA exists to intercede before God, the Father of our Lord Jesus Christ, for the well-being and longevity of our nation.</p>
 
           <div class="grid2">
-            <div class="mini">
-              <div class="top">
-                <div class="tag">We Are</div>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" fill="rgba(199,162,74,.95)"/>
-                </svg>
-              </div>
-              <ul style="margin:0; padding-left:18px; color: rgba(11,18,32,.86); font-weight:650;">
-                <li>Christ-centered</li>
-                <li>Scripture-anchored</li>
-                <li>Focused on prayer (not arguments)</li>
-                <li>Open to people devoted to Jesus across denominations</li>
-              </ul>
-            </div>
+  <div class="mini">
+    <div class="top">
+      <div class="tag">We Are</div>
+      <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" fill="rgba(199,162,74,.95)"/>
+      </svg>
+    </div>
+<ul class="mission-list">      <li>Christ-centered</li>
+      <li>Scripture-anchored</li>
+      <li>Focused on prayer (not arguments)</li>
+      <li>Open to people devoted to Jesus across denominations</li>
+    </ul>
+  </div>
 
-            <div class="mini">
-              <div class="top">
-                <div class="tag">We Are Not</div>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M6 6l12 12M18 6L6 18" stroke="rgba(15,23,42,.70)" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <ul style="margin:0; padding-left:18px; color: rgba(11,18,32,.86); font-weight:650;">
-                <li>A political party</li>
-                <li>A fundraising scheme</li>
-                <li>An outrage or division movement</li>
-              </ul>
+  <div class="mini">
+    <div class="top">
+      <div class="tag">We Are Not</div>
+      <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" fill="rgba(199,162,74,.95)"/>
+      </svg>
+    </div>
+<ul class="mission-list">      <li>Aligned with any political party</li>
+      <li>Driven by outrage or division</li>
+    </ul>
+  </div>
+</div>
             </div>
           </div>
 
