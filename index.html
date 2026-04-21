@@ -1363,6 +1363,176 @@ linear-gradient(180deg,
   color: rgba(11,18,32,.96);
 }
 
+#branches .card h2 {
+  margin: 0 0 0.9rem;
+  max-width: 28ch;
+}
+
+.pfusa-branch-sub {
+  margin-top: 0.45rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(120,92,24,0.92);
+}
+
+#branches .pathways-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 1rem;
+  align-items: stretch;
+}
+
+#branches .pathway-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+  border-radius: calc(var(--radius) + 8px);
+  border: 1px solid rgba(15,23,42,.14);
+  box-shadow: var(--shadow);
+  background: transparent;
+}
+
+#branches .pathway-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+}
+
+#branches .pathway-wash {
+  position: absolute;
+  inset: 0;
+}
+
+#branches .pathway-content {
+  position: relative;
+  z-index: 2;
+  padding: 34px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  color: rgba(11,18,32,.94);
+}
+
+.pfusa-branch-sub {
+  margin-top: 0.2rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(226,197,122,0.85);
+}
+
+#branches .pathway-content p {
+  margin-top: 0.55rem;
+  font-size: 1.08rem;
+  line-height: 1.62;
+  font-weight: 500;
+  color: rgba(11,18,32,.92);
+}
+
+#branches .pathway-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #a47c1b, #e2c57a);
+  z-index: 3;
+}
+
+#branches .pathway-card-sitgap {
+  border: 1.6px solid rgba(15,23,42,.28);
+  box-shadow:
+    0 10px 26px rgba(2,6,23,.06),
+    inset 0 0 0 1px rgba(255,255,255,.35);
+  background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(247,247,243,.88));
+}
+
+#branches .pathway-card-sitgap .pathway-image {
+  background: none;
+  transform: none;
+  opacity: 0;
+}
+
+#branches .pathway-card-sitgap .pathway-wash {
+  background:
+    linear-gradient(180deg, rgba(247,247,243,.18), rgba(247,247,243,.10)),
+    radial-gradient(700px 320px at 18% 18%, rgba(226,197,122,.10), transparent 60%);
+}
+
+#branches .pathway-card-watch .pathway-image {
+  filter: grayscale(.05) contrast(1.02) brightness(1.08);
+}
+
+#branches .pathway-card-watch .pathway-wash {
+  background:
+    linear-gradient(180deg, rgba(247,247,243,.78), rgba(247,247,243,.88)),
+    radial-gradient(700px 320px at 20% 20%, rgba(226,197,122,.10), transparent 60%);
+}
+
+#branches .tag {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.2;
+  color: #8f6a16;
+}
+
+#branches a {
+  color: #8f6a16;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(143,106,22,0.5);
+}
+
+#branches a:hover {
+  color: #6f5312;
+  border-bottom-color: rgba(143,106,22,0.8);
+}
+
+.pfusa-bridge {
+  margin: 0.45rem auto 1.8rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: #6f5312;
+  max-width: 560px;
+  text-align: center;
+}
+
+.pfusa-bridge::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 2px;
+  margin: 0.6rem auto 0;
+  background: rgba(226,197,122,0.9);
+  border-radius: 2px;
+}
+
+@media (max-width: 900px) {
+  #branches .pathways-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  #branches .pathways-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 900px){
   .pathways-grid{
     grid-template-columns: 1fr;
@@ -1482,6 +1652,17 @@ linear-gradient(180deg,
   line-height: 1.62;
   font-weight: 650;
   color: rgba(15,23,42,.92);
+}
+
+.anchor-strip-city-hill {
+  width: 520px;
+  flex: 0 0 520px;
+}
+
+.anchor-strip-city-hill p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  font-weight: 600;
 }
 
 /* Medium cards */
@@ -1638,11 +1819,23 @@ linear-gradient(180deg,
 
 .take-place-poster-image img {
   position: absolute;
-  left: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5.25%;
+  width: 110%;
+  opacity: 1;
+  filter: none;
+}
+
+.take-place-poster::after {
+  content: "";
+  position: absolute;
   bottom: 0;
-  width: 78%;
-  opacity: 0.9;
-  filter: grayscale(20%);
+  left: 0;
+  width: 100%;
+  height: 40%;
+  
+  z-index: 2;
 }
 
 .take-place-poster-content {
@@ -1651,10 +1844,21 @@ linear-gradient(180deg,
 }
 
 .take-place-kicker {
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
+  margin: 0 0 0.45rem 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.72);
+  color: rgba(26,26,26,0.58);
+}
+
+.take-place-bridge-line {
+  margin: 0 0 0.35rem 0;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: #8f6a16;
 }
 
 .take-place-poster-title {
@@ -1681,20 +1885,31 @@ linear-gradient(180deg,
 }
 
 .take-place-heading {
-  margin: 0.25rem 0 1rem 0;
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  line-height: 1.15;
+  margin: 0 0 0.85rem 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.1rem, 3.6vw, 3rem);
+  line-height: 1.05;
+  font-weight: 700;
   color: #1a1a1a;
-  background: none;
 }
 
 .take-place-intro {
-  margin-bottom: 2rem;
-  color: rgba(26, 26, 26, 0.78);
+  margin: 0 0 1.5rem 0;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(26,26,26,0.82);
+  max-width: 34rem;
 }
 
 .take-place-response-area {
   margin-top: 1.5rem;
+}
+
+#take .card {
+  background: transparent !important;
+  box-shadow: none;
+  border: none;
 }
 
 /* --- chooser styles --- */
@@ -1930,6 +2145,12 @@ linear-gradient(180deg,
   line-height: 1.5;
 }
 
+.pfusa-echo {
+  font-weight: 800;
+  color: rgba(226,197,122,0.95);
+  letter-spacing: 0.02em;
+}
+
 /* =========================
    PFUSA Cinematic Section
    ========================= */
@@ -2098,7 +2319,7 @@ linear-gradient(180deg,
 .pf-hotspots {
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 5;
 }
 
 .pf-hotspot {
@@ -2249,7 +2470,138 @@ linear-gradient(180deg,
   }
 }
 
-  </style>
+#pivot .overlay .lede {
+  margin: 0 0 16px;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.18;
+  max-width: 22ch;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: rgba(255,255,255,0.98);
+/* More space from headline → Call */
+  margin-bottom: 1.2rem;
+}
+
+#pivot .overlay .pfusa-scripture {
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+  background: none;
+  margin-bottom: 0.9rem;
+}
+
+#pivot .overlay .pfusa-scripture p {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(1.02rem, 1.45vw, 1.14rem);
+  line-height: 1.72;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  line-height: 1.62;
+  margin-bottom: 0.4rem;
+}
+
+/* Tighten internal break inside 2 Chronicles */
+#pivot .overlay .pfusa-scripture p br + br {
+  content: "";
+  display: block;
+  margin-top: 0.4rem;
+}
+
+#pivot .overlay .pfusa-scripture footer {
+  display: block;
+  margin-top: 0.65rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(226,197,122,0.96);
+  opacity: 1;
+  border: 0 !important;
+  padding: 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.55);
+}
+
+#pivot .overlay .pfusa-scripture footer {
+  color: #ffffff !important;
+  font-size: 1.08rem !important;
+  font-weight: 800 !important;
+  opacity: 1 !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.65) !important;
+}
+
+#pivot .overlay .pfusa-scripture,
+#pivot .overlay .pfusa-scripture p,
+#pivot .overlay .pfusa-scripture footer {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#pivot .overlay .pfusa-scripture footer {
+  display: block !important;
+  padding: 0 !important;
+}
+
+#pivot .overlay .pfusa-scripture + .pfusa-scripture {
+  margin-top: 1.6rem;
+  padding-left: 16px;
+  border-left: 2px solid rgba(226,197,122,0.65);
+}
+
+#pivot .overlay .pfusa-response-label {
+  margin-top: 1.4rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(226,197,122,0.9);
+}
+
+#pivot .overlay .pfusa-response-line {
+  display: inline-block;
+  font-size: 1.08em;
+  font-weight: 700;
+  color: rgba(255,255,255,0.98);
+  letter-spacing: 0.015em;
+}
+
+/* Echo phrase — just a touch more separation */
+#pivot .overlay .pfusa-echo {
+  letter-spacing: 0.02em;
+}
+
+#pivot .overlay {
+  position: relative;
+  padding-left: 18px;
+}
+
+#pivot .overlay::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(226,197,122,0.95),
+    rgba(199,162,74,0.85)
+  );
+  opacity: 0.9;
+}
+
+#pivot .overlay .lede,
+#pivot .overlay .pfusa-response-line,
+#pivot .overlay .pfusa-scripture p {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+}
+
+ 
+ </style>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PXCWLMJFC"></script>
@@ -2336,7 +2688,7 @@ linear-gradient(180deg,
     </p>
 
     <p class="reveal reveal-4">
-      Prayer Force USA’s mission is to keep the United States ever before the throne of grace,
+      Prayer Force USA is a movement to keep the United States ever before the throne of grace,
       seeking His help and mercy for this nation.
     </p>
 
@@ -2402,7 +2754,12 @@ linear-gradient(180deg,
   <!-- PFUSA HOTSPOT SYSTEM -->
 <div class="pf-hotspots">
 
- <button class="pf-hotspot hs-who"
+  <button class="pf-hotspot hs-where"
+    data-title="WHERE WE GATHER"
+    data-text="We gather together online through Prayer Force USA."
+    aria-label="Where we gather"></button>
+    
+    <button class="pf-hotspot hs-who"
     data-title="WHO WE ARE"
     data-text="Together we stand in the gap before God through our Lord Jesus Christ in prayer for our nation."
     aria-label="Who we are"></button>
@@ -2422,12 +2779,7 @@ linear-gradient(180deg,
     data-text="We join regularly for Standing in the Gap and gather weekly for Prayer Watch."
     aria-label="When we pray"></button>
 
-  <button class="pf-hotspot hs-where"
-    data-title="WHERE WE GATHER"
-    data-text="We gather together online through Prayer Force USA."
-    aria-label="Where we gather"></button>
-
-  <button class="pf-hotspot hs-welcome"
+   <button class="pf-hotspot hs-welcome"
     data-title="YOU ARE WELCOME HERE"
     data-text="If this is your heart also, you are welcome here."
     aria-label="You are welcome here"></button>
@@ -2471,7 +2823,7 @@ linear-gradient(180deg,
           data-pos="nation"
           data-title="Pray for the Nation"
           data-copy="Prayer Force USA calls believers to pray for this nation with clarity, steadiness, and conviction."
-          data-cta-label="Our Mission"
+          data-cta-label="The Mission"
           data-cta-href="#mission"
           aria-label="Pray for the Nation"
           aria-pressed="false">
@@ -2580,13 +2932,12 @@ linear-gradient(180deg,
           <p>“…for the Glory of God, and advancement of the Christian Faith…”</p>
         </article>
         
-         <article class="anchor-strip-card">
-          <div class="tag">1630 — John Winthrop, aboard the Arbella</div>
-          <h3>“A City Upon a Hill”</h3>
-          <p>
-            “For we must consider that we shall be as a city upon a hill. The eyes of all people are upon us…”
-          </p>
-        </article>
+<article class="anchor-strip-card anchor-strip-city-hill">
+  <div class="tag">1630 — John Winthrop, aboard the Arbella</div>
+  <h3>“A City Upon a Hill”</h3>
+  <p>
+“For we must consider that we shall be as a city upon a hill. The eyes of all people are upon us; so that if we shall deal falsely with our God in this work we have undertaken, and so cause Him to withdraw His present help from us, we shall be made a story and a byword through the world.”  </p>
+</article>
 
         <article class="anchor-strip-card anchor-strip-medium">
           <div class="tag">1789 — Inaugural Address</div>
@@ -2622,65 +2973,58 @@ linear-gradient(180deg,
   <div class="pivot" role="region" aria-label="Present Day Pivot">
     <div class="img" style="background-image:url('assets/Quiet_DC_morning.png')"></div>
     <div class="wash"></div>
-    <div class="overlay">
-      <div class="eyebrow" style="color: rgba(255,255,255,.85);"><span class="dot"></span>Present Day</div>
-      <h2 class="lede">Faithful in every generation.</h2>
-      <p class="punch">The watch is ours now.</p>
+   <div class="overlay">
+  <div class="eyebrow" style="color: rgba(255,255,255,.85);"><span class="dot"></span>Present Day</div>
+<h2 class="lede">Grounded in faith then. We must not drift now.</h2>
+  <div class="pfusa-scripture">
 
-      <div class="down dark">
-        <a href="#declaration" aria-label="Scroll to The Prayer Force">↓</a>
-      </div>
-    </div>
+  <!-- CALL -->
+  <p>
+    “If my people who are called by my name<br>
+    humble themselves, and pray,<br>
+    and <span class="pfusa-echo">seek my face</span>,<br>
+    and turn from their wicked ways,<br><br>
+
+    then I will hear from heaven,<br>
+    and will forgive their sin<br>
+    and heal their land.”
+  </p>
+  <footer>2 Chronicles 7:14</footer>
+
+</div>
+
+<div class="pfusa-response-label">Response</div>
+
+<div class="pfusa-scripture">
+
+  <!-- RESPONSE -->
+  <p>
+  <span class="pfusa-response-line">You have said, “<span class="pfusa-echo">Seek my face</span>.”</span><br>
+  My heart says to you,<br>
+  “Your face, Lord, do I seek.”
+</p>
+  <footer>Psalm 27:8</footer>
+
+</div>
+
+  <div class="down dark">
+    <a href="#declaration" aria-label="Scroll to The Prayer Force">↓</a>
+  </div>
+</div>
   </div>
 </section>
 
 <hr class="divider" />
 
-<section id="declaration">
-  <div class="card pad" style="max-width: 760px; margin: 0 auto; background: rgba(0,0,0,0.03);">
-    <div class="eyebrow"><span class="dot"></span>The Prayer Force</div>
 
-    <div style="display:grid; gap:14px; margin-top:14px;">
-      <div style="display:grid; grid-template-columns: 12rem 1fr; gap:16px; align-items:baseline;">
-        <div style="font-weight:900; letter-spacing:.08em; opacity:.75; font-size:.85rem;">WHO WE ARE</div>
-        <div>Together we stand in the gap before God through our Lord Jesus Christ in prayer for our nation.</div>
-      </div>
-
-      <div style="display:grid; grid-template-columns: 12rem 1fr; gap:16px; align-items:baseline;">
-        <div style="font-weight:900; letter-spacing:.08em; opacity:.75; font-size:.85rem;">HOW WE APPROACH</div>
-        <div>We approach God with humility, repentance, dependence, and joy.</div>
-      </div>
-
-      <div style="display:grid; grid-template-columns: 12rem 1fr; gap:16px; align-items:baseline;">
-        <div style="font-weight:900; letter-spacing:.08em; opacity:.75; font-size:.85rem;">WHAT WE SEEK</div>
-        <div>We seek the mercy and grace of God and the turning of hearts to Him.</div>
-      </div>
-
-      <div style="display:grid; grid-template-columns: 12rem 1fr; gap:16px; align-items:baseline;">
-        <div style="font-weight:900; letter-spacing:.08em; opacity:.75; font-size:.85rem;">WHEN WE PRAY</div>
-        <div>We join regularly for <em>Standing in the Gap</em> and gather weekly for <em>Prayer Watch</em>.</div>
-      </div>
-
-      <div style="display:grid; grid-template-columns: 12rem 1fr; gap:16px; align-items:baseline;">
-        <div style="font-weight:900; letter-spacing:.08em; opacity:.75; font-size:.85rem;">WHERE WE GATHER</div>
-        <div>We gather together online through Prayer Force USA.</div>
-      </div>
-    </div>
-
-    <p style="text-align:center; margin:18px 0 0 0;">
-      <em>If this is your heart also, you are welcome here.</em>
-       </p>
-  </div>
-</section>
 
 <hr class="divider" />
 
 <section id="mission">
   <div class="card pad">
-    <div class="eyebrow"><span class="dot"></span>Our Mission</div>
-    <h2>Why Prayer Force USA exists</h2>
-
-    <p>Prayer Force USA exists to intercede before God, the Father of our Lord Jesus Christ, for the well-being and longevity of our nation.</p>
+    <div class="eyebrow"><span class="dot"></span>The Mission</div>
+    
+    <h2>Prayer Force USA exists to intercede before God, the Father of our Lord Jesus Christ, for the well-being and longevity of our nation.</h2>
 
     <div class="grid2">
       <div class="mini">
@@ -2694,7 +3038,8 @@ linear-gradient(180deg,
           <li>Christ-centered</li>
           <li>Scripture-anchored</li>
           <li>Focused on prayer (not arguments)</li>
-          <li>Open to people devoted to Jesus across denominations</li>
+          <li>For those devoted to Jesus Christ as the Son of God</li>
+          <li>pro-America</li>
         </ul>
       </div>
 
@@ -2719,75 +3064,40 @@ linear-gradient(180deg,
 
 <hr class="divider" />
 
-<section id="paths">
-  <div class="eyebrow"><span class="dot"></span>Two Expressions. One Shared Mission.</div>
+<section id="branches">
+  <div class="card pad">
+    <div class="eyebrow"><span class="dot"></span>One Mission. Two Branches.</div>
+    <p class="pfusa-bridge">Two ways to take part in prayer for our nation.</p>
 
-  <div class="pathways-grid">
-    <article class="pathway-card pathway-card-sitgap" aria-labelledby="pathwaySitgapTitle">
-      <div class="pathway-image" style="background-image:url('assets/Washington%27s%20Swearing-in.jpg')"></div>
-      <div class="pathway-wash"></div>
+    <div class="pathways-grid">
 
-      <div class="pathway-content">
-        <div class="tag">Standing in the Gap</div>
-        <h2 id="pathwaySitgapTitle">Standing to face the moment</h2>
-
-        <ul class="pathway-list">
-          <li>When the moment demands prayer</li>
-          <li>When leadership requires wisdom</li>
-          <li>When our nation needs clarity</li>
-        </ul>
-
-        <p>
-          Standing in the Gap is the original expression of Prayer Force USA—topical, Scripture-based prayer focused on current national events and pressing issues.
-        </p>
-
-        <p>
-          The format is fluid. We do not watch the clock; Prayer Warriors join and depart sessions as schedules allow.
-        </p>
-
-        <div class="btns">
-          <a class="btn primary" href="take-your-place.html?path=sitgap">Join Standing in the Gap</a>
+      <article class="pathway-card pathway-card-sitgap">
+        <div class="pathway-image"></div>
+        <div class="pathway-wash"></div>
+        <div class="pathway-content">
+          <div class="tag">Standing in the Gap</div>
+          <div class="pfusa-branch-sub">Regular · Flexible</div>
+          <p>
+            Regular prayer focused on current events and cultural issues affecting American life.
+            The format is fluid—Prayer Warriors join and depart as their schedules allow.
+          </p>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <article class="pathway-card pathway-card-watch" aria-labelledby="pathwayWatchTitle">
-      <div class="pathway-image" style="background-image:url('assets/Signing-the-declaration-of-independenc-john-trumbull.jpg')"></div>
-      <div class="pathway-wash"></div>
-
-      <div class="pathway-content">
-        <div class="tag">The Prayer Watch</div>
-        <h2 id="pathwayWatchTitle">Weekly, structured prayer for enduring themes</h2>
-
-        <p class="pathway-callout">
-          Aligned with America 250’s America Prays initiative.
-        </p>
-
-        <p>
-          The Prayer Watch is a weekly call to stand watch in prayer for our nation. Rooted in Scripture and united in purpose, we gather around enduring themes—leadership, families, justice, mercy, and renewal.
-        </p>
-
-        <p>
-          Join us online for one focused hour of united prayer, lifting the nation before God with clarity and conviction.
-        </p>
-
-        <p class="pathway-next">
-          <span id="pfusaNextGatheringInline"
-                data-weekday="Thursday"
-                data-time="7:00 PM"
-                data-tzlabel="ET"
-                data-suffix="— online"></span>
-        </p>
-
-        <div class="btns">
-          <a class="btn primary" href="take-your-place.html?path=watch">Join The Prayer Watch</a>
+      <article class="pathway-card pathway-card-watch">
+        <div class="pathway-image" style="background-image:url('assets/quiet-watch.jpg');"></div>
+        <div class="pathway-wash"></div>
+        <div class="pathway-content">
+          <div class="tag">The Prayer Watch</div>
+          <div class="pfusa-branch-sub">Weekly · Structured</div>
+          <p>
+            Weekly, structured prayer echoing the emphasis of the <a href="https://www.whitehouse.gov/freedom250/america-prays/?utm_source=pfusa&utm_medium=referral&utm_campaign=prayer_watch" target="_blank" rel="noopener noreferrer">America Prays initiative</a>. We gather for one hour to pray through enduring themes that shape our national identity: faith, family, freedom, justice, and leadership.
+          </p>
         </div>
-      </div>
-    </article>
-  </div>
+      </article>
 
-  <div class="down">
-    <a href="#take-your-place" aria-label="Scroll to Take Your Place">↓</a>
+    </div>
+
   </div>
 </section>
 
@@ -2800,7 +3110,7 @@ linear-gradient(180deg,
         <div class="take-place-poster-frame"></div>
 
         <div class="take-place-poster-image" aria-hidden="true">
-          <img src="assets/hero.png" alt="">
+          <img src="assets/PFUSA_taped_recruit_poster - no_BG.png" alt="">
         </div>
 
         <div class="take-place-poster-content">
@@ -2822,12 +3132,12 @@ linear-gradient(180deg,
     <div class="take-place-content">
       <div class="take-place-content-inner">
         <p class="take-place-eyebrow">A personal response</p>
-
         <h2 id="take-place-heading" class="take-place-heading">
           Take your place.
         </h2>
-
-        <p class="take-place-intro">
+<div class="take-place-bridge-line">It’s our turn, now.</div>
+        
+<p class="take-place-intro">
           Prayer Force USA is built for those who are ready to respond with steadiness, reverence, and intention.
         </p>
 
@@ -2839,7 +3149,7 @@ linear-gradient(180deg,
                 <div class="tag">Standing in the Gap</div>
               </div>
               <p style="margin:0;">
-                Topical, responsive prayer for the needs of the moment.
+                Prayer focused on current events and cultural issues affecting American life.
               </p>
             </div>
 
@@ -2848,7 +3158,7 @@ linear-gradient(180deg,
                 <div class="tag">The Prayer Watch</div>
               </div>
               <p style="margin:0;">
-                A weekly rhythm of united prayer aligned with America 250’s America Prays initiative.
+                A weekly rhythm of united prayer echoing the theme of the America Prays initiative.
               </p>
             </div>
           </div>
