@@ -244,9 +244,9 @@
 
     main{ max-width: var(--max); margin: 0 auto; padding: 0 var(--pad) 34px; }
 
-    section{
-      padding: clamp(26px, 4.2vw, 44px) 0;
-    }
+section{
+  padding: clamp(12px, 2vw, 20px) 0;
+}
 
     .divider{
       height:1px;
@@ -263,7 +263,7 @@
       overflow:hidden;
     }
 
-    .card.pad{ padding: clamp(18px, 2.8vw, 26px); }
+    .card.pad{ padding: clamp(18px, 2.8vw, 20px); }
 
     .eyebrow{
       display:flex;
@@ -389,21 +389,14 @@
       background: rgba(255,255,255,.14);
       transform: translateY(2px);
     }
+
 .mural-invite {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-
-  margin: 0 0 10px;
-  padding-left: 2px;
-
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-
-  color: rgba(15,23,42,0.60);
+  max-width: 42rem;
+  margin: 0 0 1rem 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  opacity: 0.9;
 }
 
 .mural-invite .dot {
@@ -636,7 +629,32 @@
       }
     }
 
-    
+  #mural::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.35) 0%,
+    rgba(0,0,0,0.15) 30%,
+    rgba(0,0,0,0.05) 60%,
+    rgba(0,0,0,0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+#mural h2 {
+  position: relative;
+  z-index: 2;
+}
+
+#mural h2 {
+  text-shadow:
+    0 2px 6px rgba(0,0,0,0.55),
+    0 0 2px rgba(0,0,0,0.6);
+}
+
     .hero{
       position:relative;
       margin-top: 10px;
@@ -2430,33 +2448,51 @@ linear-gradient(180deg,
 
 .pf-hotspot {
   position: absolute;
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
+  padding: 0;
   border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,0.72);
-  background: rgba(255,255,255,0.22);
-  box-shadow: 0 0 0 4px rgba(255,255,255,0.05);
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(.86);
+  border: 2px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.55);
+  appearance: none;
+  -webkit-appearance: none;
   cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8);
   transition:
     opacity 220ms ease,
     transform 220ms ease,
-    box-shadow 200ms ease,
-    background 200ms ease,
-    border-color 200ms ease;
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
-.pf-hotspot.is-visible{
+.pf-hotspot.is-active {
+  transform: scale(1.12);
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-  pointer-events: auto;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.28);
 }
 
-.pf-hotspot:hover,
+.pf-hotspot.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hover = lighter, exploratory */
+.pf-hotspot:hover {
+  background: rgba(255,255,255,0.82);
+  border-color: rgba(255,255,255,0.9);
+  transform: none;
+  box-shadow:
+    0 0 0 6px rgba(255,255,255,0.12),
+    0 4px 12px rgba(0,0,0,0.16);
+}
+
+/* Active = anchored, definitive */
 .pf-hotspot.active {
-  background: rgba(255,255,255,0.9);
-  border-color: rgba(255,255,255,0.98);
+  background: rgba(255,255,255,0.92);
+  border-color: rgba(255,255,255,1);
+  transform: scale(1.12);
   box-shadow:
     0 0 0 8px rgba(255,255,255,0.16),
     0 6px 18px rgba(0,0,0,0.22);
@@ -2706,6 +2742,21 @@ linear-gradient(180deg,
   text-shadow: 0 1px 2px rgba(0,0,0,0.45);
 }
 
+#support .card.pad,
+#faq .card.pad,
+#contact .card.pad {
+  max-width: 900px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+#support .btns,
+#faq .btns,
+#contact .btns {
+  justify-content: flex-start;
+}
  
  </style>
 
@@ -2756,7 +2807,7 @@ linear-gradient(180deg,
             <div>
 <div class="kicker reveal r1">Prayer Force USA</div>
 
-<h1 class="reveal r2">Nations do not drift without consequence.</h1>
+<h1 class="reveal r2">America does not drift without consequence.</h1>
 
 <p class="hero-sub reveal r3">That reality demands a response.</p>
 
@@ -2786,7 +2837,7 @@ linear-gradient(180deg,
     </div>
 
     <h2 class="pfusa-headline reveal reveal-2">
-      Prayer Force USA is a prayer call-up—a rallying of prayer warriors.
+Prayer Force USA is a call to take up prayer for our nation—together.
     </h2>
 
     <p class="reveal reveal-3">
@@ -2838,6 +2889,7 @@ linear-gradient(180deg,
       <h4>The Prayer Watch</h4>
       <p>A weekly a weekly alignment with the White House's America Prays initiative.</p>
     </div>
+    <p> The questions before us are not new.</p>
 
     <div class="down reveal reveal-14">
       <a href="#mural" aria-label="Scroll to Pilgrims mural">↓</a>
@@ -2851,44 +2903,44 @@ linear-gradient(180deg,
 <section id="mural" aria-label="Pilgrims Mural">
   <div class="mural-hotspot-wrap">
     <div class="mural-invite">
-  <span class="dot"></span>
-  Click the mural to see what Prayer Force USA is about.
-</div>
+      <span class="dot"></span>
+      What you are about to see is not new—but it may be unfamiliar.
+    </div>
 <div class="mural interactive" aria-label="Pilgrims mural interactive">      
-  <img src="assets/pilgrims_arrive.png" alt="Pilgrims arrive" />
+  <img src="assets/Pilgrims_on_the_rocky_shore.png" alt="Pilgrims arrive" />
 
   <!-- PFUSA HOTSPOT SYSTEM -->
 <div class="pf-hotspots">
 
   <button class="pf-hotspot hs-where"
-    data-title="WHERE WE GATHER"
-    data-text="We gather together online through Prayer Force USA."
-    aria-label="Where we gather"></button>
-    
-    <button class="pf-hotspot hs-who"
-    data-title="WHO WE ARE"
-    data-text="Together we stand in the gap before God through our Lord Jesus Christ in prayer for our nation."
-    aria-label="Who we are"></button>
+    data-title="Voyage"
+    data-text="They crossed a vast and dangerous ocean to worship Christ freely."
+    aria-label="Voyage"></button>
+
+  <button class="pf-hotspot hs-who"
+    data-title="Contrast"
+    data-text="Other nations adopted Christianity after centuries. America began in pursuit of the freedom to live it."
+    aria-label="Contrast"></button>
 
   <button class="pf-hotspot hs-how"
-    data-title="HOW WE APPROACH"
-    data-text="We approach God with humility, repentance, dependence, and joy."
-    aria-label="How we approach"></button>
+    data-title="Purpose"
+    data-text="Their purpose was clear: to live out their faith."
+    aria-label="Purpose"></button>
 
   <button class="pf-hotspot hs-what"
-    data-title="WHAT WE SEEK"
-    data-text="We seek the mercy and grace of God and the turning of hearts to Him."
-    aria-label="What we seek"></button>
+    data-title="Practice"
+    data-text="From the Pilgrims to the Continental Congress, leaders openly sought God—and it did not end there."
+    aria-label="Practice"></button>
 
   <button class="pf-hotspot hs-when"
-    data-title="WHEN WE PRAY"
-    data-text="We join regularly for Standing in the Gap and gather weekly for Prayer Watch."
-    aria-label="When we pray"></button>
+    data-title="Devotion"
+    data-text="They knelt in prayer—before building, before governing, before all else."
+    aria-label="Devotion"></button>
 
-   <button class="pf-hotspot hs-welcome"
-    data-title="YOU ARE WELCOME HERE"
-    data-text="If this is your heart also, you are welcome here."
-    aria-label="You are welcome here"></button>
+  <button class="pf-hotspot hs-welcome"
+    data-title="Continuation"
+    data-text="It continues now. Prayer Force USA takes it up."
+    aria-label="Continuation"></button>
 
 </div>
 
@@ -3317,27 +3369,29 @@ Continue to confirm your signup and receive your Welcome Email and next steps.
 </section>
 
 
-      <hr class="divider" />
-          
+<hr class="divider" />
 
-      <section id="support">
-        <div class="card pad">
-          <div class="eyebrow"><span class="dot"></span>Support</div>
-          <h2>Support</h2>
+<section id="support">
+  <div class="inner">
+    <div class="card pad">
 
-          <div class="btns">
-            <a class="btn small primary" href="#faq">Questions? See FAQ</a>
-          </div>
+      <div class="eyebrow"><span class="dot"></span>Support</div>
+      <h2>Support</h2>
 
-          <div class="down">
-            <a href="#faq" aria-label="Scroll to FAQ">↓</a>
-          </div>
-        </div>
-      </section>
+      <div class="btns">
+        <a class="btn small primary" href="#faq">Questions? See FAQ</a>
+      </div>
 
-      <hr class="divider" />
+      <div class="down">
+        <a href="#faq" aria-label="Scroll to FAQ">↓</a>
+      </div>
 
-      <section id="faq">
+    </div>
+  </div>
+</section>
+  
+        <section id="faq">
+          <div class="inner">
         <div class="card pad">
           <div class="eyebrow"><span class="dot"></span>FAQ</div>
           <h2>Frequently Asked Questions</h2>
@@ -3396,7 +3450,7 @@ Continue to confirm your signup and receive your Welcome Email and next steps.
             <details>
               <summary>How can I support the work?</summary>
               <p>
-                Those who wish to support Prayer Force USA may do so financially once contribution options are made available. Support may also take the form of faithful engagement, sharing sessions with others, subscribing, and inviting friends or family to join in prayer.
+              Those who wish to support Prayer Force USA may do so financially once contribution options are made available. Support may also take the form of faithful engagement, sharing sessions with others, subscribing, and inviting friends or family to join in prayer.
               </p>
             </details>
           </div>
@@ -3409,36 +3463,39 @@ Continue to confirm your signup and receive your Welcome Email and next steps.
             <a href="#contact" aria-label="Scroll to Contact">↓</a>
           </div>
         </div>
+      </div>
       </section>
 
       <hr class="divider" />
-      <hr class="divider" />
-
+      
       <section id="contact">
-        <div class="card pad">
-          <div class="eyebrow"><span class="dot"></span>Contact</div>
-          <h2>Get in touch</h2>
+        <div class="inner">
+          <div class="card pad">
+            <div class="eyebrow"><span class="dot"></span>Contact</div>
+            <h2>Get in touch</h2>
 
-          <p>
-            Email us for updates, questions, or to connect.
-          </p>
+            <p>
+              Email us for updates, questions, or to connect.
+            </p>
 
-          <p style="font-weight:800; color: rgba(15,23,42,.90);">
-            Email: <a href="mailto:contact@prayerforceusa.net">contact@prayerforceusa.net</a>
-            &nbsp;•&nbsp;
-            YouTube: <a href="https://www.youtube.com/@prayerforceusa" target="_blank" rel="noopener">youtube.com/@prayerforceusa</a>
-          </p>
+            <p style="font-weight:800; color: rgba(15,23,42,.90);">
+              Email: <a href="mailto:contact@prayerforceusa.net">contact@prayerforceusa.net</a>
+              &nbsp;•&nbsp;
+              YouTube: <a href="https://www.youtube.com/@prayerforceusa" target="_blank" rel="noopener">youtube.com/@prayerforceusa</a>
+            </p>
 
-          <p style="margin-top:10px;">
-            Prayer Force USA is an independent initiative and is not affiliated with any organization using similar names.
-          </p>
+            <p style="margin-top:10px;">
+              Prayer Force USA is an independent initiative and is not affiliated with any organization using similar names.
+            </p>
 
-          <div class="btns">
-            <a class="btn small" href="#faq">Support</a>
-            <a class="btn small" href="#top">Back to top ↑</a>
+            <div class="btns">
+              <a class="btn small" href="#faq">Support</a>
+              <a class="btn small" href="#top">Back to top ↑</a>
+            </div>
           </div>
         </div>
       </section>
+      
     </main>
 
     <footer aria-label="Footer">
@@ -3517,7 +3574,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const hotspotWrap = document.querySelector(".pf-hotspots");
   const hotspots = Array.from(document.querySelectorAll(".pf-hotspot"));
   const card = document.getElementById("pf-overlay-card");
-  card.style.position = "fixed";
+  card.style.position = "absolute";
   console.log("CARD ELEMENT:", card);
   const title = document.getElementById("pf-overlay-title");
   const text = document.getElementById("pf-overlay-text");
@@ -3542,29 +3599,47 @@ function revealHotspotsSequentially() {
 mural.addEventListener("click", function firstReveal(event) {
   console.log("mural click handler ran");
   revealHotspotsSequentially();
+
+  setTimeout(() => {
+    const firstHotspot = document.querySelector(".hs-where");
+    if (!firstHotspot) return;
+    firstHotspot.click();
+  }, (hotspots.length * 180) + 120);
 }, { once: true });
 
-  function setCardPosition(hotspot) {
-    if (hotspot.classList.contains("hs-who")) {
-      card.style.left = "28%";
-      card.style.top = "50%";
-    } else if (hotspot.classList.contains("hs-how")) {
-      card.style.left = "50%";
-      card.style.top = "46%";
-    } else if (hotspot.classList.contains("hs-what")) {
-      card.style.left = "56%";
-      card.style.top = "33%";
-    } else if (hotspot.classList.contains("hs-when")) {
-      card.style.left = "58%";
-      card.style.top = "73%";
-    } else if (hotspot.classList.contains("hs-where")) {
-      card.style.left = "31%";
-      card.style.top = "18%";
-    } else if (hotspot.classList.contains("hs-welcome")) {
-      card.style.left = "58%";
-      card.style.top = "42%";
-    }
+
+function setCardPosition(hotspot) {
+
+   if (hotspot.classList.contains("hs-where")) {
+    // Voyage
+    card.style.left = "20%";
+    card.style.top = "22%";
+
+  } else if (hotspot.classList.contains("hs-who")) {
+  card.style.left = "34%";
+  card.style.top = "34%";
+
+} else if (hotspot.classList.contains("hs-how")) {
+  // Purpose
+  card.style.left = "30%";
+  card.style.top = "74%";
+
+  } else if (hotspot.classList.contains("hs-what")) {
+    // Practice
+    card.style.left = "42%";
+    card.style.top = "42%";
+
+  } else if (hotspot.classList.contains("hs-when")) {
+    // Devotion 
+    card.style.left = "56%";
+  card.style.top = "84%";
+
+  } else if (hotspot.classList.contains("hs-welcome")) {
+    // Continuation
+    card.style.left = "66%";
+    card.style.top = "28%";
   }
+}
 
   hotspots.forEach(hotspot => {
   hotspot.addEventListener("click", function (event) {
@@ -3592,10 +3667,13 @@ console.log("IS ACTIVE?", isActive);
 
       setCardPosition(hotspot);
 
-      card.hidden = false;
-      requestAnimationFrame(() => {
-        card.classList.add("show");
-      });
+card.hidden = false;
+
+setTimeout(() => {
+  requestAnimationFrame(() => {
+    card.classList.add("show");
+  });
+}, 90);
     });
   });
 });
