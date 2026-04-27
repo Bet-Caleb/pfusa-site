@@ -682,7 +682,9 @@ section{
   background-position: center right;
   background-repeat: no-repeat;
   filter: grayscale(.10) saturate(.85) contrast(1.02) brightness(.85);
-  transform: scale(1.02);
+  transform: scale(1.04);
+  transform-origin: center right;
+  animation: heroSlowRecede 90s linear forwards;
 }
 
 .hero::after{
@@ -701,6 +703,52 @@ linear-gradient(180deg,
   rgba(8,12,20,.20) 100%
 ),
     radial-gradient(900px 600px at 20% 28%, rgba(199,162,74,.18), transparent 62%);
+animation: heroLightShift 18s ease-in-out infinite alternate;
+  }
+
+  to{
+    opacity: .96;
+    background:
+      linear-gradient(90deg,
+        rgba(8,12,20,.80) 0%,
+        rgba(8,12,20,.62) 36%,
+        rgba(8,12,20,.35) 62%,
+        rgba(8,12,20,.15) 100%
+      ),
+      linear-gradient(180deg,
+        rgba(8,12,20,.08) 0%,
+        rgba(8,12,20,.22) 100%
+      ),
+      radial-gradient(900px 600px at 25% 30%, rgba(199,162,74,.22), transparent 64%);
+  }
+
+@keyframes heroSlowRecede{
+  from{
+    transform: scale(1.04);
+  }
+
+  to{
+    transform: scale(1.015);
+  }
+}
+
+ @keyframes heroLightShift{
+  from{
+    opacity: 1;
+    filter: brightness(1);
+  }
+
+  to{
+    opacity: .96;
+    filter: brightness(1.06);
+  }
+} 
+
+@media (prefers-reduced-motion: reduce){
+  .hero::before{
+    animation: none;
+    transform: scale(1.02);
+  }
 }
 
     .hero .content{
@@ -1551,6 +1599,37 @@ linear-gradient(180deg,
   border-radius: 2px;
 }
 
+.pfusa-branches{
+  max-width: 780px;
+  margin: 16px auto 0;
+}
+
+.pfusa-branch{
+  position: relative;
+  padding: 22px 24px 22px 28px;
+  border-radius: 14px;
+  border: 1px solid rgba(15,23,42,.10);
+  background: rgba(255,255,255,.68);
+}
+
+.pfusa-branch::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(226,197,122,.95), rgba(199,162,74,.95));
+}
+
+.pfusa-branch h4{
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 @media (max-width: 900px) {
   #branches .pathways-grid {
     grid-template-columns: 1fr;
@@ -2236,10 +2315,18 @@ linear-gradient(180deg,
   color: rgba(255,255,255,.85);
   text-decoration: underline;
 }
-.pfusa-headline {
-  font-size: 1.8rem;
+
+  .pfusa-headline{
+  margin: 0 0 18px;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.08;
   font-weight: 700;
-  margin: 1.5rem 0 1rem 0;
+
+  max-width: 14ch;
+  color: rgba(11,18,32,.96);
+  letter-spacing: -0.02em;
 }
 
 .pfusa-emphasis {
@@ -2313,16 +2400,6 @@ linear-gradient(180deg,
 .cinematic-section > * {
   position: relative;
   z-index: 1;
-}
-
-/* Main headline: dominant, clean */
-.pfusa-headline {
-  font-size: clamp(1.6rem, 2.6vw, 2.3rem);
-  line-height: 1.25;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  margin: 1rem 0 1.2rem;
-  text-wrap: balance;
 }
 
 /* Keep emphasis restrained */
@@ -2405,6 +2482,147 @@ linear-gradient(180deg,
   }
 }
 
+.pfusa-final-line{
+  margin: clamp(28px, 4vw, 44px) auto;
+  max-width: 760px;
+  text-align: center;
+  padding: clamp(20px, 3vw, 30px) 12px;
+
+  border-top: 1px solid rgba(199,162,74,.45);
+  border-bottom: 1px solid rgba(199,162,74,.45);
+}
+
+.pfusa-final-line p{
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.18;
+  font-weight: 700;
+  color: rgba(11,18,32,.94);
+}
+
+.pfusa-final-line p + p{
+  margin-top: 10px;
+}
+
+.pfusa-final-line p:last-child{
+  margin-top: 18px;
+
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(16px, 1.45vw, 20px);
+  line-height: 1.6;
+  font-weight: 700;
+
+  color: rgba(120,92,24,.95);
+  max-width: 42ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pfusa-urgency-line{
+  margin: 18px 0 18px;
+  padding: 14px 18px;
+  max-width: 58ch;
+
+  border-left: 4px solid rgba(199,162,74,.95);
+  background: rgba(199,162,74,.10);
+  border-radius: 8px;
+
+  font-size: clamp(18px, 1.7vw, 22px);
+  line-height: 1.45;
+  font-weight: 800;
+  color: rgba(11,18,32,.96);
+}
+
+.pfusa-promise-intro{
+  margin: 26px 0 10px;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(120,92,24,.92);
+}
+
+.pfusa-scripture{
+  margin: 0 0 28px;
+  padding: clamp(18px, 3vw, 28px);
+  border-left: 5px solid rgba(199,162,74,.95);
+  border-radius: 12px;
+  background:
+    radial-gradient(700px 320px at 18% 15%, rgba(226,197,122,.18), transparent 62%),
+    rgba(255,255,255,.68);
+  box-shadow: 0 12px 30px rgba(2,6,23,.08);
+}
+
+.pfusa-scripture p{
+  margin: 0 0 12px;
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.75;
+  font-weight: 600;
+}
+
+.pfusa-scripture footer{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(15,23,42,.68);
+  font-weight: 800;
+}
+
+.pfusa-subhead{
+  margin: 34px 0 18px;
+  text-align: center;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.2;
+  font-weight: 700;
+
+  color: rgba(11,18,32,.94);
+}
+
+.pfusa-branch{
+  margin-top: 14px;
+  padding: 20px 22px;
+
+  border: 1px solid rgba(15,23,42,.10);
+  border-radius: 16px;
+
+  background: rgba(255,255,255,.62);
+  transition: transform 0.2s ease;
+}
+
+.pfusa-branch:hover{
+  transform: translateY(-2px);
+}
+
+.pfusa-branch h4{
+  margin: 0 0 8px;
+
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: rgba(120,92,24,.95);
+}
+
+.pfusa-branch p{
+  margin: 0;
+  line-height: 1.6;
+}
+
+.pfusa-branches{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+@media (max-width: 760px){
+  .pfusa-branches{
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Scroll reveal base state */
 .reveal {
   opacity: 0;
@@ -2436,6 +2654,23 @@ linear-gradient(180deg,
 .reveal-12 { transition-delay: 560ms; }
 .reveal-13 { transition-delay: 610ms; }
 .reveal-14 { transition-delay: 660ms; }
+
+.reveal.reveal-4{
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.65;
+  font-weight: 700;
+  max-width: 52ch;
+  color: rgba(11,18,32,.94);
+  margin-bottom: 20px;
+}
+
+.reveal.reveal-5,
+.reveal.reveal-6{
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.75;
+  max-width: 58ch;
+  color: rgba(15,23,42,.74);
+}
 
 /* Respect reduced motion settings */
 @media (prefers-reduced-motion: reduce) {
@@ -3031,6 +3266,10 @@ min-width: 280px;
   }
 }
  
+#foundations{
+  margin-top: 72px;
+}
+
  </style>
 
   <!-- Google tag (gtag.js) -->
@@ -3106,63 +3345,66 @@ min-width: 280px;
   <div class="card pad cinematic-section">
 
     <div class="eyebrow reveal reveal-1">
-      <span class="dot"></span>What is Prayer Force USA?
-    </div>
+  <span class="dot"></span>What is Prayer Force USA?
+</div>
 
-    <h2 class="pfusa-headline reveal reveal-2">
-Prayer Force USA is a call to take up prayer for our nation—together.
-    </h2>
+<h2 class="pfusa-headline reveal reveal-2">
+  Prayer Force USA.
+  A call to stand in the gap for our nation—together.
+</h2>
 
-    <p class="reveal reveal-3">
-      Our country is divided—but our need is clear: we must turn back to God.
-    </p>
+<p class="pfusa-urgency-line reveal reveal-3">
+  Our country is divided, but our need is clear: we must turn back to God.
+</p>
 
-    <p class="reveal reveal-4">
-      Prayer Force USA is a movement to keep the United States ever before the throne of grace,
-      seeking His help and mercy for this nation.
-    </p>
+<p class="reveal reveal-4">
+  Prayer Force USA exists to keep the United States before the throne of grace,
+  seeking God's help and mercy for this nation.
+</p>
 
-    <p class="reveal reveal-5">
-      America’s early settlers covenanted together under God, acknowledging their dependence on Him.
-    </p>
+<p class="reveal reveal-5">
+  From America's earliest beginnings, many who came to this land acknowledged
+  their dependence on God.
+</p>
 
-    <p class="reveal reveal-6">
-      Prayer Force USA carries forward this legacy of the Founders, and...
-    </p>
+<p class="reveal reveal-6">
+  We carry that inheritance forward through prayer, humility, and faithful intercession.
+</p>
 
-    <p class="pfusa-promise-intro reveal reveal-7">God’s promise still stands:</p>
+<p class="pfusa-promise-intro reveal reveal-7">
+  God's promise still stands:
+</p>
 
-    <blockquote class="pfusa-scripture reveal reveal-8">
-      <p>
-        “If my people, which are called by my name, shall humble themselves, and pray, and seek my face,
-        and turn from their wicked ways; then will I hear from heaven, and will forgive their sin,
-        and will heal their land.”
-      </p>
-      <footer>— 2 Chronicles 7:14 (KJV)</footer>
-    </blockquote>
+<blockquote class="pfusa-scripture reveal reveal-8">
+  <p>
+    “If my people, which are called by my name, shall humble themselves, and pray,
+    and seek my face, and turn from their wicked ways; then will I hear from heaven,
+    and will forgive their sin, and will heal their land.”
+  </p>
+  <footer>— 2 Chronicles 7:14 (KJV)</footer>
+</blockquote>
 
-    <p class="reveal reveal-9">
-      Based on that promise, Prayer Force USA's purpose is
-    </p>
+<div class="pfusa-final-line reveal reveal-9">
+  <p>Prayer is not passive.</p>
+  <p>It is active and effectual.</p>
+  <p>It is our way to partner with God for the deliverance of our nation.</p>
+</div>
 
-    <p class="pfusa-final-line reveal reveal-10">
-      <strong><em>
-        to seek God, align with Him, and move in His direction—together—for this generation and those to come.
-      </em></strong>
-    </p>
+<h3 class="pfusa-subhead reveal reveal-11">
+  There are two ways to stand with us:
+</h3>
 
-    <h3 class="pfusa-subhead reveal reveal-11">It currently consists of two branches:</h3>
+<div class="pfusa-branches">
+  <div class="pfusa-branch reveal reveal-12">
+    <h4>Standing in the Gap</h4>
+    <p>A near-daily gathering to intercede for our nation.</p>
+  </div>
 
-    <div class="pfusa-branch reveal reveal-12">
-      <h4>Standing in the Gap</h4>
-      <p>A near-daily gathering to intercede for our nation.</p>
-    </div>
-
-    <div class="pfusa-branch reveal reveal-13">
-      <h4>The Prayer Watch</h4>
-      <p>A weekly a weekly alignment with the White House's America Prays initiative.</p>
-    </div>
-    <p> The questions before us are not new.</p>
+  <div class="pfusa-branch reveal reveal-13">
+    <h4>The Prayer Watch</h4>
+    <p>A weekly rhythm of prayer aligned with the White House's America Prays initiative.</p>
+  </div>
+</div>
 
     <div class="down reveal reveal-14">
       <a href="#mural" aria-label="Scroll to Pilgrims mural">↓</a>
