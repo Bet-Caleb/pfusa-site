@@ -684,7 +684,6 @@ section{
   filter: grayscale(.10) saturate(.85) contrast(1.02) brightness(.85);
   transform: scale(1.04);
   transform-origin: center right;
-  animation: heroSlowRecede 90s linear forwards;
 }
 
 .hero::after{
@@ -692,63 +691,17 @@ section{
   position:absolute;
   inset:0;
   background:
-linear-gradient(90deg,
-  rgba(8,12,20,.82) 0%,
-  rgba(8,12,20,.65) 38%,
-  rgba(8,12,20,.38) 64%,
-  rgba(8,12,20,.18) 100%
-),
-linear-gradient(180deg,
-  rgba(8,12,20,.10) 0%,
-  rgba(8,12,20,.20) 100%
-),
+    linear-gradient(90deg,
+      rgba(8,12,20,.82) 0%,
+      rgba(8,12,20,.65) 38%,
+      rgba(8,12,20,.38) 64%,
+      rgba(8,12,20,.18) 100%
+    ),
+    linear-gradient(180deg,
+      rgba(8,12,20,.10) 0%,
+      rgba(8,12,20,.20) 100%
+    ),
     radial-gradient(900px 600px at 20% 28%, rgba(199,162,74,.18), transparent 62%);
-animation: heroLightShift 18s ease-in-out infinite alternate;
-  }
-
-  to{
-    opacity: .96;
-    background:
-      linear-gradient(90deg,
-        rgba(8,12,20,.80) 0%,
-        rgba(8,12,20,.62) 36%,
-        rgba(8,12,20,.35) 62%,
-        rgba(8,12,20,.15) 100%
-      ),
-      linear-gradient(180deg,
-        rgba(8,12,20,.08) 0%,
-        rgba(8,12,20,.22) 100%
-      ),
-      radial-gradient(900px 600px at 25% 30%, rgba(199,162,74,.22), transparent 64%);
-  }
-
-@keyframes heroSlowRecede{
-  from{
-    transform: scale(1.04);
-  }
-
-  to{
-    transform: scale(1.015);
-  }
-}
-
- @keyframes heroLightShift{
-  from{
-    opacity: 1;
-    filter: brightness(1);
-  }
-
-  to{
-    opacity: .96;
-    filter: brightness(1.06);
-  }
-} 
-
-@media (prefers-reduced-motion: reduce){
-  .hero::before{
-    animation: none;
-    transform: scale(1.02);
-  }
 }
 
     .hero .content{
