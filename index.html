@@ -731,7 +731,8 @@ section{
       color:#fff;
       text-shadow: 0 14px 40px rgba(0,0,0,.42);
       margin-top: 0;
-    }
+      font-family: "Inter", system-ui, sans-serif;
+}
 
     .hero p{
       color: rgba(255,255,255,.93);
@@ -850,21 +851,96 @@ section{
   background: linear-gradient(90deg, rgba(226,197,122,.92), rgba(199,162,74,.92));
   opacity: .72;
 }
+.foundations-hinge{
+  text-align: center;
+  padding: 62px 34px;
 
+  background:
+    radial-gradient(circle at 50% 35%, rgba(226,197,122,.18), transparent 42%),
+    linear-gradient(180deg, rgba(247,247,243,.72), rgba(238,232,218,.78));
+
+  border: 1px solid rgba(199,162,74,.34);
+
+  box-shadow:
+    0 18px 48px rgba(2,6,23,.10),
+    inset 0 0 0 1px rgba(255,255,255,.60),
+    inset 0 0 0 8px rgba(199,162,74,.08);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.foundations-hinge::after{
+  content: "";
+  position: absolute;
+  inset: 18px;
+
+  border: 1px solid rgba(120,92,24,.28);
+  border-radius: 12px;
+
+  pointer-events: none;
+}
+
+.foundations-hinge::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 18px;
+
+  width: 1px;
+  height: 34px;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(199,162,74,.70),
+      transparent
+    );
+
+  transform: translateX(-50%);
+}
+
+.foundations-hinge::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(circle, rgba(15,23,42,.18) 0.7px, transparent 1px);
+
+  background-size: 6px 6px;
+
+  opacity: .32;
+
+  mix-blend-mode: multiply;
+
+  pointer-events: none;
+}
+
+.foundations-hinge .foundations-title,
+.foundations-hinge .foundations-close{
+  position: relative;
+  z-index: 2;
+}
 .foundations-top{
   max-width: 44rem;
   margin-bottom: 28px;
 }
 
 .foundations-title{
-  margin: 0 0 16px;
-  font-size: clamp(30px, 3vw, 40px);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  max-width: 16ch;
+  margin: 0 auto;
 
   font-family: "Playfair Display", serif;
-  font-weight: 700;
+  font-size: clamp(26px, 2.6vw, 34px);
+  line-height: 1.14;
+  font-weight: 650;
+
+  max-width: 18ch;
+  text-align: center;
+
+  color: rgba(11,18,32,.94);
+  letter-spacing: -0.015em;
 }
 
 .foundations-pull{
@@ -930,10 +1006,10 @@ section{
 
 .foundations-close{
   display: inline-block;
-  margin: 10px 0 0;
-  padding: 10px 14px;
+  margin-top: 42px;  padding: 10px 14px;
   font-weight: 850;
-  font-size: clamp(18px, 1.6vw, 22px);
+  font-size: clamp(24px, 2.2vw, 30px);
+  font-family: "Playfair Display", serif;
   line-height: 1.35;
   color: rgba(11,18,32,.98);
   border-left: 4px solid rgba(199,162,74,.95);
@@ -957,6 +1033,10 @@ section{
 
   .foundations-title{
     margin-bottom: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 20ch;
   }
 
   .foundations-contrast{
@@ -2269,8 +2349,8 @@ section{
   text-decoration: underline;
 }
 
-  .pfusa-headline{
-  margin: 0 0 18px;
+.pfusa-headline{
+  margin: 0 auto 18px;
 
   font-family: "Playfair Display", serif;
   font-size: clamp(34px, 4vw, 52px);
@@ -2280,6 +2360,7 @@ section{
   max-width: 14ch;
   color: rgba(11,18,32,.96);
   letter-spacing: -0.02em;
+  text-align: center;
 }
 
 .pfusa-emphasis {
@@ -2473,9 +2554,10 @@ section{
 }
 
 .pfusa-urgency-line{
-  margin: 18px 0 18px;
+  margin: 18px auto;
   padding: 14px 18px;
-  max-width: 58ch;
+
+  max-width: 640px;
 
   border-left: 4px solid rgba(199,162,74,.95);
   background: rgba(199,162,74,.10);
@@ -2485,6 +2567,13 @@ section{
   line-height: 1.45;
   font-weight: 800;
   color: rgba(11,18,32,.96);
+
+  text-align: left;
+}
+
+.pfusa-copy{
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 .pfusa-promise-intro{
@@ -3119,6 +3208,106 @@ min-width: 280px;
   text-align: center;
 }
 
+.interrogatives-book-title{
+  position: relative;
+
+  padding:
+    8px 18px 34px 58px;
+
+  margin-bottom: 20px;
+
+  border-bottom: 1px solid rgba(199,162,74,.18);
+
+  text-align: left;
+}
+
+.book-cover-mark{
+  margin: 0 auto 18px;
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(199,162,74,.42);
+  border-radius: 999px;
+
+  color: rgba(120,92,24,.92);
+  font-size: 1.35rem;
+
+  background: rgba(255,255,255,.46);
+}
+
+.book-title-card h3{
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.02;
+  font-weight: 700;
+
+  color: rgba(11,18,32,.96);
+  letter-spacing: -0.03em;
+}
+
+.book-title-card{
+  overflow: hidden;
+}
+
+.book-title-card::after{
+  content: "";
+  position: absolute;
+  inset: -40% -20% auto auto;
+
+  width: 70%;
+  height: 140%;
+
+  background:
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      transparent 38%,
+      rgba(199,162,74,.16) 39%,
+      rgba(199,162,74,.16) 45%,
+      transparent 46%,
+      transparent 100%
+    );
+
+  pointer-events: none;
+}
+
+.book-cover-mark,
+.book-title-card .interrogatives-book-kicker,
+.book-title-card h3{
+  position: relative;
+  z-index: 2;
+}
+
+.interrogatives-book-kicker{
+  margin-bottom: 10px;
+
+  font-size: .76rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+
+  color: rgba(120,92,24,.88);
+}
+
+.interrogatives-book-title h2{
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.05;
+  font-weight: 700;
+
+  color: rgba(11,18,32,.96);
+
+  letter-spacing: -0.02em;
+}
+
 .interrogatives-title{
   max-width: 18ch;
   margin: 0 auto 18px;
@@ -3129,25 +3318,134 @@ min-width: 280px;
 
 .interrogatives-sequence{
   position: relative;
-  min-height: 230px;
+
+  max-width: 860px;
+  margin: 0 auto 28px;
+
+  min-height: 368px;
+
+  padding: 34px;
+
+  background:
+    linear-gradient(180deg,
+      rgba(250,248,242,.96),
+      rgba(241,236,224,.96)
+    );
+
+  border: 1px solid rgba(199,162,74,.26);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 18px 46px rgba(2,6,23,.10),
+    inset 0 0 0 1px rgba(255,255,255,.58);
+
+  overflow: hidden;
+}
+
+.interrogatives-sequence::before{
+  content: "";
+
+  position: absolute;
+
+  top: 18px;
+  bottom: 18px;
+  left: 30px;
+
+  width: 10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(80,55,18,.22),
+      rgba(199,162,74,.28),
+      rgba(255,255,255,.18),
+      rgba(120,92,24,.22)
+    );
+
+  border-radius: 999px;
+
+  box-shadow:
+    inset 2px 0 4px rgba(80,55,18,.18),
+    inset -2px 0 4px rgba(255,255,255,.25),
+    4px 0 14px rgba(2,6,23,.08);
+
+  opacity: .95;
+}
+
+.interrogatives-sequence{
+  perspective: 1200px;
 }
 
 .interrogative-card{
+  position: relative;
+
   display: none;
-  max-width: 680px;
-  margin: 0 auto;
-  padding: clamp(22px, 3vw, 34px);
-  border-radius: calc(var(--radius) + 4px);
-  border: 1px solid rgba(199,162,74,.28);
-  background:
-    radial-gradient(700px 320px at 20% 20%, rgba(226,197,122,.14), transparent 62%),
-    rgba(255,255,255,.68);
-  box-shadow: 0 14px 34px rgba(2,6,23,.10);
+
+  padding: 10px 14px 10px 58px;
+
+  min-height: 300px;
 }
 
 .interrogative-card.active{
   display: block;
-  animation: inheritanceReveal .28s ease both;
+  animation: pageTurnIn 520ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+.interrogatives-sequence.turning-back .interrogative-card.active{
+  animation-name: pageTurnBackIn;
+}
+
+.book-title-card{
+  min-height: 300px;
+  padding: 58px 48px;
+  text-align: center;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.book-title-card.active{
+  display: flex;
+}
+
+.interrogative-card.active:not(.book-title-card)::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255,255,255,.32) 18%,
+      rgba(120,92,24,.16) 28%,
+      rgba(15,23,42,.10) 36%,
+      transparent 52%
+    );
+
+  transform: translateX(105%);
+  animation: pageSweepRightToLeft 620ms ease both;
+}
+
+@keyframes pageSweepRightToLeft{
+  from{
+    transform: translateX(105%);
+    opacity: 0;
+  }
+
+  20%{
+    opacity: 1;
+  }
+
+  to{
+    transform: translateX(-105%);
+    opacity: 0;
+  }
 }
 
 .interrogative-card h3{
@@ -3156,6 +3454,20 @@ min-width: 280px;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: rgba(120,92,24,.95);
+}
+
+.book-title-card h3{
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.02;
+  font-weight: 700;
+
+  letter-spacing: -0.03em;
+  text-transform: none;
+
+  color: rgba(11,18,32,.96);
 }
 
 .interrogative-card p{
@@ -3208,14 +3520,29 @@ min-width: 280px;
   color: rgba(15,23,42,.62);
 }
 
-@keyframes inheritanceReveal{
+@keyframes pageTurnIn{
   from{
     opacity: 0;
-    transform: translateY(8px);
+    transform: rotateY(-16deg) translateX(24px);
+    filter: blur(1px);
   }
   to{
     opacity: 1;
-    transform: translateY(0);
+    transform: rotateY(0deg) translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes pageTurnBackIn{
+  from{
+    opacity: 0;
+    transform: rotateY(12deg) translateX(-18px);
+    filter: blur(1px);
+  }
+  to{
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0);
+    filter: blur(0);
   }
 }
  
@@ -3278,7 +3605,7 @@ min-width: 280px;
 
 <p class="hero-sub reveal r4">Prayer Force USA is that response.</p>
 
-<p class="hero-sub reveal r5">Active prayer, shared participation—together, wherever you are.</p>
+<p class="hero-sub reveal r5">Active prayer, faith-full declarations—together, wherever you are.</p>
 
 <p class="hero-sub reveal r6">Intercession for the land we love in the name of Jesus Christ.</p>
 
@@ -3302,16 +3629,18 @@ min-width: 280px;
 </div>
 
 <h2 class="pfusa-headline reveal reveal-2">
-  Prayer Force USA.
-  A call to stand in the gap for our nation—together.
+  Prayer Force USA.<br>
+A call to stand in the gap for our nation<br>
+<span class="hero-and">and</span> declare the Word of the Lord over America—together.
 </h2>
 
 <p class="pfusa-urgency-line reveal reveal-3">
-  Our country is divided, but our need is clear: we must turn back to God.
+  Our country is divided, and our need is clear: we must turn back to God.
 </p>
 
+<div class="pfusa-copy">
 <p class="reveal reveal-4">
-  Prayer Force USA exists to keep the United States before the throne of grace,
+  Prayer Force USA exists to lift the United States before the throne of grace,
   seeking God's help and mercy for this nation.
 </p>
 
@@ -3327,6 +3656,7 @@ min-width: 280px;
 <p class="pfusa-promise-intro reveal reveal-7">
   God's promise still stands:
 </p>
+</div>
 
 <blockquote class="pfusa-scripture reveal reveal-8">
   <p>
@@ -3350,12 +3680,12 @@ min-width: 280px;
 <div class="pfusa-branches">
   <div class="pfusa-branch reveal reveal-12">
     <h4>Standing in the Gap</h4>
-    <p>A near-daily gathering to intercede for our nation.</p>
+    <p>A near-daily gathering to intercede for our nation and proclaim the Word of God over America.</p>
   </div>
 
   <div class="pfusa-branch reveal reveal-13">
     <h4>The Prayer Watch</h4>
-    <p>A weekly rhythm of prayer aligned with the White House's America Prays initiative.</p>
+    <p>A weekly rhythm of prayer that joins in step with the White House's America Prays initiative.</p>
   </div>
 </div>
 
@@ -3401,7 +3731,7 @@ min-width: 280px;
 
   <button class="pf-hotspot hs-when"
     data-title="Devotion"
-    data-text="They knelt in prayer—before building, before governing, before all else."
+    data-text="Before building, before governing—before all else—they knelt in prayer."
     aria-label="Devotion"></button>
 
 <button class="pf-hotspot hs-welcome"
@@ -3497,26 +3827,22 @@ min-width: 280px;
 </section>
 
 <section id="foundations">
-  <div class="card pad foundations-bridge">
 
-    <div class="eyebrow">
-      <span class="dot"></span>Our Foundation
-    </div>
+  <div class="eyebrow">
+    <span class="dot"></span>Our Foundation
+  </div>
 
-    <h2 class="foundations-title">
-      Our Foundation is not merely a story.
-    </h2>
+  <div class="card pad foundations-bridge foundations-hinge">
 
-    <div class="foundations-copy foundations-centered">
-      <p>
-        It is not just our history.<br>
-        It is the inheritance entrusted to us.
-      </p>
+<h2 class="foundations-title">
+  Our Foundation is<br>
+  an inheritance entrusted<br>
+  to us.
+</h2>
 
-      <p class="foundations-close">
-        What will we do with it?
-      </p>
-    </div>
+    <p class="foundations-close">
+      What will we do with it?
+    </p>
 
   </div>
 </section>
@@ -3527,16 +3853,22 @@ min-width: 280px;
   <div class="card pad inheritance-card">
 
     <div class="eyebrow">
-      <span class="dot"></span>Our Inheritance
+      <span class="dot"></span>The Questions Before Us
     </div>
 
-    <h2 class="interrogatives-title">
-      What will we do with it?
-    </h2>
+
 
     <div class="interrogatives-sequence" data-inheritance-sequence>
+      
+<div class="interrogative-card active book-title-card">
+  <div class="book-cover-mark">✦</div>
+  <div class="interrogatives-book-kicker">
+    Prayer Force USA
+  </div>
 
-      <div class="interrogative-card active">
+  <h3>The Questions Before Us</h3>
+</div>
+      <div class="interrogative-card">
         <h3>WHO ARE WE?</h3>
         <p>
           We are those who love America and stand together in the gap before God,
@@ -3589,7 +3921,7 @@ min-width: 280px;
       </button>
 
       <div class="inheritance-progress" aria-live="polite">
-        <span data-inheritance-current>1</span> / <span data-inheritance-total>6</span>
+        <span data-inheritance-current>1</span> / <span data-inheritance-total>7</span>
       </div>
 
       <button type="button" class="inheritance-btn primary" data-inheritance-next>
@@ -4371,7 +4703,9 @@ setTimeout(() => {
 
     if (totalEl) totalEl.textContent = cards.length;
 
-    function showCard(index) {
+    function showCard(index, direction) {
+      sequence.classList.toggle("turning-back", direction === "back");
+
       cards.forEach((card, i) => {
         card.classList.toggle("active", i === index);
       });
@@ -4380,6 +4714,34 @@ setTimeout(() => {
       if (prevBtn) prevBtn.disabled = index === 0;
       if (nextBtn) nextBtn.textContent = index === cards.length - 1 ? "Begin Again" : "Next";
     }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        if (currentIndex > 0) {
+          currentIndex -= 1;
+          showCard(currentIndex, "back");
+        }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        if (currentIndex < cards.length - 1) {
+          currentIndex += 1;
+          showCard(currentIndex, "forward");
+        } else {
+          currentIndex = 0;
+          showCard(currentIndex, "back");
+          return;
+        }
+
+        showCard(currentIndex, "forward");
+      });
+    }
+
+    showCard(currentIndex, "forward");
+  });
+</script>
 
     if (prevBtn) {
       prevBtn.addEventListener("click", function () {
