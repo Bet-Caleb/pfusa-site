@@ -9,13 +9,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-</head>
-  <title>Prayer Force USA</title>
 
   <!-- LOCKED FAVICON -->
-<link rel="icon" type="image/png" sizes="32x32" href="assets/seal-favicon.png?v=3">
-<link rel="shortcut icon" href="/favicon.ico?v=3">
-<link rel="apple-touch-icon" href="assets/seal-favicon.png?v=3">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/seal-favicon.png?v=3">
+  <link rel="shortcut icon" href="/favicon.ico?v=3">
+  <link rel="apple-touch-icon" href="assets/seal-favicon.png?v=3">
 
   <!-- Social preview -->
   <meta property="og:title" content="Prayer Force USA" />
@@ -23,6 +21,7 @@
   <meta property="og:type" content="website" />
 
   <style>
+    :root {
           --bg0: #0f172a;
       --bg1: #111c33;
       --paper: #f7f7f3;
@@ -91,10 +90,12 @@
 .banner{
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 3rem);   /* matches .wrap padding */
-  max-width: 1000px;          /* matches .wrap width */
+ 
+  left: 0;
+  transform: none;
+  width: 100%;
+  max-width: none;
+        /* matches .wrap width */
   z-index: 50;
   background:
     linear-gradient(90deg, rgba(15,23,42,.96), rgba(15,23,42,.88)),
@@ -265,45 +266,35 @@ section{
 
     .card.pad{ padding: clamp(18px, 2.8vw, 20px); }
 
-    .eyebrow{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      color: rgba(15,23,42,.70);
-      font-weight:900;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      font-size: 12px;
-      margin: 0 0 12px;
-    }
+ .eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-    .eyebrow .dot{
-      width:8px; height:8px; border-radius:999px;
-      background: linear-gradient(180deg, var(--gold2), var(--gold));
-      box-shadow: 0 6px 20px rgba(199,162,74,.25);
-    }
+    margin:0 0 12px;
 
-    h1{ font-size: var(--h1); line-height:1.06; margin: 10px 0 10px; letter-spacing:-.02em; }
-    h2{ font-size: var(--h2); margin: 0 0 10px; letter-spacing:-.01em; }
-    h3{ font-size: var(--h3); margin: 0 0 10px; }
-    p{ margin: 0 0 12px; color: rgba(11,18,32,.86); }
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.13em;
+    text-transform:uppercase;
 
-    .btns{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+    color: rgba(120,92,24,.82);
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  text-decoration: none;
-  padding: 12px 14px;
-  border-radius: 8px;
-  font-weight: 700;
-  border: 1px solid #2a2a2a;
-  background: #2a2a2a;
-  color: #f7f4ef;
-  box-shadow: none;
-  transition: background .15s ease, border-color .15s ease;
+    line-height:1.2;
+}
+
+.eyebrow .dot{
+    width:7px;
+    height:7px;
+    flex:0 0 7px;
+
+    border-radius:999px;
+
+    background: rgba(120,92,24,.72);
+
+    box-shadow:
+        0 0 0 3px rgba(199,162,74,.10),
+        0 4px 12px rgba(199,162,74,.16);
 }
 
 .btn:hover {
@@ -349,29 +340,20 @@ section{
       opacity:.92;
     }
 
-    .down{
-      display:flex;
-      justify-content:center;
-      margin-top: 14px;
-    }
+ .down {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
 
-    .down a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width: 46px;
-      height: 46px;
-      border-radius: 999px;
-      text-decoration:none;
-      border: 1px solid rgba(15,23,42,.14);
-      background: rgba(255,255,255,.45);
-      box-shadow: 0 10px 26px rgba(2,6,23,.08);
-      color: rgba(15,23,42,.84);
-      font-size: 22px;
-      font-weight: 900;
-      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
-    }
-
+.down a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 2rem;
+  line-height: 1;
+}
     .down a:hover{
       transform: translateY(2px);
       background: rgba(255,255,255,.62);
@@ -1184,6 +1166,21 @@ section{
       color: rgba(255,255,255,.98);
     }
 
+    .pivot .overlay .pivot-return-line{
+  max-width: 11ch;
+
+  margin-top: 4px;
+  margin-bottom: 34px;
+
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.02;
+
+  font-weight: 800;
+  letter-spacing: -0.035em;
+
+  text-align: left;
+}
+
     .band.watch .img{
       filter: grayscale(.08) contrast(1.05) brightness(.90);
       background-position: center;
@@ -1701,23 +1698,24 @@ section{
   margin-top: 14px;
   overflow-x: auto;
   overflow-y: visible;
-  padding: 8px 4px 14px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(15,23,42,.28) rgba(15,23,42,.06);
+  padding: 8px 4px 18px;
+  scrollbar-width: auto;
+  scrollbar-color: rgba(120,92,24,.75) rgba(15,23,42,.08);
 }
 
 .anchors-strip-wrap::-webkit-scrollbar{
-  height: 10px;
+  height: 16px;
 }
 
 .anchors-strip-wrap::-webkit-scrollbar-track{
-  background: rgba(15,23,42,.06);
+  background: rgba(15,23,42,.08);
   border-radius: 999px;
 }
 
 .anchors-strip-wrap::-webkit-scrollbar-thumb{
-  background: rgba(15,23,42,.22);
+  background: linear-gradient(90deg, rgba(199,162,74,.95), rgba(226,197,122,.95));
   border-radius: 999px;
+  border: 3px solid rgba(247,247,243,.95);
 }
 
 .anchors-strip{
@@ -2074,7 +2072,14 @@ section{
 }
 
 .take-place-response-area {
-  margin-top: 1.5rem;
+  margin: 2rem auto 0;
+  max-width: 440px;
+  text-align: center;
+  padding: 1.35rem 1.4rem;
+  border: 1px solid rgba(199,162,74,.42);
+  border-radius: 14px;
+  background: rgba(255,255,255,.68);
+  box-shadow: 0 12px 32px rgba(2,6,23,.10);
 }
 
 #take .card {
@@ -2396,6 +2401,69 @@ section{
   font-size: 0.9rem;
 }
 
+.pfusa-response-label{
+  margin-top: 34px;
+  margin-bottom: 12px;
+
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: rgba(226,197,122,.92);
+}
+
+#pivot .pfusa-scripture:first-of-type{
+    max-width:620px;
+
+    margin-left:8%;
+    margin-right:auto;
+}
+
+.pfusa-scripture p{
+  margin: 0;
+
+  font-size: clamp(26px, 2.7vw, 40px);
+  line-height: 1.34;
+
+  font-weight: 700;
+  letter-spacing: -0.015em;
+
+  color: rgba(255,255,255,.98);
+
+  text-align: center;
+
+  text-shadow:
+    0 10px 28px rgba(0,0,0,.42);
+}.foundation .pfusa-scripture p,
+.what-is-pfusa .pfusa-scripture p{
+  color: rgba(17,24,39,.92);
+
+  text-shadow: none;
+}
+
+.foundation .pfusa-scripture footer,
+.what-is-pfusa .pfusa-scripture footer{
+  color: rgba(17,24,39,.74);
+}
+
+.pfusa-scripture footer{
+  margin-top: 18px;
+
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  color: rgba(226,197,122,.90);
+
+  text-align: center;
+}
+
+.pfusa-echo{
+  color: rgba(226,197,122,.98);
+}
+
 .pfusa-final-line {
   margin-top: 2rem;
   font-size: 1.1rem;
@@ -2574,6 +2642,16 @@ section{
 .pfusa-copy{
   max-width: 640px;
   margin: 0 auto;
+}
+
+.pfusa-copy p{
+    margin-bottom: 1.35rem;
+    line-height: 1.8;
+}
+
+#what .card{
+    padding-top: 34px;
+    padding-bottom: 38px;
 }
 
 .pfusa-promise-intro{
@@ -3322,7 +3400,7 @@ min-width: 280px;
   max-width: 860px;
   margin: 0 auto 28px;
 
-  min-height: 368px;
+  min-height: 380px;
 
   padding: 34px;
 
@@ -3389,26 +3467,36 @@ min-width: 280px;
 
 .interrogative-card.active{
   display: block;
-  animation: pageTurnIn 520ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+.interrogative-card.active:not(.book-title-card){
+  padding-top: 48px;
+}
+
+.interrogative-card:not(.book-title-card):not(.final-card){
+  padding-top: 26px;
+  padding-bottom: 26px;
+}
+
+.interrogative-card:not(.book-title-card):not(.final-card) p{
+  font-size: clamp(20px, 1.75vw, 25px);
+  line-height: 1.55;
+
+  max-width: 24ch;
 }
 
 .interrogatives-sequence.turning-back .interrogative-card.active{
   animation-name: pageTurnBackIn;
 }
 
-.book-title-card{
-  min-height: 300px;
-  padding: 58px 48px;
-  text-align: center;
-
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
 .book-title-card.active{
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-title-card.active .book-cover-inner{
+  transform: translateY(0);
 }
 
 .interrogative-card.active:not(.book-title-card)::after{
@@ -3429,7 +3517,7 @@ min-width: 280px;
     );
 
   transform: translateX(105%);
-  animation: pageSweepRightToLeft 620ms ease both;
+  animation: pageSweepRightToLeft 850ms ease both;
 }
 
 @keyframes pageSweepRightToLeft{
@@ -3479,10 +3567,25 @@ min-width: 280px;
 }
 
 .final-card{
-  border-color: rgba(199,162,74,.42);
+  border-color: inherit;
+  background: transparent;
+}
+
+.final-card-divider{
+  width: 72px;
+  height: 1px;
+
+  margin: 22px 0 20px;
+
+  border: 0;
+
   background:
-    radial-gradient(700px 320px at 50% 10%, rgba(226,197,122,.20), transparent 62%),
-    rgba(255,255,255,.74);
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(199,162,74,.72),
+      transparent
+    );
 }
 
 .inheritance-controls{
@@ -3548,6 +3651,376 @@ min-width: 280px;
  
 #foundations{
   margin-top: 72px;
+}
+
+#what .pfusa-scripture{
+  opacity: 1 !important;
+}
+
+#what .pfusa-scripture p{
+  color: rgba(11,18,32,.92) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+#what .pfusa-scripture footer{
+  color: rgba(15,23,42,.72) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+#what .pfusa-scripture{
+  max-width: 660px !important;
+  width: 100%;
+  margin: 24px auto 28px !important;
+  padding: 26px 32px !important;
+}
+
+#what .pfusa-scripture p{
+  text-align: center;
+}
+
+#what .pfusa-scripture footer{
+  text-align: left;
+}
+
+
+.down-mark{
+  width: 6px;
+  height: 6px;
+
+  display: block;
+
+  border-right: 3px solid #a67c00;
+  border-bottom: 3px solid #a67c00;
+
+  transform: rotate(45deg);
+
+  margin-top: -2px;
+}
+
+.scroll-cue {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+#what .eyebrow,
+#what .pfusa-purpose-eyebrow,
+#what .pfusa-promise-intro.eyebrow{
+    color: rgba(120,92,24,.82) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: .13em !important;
+    text-transform: uppercase !important;
+    line-height: 1.2 !important;
+    justify-content: flex-start !important;
+}
+
+#what .eyebrow .dot{
+    background: rgba(120,92,24,.72) !important;
+}
+
+/* WHAT SECTION — readability refinement */
+#what{
+  padding-top: clamp(28px, 4vw, 46px);
+  padding-bottom: clamp(28px, 4vw, 46px);
+}
+
+#what .card.pad{
+  padding: clamp(26px, 4.5vw, 48px);
+}
+
+#what .pfusa-copy{
+  max-width: 620px;
+  margin: 18px auto 0;
+}
+
+#what .pfusa-copy p{
+  margin-bottom: 22px;
+  line-height: 1.82;
+}
+
+#what .pfusa-copy p:last-child{
+  margin-bottom: 0;
+}
+
+#what .pfusa-urgency-line{
+  max-width: 620px;
+  margin: 18px auto 20px;
+  line-height: 1.72;
+}
+
+#what .pfusa-headline{
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CONTACT — email primary, YouTube secondary */
+.contact-links{
+  margin-top: 12px;
+}
+
+.contact-email{
+  margin: 0 0 8px;
+  font-weight: 800;
+  color: rgba(15,23,42,.90);
+}
+
+.contact-youtube{
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.contact-youtube a{
+  color: rgba(120,92,24,.86);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(120,92,24,.28);
+}
+
+.contact-youtube a:hover{
+  color: rgba(120,92,24,1);
+  border-bottom-color: rgba(120,92,24,.55);
+}
+
+/* WHAT SECTION — editorial rhythm */
+#what .card {
+  padding: clamp(34px, 5vw, 56px);
+}
+
+#what .pfusa-headline {
+  max-width: 820px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+#what .pfusa-purpose-eyebrow,
+#what .pfusa-promise-intro.eyebrow {
+  margin-top: 34px;
+  margin-bottom: 14px;
+}
+
+#what .pfusa-urgency-line {
+  max-width: 680px;
+  margin: 0 0 28px;
+  padding: 18px 22px;
+  border-left: 4px solid rgba(199,162,74,.75);
+  background: rgba(199,162,74,.10);
+  border-radius: 10px;
+  font-size: clamp(1.08rem, 1.6vw, 1.25rem);
+  line-height: 1.55;
+  font-weight: 850;
+}
+
+#what .pfusa-copy {
+  max-width: 660px;
+  margin: 0 0 34px;
+}
+
+#what .pfusa-copy p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin: 0 0 1.35rem;
+}
+
+#what .pfusa-scripture {
+  max-width: 760px;
+  margin: 0 0 34px;
+  padding: 28px 30px;
+  border-left: 5px solid rgba(199,162,74,.80);
+  background: rgba(255,255,255,.62);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(2,6,23,.08);
+}
+
+#what .pfusa-final-line {
+  max-width: 760px;
+  margin: 34px auto 30px;
+  padding: 28px;
+  text-align: center;
+  border: 1px solid rgba(199,162,74,.30);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(226,197,122,.18), transparent 55%),
+    rgba(255,255,255,.58);
+}
+
+#what .pfusa-final-line p {
+  margin: 0;
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  line-height: 1.45;
+  font-weight: 850;
+}
+
+#what .pfusa-final-line p + p {
+  margin-top: 8px;
+}
+
+/* FINAL OVERRIDE — What Is Prayer Force USA editorial layout */
+#what .card.pad.cinematic-section {
+  padding: clamp(38px, 5vw, 60px) !important;
+}
+
+#what .pfusa-headline {
+  max-width: 820px !important;
+  margin: 0 auto 44px !important;
+  text-align: center !important;
+}
+
+#what .pfusa-purpose-eyebrow,
+#what .pfusa-promise-intro.eyebrow {
+  margin: 34px 0 14px !important;
+}
+
+#what .pfusa-urgency-line {
+  max-width: 680px !important;
+  margin: 0 0 30px !important;
+  padding: 20px 24px !important;
+  border-left: 5px solid rgba(199,162,74,.78) !important;
+  background: rgba(199,162,74,.12) !important;
+  border-radius: 12px !important;
+  font-size: clamp(1.1rem, 1.7vw, 1.3rem) !important;
+  line-height: 1.55 !important;
+  font-weight: 850 !important;
+}
+
+#what .pfusa-copy {
+  max-width: 660px !important;
+  margin: 0 0 38px !important;
+}
+
+#what .pfusa-copy p {
+  font-size: 1.06rem !important;
+  line-height: 1.9 !important;
+  margin: 0 0 1.45rem !important;
+}
+
+#what .pfusa-scripture {
+  max-width: 760px !important;
+  margin: 0 0 38px !important;
+  padding: 30px 32px !important;
+  border-left: 5px solid rgba(199,162,74,.78) !important;
+  background: rgba(255,255,255,.66) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 14px 34px rgba(2,6,23,.09) !important;
+}
+
+#what .pfusa-scripture p {
+  color: rgba(11,18,32,.90) !important;
+  text-shadow: none !important;
+  font-size: clamp(1.05rem, 1.45vw, 1.22rem) !important;
+  line-height: 1.85 !important;
+  font-style: italic !important;
+  text-align: left !important;
+}
+
+#what .pfusa-scripture footer {
+  color: rgba(120,92,24,.88) !important;
+  text-align: left !important;
+}
+
+#what .pfusa-final-line {
+  max-width: 760px !important;
+  margin: 38px auto 34px !important;
+  padding: 30px 28px !important;
+  text-align: center !important;
+  border: 1px solid rgba(199,162,74,.32) !important;
+  border-radius: 18px !important;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(226,197,122,.20), transparent 55%),
+    rgba(255,255,255,.62) !important;
+}
+
+#what .pfusa-final-line p {
+  margin: 0 !important;
+  font-size: clamp(1.25rem, 2vw, 1.75rem) !important;
+  line-height: 1.45 !important;
+  font-weight: 850 !important;
+}
+
+/* WHAT SECTION — editorial two-column layout */
+#what .what-editorial-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.82fr);
+  gap: clamp(28px, 4vw, 52px);
+  align-items: start;
+  max-width: 980px;
+  margin: 0 auto 42px;
+}
+
+#what .what-editorial-copy,
+#what .what-editorial-scripture {
+  min-width: 0;
+}
+
+#what .pfusa-urgency-line {
+  margin-bottom: 24px !important;
+}
+
+#what .pfusa-copy {
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+#what .pfusa-scripture {
+  margin: 0 !important;
+}
+
+@media (max-width: 850px) {
+  #what .what-editorial-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pfusa-response-label {
+  margin-top: 28px;
+  margin-bottom: 14px;
+  color: rgba(226,197,122,.95);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.pfusa-response-divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+
+  width: min(520px, 92%);
+  margin: 36px auto 28px;
+  padding: 10px 18px;
+
+  border: 1px solid rgba(226,197,122,.28);
+  border-radius: 999px;
+
+  background: rgba(8,12,20,.42);
+  backdrop-filter: blur(6px);
+
+  box-shadow: 0 10px 28px rgba(0,0,0,.22);
+}
+
+.pfusa-response-divider span{
+  flex:1;
+  max-width:120px;
+  height:1px;
+  background:rgba(226,197,122,.52);
+}
+
+.pfusa-response-label{
+  color:rgba(245,225,160,.98);
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  white-space:nowrap;
 }
 
  </style>
@@ -3634,38 +4107,52 @@ A call to stand in the gap for our nation<br>
 <span class="hero-and">and</span> declare the Word of the Lord over America—together.
 </h2>
 
-<p class="pfusa-urgency-line reveal reveal-3">
-  Our country is divided, and our need is clear: we must turn back to God.
-</p>
+<div class="what-editorial-grid">
 
-<div class="pfusa-copy">
-<p class="reveal reveal-4">
-  Prayer Force USA exists to lift the United States before the throne of grace,
-  seeking God's help and mercy for this nation.
-</p>
+  <div class="what-editorial-copy">
+    <div class="eyebrow pfusa-purpose-eyebrow reveal reveal-4">
+      <span class="dot"></span>
+      <span>OUR PURPOSE</span>
+    </div>
 
-<p class="reveal reveal-5">
-  From America's earliest beginnings, many who came to this land acknowledged
-  their dependence on God.
-</p>
+    <p class="pfusa-urgency-line reveal reveal-3">
+      Our country is divided, and our need is clear: we must turn back to God.
+    </p>
 
-<p class="reveal reveal-6">
-  We carry that inheritance forward through prayer, humility, and faithful intercession.
-</p>
+    <div class="pfusa-copy">
+      <p class="reveal reveal-4">
+        Prayer Force USA exists to lift the United States before the throne of grace,
+        seeking God's help and mercy for this nation.
+      </p>
 
-<p class="pfusa-promise-intro reveal reveal-7">
-  God's promise still stands:
-</p>
+      <p class="reveal reveal-5">
+        From America's earliest beginnings, many who came to this land acknowledged
+        their dependence on God.
+      </p>
+
+      <p class="reveal reveal-6">
+        We carry that inheritance forward through prayer, humility, and faithful intercession.
+      </p>
+    </div>
+  </div>
+
+  <div class="what-editorial-scripture">
+    <div class="eyebrow pfusa-promise-intro reveal reveal-7">
+      <span class="dot"></span>
+      <span>God’s Promise Still Stands</span>
+    </div>
+
+    <blockquote class="pfusa-scripture reveal reveal-8">
+      <p>
+        “If my people, which are called by my name, shall humble themselves, and pray,
+        and seek my face, and turn from their wicked ways; then will I hear from heaven,
+        and will forgive their sin, and will heal their land.”
+      </p>
+      <footer>— 2 Chronicles 7:14 (KJV)</footer>
+    </blockquote>
+  </div>
+
 </div>
-
-<blockquote class="pfusa-scripture reveal reveal-8">
-  <p>
-    “If my people, which are called by my name, shall humble themselves, and pray,
-    and seek my face, and turn from their wicked ways; then will I hear from heaven,
-    and will forgive their sin, and will heal their land.”
-  </p>
-  <footer>— 2 Chronicles 7:14 (KJV)</footer>
-</blockquote>
 
 <div class="pfusa-final-line reveal reveal-9">
   <p>Prayer is not passive.</p>
@@ -3673,21 +4160,6 @@ A call to stand in the gap for our nation<br>
   <p>It is our way to partner with God for the deliverance of our nation.</p>
 </div>
 
-<h3 class="pfusa-subhead reveal reveal-11">
-  There are two ways to stand with us:
-</h3>
-
-<div class="pfusa-branches">
-  <div class="pfusa-branch reveal reveal-12">
-    <h4>Standing in the Gap</h4>
-    <p>A near-daily gathering to intercede for our nation and proclaim the Word of God over America.</p>
-  </div>
-
-  <div class="pfusa-branch reveal reveal-13">
-    <h4>The Prayer Watch</h4>
-    <p>A weekly rhythm of prayer that joins in step with the White House's America Prays initiative.</p>
-  </div>
-</div>
 
     <div class="down reveal reveal-14">
       <a href="#mural" aria-label="Scroll to Pilgrims mural">↓</a>
@@ -3826,28 +4298,166 @@ A call to stand in the gap for our nation<br>
   </div>
 </section>
 
-<section id="foundations">
 
-  <div class="eyebrow">
-    <span class="dot"></span>Our Foundation
-  </div>
+<hr class="divider" />
 
-  <div class="card pad foundations-bridge foundations-hinge">
 
-<h2 class="foundations-title">
-  Our Foundation is<br>
-  an inheritance entrusted<br>
-  to us.
-</h2>
+<hr class="divider" />
 
-    <p class="foundations-close">
-      What will we do with it?
-    </p>
+<section id="anchors">
+  <div class="card pad">
+    <div class="eyebrow"><span class="dot"></span>Historical Anchors</div>
+    <h2>Faith expressed publicly</h2>
+
+    <div class="anchors-strip-wrap">
+      <div class="anchors-strip" aria-label="Historical anchors">
+        <article class="anchor-strip-card anchor-strip-feature">
+          <div class="tag">11 Nov 1620</div>
+          <h3>Mayflower Compact</h3>
+          <p>“…for the Glory of God, and advancement of the Christian Faith…”</p>
+        </article>
+        
+        <article class="anchor-strip-card anchor-strip-medium">
+          <div class="tag">1789 — Inaugural Address</div>
+          <h3>George Washington</h3>
+          <p class="anchor-strip-quote">
+            “It would be peculiarly improper to omit, in this first official act, my fervent supplications to that Almighty Being…”
+          </p>
+        </article>
+
+        <article class="anchor-strip-card">
+          <div class="tag">18 June 1813 — Letter to Jefferson</div>
+          <h3>John Adams</h3>
+          <p>“The general principles on which the fathers achieved independence were the general principles of Christianity.”</p>
+        </article>
+
+        <article class="anchor-strip-card anchor-strip-medium">
+          <div class="tag">19 Sep 1796 — Farewell Address</div>
+          <h3>George Washington</h3>
+          <p>“Religion and morality are indispensable supports of political prosperity.”</p>
+        </article>
+        
+       <article class="anchor-strip-card anchor-strip-city-hill">
+  <div class="tag">1630 — John Winthrop, aboard the Arbella</div>
+  <h3>“A City Upon a Hill”</h3>
+  <p>
+“For we must consider that we shall be as a city upon a hill. The eyes of all people are upon us; so that if we shall deal falsely with our God in this work we have undertaken, and so cause Him to withdraw His present help from us, we shall be made a story and a byword through the world.”  </p>
+</article>
+
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      ← More historical anchors →
+    </div>
+
+    <div class="down">
+      <a href="#pivot" aria-label="Scroll to Present Day">↓</a>
+    </div>
 
   </div>
 </section>
 
+
 <hr class="divider" />
+
+<section id="pivot">
+
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span>OUR TURN</span>
+  </div>
+
+  <div class="pivot" role="region" aria-label="Present Day Pivot">
+    <div class="img" style="background-image:url('assets/Quiet_DC_morning.png')"></div>
+    <div class="wash"></div>
+
+    <div class="overlay">
+
+<h2 class="lede pivot-return-line">It is time to return.</h2>
+      <div class="pfusa-scripture">
+        <p>
+          “If my people who are called by my name<br>
+          humble themselves, and pray,<br>
+          and <span class="pfusa-echo">seek my face</span>,<br>
+          and turn from their wicked ways,<br><br>
+
+          then I will hear from heaven,<br>
+          and will forgive their sin<br>
+          and heal their land.”
+        </p>
+        <footer>2 Chronicles 7:14</footer>
+      </div>
+
+     <div class="pfusa-response-divider">
+  <span></span>
+  <div class="pfusa-response-label">OUR RESPONSE</div>
+  <span></span>
+</div>
+
+      <div class="pfusa-scripture">
+        <p>
+          <span class="pfusa-response-line">You have said, “<span class="pfusa-echo">Seek my face</span>.”</span><br>
+          My heart says to you,<br>
+          “Your face, Lord, do I seek.”
+        </p>
+        <footer>Psalm 27:8</footer>
+      </div>
+
+      <div class="down dark">
+<a href="#mission" aria-label="Scroll to Our Convictions">
+<span class="down-mark" aria-hidden="true"></span></a>       
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section id="mission">
+  <div class="card pad">
+    <div class="eyebrow"><span class="dot"></span>OUR CONVICTIONS</div>
+
+    <h2>Prayer Force USA exists to intercede before God, the Father of our Lord Jesus Christ, for the well-being and longevity of our nation.</h2>
+
+    <div class="grid2">
+      <div class="mini">
+        <div class="top">
+          <div class="tag">We Are</div>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" fill="rgba(199,162,74,.95)"/>
+          </svg>
+        </div>
+
+        <ul class="mission-list">
+          <li>Christ-centered</li>
+          <li>Scripture-anchored</li>
+          <li>Focused on prayer and declaring God’s Word over America</li>
+          <li>Devoted to Jesus Christ as the Son of God</li>
+          <li>pro-America</li>
+        </ul>
+      </div>
+
+      <div class="mini">
+        <div class="top">
+          <div class="tag">We Are Not</div>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" fill="rgba(199,162,74,.95)"/>
+          </svg>
+        </div>
+
+        <ul class="mission-list">
+          <li>Aligned with any political party</li>
+          <li>Driven by outrage or division</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="down">
+      <a href="#branches" aria-label="Scroll to Two Branches">↓</a>
+    </div>
+  </div>
+</section>
 
 <section id="interrogatives">
   <div class="card pad inheritance-card">
@@ -3905,13 +4515,19 @@ A call to stand in the gap for our nation<br>
         </p>
       </div>
 
-      <div class="interrogative-card final-card">
-        <h3>YOU ARE WELCOME HERE</h3>
-        <p>
-          If this is your heart as well,<br>
-          you are welcome here.
-        </p>
-      </div>
+<div class="interrogative-card final-card">
+  <h3>TO THOSE WHOSE HEARTS AGREE</h3>
+  <p>
+  If this is your heart as well,<br>
+  come stand with us.
+</p>
+
+<hr class="final-card-divider">
+
+<p>
+  You are welcome here.
+</p>
+</div>
 
     </div>
 
@@ -3933,154 +4549,10 @@ A call to stand in the gap for our nation<br>
 </section>
 
 <hr class="divider" />
-
-<section id="anchors">
-  <div class="card pad">
-    <div class="eyebrow"><span class="dot"></span>Historical Anchors</div>
-    <h2>Faith expressed publicly</h2>
-
-    <div class="anchors-strip-wrap">
-      <div class="anchors-strip" aria-label="Historical anchors">
-        <article class="anchor-strip-card anchor-strip-feature">
-          <div class="tag">11 Nov 1620</div>
-          <h3>Mayflower Compact</h3>
-          <p>“…for the Glory of God, and advancement of the Christian Faith…”</p>
-        </article>
-        
-        <article class="anchor-strip-card anchor-strip-medium">
-          <div class="tag">1789 — Inaugural Address</div>
-          <h3>George Washington</h3>
-          <p class="anchor-strip-quote">
-            “It would be peculiarly improper to omit, in this first official act, my fervent supplications to that Almighty Being…”
-          </p>
-        </article>
-
-        <article class="anchor-strip-card">
-          <div class="tag">18 June 1813 — Letter to Jefferson</div>
-          <h3>John Adams</h3>
-          <p>“The general principles on which the fathers achieved independence were the general principles of Christianity.”</p>
-        </article>
-
-        <article class="anchor-strip-card anchor-strip-medium">
-          <div class="tag">19 Sep 1796 — Farewell Address</div>
-          <h3>George Washington</h3>
-          <p>“Religion and morality are indispensable supports of political prosperity.”</p>
-        </article>
-        
-       <article class="anchor-strip-card anchor-strip-city-hill">
-  <div class="tag">1630 — John Winthrop, aboard the Arbella</div>
-  <h3>“A City Upon a Hill”</h3>
-  <p>
-“For we must consider that we shall be as a city upon a hill. The eyes of all people are upon us; so that if we shall deal falsely with our God in this work we have undertaken, and so cause Him to withdraw His present help from us, we shall be made a story and a byword through the world.”  </p>
-</article>
-
-      </div>
-    </div>
-
-    <div class="down">
-      <a href="#pivot" aria-label="Scroll to Present Day">↓</a>
-    </div>
-  </div>
-</section>
-
-<hr class="divider" />
-
-<section id="pivot">
-  <div class="pivot" role="region" aria-label="Present Day Pivot">
-    <div class="img" style="background-image:url('assets/Quiet_DC_morning.png')"></div>
-    <div class="wash"></div>
-
-    <div class="overlay">
-      <div class="eyebrow" style="color: rgba(255,255,255,.85);">
-        <span class="dot"></span>Present Day
-      </div>
-
-      <h2 class="lede">Grounded in faith then. We must not drift now.</h2>
-
-      <div class="pfusa-scripture">
-        <p>
-          “If my people who are called by my name<br>
-          humble themselves, and pray,<br>
-          and <span class="pfusa-echo">seek my face</span>,<br>
-          and turn from their wicked ways,<br><br>
-
-          then I will hear from heaven,<br>
-          and will forgive their sin<br>
-          and heal their land.”
-        </p>
-        <footer>2 Chronicles 7:14</footer>
-      </div>
-
-      <div class="pfusa-response-label">Response</div>
-
-      <div class="pfusa-scripture">
-        <p>
-          <span class="pfusa-response-line">You have said, “<span class="pfusa-echo">Seek my face</span>.”</span><br>
-          My heart says to you,<br>
-          “Your face, Lord, do I seek.”
-        </p>
-        <footer>Psalm 27:8</footer>
-      </div>
-
-      <div class="down dark">
-        <a href="#mission" aria-label="Scroll to The Mission">↓</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider" />
-
-<section id="mission">
-  <div class="card pad">
-    <div class="eyebrow"><span class="dot"></span>The Mission</div>
-
-    <h2>Prayer Force USA exists to intercede before God, the Father of our Lord Jesus Christ, for the well-being and longevity of our nation.</h2>
-
-    <div class="grid2">
-      <div class="mini">
-        <div class="top">
-          <div class="tag">We Are</div>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" fill="rgba(199,162,74,.95)"/>
-          </svg>
-        </div>
-
-        <ul class="mission-list">
-          <li>Christ-centered</li>
-          <li>Scripture-anchored</li>
-          <li>Focused on prayer (not arguments)</li>
-          <li>Devoted to Jesus Christ as the Son of God</li>
-          <li>pro-America</li>
-        </ul>
-      </div>
-
-      <div class="mini">
-        <div class="top">
-          <div class="tag">We Are Not</div>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" fill="rgba(199,162,74,.95)"/>
-          </svg>
-        </div>
-
-        <ul class="mission-list">
-          <li>Aligned with any political party</li>
-          <li>Driven by outrage or division</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="down">
-      <a href="#branches" aria-label="Scroll to Two Branches">↓</a>
-    </div>
-  </div>
-</section>
-
-<hr class="divider" />
 <section id="branches">
   <div class="card pad">
     <div class="eyebrow"><span class="dot"></span>One Mission. Two Branches.</div>
-    <p class="pfusa-bridge">Two ways to take part in prayer for our nation.</p>
+    <p class="pfusa-bridge">Two ways to stand in prayer and declare God’s Word over America.</p>
 
     <div class="pathways-grid">
 
@@ -4333,11 +4805,17 @@ Continue to confirm your signup and receive your Welcome Email and next steps.
               Email us for updates, questions, or to connect.
             </p>
 
-            <p style="font-weight:800; color: rgba(15,23,42,.90);">
-              Email: <a href="mailto:contact@prayerforceusa.net">contact@prayerforceusa.net</a>
-              &nbsp;•&nbsp;
-              YouTube: <a href="https://www.youtube.com/@prayerforceusa" target="_blank" rel="noopener">youtube.com/@prayerforceusa</a>
-            </p>
+           <div class="contact-links">
+  <p class="contact-email">
+    Email: <a href="mailto:contact@prayerforceusa.net">contact@prayerforceusa.net</a>
+  </p>
+
+  <p class="contact-youtube">
+    <a href="https://www.youtube.com/@prayerforceusa" target="_blank" rel="noopener">
+      Prefer to watch first? Visit our YouTube channel →
+    </a>
+  </p>
+</div>
 
             <p style="margin-top:10px;">
               Prayer Force USA is an independent initiative and is not affiliated with any organization using similar names.
@@ -4353,28 +4831,19 @@ Continue to confirm your signup and receive your Welcome Email and next steps.
       
     </main>
 
-    <footer aria-label="Footer">
-      <div class="inner">
-        <div>© Prayer Force USA</div>
-        <div class="links">
-          <span>Last updated: <span id="lastUpdated"></span></span>
-        </div>
-      </div>
-    </footer>
+ <footer aria-label="Footer">
+  <div class="inner">
+    <div>© Prayer Force USA</div>
+    <div class="links">
+      <span>Last updated: 24 Jun 2026</span>
+    </div>
+  </div>
+</footer>
   </div>
 
   <script>
   console.log("MURAL JS RUNNING");
-    (function(){
-      const el = document.getElementById("lastUpdated");
-      if(!el) return;
-      const d = new Date();
-      const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-      const dd = String(d.getDate()).padStart(2,"0");
-      const mmm = months[d.getMonth()];
-      const yyyy = d.getFullYear();
-      el.textContent = dd + " " + mmm + " " + yyyy;
-    })();
+    
 
     (function(){
       const el = document.getElementById("pfusaNextGathering");
@@ -4715,34 +5184,7 @@ setTimeout(() => {
       if (nextBtn) nextBtn.textContent = index === cards.length - 1 ? "Begin Again" : "Next";
     }
 
-    if (prevBtn) {
-      prevBtn.addEventListener("click", function () {
-        if (currentIndex > 0) {
-          currentIndex -= 1;
-          showCard(currentIndex, "back");
-        }
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener("click", function () {
-        if (currentIndex < cards.length - 1) {
-          currentIndex += 1;
-          showCard(currentIndex, "forward");
-        } else {
-          currentIndex = 0;
-          showCard(currentIndex, "back");
-          return;
-        }
-
-        showCard(currentIndex, "forward");
-      });
-    }
-
-    showCard(currentIndex, "forward");
-  });
-</script>
-
+  
     if (prevBtn) {
       prevBtn.addEventListener("click", function () {
         if (currentIndex > 0) {
