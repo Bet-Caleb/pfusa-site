@@ -400,9 +400,9 @@ section{
 
 .mural img{
   display: block;
-  width: 100%;
-  max-width: 100%;
+  width: 88%;
   height: auto;
+  margin: 0 auto;
 }
 
    .mural{
@@ -414,9 +414,10 @@ section{
 }
 
 .mural img{
-  display:block;
-  width:100%;
-  height:auto;
+  display: block;
+  width: 88%;
+  height: auto;
+  margin: 0 auto;
 }
 
 /* THEN YOUR EXISTING MEDIA QUERY */
@@ -619,15 +620,15 @@ section{
       }
     }
 
- .mural.interactive::before {
+.mural.interactive::before {
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
-  height: 38%;
+  height: 52%;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.35) 0%,
-    rgba(0,0,0,0.15) 45%,
+    rgba(0,0,0,0.28) 0%,
+    rgba(0,0,0,0.12) 45%,
     rgba(0,0,0,0) 100%
   );
   pointer-events: none;
@@ -1905,15 +1906,15 @@ section{
    ========================================= */
 
 .take-place-content .take-place-content-inner {
-  max-width: 620px;
-  padding: 2rem 2.4rem 3rem;
+  max-width: 680px;
+  padding: 3.25rem 3.4rem 4rem;
   color: #1a1a1a;
 }
 
 .take-place-content .take-place-heading {
-  margin: 0.25rem 0 1rem 0;
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  line-height: 1.15;
+  margin: 0.35rem 0 1.1rem 0;
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
+  line-height: 1;
   color: #1a1a1a;
   background: none;
 }
@@ -1933,23 +1934,24 @@ section{
   color: rgba(26,26,26,0.58);
 }
 .take-place-section {
-  padding: 5rem 1.5rem;
+  padding: 6.5rem 1.5rem;
   position: relative;
 }
 
 .take-place-shell {
-  max-width: 900px;
+  max-width: 1120px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  border: 1px solid rgba(26, 26, 26, 0.10);
+  grid-template-columns: 1fr 1.15fr;
+  border: 1px solid rgba(26, 26, 26, 0.14);
   background: #f7f4ef;
   overflow: hidden;
+  box-shadow: 0 28px 70px rgba(2, 6, 23, 0.16);
 }
 
 .take-place-poster {
   position: relative;
-  min-height: 620px;
+  min-height: 700px;
   background: #ece7de;
   border-right: 1px solid rgba(26, 26, 26, 0.10);
   overflow: hidden;
@@ -1959,10 +1961,10 @@ section{
 .take-place-poster-inner {
   position: relative;
   height: 100%;
-  padding: 2rem;
+  padding: 2.4rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .take-place-poster-frame {
@@ -1973,19 +1975,24 @@ section{
 }
 
 .take-place-poster-image {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+  position: relative;
+  z-index: 2;
   pointer-events: none;
-  overflow: hidden;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 3rem;
 }
 
 .take-place-poster-image img {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 5.25rem;
-  width: 96%;
+  position: relative;
+  left: auto;
+  transform: none;
+  bottom: auto;
+  width: min(545px, 100%);
+  max-width: 100%;
+  height: auto;
   opacity: 1;
   filter: none;
 }
@@ -2004,6 +2011,10 @@ section{
 .take-place-poster-content {
   position: relative;
   z-index: 2;
+}
+
+.take-place-bridge {
+  margin: 4rem 0 3rem 0;
 }
 
 .take-place-kicker {
@@ -2028,11 +2039,11 @@ section{
 }
 
 .take-place-poster-subtext {
-  margin: 0.4rem 0 1rem 0;
-  max-width: 36ch;
-  color: rgba(26, 26, 26, 0.82);
-  line-height: 1.45;
-  font-size: 1.05rem;
+    margin: 0;
+    max-width: 36ch;
+    color: rgba(26,26,26,.82);
+    line-height: 1.45;
+    font-size: 1.05rem;
 }
 
 .take-place-content {
@@ -2154,29 +2165,32 @@ section{
   }
 }
 
-/* --- tighten layout for readability --- */
+/* --- Take Your Place: command presence override --- */
 .take-place-shell {
-  max-width: 900px;
+  max-width: min(1320px, calc(100vw - 72px));
 }
 
 .take-place-content-inner {
-  max-width: 560px;
-  padding: 3.5rem 2.5rem;
+  max-width: 720px;
+  padding: 4.25rem 4.25rem 4.75rem;
 }
 
 .take-place-heading {
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  line-height: 1.15;
+  font-size: clamp(3.4rem, 5.8vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
 }
 
 .take-place-intro {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  max-width: 34rem;
+  font-size: 1.12rem;
+  line-height: 1.65;
+  max-width: 42rem;
 }
 
 .take-place-poster-title {
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-size: clamp(4.4rem, 7.2vw, 7.4rem);
+  line-height: 0.88;
+  letter-spacing: -0.055em;
 }
 
 .take-place-options {
@@ -2976,9 +2990,9 @@ section{
 .hs-who     { left: 18%; top: 72%; }
 .hs-how     { left: 42%; top: 82%; }
 .hs-what    { left: 45%; top: 57%; }
-.hs-when    { left: 74%; top: 74%; }
+.hs-when    { left: 70%; top: 74%; }
 .hs-where   { left: 22%; top: 36%; }
-.hs-welcome { left: 89%; top: 34%; }
+.hs-welcome { left: 84%; top: 34%; }
 
 .pf-overlay-card {
   position: absolute;
@@ -3782,6 +3796,22 @@ min-width: 280px;
   margin-right: auto;
 }
 
+#what .pfusa-headline-brand {
+  display: block;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  color: rgba(15, 23, 42, 0.72);
+}
+
+#what .pfusa-headline-call {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
 /* CONTACT — email primary, YouTube secondary */
 .contact-links{
   margin-top: 12px;
@@ -4337,9 +4367,12 @@ min-width: 280px;
 </div>
 
 <h2 class="pfusa-headline reveal reveal-2">
-  Prayer Force USA.<br>
-A call to stand in the gap for our nation<br>
-<span class="hero-and">and</span> declare the Word of the Lord over America—together.
+  <span class="pfusa-headline-brand">Prayer Force USA.</span>
+  <span class="pfusa-headline-call">
+    A call to stand in the gap for our nation<br>
+    and declare the Word of the Lord<br>
+    over America—together.
+  </span>
 </h2>
 
 <div class="what-editorial-grid">
@@ -4827,6 +4860,7 @@ A call to stand in the gap for our nation<br>
 </section>
 
 <!-- TAKE YOUR PLACE (NEW SECTION) -->
+
 <section id="take-your-place" class="take-place-section" aria-labelledby="take-place-heading">
   <div class="take-place-shell">
 
@@ -4834,12 +4868,8 @@ A call to stand in the gap for our nation<br>
       <div class="take-place-poster-inner">
         <div class="take-place-poster-frame"></div>
 
-        <div class="take-place-poster-image" aria-hidden="true">
-          <img src="assets/PFUSA_taped_recruit_poster - no_BG.png" alt="">
-        </div>
-
         <div class="take-place-poster-content">
-          <p class="take-place-kicker">Prayer Force USA</p>
+          <p class="take-place-kicker">YOUR INVITATION</p>
 
           <h2 class="take-place-poster-title">
             Take<br>
@@ -4847,9 +4877,15 @@ A call to stand in the gap for our nation<br>
             Place
           </h2>
 
-      <p class="take-place-poster-subtext">
-  Continuing the work they began in prayer—seeking God’s covering and divine favor over our nation.
-</p>
+          <div class="take-place-bridge">
+            <p class="take-place-poster-subtext">
+              Continuing the work they began in prayer—seeking God’s covering and divine favor over our nation.
+            </p>
+          </div>
+
+          <div class="take-place-poster-image" aria-hidden="true">
+            <img src="assets/PFUSA_taped_recruit_poster - no_BG.png" alt="">
+          </div>
         </div>
       </div>
     </div>
@@ -4867,7 +4903,7 @@ A call to stand in the gap for our nation<br>
 </div>
 
 <p class="take-place-intro">
-Prayer Force USA calls those who are ready to stand in prayer for our country with steadiness, purpose, and unity to the glory of God.</p>
+Prayer Force USA calls those who are ready to stand in prayer for our country with steadiness, purpose, and unity—for the glory of God.</p>
 
 <div class="take-place-options">
   <div class="take-place-option">
