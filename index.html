@@ -1902,404 +1902,266 @@ section{
 }  
 
 /* =========================================
-   TAKE YOUR PLACE — clean editorial version
+   TAKE YOUR PLACE — final working layout
    ========================================= */
 
-.take-place-content .take-place-content-inner {
-  max-width: 680px;
-  padding: 3.25rem 3.4rem 4rem;
-  color: #1a1a1a;
+#take-your-place {
+  padding: 4.5rem 1.5rem;
 }
 
-.take-place-content .take-place-heading {
-  margin: 0.35rem 0 1.1rem 0;
-  font-size: clamp(2.4rem, 4.4vw, 4rem);
-  line-height: 1;
-  color: #1a1a1a;
-  background: none;
-}
-
-.take-place-content .take-place-eyebrow {
-  margin: 0 0 0.35rem 0;
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(26,26,26,0.58);
-}   
-.take-place-eyebrow {
-  margin: 0 0 0.35rem 0;
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(26,26,26,0.58);
-}
-.take-place-section {
-  padding: 6.5rem 1.5rem;
-  position: relative;
-}
-
-.take-place-shell {
-  max-width: 1120px;
+#take-your-place .take-place-shell {
+  width: min(1180px, calc(100vw - 72px));
+  max-width: none;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  border: 1px solid rgba(26, 26, 26, 0.14);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); 
   background: #f7f4ef;
+  border: 1px solid rgba(26,26,26,0.16);
+  box-shadow: 0 28px 70px rgba(2,6,23,0.16);
   overflow: hidden;
-  box-shadow: 0 28px 70px rgba(2, 6, 23, 0.16);
 }
 
-.take-place-poster {
-  position: relative;
-  min-height: 700px;
-  background: #ece7de;
-  border-right: 1px solid rgba(26, 26, 26, 0.10);
-  overflow: hidden;
-  isolation: isolate;
+#take-your-place .take-place-poster {
+  grid-column: 1;
+  grid-row: 1;
 }
 
-.take-place-poster-inner {
+#take-your-place .take-place-content {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+#take-your-place .take-place-shell > .take-place-poster,
+#take-your-place .take-place-shell > .take-place-content {
+  min-width: 0;
+}
+
+#take-your-place .take-place-poster,
+#take-your-place .take-place-content {
+  background: #f7f4ef;
+}
+
+#take-your-place .take-place-poster {
+  border-right: 1px solid rgba(26,26,26,0.14);
+}
+
+#take-your-place .take-place-poster-inner {
   position: relative;
-  height: 100%;
-  padding: 2.4rem;
+  min-height: 100%;
+  padding: 2.3rem 2.5rem 2.7rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
 }
 
-.take-place-poster-frame {
+#take-your-place .take-place-poster-frame {
   position: absolute;
-  inset: 1.1rem;
-  border: 1px solid rgba(26, 26, 26, 0.10);
+  inset: 1.2rem;
+  border: 1px solid rgba(26,26,26,0.10);
   pointer-events: none;
 }
 
-.take-place-poster-image {
-  position: relative;
-  z-index: 2;
-  pointer-events: none;
-  overflow: visible;
-  display: flex;
-  justify-content: center;
-  margin-top: 0;
-  margin-bottom: 3rem;
-}
-
-.take-place-poster-image img {
-  position: relative;
-  left: auto;
-  transform: none;
-  bottom: auto;
-  width: min(545px, 100%);
-  max-width: 100%;
-  height: auto;
-  opacity: 1;
-  filter: none;
-}
-
-.take-place-poster::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40%;
-  
-  z-index: 2;
-}
-
-.take-place-poster-content {
+#take-your-place .take-place-poster-content,
+#take-your-place .take-place-poster-image,
+#take-your-place .take-place-bridge {
   position: relative;
   z-index: 2;
 }
 
-.take-place-bridge {
-  margin: 4rem 0 3rem 0;
-}
-
-.take-place-kicker {
-  margin: 0 0 0.45rem 0;
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
+#take-your-place .take-place-kicker,
+#take-your-place .take-place-eyebrow {
+  margin: 0 0 0.85rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(26,26,26,0.58);
 }
 
-.take-place-bridge-line {
-  margin: 0 0 0.65rem 0;
-  font-size: 0.98rem;
-  line-height: 1.2;
-}
-
-.take-place-poster-title {
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  line-height: 0.92;
-  font-weight: 700;
-  color: #1a1a1a;
-}
-
-.take-place-poster-subtext {
-    margin: 0;
-    max-width: 36ch;
-    color: rgba(26,26,26,.82);
-    line-height: 1.45;
-    font-size: 1.05rem;
-}
-
-.take-place-content {
-  background: #f7f4ef;
-}
-
-.take-place-content-inner {
-  max-width: 620px;
-  padding: 2rem 2.4rem 3rem;
-  color: #1a1a1a;
-}
-
-.take-place-heading {
-  margin: 0 0 0.35rem 0;
-  line-height: 0.98;
-}
-
-.take-place-option {
-  padding: 0.75rem 0.85rem;
-  border-radius: 10px;
-  border: 1px solid rgba(26, 26, 26, 0.12);
-  background: rgba(255, 255, 255, 0.55);
-  transition: all 0.15s ease;
-}
-
-.take-place-option:hover {
-  border-color: rgba(31, 58, 95, 0.35);
-  background: rgba(255, 255, 255, 0.75);
-}
-
-.take-place-option.is-active {
-  border-color: #24476a;
-  background: rgba(36, 71, 106, 0.08);
-}
-
-.take-place-option .card-title {
-  margin: 0 0 0.4rem 0;
-  margin-bottom: 0.25rem;
-  font-size: 0.78rem;
-  line-height: 1.15;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #24476a;
-  font-weight: 700;
-}
-
-.take-place-option .card-text {
+#take-your-place .take-place-poster-title {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.3;
-  color: rgba(26, 26, 26, 0.88);
+  font-size: clamp(4.5rem, 6.4vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  font-weight: 800;
+  color: #111;
 }
 
-.take-place-intro {
-  margin: 0 0 1.15rem 0;
-  max-width: 34ch;
-  font-size: 1.02rem;
-  line-height: 1.45;
-  color: rgba(26, 26, 26, 0.84);
+#take-your-place .take-place-poster-image {
+  margin: 1.55rem 0 1.55rem;
+  display: flex;
+  justify-content: center;
 }
 
-.take-place-response-area {
-  margin: 2rem auto 0;
-  max-width: 440px;
+#take-your-place .take-place-poster-image img {
+  display: block;
+  width: min(470px, 100%);
+  max-width: 100%;
+  height: auto;
+}
+
+#take-your-place .take-place-bridge {
   text-align: center;
-  padding: 1.35rem 1.4rem;
-  border: 1px solid rgba(199,162,74,.42);
-  border-radius: 14px;
-  background: rgba(255,255,255,.68);
-  box-shadow: 0 12px 32px rgba(2,6,23,.10);
 }
 
-#take .card {
-  background: transparent !important;
-  box-shadow: none;
-  border: none;
+#take-your-place .take-place-poster-subtext {
+  margin: 0 auto;
+  max-width: 34ch;
+  font-size: 1.08rem;
+  line-height: 1.45;
+  color: rgba(26,26,26,0.86);
 }
 
-
-
-/* --- chooser styles --- */
-
-.typp-branch-select {
-  margin-top: 20px;
+#take-your-place .take-place-content-inner {
+  max-width: 620px;
+  padding: 3.4rem 3.8rem 3.9rem;
+  color: #1a1a1a;
 }
 
-.typp-branch-option {
-  display: block;
-  padding: 12px 0;
-  border-top: 1px solid rgba(26, 26, 26, 0.1);
-}
-
-.typp-branch-option:last-of-type {
-  border-bottom: 1px solid rgba(26, 26, 26, 0.1);
-}
-
-.typp-branch-main {
-  display: block;
-  font-weight: 600;
-}
-
-.typp-branch-sub {
-  display: block;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.typp-branch-select {
-  margin-top: 12px;
-}
-
-.typp-branch-select p {
-  margin: 0 0 0.15rem 0;
-}
-
-@media (max-width: 980px) {
-  .take-place-shell {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* --- Take Your Place: command presence override --- */
-.take-place-shell {
-  max-width: min(1320px, calc(100vw - 72px));
-}
-
-.take-place-content-inner {
-  max-width: 720px;
-  padding: 4.25rem 4.25rem 4.75rem;
-}
-
-.take-place-heading {
-  font-size: clamp(3.4rem, 5.8vw, 5.6rem);
+#take-your-place .take-place-heading {
+  margin: 0 0 0.65rem;
+  font-size: clamp(3.2rem, 4.8vw, 5.1rem);
   line-height: 0.95;
   letter-spacing: -0.055em;
+  color: #111;
 }
 
-.take-place-intro {
-  font-size: 1.12rem;
-  line-height: 1.65;
-  max-width: 42rem;
+#take-your-place .take-place-bridge-line {
+  margin: 0 0 1.1rem;
+  font-size: 1.18rem;
+  line-height: 1.35;
+  color: rgba(26,26,26,0.88);
 }
 
-.take-place-poster-title {
-  font-size: clamp(4.4rem, 7.2vw, 7.4rem);
-  line-height: 0.88;
-  letter-spacing: -0.055em;
+#take-your-place .take-place-intro {
+  margin: 0 0 2rem;
+  max-width: 39rem;
+  font-size: 1.18rem;
+  line-height: 1.6;
+  color: rgba(26,26,26,0.86);
 }
 
-.take-place-options {
+#take-your-place .take-place-options {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
-  margin: 0 0 1.35rem 0;
+  grid-template-columns: 1fr;
+  gap: 1.05rem;
+  margin: 0 0 2rem;
 }
 
-.typp-branch-select {
-  margin-top: 0.75rem;
+#take-your-place .take-place-option {
+  padding: 1.2rem 1.4rem;
+  border-radius: 14px;
+  border: 1px solid rgba(26,26,26,0.14);
+  background: rgba(255,255,255,0.58);
 }
 
-.typp-branch-title {
-  font-size: 0.8rem;
-  letter-spacing: 0.09em;
+#take-your-place .take-place-option .card-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-weight: 600;
-  color: rgba(26, 26, 26, 0.78);
-  margin-bottom: 0.35rem;
+  color: #12385f;
+  font-weight: 800;
 }
 
-.typp-branch-option input:checked + .typp-branch-marker + .typp-branch-copy {
-  font-weight: 700;
+#take-your-place .take-place-option .card-text {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.45;
+  color: rgba(26,26,26,0.86);
 }
 
-.typp-branch-option input:checked {
-  accent-color: #1a1a1a;
+#take-your-place .typp-branch-select {
+  margin-top: 0;
 }
 
-.typp-branch-option:has(input:checked) {
-  background: rgba(0,0,0,0.035);
+#take-your-place .typp-branch-title {
+  margin: 0 0 0.6rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: rgba(26,26,26,0.78);
 }
 
-.typp-branch-option {
+#take-your-place .typp-branch-fieldset {
+  margin: 0;
+  padding: 0.95rem 1.2rem;
+  border: 1px solid rgba(26,26,26,0.16);
+}
+
+#take-your-place .typp-branch-option {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(26,26,26,0.12);
   cursor: pointer;
 }
 
-.typp-continue-link {
+#take-your-place .typp-branch-option:first-of-type {
+  border-top: 0;
+}
+
+#take-your-place .typp-branch-option input {
+  margin-top: 0.25rem;
+}
+
+#take-your-place .typp-branch-main {
+  display: block;
+  font-weight: 800;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+#take-your-place .typp-branch-sub {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: rgba(26,26,26,0.72);
+}
+
+#take-your-place .typp-branch-actions {
+  margin-top: 1.4rem;
+}
+
+#take-your-place .typp-continue-link {
   display: inline-block;
-  margin-top: 0.75rem;
-  padding: 0.6rem 1.1rem;
+  padding: 0.8rem 1.35rem;
   border-radius: 10px;
-
-  background: #1f3a5a;
-  color: #ffffff;
-
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-
+  background: linear-gradient(180deg, #d6b25e, #b8953f);
+  color: #111;
+  font-weight: 800;
   text-decoration: none;
-  border: 1px solid #1f3a5a;
-
-  transition: background 0.15s ease, transform 0.08s ease, box-shadow 0.15s ease;
 }
 
-.typp-continue-link:active {
-  transform: translateY(1px);
-  box-shadow: 0 3px 10px rgba(31, 58, 90, 0.12);
+#take-your-place .take-place-confirm-note {
+  margin: 1.25rem 0 0;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: rgba(26,26,26,0.82);
 }
 
-.typp-continue-link:not([aria-disabled="true"]):hover {
-  transform: translateY(-1px);
-  background: #c8a96a;
-  color: #1f3a5a;
-  border-color: #c8a96a;
-  box-shadow: 0 6px 18px rgba(31, 58, 90, 0.18);
-}
+@media (max-width: 760px) {
+  #take-your-place .take-place-shell {
+    width: min(100%, calc(100vw - 36px));
+    grid-template-columns: 1fr;
+  }
 
-.typp-continue-link[aria-disabled="true"] {
-  background: #eadbbf;
-  color: rgba(31, 58, 90, 0.78);
-  border: 1px solid rgba(31, 58, 90, 0.18);
+  #take-your-place .take-place-poster {
+    border-right: 0;
+    border-bottom: 1px solid rgba(26,26,26,0.14);
+  }
 
-  pointer-events: none;
-  box-shadow: none;
-  transform: none;
-}
+  #take-your-place .take-place-content-inner {
+    max-width: none;
+    padding: 2.5rem 2rem 3rem;
+  }
 
-.typp-continue-link {
-  display: inline-block;
-  margin-top: 0.75rem;
-  padding: 0.6rem 1.1rem;
-  border-radius: 10px;
-
-  background: #1f3a5a;
-  color: #ffffff;
-
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-
-  text-decoration: none;
-  border: 1px solid #1f3a5a;
-
-  transition: background 0.15s ease, transform 0.08s ease, box-shadow 0.15s ease;
-}
-
-.typp-branch-select {
-  margin-top: 22px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(26,26,26,0.12);
-}
-
-.typp-bridge {
-  font-size: 0.95rem;
-  color: rgba(26,26,26,0.75);
-  margin: 8px 0 14px;
+  #take-your-place .take-place-poster-image img {
+    width: min(430px, 100%);
+  }
 }
 
 /* REVEAL PROFILE: CINEMATIC */
@@ -4288,6 +4150,7 @@ min-width: 280px;
   text-align: left;
 }
 
+
  </style>
 
   <!-- Google tag (gtag.js) -->
@@ -4312,19 +4175,17 @@ min-width: 280px;
  <nav aria-label="Primary">
   <a href="#home">Home</a>
   <a href="#what">What is PFUSA</a>
-  <a href="#mission">Mission</a>
+  <a href="#mission">Our Convictions</a>
   <a href="#take-your-place">Take Your Place</a>
 
   <details class="nav-more">
     <summary aria-label="Open more navigation links">More</summary>
-    <div class="menu" role="menu" aria-label="More links">
-      <a href="#foundations" role="menuitem">Our Foundations</a>
-      <a href="#anchors" role="menuitem">Historical Anchors</a>
-      <a href="#pivot" role="menuitem">Present Day</a>
-      <a href="#declaration" role="menuitem">The Prayer Force</a>
-      <a href="#paths" role="menuitem">Two Expressions</a>
-      <a href="#support" role="menuitem">Support</a>
-    </div>
+<div class="menu" role="menu" aria-label="More links">
+  <a href="#anchors" role="menuitem">Historical Anchors</a>
+  <a href="#pivot" role="menuitem">Our Turn</a>
+ <a href="#branches" role="menuitem">One Mission. Two Branches.</a>
+  <a href="#support" role="menuitem">Support</a>
+</div>
   </details>
 </nav>
       </div>
@@ -4860,7 +4721,6 @@ min-width: 280px;
 </section>
 
 <!-- TAKE YOUR PLACE (NEW SECTION) -->
-
 <section id="take-your-place" class="take-place-section" aria-labelledby="take-place-heading">
   <div class="take-place-shell">
 
@@ -4876,95 +4736,89 @@ min-width: 280px;
             Your<br>
             Place
           </h2>
+        </div>
 
-          <div class="take-place-bridge">
-            <p class="take-place-poster-subtext">
-              Continuing the work they began in prayer—seeking God’s covering and divine favor over our nation.
-            </p>
-          </div>
+        <div class="take-place-poster-image" aria-hidden="true">
+          <img src="assets/Nat'l_Prayer_Call-up_Poster_NBG.png" alt="">
+        </div>
 
-          <div class="take-place-poster-image" aria-hidden="true">
-            <img src="assets/PFUSA_taped_recruit_poster - no_BG.png" alt="">
-          </div>
+        <div class="take-place-bridge">
+          <p class="take-place-poster-subtext">
+            Continuing the work they began in prayer—seeking God’s covering and divine favor over our nation.
+          </p>
         </div>
       </div>
     </div>
 
     <div class="take-place-content">
       <div class="take-place-content-inner">
-        <div class="take-place-eyebrow">A personal response</div>
+        <p class="take-place-eyebrow">A PERSONAL RESPONSE</p>
 
-<h2 id="take-place-heading" class="take-place-heading">
-  Take your place.
-</h2>
+        <h2 id="take-place-heading" class="take-place-heading">
+          Take your place.
+        </h2>
 
-<div class="take-place-bridge-line">
-  It’s our turn, now.
-</div>
+        <div class="take-place-bridge-line">
+          It’s our turn, now.
+        </div>
 
-<p class="take-place-intro">
-Prayer Force USA calls those who are ready to stand in prayer for our country with steadiness, purpose, and unity—for the glory of God.</p>
+        <p class="take-place-intro">
+          Prayer Force USA calls those who are ready to stand in prayer for our country with steadiness, purpose, and unity—for the glory of God.
+        </p>
 
-<div class="take-place-options">
-  <div class="take-place-option">
-    <div class="card-title">Standing in the Gap</div>
-    <div class="card-text">
-      Respond to urgent needs across our nation as they arise.
-    </div>
-  </div>
-
-  <div class="take-place-option">
-    <div class="card-title">The Prayer Watch</div>
-    <div class="card-text">
-      Keep a steady, weekly rhythm of watchful prayer.
-    </div>
-  </div>
-</div>
-          <div class="typp-branch-select" aria-labelledby="typp-branch-heading">
-<p class="typp-branch-title">Your response</p>
-
-            <fieldset class="typp-branch-fieldset">
-              <legend class="sr-only">Choose your place:</legend>
-
-              <label class="typp-branch-option" for="branch-sitgap">
-                <input type="radio" name="prayer_path" value="sitgap" data-href="thank-you/?path=sitgap">
-                <span class="typp-branch-marker" aria-hidden="true"></span>
-                <span class="typp-branch-copy">
-                  <span class="typp-branch-main">I will Stand in the Gap.</span>
-                  <span class="typp-branch-sub">Pray with us for the needs of the nation as they arise.</span>
-                </span>
-              </label>
-
-              <label class="typp-branch-option" for="branch-tpw">
-                <input type="radio" name="prayer_path" value="watch" data-href="thank-you/?path=watch">
-                <span class="typp-branch-marker" aria-hidden="true"></span>
-                <span class="typp-branch-copy">
-                  <span class="typp-branch-main">I will keep the Prayer Watch.</span>
-                  <span class="typp-branch-sub">Join a weekly rhythm of watchful prayer.</span>
-                </span>
-              </label>
-
-              <label class="typp-branch-option" for="branch-both">
-                <input type="radio" name="prayer_path" value="both" data-href="thank-you/?path=both">
-                <span class="typp-branch-marker" aria-hidden="true"></span>
-                <span class="typp-branch-copy">
-                  <span class="typp-branch-main">I will stand in the gap and keep the Watch.</span>
-                  <span class="typp-branch-sub">Serve in both—responsive and watchful.</span>
-                </span>
-              </label>
-            </fieldset>
-
-            <div class="typp-branch-actions">
-              <a class="btn primary typp-continue-link" id="typpContinueLink" href="#" aria-disabled="true">
-                Continue
-              </a>
-            </div>
+        <div class="take-place-options">
+          <div class="take-place-option">
+            <div class="card-title">Standing in the Gap</div>
+            <div class="card-text">Respond to urgent needs across our nation as they arise.</div>
           </div>
 
-          <p style="margin-top:12px;">
-Continue to confirm your signup and receive your Welcome Email and next steps.
-          </p>
+          <div class="take-place-option">
+            <div class="card-title">The Prayer Watch</div>
+            <div class="card-text">Keep a steady, weekly rhythm of watchful prayer.</div>
+          </div>
         </div>
+
+        <div class="typp-branch-select" aria-labelledby="typp-branch-heading">
+          <p class="typp-branch-title" id="typp-branch-heading">Your response</p>
+
+          <fieldset class="typp-branch-fieldset">
+            <legend class="sr-only">Choose your place:</legend>
+
+            <label class="typp-branch-option" for="branch-sitgap">
+              <input id="branch-sitgap" type="radio" name="prayer_path" value="sitgap" data-href="thank-you/?path=sitgap">
+              <span class="typp-branch-copy">
+                <span class="typp-branch-main">I will Stand in the Gap.</span>
+                <span class="typp-branch-sub">Pray with us for the needs of the nation as they arise.</span>
+              </span>
+            </label>
+
+            <label class="typp-branch-option" for="branch-tpw">
+              <input id="branch-tpw" type="radio" name="prayer_path" value="watch" data-href="thank-you/?path=watch">
+              <span class="typp-branch-copy">
+                <span class="typp-branch-main">I will keep the Prayer Watch.</span>
+                <span class="typp-branch-sub">Join a weekly rhythm of watchful prayer.</span>
+              </span>
+            </label>
+
+            <label class="typp-branch-option" for="branch-both">
+              <input id="branch-both" type="radio" name="prayer_path" value="both" data-href="thank-you/?path=both">
+              <span class="typp-branch-copy">
+                <span class="typp-branch-main">I will stand in the gap and keep the Watch.</span>
+                <span class="typp-branch-sub">Serve in both—responsive and watchful.</span>
+              </span>
+            </label>
+          </fieldset>
+
+          <div class="typp-branch-actions">
+            <a class="btn primary typp-continue-link" id="typpContinueLink" href="#" aria-disabled="true">
+              Continue
+            </a>
+          </div>
+        </div>
+
+        <p class="take-place-confirm-note">
+          Continue to confirm your signup and receive your Welcome Email and next steps.
+        </p>
       </div>
     </div>
 
@@ -4977,18 +4831,17 @@ Continue to confirm your signup and receive your Welcome Email and next steps.
 <section id="support">
   <div class="inner">
     <div class="card pad">
-
       <div class="eyebrow"><span class="dot"></span>Support</div>
       <h2>Support</h2>
 
-      <div class="btns">
-        <a class="btn small primary" href="#faq">Questions? See FAQ</a>
-      </div>
+    <p>
+  Support opportunities are still to come, but participation is&mdash;and will remain&mdash;free.
+  Learn more in the <a href="#about">About</a> section.
+</p>
 
       <div class="down">
-        <a href="#faq" aria-label="Scroll to FAQ">↓</a>
+        <a href="#contact" aria-label="Scroll to Contact">↓</a>
       </div>
-
     </div>
   </div>
 </section>
@@ -4996,8 +4849,8 @@ Continue to confirm your signup and receive your Welcome Email and next steps.
         <section id="faq">
           <div class="inner">
         <div class="card pad">
-          <div class="eyebrow"><span class="dot"></span>FAQ</div>
-          <h2>Frequently Asked Questions</h2>
+          <div class="eyebrow"><span class="dot"></span>About</div>
+          <h2>About Prayer Force USA</h2>
 
           <div class="faq">
             <details>
@@ -5033,6 +4886,13 @@ Continue to confirm your signup and receive your Welcome Email and next steps.
               <summary>Is Prayer Force USA a political movement?</summary>
               <p>
                 Prayer Force USA is not a political party. We pray about the real conditions of our nation—some of them difficult and contested—while remaining anchored in Scripture rather than partisan conflict.
+              </p>
+            </details>
+
+            <details>
+              <summary>Is Prayer Force USA still growing?</summary>
+              <p>
+                Yes, indeed! Prayer Force USA is in its early stages of development. As it grows, we plan to add new prayer resources and opportunities to participate. The core mission will remain the same, but you'll likely see the site and its offerings continue to evolve. Thank you for being part of the journey!
               </p>
             </details>
 

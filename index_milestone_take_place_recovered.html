@@ -1,0 +1,5367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prayer Force USA</title>
+
+  <!-- Google Fonts: Playfair Display (title) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- LOCKED FAVICON -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/seal-favicon.png?v=3">
+  <link rel="shortcut icon" href="/favicon.ico?v=3">
+  <link rel="apple-touch-icon" href="assets/seal-favicon.png?v=3">
+
+  <!-- Social preview -->
+  <meta property="og:title" content="Prayer Force USA" />
+  <meta property="og:description" content="United in prayer for our nation" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root {
+          --bg0: #0f172a;
+      --bg1: #111c33;
+      --paper: #f7f7f3;
+      --ink: #0b1220;
+      --muted: rgba(15,23,42,.72);
+      --card: rgba(255,255,255,.78);
+      --card2: rgba(255,255,255,.64);
+      --line: rgba(15,23,42,.10);
+      --shadow: 0 10px 30px rgba(2,6,23,.10);
+      --shadow2: 0 18px 60px rgba(2,6,23,.16);
+      --radius: 18px;
+
+      --gold: #c7a24a;
+      --gold2:#e2c57a;
+      --navy: #0f172a;
+
+      --max: 1100px;
+      --pad: clamp(18px, 3.2vw, 28px);
+
+      --h1: clamp(36px, 6vw, 58px);
+      --h2: clamp(22px, 3.2vw, 30px);
+      --h3: clamp(18px, 2.6vw, 22px);
+      --p:  clamp(15px, 1.3vw, 17px);
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      color: var(--ink);
+      font: 400 var(--p)/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1100px 700px at 15% 10%, rgba(226,197,122,.14), transparent 58%),
+        radial-gradient(1000px 700px at 85% 18%, rgba(199,162,74,.10), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(247,247,243,1) 30%, rgba(247,247,243,1) 100%);
+      overflow-x:hidden;
+      padding-top: 84px;
+    }
+
+    section[id]{
+  scroll-margin-top: 110px;
+}
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.07;
+      background-image: url("assets/Mayflower%20Compact%20depiction.jpg");
+      background-size: 420px;
+      background-repeat: repeat;
+      filter: grayscale(1) contrast(0.85) brightness(1.25);
+      mix-blend-mode: multiply;
+      z-index:0;
+    }
+
+.wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.banner{
+  position: fixed;
+  top: 0;
+ 
+  left: 0;
+  transform: none;
+  width: 100%;
+  max-width: none;
+        /* matches .wrap width */
+  z-index: 50;
+  background:
+    linear-gradient(90deg, rgba(15,23,42,.96), rgba(15,23,42,.88)),
+    radial-gradient(900px 400px at 20% 30%, rgba(199,162,74,.22), transparent 60%),
+    radial-gradient(900px 400px at 80% 30%, rgba(226,197,122,.14), transparent 62%);
+  color: rgba(255,255,255,.92);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 10px 30px rgba(2,6,23,.22);
+}
+
+    .banner::after{
+      content:"";
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(226,197,122,.95), rgba(199,162,74,.95), transparent);
+      opacity: .9;
+      pointer-events:none;
+    }
+
+.banner .inner{
+  width: 100%;
+  margin: 0;
+  padding: 14px var(--pad);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 240px;
+    }
+
+    .brand img{
+      width:44px;
+      height:44px;
+      object-fit:contain;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.25));
+      flex-shrink: 0;
+    }
+
+    .brand strong{
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      line-height: 1;
+      font-size: 1.15rem;
+      background: linear-gradient(180deg, #f3df9b, #d8b24a, #b8871d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: #d8b24a;
+    }
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px 16px;
+      justify-content:flex-end;
+      align-items:center;
+    }
+
+    nav a{
+      text-decoration:none;
+      color: rgba(255,255,255,.86);
+      font-weight:700;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    nav a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.20);
+    }
+
+    nav details.nav-more{
+      position: relative;
+    }
+
+    nav summary{
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+      text-decoration:none;
+      color: rgba(255,255,255,.86);
+      font-weight:700;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    nav summary::-webkit-details-marker{
+      display:none;
+    }
+
+    nav summary:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.20);
+    }
+
+    nav details.nav-more .menu{
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      min-width: 240px;
+      padding: 10px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(15,23,42,.96);
+      box-shadow: 0 18px 60px rgba(2,6,23,.35);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 100;
+    }
+
+    nav details.nav-more .menu a{
+      display:block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.90);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    nav details.nav-more .menu a:hover{
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.22);
+      transform: none;
+    }
+
+    main{ max-width: var(--max); margin: 0 auto; padding: 0 var(--pad) 34px; }
+
+section{
+  padding: clamp(12px, 2vw, 20px) 0;
+}
+
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(15,23,42,.14), transparent);
+      margin: 0;
+      border:0;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .card.pad{ padding: clamp(18px, 2.8vw, 20px); }
+
+ .eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    margin:0 0 12px;
+
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+
+    color: rgba(120,92,24,.82);
+
+    line-height:1.2;
+}
+
+.eyebrow .dot{
+    width:7px;
+    height:7px;
+    flex:0 0 7px;
+
+    border-radius:999px;
+
+    background: rgba(120,92,24,.72);
+
+    box-shadow:
+        0 0 0 3px rgba(199,162,74,.10),
+        0 4px 12px rgba(199,162,74,.16);
+}
+
+.btn:hover {
+  background: #1f1f1f;
+  border-color: #1f1f1f;
+}
+
+  /* Primary button — refined gold accent */
+.btn.primary{
+  background: linear-gradient(180deg, #d6b25e, #b8953f);
+  color: #0b1220;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
+}
+
+.btn.primary:hover{
+  background: linear-gradient(180deg, #e0bc68, #c3a34d);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+}
+
+.btn.primary:active{
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+
+    .btn.small{
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight:900;
+      font-size: 14px;
+    }
+
+    .icon{
+      width:18px; height:18px;
+      flex: 0 0 18px;
+      opacity:.92;
+    }
+
+ .down {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.down a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 2rem;
+  line-height: 1;
+}
+    .down a:hover{
+      transform: translateY(2px);
+      background: rgba(255,255,255,.62);
+      box-shadow: 0 14px 34px rgba(2,6,23,.10);
+    }
+
+    .down.dark a{
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.92);
+      box-shadow: none;
+    }
+
+    .down.dark a:hover{
+      background: rgba(255,255,255,.14);
+      transform: translateY(2px);
+    }
+
+.mural-invite {
+  max-width: 42rem;
+  margin: 0 0 1rem 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  opacity: 0.9;
+}
+
+.mural-invite .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--gold2), var(--gold));
+  box-shadow: 0 4px 12px rgba(199,162,74,0.25);
+}
+
+    .mural{
+      position: relative;
+      border-radius: calc(var(--radius) + 8px);
+      overflow:hidden;
+      border: 1px solid rgba(15,23,42,.14);
+      box-shadow: var(--shadow2);
+      background: #fff;
+    }
+
+.mural img{
+  display: block;
+  width: 88%;
+  height: auto;
+  margin: 0 auto;
+}
+
+   .mural{
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(15,23,42,.08);
+  box-shadow: var(--shadow);
+}
+
+.mural img{
+  display: block;
+  width: 88%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* THEN YOUR EXISTING MEDIA QUERY */
+@media (max-width:768px){
+  .mural{
+    height:420px;
+  }
+
+  .mural img{
+    height:100%;
+    object-fit:cover;
+    object-position:center 65%;
+  }
+} 
+
+.mural-down{
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+.mural-hotspot-wrap{
+  display: grid;
+  gap: 14px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.mural.interactive{
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+    .mural.interactive::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(15,23,42,.06) 0%, rgba(15,23,42,.02) 30%, rgba(15,23,42,.10) 100%);
+      pointer-events:none;
+      z-index:1;
+    }
+
+    .mural-hotspots{
+      position:absolute;
+      inset:0;
+      z-index:2;
+      pointer-events:none;
+    }
+
+    .mural-hotspot{
+      --size: 52px;
+      position:absolute;
+      width: var(--size);
+      height: var(--size);
+      margin-left: calc(var(--size) / -2);
+      margin-top: calc(var(--size) / -2);
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      pointer-events:auto;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0;
+      appearance:none;
+      -webkit-appearance:none;
+    }
+
+    .mural-hotspot::before{
+      content:"";
+      position:absolute;
+      inset: 10px;
+      border-radius:999px;
+      background: radial-gradient(circle, rgba(226,197,122,.70) 0%, rgba(199,162,74,.32) 45%, rgba(199,162,74,0) 72%);
+      opacity:0;
+      transform: scale(.82);
+      transition: opacity .22s ease, transform .22s ease;
+    }
+
+    .mural-hotspot::after{
+      content:"";
+      position:absolute;
+      width: 14px;
+      height: 14px;
+      border-radius:999px;
+      background: linear-gradient(180deg, rgba(226,197,122,.98), rgba(199,162,74,.98));
+      box-shadow:
+        0 0 0 4px rgba(255,255,255,.78),
+        0 10px 26px rgba(2,6,23,.24);
+      opacity:.6;
+      transform: scale(.92);
+      transition: opacity .22s ease, transform .22s ease, box-shadow .22s ease;
+    }
+
+    .mural-hotspot:hover::before,
+    .mural-hotspot:focus-visible::before,
+    .mural-hotspot.is-active::before{
+      opacity:1;
+      transform: scale(1);
+    }
+
+    .mural-hotspot:hover::after,
+    .mural-hotspot:focus-visible::after,
+    .mural-hotspot.is-active::after{
+      opacity:1;
+      transform: scale(1);
+      box-shadow:
+        0 0 0 4px rgba(255,255,255,.90),
+        0 0 0 10px rgba(226,197,122,.20),
+        0 14px 34px rgba(2,6,23,.28);
+    }
+
+    .mural-hotspot:focus-visible{
+      outline: 2px solid rgba(226,197,122,.95);
+      outline-offset: 2px;
+    }
+
+    .mural-hotspot[data-pos="heaven"]{ left: 50%; top: 18%; }
+    .mural-hotspot[data-pos="people"]{ left: 34%; top: 56%; }
+    .mural-hotspot[data-pos="nation"]{ left: 67%; top: 55%; }
+    .mural-hotspot[data-pos="path"]{ left: 52%; top: 78%; }
+
+    .mural-panel{
+      position:relative;
+      z-index:1;
+      background: rgba(255,255,255,.84);
+      border: 1px solid rgba(15,23,42,.10);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 18px 18px 16px;
+      display:grid;
+      gap: 8px;
+    }
+
+    .mural-panel{
+  display:block !important;
+}
+    .mural-panel-kicker{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size: 12px;
+      color: rgba(15,23,42,.66);
+    }
+
+    .mural-panel-kicker .dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background: linear-gradient(180deg, var(--gold2), var(--gold));
+      box-shadow: 0 6px 20px rgba(199,162,74,.25);
+    }
+
+    .mural-panel h3{
+      margin:0;
+    }
+
+    .mural-panel p{
+      margin:0;
+      color: rgba(11,18,32,.84);
+      max-width: 62ch;
+    }
+
+    .mural-panel-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 4px;
+    }
+
+    .mural-panel-note{
+      margin-top: 2px;
+      font-size: 13px;
+      color: rgba(15,23,42,.64);
+      font-weight:700;
+    }
+
+    @media (max-width:768px){
+      .mural-hotspot{
+        --size: 48px;
+      }
+
+      .mural-hotspot[data-pos="heaven"]{ left: 50%; top: 20%; }
+      .mural-hotspot[data-pos="people"]{ left: 30%; top: 58%; }
+      .mural-hotspot[data-pos="nation"]{ left: 71%; top: 57%; }
+      .mural-hotspot[data-pos="path"]{ left: 52%; top: 80%; }
+
+      .mural-panel{
+        padding: 16px 16px 14px;
+      }
+    }
+
+.mural.interactive::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 52%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.28) 0%,
+    rgba(0,0,0,0.12) 45%,
+    rgba(0,0,0,0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+#mural h2 {
+  position: relative;
+  z-index: 2;
+}
+
+#mural h2 {
+  text-shadow:
+    0 2px 6px rgba(0,0,0,0.55),
+    0 0 2px rgba(0,0,0,0.6);
+}
+
+.hero{
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: url("assets/revere-hero.png");
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  filter: grayscale(.05) saturate(1.05) contrast(1.04) brightness(1);
+  transform: scale(1.04);
+  transform-origin: center right;
+}
+
+/* HERO — remove broad overlay */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: transparent;
+  pointer-events:none;
+}
+
+.hero .content{
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: clamp(42px, 6vw, 72px);
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 18px;
+  align-items: center;
+}
+
+/* HERO — soft text panel */
+.hero .content > div:first-child{
+  max-width: 540px;
+  padding: 28px 32px;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8,12,20,.76) 0%,
+      rgba(8,12,20,.60) 70%,
+      rgba(8,12,20,.18) 100%
+    );
+
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.28),
+    inset 0 0 0 1px rgba(255,255,255,.08);
+
+  backdrop-filter: blur(6px);
+}
+
+.hero .kicker{
+    font-size: .98rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+}
+
+.hero h1{
+  color:#fff;
+  text-shadow:0 14px 40px rgba(0,0,0,.42);
+
+  margin-top:0;
+  margin-bottom:32px;
+
+  font-family:"Inter", system-ui, sans-serif;
+
+  font-size:clamp(4.2rem, 7vw, 5.8rem);
+  font-weight:800;
+  line-height:1.04;
+  letter-spacing:-0.04em;
+
+  max-width:12ch;
+}
+
+.hero-sub{
+  font-size:1.38rem;
+  line-height:1.8;
+  max-width:34rem;
+}
+
+.hero-cta{
+  margin-top: 26px;
+}
+
+    .hero p{
+      color: rgba(255,255,255,.93);
+      max-width: 64ch;
+      margin-bottom: 0;
+      font-weight:650;
+      text-shadow: 0 14px 34px rgba(0,0,0,.45);
+    }
+
+    .hero .right{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap: 12px;
+    }
+
+    .hero .badge{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.88);
+      backdrop-filter: blur(8px);
+      max-width: 360px;
+    }
+
+    .hero .badge img{
+      width: 48px;
+      height: 48px;
+      object-fit:contain;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,.35));
+      flex-shrink: 0;
+    }
+
+    .hero .badge span{
+      font-weight:800;
+      letter-spacing:.2px;
+      line-height:1.25;
+    }
+
+    .hero-microlinks{
+      margin-top: 10px;
+    }
+
+    .micro-link{
+      display:inline-block;
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+      color: var(--gold2);
+      opacity:.95;
+    }
+
+    .micro-link:hover{
+      text-decoration:underline;
+      color: var(--gold);
+    }
+
+    .band{
+      border-radius: calc(var(--radius) + 8px);
+      overflow:hidden;
+      border: 1px solid rgba(15,23,42,.14);
+      box-shadow: var(--shadow);
+      position:relative;
+      min-height: 220px;
+      background: #0b1220;
+    }
+
+    .band .img{
+      position:absolute; inset:0;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(.08) contrast(1.02) brightness(.98);
+      transform: scale(1.02);
+    }
+
+    .band .wash{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(247,247,243,.86) 0%, rgba(247,247,243,.74) 52%, rgba(247,247,243,.88) 100%),
+        radial-gradient(900px 420px at 20% 40%, rgba(226,197,122,.18), transparent 62%);
+      mix-blend-mode: screen;
+      pointer-events:none;
+    }
+
+    .band .overlay{
+      position:relative;
+      z-index:2;
+      padding: clamp(18px, 3.2vw, 28px);
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .band .overlay p{ max-width: 82ch; }
+
+    .band .overlay p,
+    .band .overlay li{
+      font-weight:650;
+      color: rgba(11,18,32,.88);
+    }
+
+.foundations-shell{
+  position: relative;
+  overflow: hidden;
+}
+
+.foundations-shell::before{
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(226,197,122,.92), rgba(199,162,74,.92));
+  opacity: .72;
+}
+.foundations-hinge{
+  text-align: center;
+  padding: 62px 34px;
+
+  background:
+    radial-gradient(circle at 50% 35%, rgba(226,197,122,.18), transparent 42%),
+    linear-gradient(180deg, rgba(247,247,243,.72), rgba(238,232,218,.78));
+
+  border: 1px solid rgba(199,162,74,.34);
+
+  box-shadow:
+    0 18px 48px rgba(2,6,23,.10),
+    inset 0 0 0 1px rgba(255,255,255,.60),
+    inset 0 0 0 8px rgba(199,162,74,.08);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.foundations-hinge::after{
+  content: "";
+  position: absolute;
+  inset: 18px;
+
+  border: 1px solid rgba(120,92,24,.28);
+  border-radius: 12px;
+
+  pointer-events: none;
+}
+
+.foundations-hinge::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 18px;
+
+  width: 1px;
+  height: 34px;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(199,162,74,.70),
+      transparent
+    );
+
+  transform: translateX(-50%);
+}
+
+.foundations-hinge::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(circle, rgba(15,23,42,.18) 0.7px, transparent 1px);
+
+  background-size: 6px 6px;
+
+  opacity: .32;
+
+  mix-blend-mode: multiply;
+
+  pointer-events: none;
+}
+
+.foundations-hinge .foundations-title,
+.foundations-hinge .foundations-close{
+  position: relative;
+  z-index: 2;
+}
+.foundations-top{
+  max-width: 44rem;
+  margin-bottom: 28px;
+}
+
+.foundations-title{
+  margin: 0 auto;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(26px, 2.6vw, 34px);
+  line-height: 1.14;
+  font-weight: 650;
+
+  max-width: 18ch;
+  text-align: center;
+
+  color: rgba(11,18,32,.94);
+  letter-spacing: -0.015em;
+}
+
+.foundations-pull{
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 1.75rem;
+
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 500;
+}
+
+.foundations-pull strong{
+  font-weight: 850;
+  color: rgba(11,18,32,.99);
+}
+
+.foundations-contrast{
+  margin: 0 0 30px;
+  padding: 14px 16px;
+  max-width: 38ch;
+  border-left: 4px solid rgba(199,162,74,.95);
+  background: rgba(199,162,74,.14);
+  border-radius: 8px;
+}
+
+.foundations-contrast p{
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.4;
+  color: rgba(11,18,32,.97);
+  font-size: clamp(16px, 1.5vw, 19px);
+  margin: 2rem 0;
+}
+
+.foundations-contrast p + p{
+  margin-top: 10px;
+}
+
+.foundations-copy{
+  max-width: 65ch;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: #1f1f1f;
+}
+
+.foundations-copy p{
+  margin: 0 0 20px;
+  font-size: clamp(16px, 1.35vw, 18px);
+  line-height: 1.82;
+  font-weight: 500;
+  color: rgba(11,18,32,.88);
+}
+
+.foundations-copy p strong{
+  font-weight: 800;
+  color: rgba(11,18,32,.98);
+}
+
+.foundations-copy p:last-child{
+  margin-bottom: 0;
+}
+
+.foundations-close{
+  display: inline-block;
+  margin-top: 42px;  padding: 10px 14px;
+  font-weight: 850;
+  font-size: clamp(24px, 2.2vw, 30px);
+  font-family: "Playfair Display", serif;
+  line-height: 1.35;
+  color: rgba(11,18,32,.98);
+  border-left: 4px solid rgba(199,162,74,.95);
+  background: rgba(199,162,74,.10);
+  border-radius: 8px;
+}
+
+.foundations-copy .dropcap::first-letter {
+  float: left;
+  font-size: 2rem;
+  line-height: 1;
+  padding-right: 0.18em;
+  font-weight: 600;
+  color: #222;
+}
+
+@media (max-width: 640px){
+  .foundations-top{
+    margin-bottom: 22px;
+  }
+
+  .foundations-title{
+    margin-bottom: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 20ch;
+  }
+
+  .foundations-contrast{
+    margin-bottom: 24px;
+    padding: 12px 14px;
+  }
+
+  .foundations-copy p{
+    margin-bottom: 18px;
+    line-height: 1.76;
+  }
+
+  .foundations-close{
+    display: block;
+  }
+}
+
+ .grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+   .mini {
+  background: #efebe4;
+  border: 1px solid rgba(26, 26, 26, 0.10);
+  border-radius: 14px;
+  padding: 16px 16px;
+  color: #1a1a1a;
+  box-shadow: none;
+}
+
+    .mini .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 8px;
+    }
+
+    .tag{
+      font-weight:900;
+      font-size: 12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color: rgba(15,23,42,.66);
+    }
+
+    .mini.accent{
+      position: relative;
+      padding-left: 18px;
+      background: rgba(255,255,255,.66);
+      box-shadow: 0 10px 26px rgba(2,6,23,.08);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .mini.accent:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 16px 44px rgba(2,6,23,.12);
+    }
+
+    .mini.accent::before{
+      content:"";
+      position:absolute;
+      left: 0;
+      top: 14px;
+      bottom: 14px;
+      width: 4px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, rgba(226,197,122,.92), rgba(199,162,74,.92));
+      opacity: .95;
+    }
+
+    .mini.accent.primary{
+      border-color: rgba(199,162,74,.30);
+      box-shadow: 0 18px 60px rgba(2,6,23,.14);
+      background: linear-gradient(180deg, rgba(226,197,122,.14), rgba(255,255,255,.70));
+    }
+
+    .mini.accent.primary::after{
+      content:"";
+      position:absolute;
+      left: 0; right: 0; top: 0;
+      height: 3px;
+      background: linear-gradient(90deg, rgba(226,197,122,.95), rgba(199,162,74,.95));
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
+      opacity: .75;
+    }
+
+    .pivot{
+      border-radius: calc(var(--radius) + 8px);
+      overflow:hidden;
+      border: 1px solid rgba(15,23,42,.14);
+      box-shadow: var(--shadow);
+      position:relative;
+      min-height: 210px;
+      background: #0b1220;
+    }
+
+    .pivot .img{
+      position:absolute; inset:0;
+      background-size: cover;
+      background-position: center;
+      filter: contrast(1.03) brightness(1.06) saturate(1.02);
+      transform: none;
+    }
+
+    .pivot .wash{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(15,23,42,.62) 0%, rgba(15,23,42,.46) 60%, rgba(15,23,42,.26) 100%),
+        radial-gradient(900px 420px at 25% 35%, rgba(226,197,122,.14), transparent 62%);
+      pointer-events:none;
+    }
+
+    .pivot .overlay{
+      position:relative;
+      z-index:2;
+      padding: clamp(18px, 3.6vw, 30px);
+      color: rgba(255,255,255,.95);
+      text-shadow: 0 14px 34px rgba(0,0,0,.45);
+    }
+
+    .pivot .overlay h2,
+    .pivot .overlay p{
+      color: rgba(255,255,255,.95);
+      margin:0;
+    }
+
+    .pivot .lede{
+      font-weight:850;
+      letter-spacing:-.01em;
+      line-height:1.12;
+      margin-top: 2px;
+    }
+
+    .pivot .punch{
+      margin-top: 10px;
+      font-weight:900;
+      letter-spacing:.02em;
+      text-transform:none;
+      font-size: clamp(16px, 2.1vw, 20px);
+      color: rgba(255,255,255,.98);
+    }
+
+    .pivot .overlay .pivot-return-line{
+  max-width: 11ch;
+
+  margin-top: 4px;
+  margin-bottom: 34px;
+
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.02;
+
+  font-weight: 800;
+  letter-spacing: -0.035em;
+
+  text-align: left;
+}
+
+    .band.watch .img{
+      filter: grayscale(.08) contrast(1.05) brightness(.90);
+      background-position: center;
+    }
+
+    .band.watch .wash{
+      background:
+        linear-gradient(90deg, rgba(15,23,42,.78) 0%, rgba(15,23,42,.62) 58%, rgba(15,23,42,.46) 100%),
+        radial-gradient(900px 420px at 22% 35%, rgba(226,197,122,.12), transparent 62%);
+      mix-blend-mode: normal;
+    }
+
+    .band.watch .overlay{
+      background: rgba(15,23,42,.42);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      backdrop-filter: blur(8px);
+    }
+
+    .band.watch .overlay h2,
+    .band.watch .overlay h3,
+    .band.watch .overlay p,
+    .band.watch .overlay li,
+    .band.watch .overlay blockquote{
+      color: rgba(255,255,255,.95);
+      text-shadow: 0 14px 34px rgba(0,0,0,.45);
+    }
+
+    .callout{
+      margin-top: 12px;
+      padding: 14px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(8px);
+      color: rgba(255,255,255,.92);
+    }
+
+    .callout a{
+      color: rgba(255,255,255,.96);
+      font-weight:900;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .callout .line{
+      font-weight:850;
+      letter-spacing:.2px;
+    }
+
+    footer{
+      margin-top: 26px;
+      padding: 22px var(--pad) 30px;
+      border-top: 1px solid rgba(15,23,42,.12);
+      background:
+        linear-gradient(180deg, rgba(247,247,243,.70), rgba(247,247,243,.92)),
+        radial-gradient(900px 500px at 25% 10%, rgba(226,197,122,.10), transparent 62%);
+    }
+
+    footer .inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px 16px;
+      color: rgba(15,23,42,.78);
+      font-weight:800;
+    }
+
+    footer .links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+
+    @media (max-width: 980px){
+      .hero .content{ grid-template-columns: 1fr; }
+      .hero .right{ align-items:flex-start; }
+      .grid2{ grid-template-columns: 1fr; }
+      nav{ justify-content:flex-start; }
+      .brand{ min-width: unset; }
+    }
+
+ @media (max-width:768px){
+  .mural{
+    height:420px;
+  }
+
+  .mural img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+    @media (max-width: 600px){
+      nav details.nav-more .menu{
+        right: auto;
+        left: 0;
+        min-width: 0;
+        width: min(92vw, 340px);
+      }
+
+      .banner .inner{
+        padding: 8px var(--pad);
+        gap: 10px;
+      }
+
+      .brand img{
+        width:30px;
+        height:30px;
+      }
+
+      .brand strong{
+        font-size: .98rem;
+        letter-spacing: .06em;
+      }
+
+      nav{
+        flex-wrap: wrap;
+        overflow-x: visible;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+        gap: 8px;
+        width: 100%;
+      }
+
+      nav a{
+        white-space: nowrap;
+        font-size: 13px;
+        padding: 6px 8px;
+      }
+
+      nav{
+        scrollbar-width: none;
+      }
+
+      nav::-webkit-scrollbar{
+        display:none;
+      }
+    }
+
+.mission-list{
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(11,18,32,.86);
+  font-weight: 650;
+}
+
+.mission-list li + li{
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  #declaration .card div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+}
+
+.pathways-grid{
+  display:grid;
+  grid-template-columns: .92fr 1.08fr;
+  gap: 18px;
+  margin-top: 10px;
+  align-items: stretch;
+}
+
+.pathway-card{
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+  border-radius: calc(var(--radius) + 8px);
+  border: 1px solid rgba(15,23,42,.14);
+  box-shadow: var(--shadow);
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.pathway-image{
+  position:absolute;
+  inset:0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.06);
+  transform-origin: center;
+}
+
+.pathway-card-sitgap .pathway-image{
+  background: none;
+  transform: none;
+  opacity: 0;
+}
+
+.pathway-card-sitgap .pathway-wash{
+  background:
+    linear-gradient(180deg, rgba(247,247,243,.18), rgba(247,247,243,.10)),
+    radial-gradient(700px 320px at 18% 18%, rgba(226,197,122,.10), transparent 60%);
+}
+
+.pathway-card-sitgap .pathway-content{
+  background: transparent;
+}
+
+.pathway-card-sitgap{
+  border: 1.6px solid rgba(15,23,42,.28);
+  box-shadow:
+    0 10px 26px rgba(2,6,23,.06),
+    inset 0 0 0 1px rgba(255,255,255,.35);
+}
+
+.pathway-wash{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(247,247,243,.42), rgba(247,247,243,.55)),
+    radial-gradient(700px 320px at 20% 20%, rgba(226,197,122,.14), transparent 60%);
+}
+
+.pathway-content{
+  position:relative;
+  z-index:2;
+  padding: 22px;
+  display:flex;
+  flex-direction:column;
+  color: rgba(11,18,32,.92);
+}
+
+.pathway-content p,
+.pathway-content li,
+.pathway-content h2,
+.pathway-content .tag{
+  text-shadow: none;
+  color: rgba(11,18,32,.92);
+}
+
+.pathway-content h2{
+  margin-top: 6px;
+}
+
+.pathway-list{
+  margin: 8px 0 12px;
+  padding-left: 18px;
+}
+
+.pathway-callout{
+  margin: 8px 0 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.10);
+  font-weight: 700;
+}
+
+.pathway-next{
+  margin-top: auto;
+  padding: 10px 12px;
+  border-left: 3px solid rgba(226,197,122,.85);
+  background: rgba(226,197,122,.08);
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.pathway-content .btns{
+  margin-top: 12px;
+}
+
+.pathway-card-watch .pathway-image{
+  filter: grayscale(.05) contrast(1.02) brightness(1.12);
+}
+
+.pathway-card-watch .pathway-wash{
+  background:
+    linear-gradient(180deg, rgba(247,247,243,.75), rgba(247,247,243,.85)),
+    radial-gradient(700px 320px at 20% 20%, rgba(226,197,122,.10), transparent 60%);
+}
+
+.pathway-card-watch .pathway-content p,
+.pathway-card-watch .pathway-content li,
+.pathway-card-watch .pathway-content h2,
+.pathway-card-watch .pathway-content .tag{
+  color: rgba(11,18,32,.96);
+}
+
+#branches .card h2 {
+  margin: 0 0 0.9rem;
+  max-width: 28ch;
+}
+
+.pfusa-branch-sub {
+  margin-top: 0.45rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(120,92,24,0.92);
+}
+
+#branches .pathways-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 1rem;
+  align-items: stretch;
+}
+
+#branches .pathway-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+  border-radius: calc(var(--radius) + 8px);
+  border: 1px solid rgba(15,23,42,.14);
+  box-shadow: var(--shadow);
+  background: transparent;
+}
+
+#branches .pathway-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+}
+
+#branches .pathway-wash {
+  position: absolute;
+  inset: 0;
+}
+
+#branches .pathway-content {
+  position: relative;
+  z-index: 2;
+  padding: 34px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  color: rgba(11,18,32,.94);
+}
+
+.pfusa-branch-sub {
+  margin-top: 0.2rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(226,197,122,0.85);
+}
+
+#branches .pathway-content p {
+  margin-top: 0.55rem;
+  font-size: 1.08rem;
+  line-height: 1.62;
+  font-weight: 500;
+  color: rgba(11,18,32,.92);
+}
+
+#branches .pathway-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #a47c1b, #e2c57a);
+  z-index: 3;
+}
+
+#branches .pathway-card-sitgap {
+  border: 1.6px solid rgba(15,23,42,.28);
+  box-shadow:
+    0 10px 26px rgba(2,6,23,.06),
+    inset 0 0 0 1px rgba(255,255,255,.35);
+  background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(247,247,243,.88));
+}
+
+#branches .pathway-card-sitgap .pathway-image {
+  background: none;
+  transform: none;
+  opacity: 0;
+}
+
+#branches .pathway-card-sitgap .pathway-wash {
+  background:
+    linear-gradient(180deg, rgba(247,247,243,.18), rgba(247,247,243,.10)),
+    radial-gradient(700px 320px at 18% 18%, rgba(226,197,122,.10), transparent 60%);
+}
+
+#branches .pathway-card-watch .pathway-image {
+  filter: grayscale(.05) contrast(1.02) brightness(1.08);
+}
+
+#branches .pathway-card-watch .pathway-wash {
+  background:
+    linear-gradient(180deg, rgba(247,247,243,.78), rgba(247,247,243,.88)),
+    radial-gradient(700px 320px at 20% 20%, rgba(226,197,122,.10), transparent 60%);
+}
+
+#branches .tag {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.2;
+  color: #8f6a16;
+}
+
+#branches a {
+  color: #8f6a16;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(143,106,22,0.5);
+}
+
+#branches a:hover {
+  color: #6f5312;
+  border-bottom-color: rgba(143,106,22,0.8);
+}
+
+.pfusa-bridge {
+  margin: 0.45rem auto 1.8rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: #6f5312;
+  max-width: 560px;
+  text-align: center;
+}
+
+.pfusa-bridge::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 2px;
+  margin: 0.6rem auto 0;
+  background: rgba(226,197,122,0.9);
+  border-radius: 2px;
+}
+
+.pfusa-branches{
+  max-width: 780px;
+  margin: 16px auto 0;
+}
+
+.pfusa-branch{
+  position: relative;
+  padding: 22px 24px 22px 28px;
+  border-radius: 14px;
+  border: 1px solid rgba(15,23,42,.10);
+  background: rgba(255,255,255,.68);
+}
+
+.pfusa-branch::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(226,197,122,.95), rgba(199,162,74,.95));
+}
+
+.pfusa-branch h4{
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  #branches .pathways-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  #branches .pathways-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px){
+  .pathways-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px){
+  .anchors-layout{
+    grid-template-columns: 1fr;
+  }
+
+  .anchors-stack{
+    padding-top: 0;
+  }
+
+  .anchor-mini-top,
+  .anchor-mini-bottom{
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.anchors-strip-wrap{
+  margin-top: 14px;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 8px 4px 18px;
+  scrollbar-width: auto;
+  scrollbar-color: rgba(120,92,24,.75) rgba(15,23,42,.08);
+}
+
+.anchors-strip-wrap::-webkit-scrollbar{
+  height: 16px;
+}
+
+.anchors-strip-wrap::-webkit-scrollbar-track{
+  background: rgba(15,23,42,.08);
+  border-radius: 999px;
+}
+
+.anchors-strip-wrap::-webkit-scrollbar-thumb{
+  background: linear-gradient(90deg, rgba(199,162,74,.95), rgba(226,197,122,.95));
+  border-radius: 999px;
+  border: 3px solid rgba(247,247,243,.95);
+}
+
+.anchors-strip{
+  display: flex;
+  gap: 18px;
+  min-width: max-content;
+  align-items: stretch;
+  padding: 4px 6px 12px;
+}
+
+.anchor-strip-card{
+  width: 320px;
+  flex: 0 0 320px;
+  border-radius: calc(var(--radius) + 2px);
+  border: 1px solid rgba(15,23,42,.10);
+  background: rgba(255,255,255,.60);
+  box-shadow: 0 6px 16px rgba(2,6,23,.05);
+  padding: 18px 18px 20px;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.anchor-strip-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(2,6,23,.08);
+  background: rgba(255,255,255,.72);
+}
+
+.anchor-strip-card .tag{
+  margin-bottom: 8px;
+  color: rgba(15,23,42,.64);
+}
+
+.anchor-strip-card h3{
+  margin: 6px 0 10px;
+}
+
+.anchor-strip-card p{
+  margin: 0;
+  line-height: 1.58;
+  color: rgba(15,23,42,.88);
+}
+
+/* Feature card */
+.anchor-strip-feature{
+  width: 420px;
+  flex: 0 0 420px;
+  border: 1px solid rgba(199,162,74,.34);
+  background:
+    radial-gradient(900px 420px at 18% 18%, rgba(226,197,122,.16), transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,.86), rgba(247,247,243,.90));
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(2,6,23,.14);
+}
+
+.anchor-strip-feature:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 22px 52px rgba(2,6,23,.16);
+}
+
+.anchor-strip-feature .tag{
+  color: rgba(140,108,28,.92);
+}
+
+.anchor-strip-feature h3{
+  font-size: 1.12rem;
+}
+
+.anchor-strip-feature p{
+  font-weight: 600;
+}
+
+.anchor-strip-quote{
+  font-size: clamp(16px, 1.35vw, 18px);
+  line-height: 1.62;
+  font-weight: 650;
+  color: rgba(15,23,42,.92);
+}
+
+.anchor-strip-city-hill {
+  width: 520px;
+  flex: 0 0 520px;
+}
+
+.anchor-strip-city-hill p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+/* Medium cards */
+.anchor-strip-medium{
+  border-color: rgba(199,162,74,.26);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.84), rgba(248,247,242,.88));
+  box-shadow: 0 14px 34px rgba(2,6,23,.11);
+  position: relative;
+}
+
+.anchor-strip-medium::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(226,197,122,.95), rgba(199,162,74,.92));
+}
+
+.anchor-strip-medium:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 16px 38px rgba(2,6,23,.13);
+}
+
+.anchor-strip-medium .tag{
+  color: rgba(120,92,24,.82);
+}
+
+.anchor-strip-medium h3{
+  font-size: 1.04rem;
+}
+
+@media (max-width: 700px){
+  .anchors-strip-wrap{
+    padding-bottom: 12px;
+  }
+
+  .anchors-strip{
+    gap: 14px;
+  }
+
+  .anchor-strip-card{
+    width: 280px;
+    flex: 0 0 280px;
+  }
+
+.anchor-strip-feature{
+  width: 420px;
+  flex: 0 0 420px;
+  border: 1px solid rgba(199,162,74,.34);
+  background:
+    radial-gradient(900px 420px at 18% 18%, rgba(226,197,122,.16), transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,.90), rgba(247,247,243,.94));
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(2,6,23,.14);
+  position: relative;
+}
+
+.anchor-strip-feature::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 5px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(226,197,122,.98), rgba(199,162,74,.95));
+}
+
+}  
+
+/* =========================================
+   TAKE YOUR PLACE — final working layout
+   ========================================= */
+
+#take-your-place {
+  padding: 4.5rem 1.5rem;
+}
+
+#take-your-place .take-place-shell {
+  width: min(1180px, calc(100vw - 72px));
+  max-width: none;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); 
+  background: #f7f4ef;
+  border: 1px solid rgba(26,26,26,0.16);
+  box-shadow: 0 28px 70px rgba(2,6,23,0.16);
+  overflow: hidden;
+}
+
+#take-your-place .take-place-poster {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#take-your-place .take-place-content {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+#take-your-place .take-place-shell > .take-place-poster,
+#take-your-place .take-place-shell > .take-place-content {
+  min-width: 0;
+}
+
+#take-your-place .take-place-poster,
+#take-your-place .take-place-content {
+  background: #f7f4ef;
+}
+
+#take-your-place .take-place-poster {
+  border-right: 1px solid rgba(26,26,26,0.14);
+}
+
+#take-your-place .take-place-poster-inner {
+  position: relative;
+  min-height: 100%;
+  padding: 2.3rem 2.5rem 2.7rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#take-your-place .take-place-poster-frame {
+  position: absolute;
+  inset: 1.2rem;
+  border: 1px solid rgba(26,26,26,0.10);
+  pointer-events: none;
+}
+
+#take-your-place .take-place-poster-content,
+#take-your-place .take-place-poster-image,
+#take-your-place .take-place-bridge {
+  position: relative;
+  z-index: 2;
+}
+
+#take-your-place .take-place-kicker,
+#take-your-place .take-place-eyebrow {
+  margin: 0 0 0.85rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(26,26,26,0.58);
+}
+
+#take-your-place .take-place-poster-title {
+  margin: 0;
+  font-size: clamp(4.5rem, 6.4vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  font-weight: 800;
+  color: #111;
+}
+
+#take-your-place .take-place-poster-image {
+  margin: 1.55rem 0 1.55rem;
+  display: flex;
+  justify-content: center;
+}
+
+#take-your-place .take-place-poster-image img {
+  display: block;
+  width: min(470px, 100%);
+  max-width: 100%;
+  height: auto;
+}
+
+#take-your-place .take-place-bridge {
+  text-align: center;
+}
+
+#take-your-place .take-place-poster-subtext {
+  margin: 0 auto;
+  max-width: 34ch;
+  font-size: 1.08rem;
+  line-height: 1.45;
+  color: rgba(26,26,26,0.86);
+}
+
+#take-your-place .take-place-content-inner {
+  max-width: 620px;
+  padding: 3.4rem 3.8rem 3.9rem;
+  color: #1a1a1a;
+}
+
+#take-your-place .take-place-heading {
+  margin: 0 0 0.65rem;
+  font-size: clamp(3.2rem, 4.8vw, 5.1rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  color: #111;
+}
+
+#take-your-place .take-place-bridge-line {
+  margin: 0 0 1.1rem;
+  font-size: 1.18rem;
+  line-height: 1.35;
+  color: rgba(26,26,26,0.88);
+}
+
+#take-your-place .take-place-intro {
+  margin: 0 0 2rem;
+  max-width: 39rem;
+  font-size: 1.18rem;
+  line-height: 1.6;
+  color: rgba(26,26,26,0.86);
+}
+
+#take-your-place .take-place-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.05rem;
+  margin: 0 0 2rem;
+}
+
+#take-your-place .take-place-option {
+  padding: 1.2rem 1.4rem;
+  border-radius: 14px;
+  border: 1px solid rgba(26,26,26,0.14);
+  background: rgba(255,255,255,0.58);
+}
+
+#take-your-place .take-place-option .card-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #12385f;
+  font-weight: 800;
+}
+
+#take-your-place .take-place-option .card-text {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.45;
+  color: rgba(26,26,26,0.86);
+}
+
+#take-your-place .typp-branch-select {
+  margin-top: 0;
+}
+
+#take-your-place .typp-branch-title {
+  margin: 0 0 0.6rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: rgba(26,26,26,0.78);
+}
+
+#take-your-place .typp-branch-fieldset {
+  margin: 0;
+  padding: 0.95rem 1.2rem;
+  border: 1px solid rgba(26,26,26,0.16);
+}
+
+#take-your-place .typp-branch-option {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(26,26,26,0.12);
+  cursor: pointer;
+}
+
+#take-your-place .typp-branch-option:first-of-type {
+  border-top: 0;
+}
+
+#take-your-place .typp-branch-option input {
+  margin-top: 0.25rem;
+}
+
+#take-your-place .typp-branch-main {
+  display: block;
+  font-weight: 800;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+#take-your-place .typp-branch-sub {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: rgba(26,26,26,0.72);
+}
+
+#take-your-place .typp-branch-actions {
+  margin-top: 1.4rem;
+}
+
+#take-your-place .typp-continue-link {
+  display: inline-block;
+  padding: 0.8rem 1.35rem;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #d6b25e, #b8953f);
+  color: #111;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+#take-your-place .take-place-confirm-note {
+  margin: 1.25rem 0 0;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: rgba(26,26,26,0.82);
+}
+
+@media (max-width: 760px) {
+  #take-your-place .take-place-shell {
+    width: min(100%, calc(100vw - 36px));
+    grid-template-columns: 1fr;
+  }
+
+  #take-your-place .take-place-poster {
+    border-right: 0;
+    border-bottom: 1px solid rgba(26,26,26,0.14);
+  }
+
+  #take-your-place .take-place-content-inner {
+    max-width: none;
+    padding: 2.5rem 2rem 3rem;
+  }
+
+  #take-your-place .take-place-poster-image img {
+    width: min(430px, 100%);
+  }
+}
+
+/* REVEAL PROFILE: CINEMATIC */
+.hero .content .kicker.reveal,
+.hero .content h1.reveal,
+.hero .content p.reveal,
+.hero .content .hero-cta.reveal,
+.hero .content .hero-microlinks.reveal{
+  animation: heroRevealCinematic 0.85s cubic-bezier(.19,1,.22,1) both;
+}
+
+.hero .content .kicker.reveal.r1{ animation-delay: 0s; }
+.hero .content h1.reveal.r2{ animation-delay: 0.25s; }
+.hero .content p.reveal.r3{ animation-delay: 0.65s; }
+.hero .content p.reveal.r4{ animation-delay: 1.05s; }
+.hero .content p.reveal.r5{ animation-delay: 1.45s; }
+.hero .content p.reveal.r6{ animation-delay: 1.85s; }
+.hero .content .hero-cta.reveal.r7{ animation-delay: 2.25s; }
+.hero .content .hero-microlinks.reveal.r8{ animation-delay: 2.60s; }
+
+@keyframes heroRevealCinematic {
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Equalize vertical rhythm for hero lines */
+.hero .content .kicker + h1,
+.hero .content h1 + p,
+.hero .content p + p{
+  margin-top: 14px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .hero .content .reveal{
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .hero .content .kicker.reveal,
+  .hero .content h1.reveal,
+  .hero .content p.reveal,
+  .hero .content .hero-cta.reveal,
+  .hero .content .hero-microlinks.reveal{
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+.hero .content p{
+  font-weight: 450;
+  line-height: 1.55;
+}
+
+/* Refined emphasis for primary headline */
+.hero .content h1{
+  font-size: clamp(30px, 3.6vw, 40px); /* slightly reduced */
+  line-height: 1.18;
+  letter-spacing: -0.008em;
+  margin-bottom: 16px; /* still gives separation, but tighter */
+}
+/* Secondary font for supporting hero lines */
+.hero .content p{
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+/* Lower hero CTA so it does not hug the line above */
+.hero .content .hero-cta{
+  margin-top: 22px;
+}
+
+/* Ensure microlink is visible */
+.hero .content .hero-microlinks{
+  display: block;
+}
+
+.hero .content .hero-microlinks a{
+  display: inline-block;
+  color: rgba(255,255,255,.85);
+  text-decoration: underline;
+}
+
+.pfusa-headline{
+  margin: 0 auto 18px;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.08;
+  font-weight: 700;
+
+  max-width: 14ch;
+  color: rgba(11,18,32,.96);
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.pfusa-emphasis {
+  margin: 1.25rem 0;
+}
+
+.pfusa-strong-line {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.pfusa-subhead {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.pfusa-branch {
+  margin-bottom: 1.25rem;
+}
+
+.pfusa-scripture {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid #ccc;
+}
+
+.pfusa-scripture footer {
+  display: inline-block;
+  margin-top: 0.5rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  font-size: 0.9rem;
+}
+
+.pfusa-response-label{
+  margin-top: 34px;
+  margin-bottom: 12px;
+
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: rgba(226,197,122,.92);
+}
+
+#pivot .pfusa-scripture:first-of-type{
+    max-width:620px;
+
+    margin-left:8%;
+    margin-right:auto;
+}
+
+.pfusa-scripture p{
+  margin: 0;
+
+  font-size: clamp(26px, 2.7vw, 40px);
+  line-height: 1.34;
+
+  font-weight: 700;
+  letter-spacing: -0.015em;
+
+  color: rgba(255,255,255,.98);
+
+  text-align: center;
+
+  text-shadow:
+    0 10px 28px rgba(0,0,0,.42);
+}.foundation .pfusa-scripture p,
+.what-is-pfusa .pfusa-scripture p{
+  color: rgba(17,24,39,.92);
+
+  text-shadow: none;
+}
+
+.foundation .pfusa-scripture footer,
+.what-is-pfusa .pfusa-scripture footer{
+  color: rgba(17,24,39,.74);
+}
+
+.pfusa-scripture footer{
+  margin-top: 18px;
+
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  color: rgba(226,197,122,.90);
+
+  text-align: center;
+}
+
+.pfusa-echo{
+  color: rgba(226,197,122,.98);
+}
+
+.pfusa-final-line {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.pfusa-echo {
+  font-weight: 800;
+  color: rgba(226,197,122,0.95);
+  letter-spacing: 0.02em;
+}
+
+/* =========================
+   PFUSA Cinematic Section
+   ========================= */
+
+.cinematic-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft atmospheric background glow */
+.cinematic-section::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 280px;
+  pointer-events: none;
+  opacity: 0.18;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255,255,255,0.14), transparent 60%);
+  filter: blur(24px);
+  z-index: 0;
+}
+
+.cinematic-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep emphasis restrained */
+.pfusa-promise-intro {
+  margin-top: 1.25rem;
+  margin-bottom: 0.65rem;
+  font-weight: 600;
+}
+
+.pfusa-final-line {
+  margin-top: 1.5rem;
+  margin-bottom: 1.75rem;
+  font-size: 1.08rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+/* Scripture block gets a cinematic, reverent treatment */
+.pfusa-scripture {
+  margin: 1.4rem 0 1.2rem;
+  padding: 1rem 1rem 0.9rem 1.15rem;
+  border-left: 2px solid rgba(255,255,255,0.22);
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.015)
+  );
+  backdrop-filter: blur(2px);
+}
+
+.pfusa-scripture p {
+  margin: 0;
+  line-height: 1.75;
+  font-style: italic;
+}
+
+.pfusa-scripture footer {
+  display: inline-block;
+  margin-top: 0.7rem;
+  padding-bottom: 0.18rem;
+  border-bottom: 1px solid currentColor;
+  font-size: 0.92rem;
+  opacity: 0.88;
+}
+
+/* Branches feel like defined paths */
+.pfusa-subhead {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.pfusa-branch {
+  padding: 0.85rem 0;
+  transition: transform 260ms ease, opacity 260ms ease;
+}
+
+.pfusa-branch h4 {
+  margin-bottom: 0.35rem;
+}
+
+/* Gentle motion on hover/focus for capable devices */
+@media (hover: hover) and (pointer: fine) {
+  .pfusa-branch:hover {
+    transform: translateY(-2px);
+  }
+
+  .pfusa-scripture:hover {
+    transform: translateY(-1px);
+    transition: transform 260ms ease;
+  }
+
+  .down a {
+    display: inline-block;
+    transition: transform 240ms ease, opacity 240ms ease;
+  }
+
+  .down a:hover {
+    transform: translateY(3px);
+    opacity: 0.8;
+  }
+}
+
+.pfusa-final-line{
+  margin: clamp(28px, 4vw, 44px) auto;
+  max-width: 760px;
+  text-align: center;
+  padding: clamp(20px, 3vw, 30px) 12px;
+
+  border-top: 1px solid rgba(199,162,74,.45);
+  border-bottom: 1px solid rgba(199,162,74,.45);
+}
+
+.pfusa-final-line p{
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.18;
+  font-weight: 700;
+  color: rgba(11,18,32,.94);
+}
+
+.pfusa-final-line p + p{
+  margin-top: 10px;
+}
+
+.pfusa-final-line p:last-child{
+  margin-top: 18px;
+
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(16px, 1.45vw, 20px);
+  line-height: 1.6;
+  font-weight: 700;
+
+  color: rgba(120,92,24,.95);
+  max-width: 42ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pfusa-urgency-line{
+  margin: 18px auto;
+  padding: 14px 18px;
+
+  max-width: 640px;
+
+  border-left: 4px solid rgba(199,162,74,.95);
+  background: rgba(199,162,74,.10);
+  border-radius: 8px;
+
+  font-size: clamp(18px, 1.7vw, 22px);
+  line-height: 1.45;
+  font-weight: 800;
+  color: rgba(11,18,32,.96);
+
+  text-align: left;
+}
+
+.pfusa-copy{
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.pfusa-copy p{
+    margin-bottom: 1.35rem;
+    line-height: 1.8;
+}
+
+#what .card{
+    padding-top: 34px;
+    padding-bottom: 38px;
+}
+
+.pfusa-promise-intro{
+  margin: 26px 0 10px;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(120,92,24,.92);
+}
+
+.pfusa-scripture{
+  margin: 0 0 28px;
+  padding: clamp(18px, 3vw, 28px);
+  border-left: 5px solid rgba(199,162,74,.95);
+  border-radius: 12px;
+  background:
+    radial-gradient(700px 320px at 18% 15%, rgba(226,197,122,.18), transparent 62%),
+    rgba(255,255,255,.68);
+  box-shadow: 0 12px 30px rgba(2,6,23,.08);
+}
+
+.pfusa-scripture p{
+  margin: 0 0 12px;
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.75;
+  font-weight: 600;
+}
+
+.pfusa-scripture footer{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(15,23,42,.68);
+  font-weight: 800;
+}
+
+.pfusa-subhead{
+  margin: 34px 0 18px;
+  text-align: center;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.2;
+  font-weight: 700;
+
+  color: rgba(11,18,32,.94);
+}
+
+.pfusa-branch{
+  margin-top: 14px;
+  padding: 20px 22px;
+
+  border: 1px solid rgba(15,23,42,.10);
+  border-radius: 16px;
+
+  background: rgba(255,255,255,.62);
+  transition: transform 0.2s ease;
+}
+
+.pfusa-branch:hover{
+  transform: translateY(-2px);
+}
+
+.pfusa-branch h4{
+  margin: 0 0 8px;
+
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: rgba(120,92,24,.95);
+}
+
+.pfusa-branch p{
+  margin: 0;
+  line-height: 1.6;
+}
+
+.pfusa-branches{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+@media (max-width: 760px){
+  .pfusa-branches{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Scroll reveal base state */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+/* Active reveal */
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger timing */
+.reveal-1  { transition-delay: 0ms; }
+.reveal-2  { transition-delay: 60ms; }
+.reveal-3  { transition-delay: 110ms; }
+.reveal-4  { transition-delay: 160ms; }
+.reveal-5  { transition-delay: 210ms; }
+.reveal-6  { transition-delay: 260ms; }
+.reveal-7  { transition-delay: 310ms; }
+.reveal-8  { transition-delay: 360ms; }
+.reveal-9  { transition-delay: 410ms; }
+.reveal-10 { transition-delay: 460ms; }
+.reveal-11 { transition-delay: 510ms; }
+.reveal-12 { transition-delay: 560ms; }
+.reveal-13 { transition-delay: 610ms; }
+.reveal-14 { transition-delay: 660ms; }
+
+.reveal.reveal-4{
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.65;
+  font-weight: 700;
+  max-width: 52ch;
+  color: rgba(11,18,32,.94);
+  margin-bottom: 20px;
+}
+
+.reveal.reveal-5,
+.reveal.reveal-6{
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.75;
+  max-width: 58ch;
+  color: rgba(15,23,42,.74);
+}
+
+/* Respect reduced motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible,
+  .pfusa-branch,
+  .pfusa-scripture,
+  .down a {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* PFUSA HOTSPOTS */
+
+/* Hotspots hidden at first */
+.pf-hotspots {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
+.pf-hotspot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.55);
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.pf-hotspot.is-active {
+  transform: scale(1.12);
+  opacity: 1;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.28);
+}
+
+.pf-hotspot.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hover = lighter, exploratory */
+.pf-hotspot:hover {
+  background: rgba(255,255,255,0.82);
+  border-color: rgba(255,255,255,0.9);
+  transform: none;
+  box-shadow:
+    0 0 0 6px rgba(255,255,255,0.12),
+    0 4px 12px rgba(0,0,0,0.16);
+}
+
+/* Active = anchored, definitive */
+.pf-hotspot.active {
+  background: rgba(255,255,255,0.92);
+  border-color: rgba(255,255,255,1);
+  transform: scale(1.12);
+  box-shadow:
+    0 0 0 8px rgba(255,255,255,0.16),
+    0 6px 18px rgba(0,0,0,0.22);
+}
+
+.pf-hotspots.guided .pf-hotspot.is-next::before {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  border: 3px solid rgba(226,197,122,0.95);
+  opacity: 1;
+  transform: scale(1);
+  animation: nextPulse 1.25s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes nextPulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.8);
+  }
+
+  70% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+.pf-hotspots.guided .pf-hotspot {
+  opacity: 0.08;
+}
+
+.pf-hotspots.guided .pf-hotspot.active {
+  opacity: 0.45;
+}
+
+.pf-hotspots.guided .pf-hotspot.is-next {
+  opacity: 1;
+}
+
+.pf-hotspots.guided .pf-hotspot.is-next::after {
+  opacity: 1;
+  transform: scale(1.45);
+  box-shadow:
+    0 0 0 5px rgba(255,255,255,.98),
+    0 0 0 20px rgba(226,197,122,.58),
+    0 0 34px rgba(226,197,122,.75),
+    0 16px 38px rgba(2,6,23,.34);
+}
+
+.pf-hotspots.story-complete .pf-hotspot {
+  opacity: 0.42;
+}
+
+.pf-hotspots.story-complete .pf-hotspot:hover,
+.pf-hotspots.story-complete .pf-hotspot.active {
+  opacity: 1;
+}
+
+@keyframes guidedNextPulse {
+  0%, 100% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+}
+
+@keyframes guidedNextPulse {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+
+/* POSITIONING (matched to your mural) */
+.hs-who     { left: 18%; top: 72%; }
+.hs-how     { left: 42%; top: 82%; }
+.hs-what    { left: 45%; top: 57%; }
+.hs-when    { left: 70%; top: 74%; }
+.hs-where   { left: 22%; top: 36%; }
+.hs-welcome { left: 84%; top: 34%; }
+
+.pf-overlay-card {
+  position: absolute;
+width: fit-content;
+max-width: 360px;
+min-width: 280px;
+
+  padding: 20px 22px;
+
+  background: rgba(8, 14, 28, 0.94);
+  color: #ffffff;
+
+  border: 1px solid rgba(226,197,122,0.38);
+  border-left: 4px solid rgba(226,197,122,0.95);
+  border-radius: 14px;
+
+  backdrop-filter: blur(8px);
+
+  box-shadow:
+    0 18px 42px rgba(0,0,0,0.34),
+    0 0 0 1px rgba(255,255,255,0.03);
+
+  z-index: 20;
+
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 220ms ease, transform 220ms ease;
+
+  pointer-events: none;
+
+.pf-overlay-card[data-panel="contrast"],
+.pf-overlay-card[data-panel="continuation"] {
+  background:
+    linear-gradient(135deg,
+      rgba(64, 45, 12, 0.98),
+      rgba(12, 18, 34, 0.98));
+
+  border: 2px solid rgba(255, 230, 150, 0.95);
+  border-left: 12px solid rgba(255, 230, 150, 1);
+
+  transform: scale(1.04);
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.55),
+    0 0 0 4px rgba(255,230,150,0.16),
+    0 0 42px rgba(226,197,122,0.34);
+}
+
+.pf-overlay-card[data-panel="contrast"] h4,
+.pf-overlay-card[data-panel="continuation"] h4 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffe9a8 !important;
+}
+
+.pf-overlay-card[data-panel="contrast"] h4,
+.pf-overlay-card[data-panel="continuation"] h4 {
+  font-size: 1.22rem;
+  color: #ffe9a8 !important;
+}
+
+.pf-overlay-card.panel-contrast h4,
+.pf-overlay-card.panel-continuation h4 {
+  font-size: 1.16rem;
+  letter-spacing: 0.055em;
+  color: #f8e7a6 !important;
+}
+
+.pf-overlay-card.panel-contrast h4,
+.pf-overlay-card.panel-continuation h4 {
+  font-size: 1.08rem;
+  color: #f3df9b !important;
+}
+}
+
+.pf-overlay-card[data-panel="contrast"] p {
+  text-align: left;
+  line-height: 1.8;
+  font-size: 1.22rem;
+  font-weight: 600;
+}
+
+.pf-overlay-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pf-overlay-card h4 {
+  margin: 0 0 12px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: none;
+
+  color: #f3df9b !important;
+}
+
+.pf-overlay-card p {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: 0;
+
+  color: #ffffff !important;
+  white-space: pre-line;
+}
+
+/* FIRST-TIME HOTSPOT HINT */
+
+.pf-hotspots.hinting .pf-hotspot::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.55);
+  opacity: 0;
+  transform: scale(0.7);
+  animation: pfHotspotPulse 1.8s ease-out infinite;
+}
+
+.pf-hotspots.hinting .pf-hotspot:nth-child(1)::before { animation-delay: 0s; }
+.pf-hotspots.hinting .pf-hotspot:nth-child(2)::before { animation-delay: 0.18s; }
+.pf-hotspots.hinting .pf-hotspot:nth-child(3)::before { animation-delay: 0.36s; }
+.pf-hotspots.hinting .pf-hotspot:nth-child(4)::before { animation-delay: 0.54s; }
+.pf-hotspots.hinting .pf-hotspot:nth-child(5)::before { animation-delay: 0.72s; }
+.pf-hotspots.hinting .pf-hotspot:nth-child(6)::before { animation-delay: 0.9s; }
+
+.pf-hotspots.hinting .pf-hotspot {
+  animation: pfHotspotGlow 1.8s ease-in-out infinite;
+}
+
+.pf-hotspots.hinting .pf-hotspot:nth-child(1) { animation-delay: 0s; }
+.pf-hotspots.hinting .pf-hotspot:nth-child(2) { animation-delay: 0.18s; }
+.pf-hotspots.hinting .pf-hotspot:nth-child(3) { animation-delay: 0.36s; }
+.pf-hotspots.hinting .pf-hotspot:nth-child(4) { animation-delay: 0.54s; }
+.pf-hotspots.hinting .pf-hotspot:nth-child(5) { animation-delay: 0.72s; }
+.pf-hotspots.hinting .pf-hotspot:nth-child(6) { animation-delay: 0.9s; }
+
+@keyframes pfHotspotPulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  22% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+@keyframes pfHotspotGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255,255,255,0.00);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255,255,255,0.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-hotspots.hinting .pf-hotspot,
+  .pf-hotspots.hinting .pf-hotspot::before {
+    animation: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-hotspots.hinting .pf-hotspot,
+  .pf-hotspots.hinting .pf-hotspot::before {
+    animation: none !important;
+  }
+}
+
+#pivot .overlay .lede {
+  margin: 0 0 16px;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.18;
+  max-width: 22ch;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: rgba(255,255,255,0.98);
+/* More space from headline → Call */
+  margin-bottom: 1.2rem;
+}
+
+#pivot .overlay .pfusa-scripture {
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+  background: none;
+  margin-bottom: 0.9rem;
+}
+
+#pivot .overlay .pfusa-scripture p {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(1.02rem, 1.45vw, 1.14rem);
+  line-height: 1.72;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  line-height: 1.62;
+  margin-bottom: 0.4rem;
+}
+
+/* Tighten internal break inside 2 Chronicles */
+#pivot .overlay .pfusa-scripture p br + br {
+  content: "";
+  display: block;
+  margin-top: 0.4rem;
+}
+
+#pivot .overlay .pfusa-scripture footer {
+  display: block;
+  margin-top: 0.65rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(226,197,122,0.96);
+  opacity: 1;
+  border: 0 !important;
+  padding: 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.55);
+}
+
+#pivot .overlay .pfusa-scripture footer {
+  color: #ffffff !important;
+  font-size: 1.08rem !important;
+  font-weight: 800 !important;
+  opacity: 1 !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.65) !important;
+}
+
+#pivot .overlay .pfusa-scripture,
+#pivot .overlay .pfusa-scripture p,
+#pivot .overlay .pfusa-scripture footer {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#pivot .overlay .pfusa-scripture footer {
+  display: block !important;
+  padding: 0 !important;
+}
+
+#pivot .overlay .pfusa-scripture + .pfusa-scripture {
+  margin-top: 1.6rem;
+  padding-left: 16px;
+  border-left: 2px solid rgba(226,197,122,0.65);
+}
+
+#pivot .overlay .pfusa-response-label {
+  margin-top: 1.4rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(226,197,122,0.9);
+}
+
+#pivot .overlay .pfusa-response-line {
+  display: inline-block;
+  font-size: 1.08em;
+  font-weight: 700;
+  color: rgba(255,255,255,0.98);
+  letter-spacing: 0.015em;
+}
+
+/* Echo phrase — just a touch more separation */
+#pivot .overlay .pfusa-echo {
+  letter-spacing: 0.02em;
+}
+
+#pivot .overlay {
+  position: relative;
+  padding-left: 18px;
+}
+
+#pivot .overlay::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(226,197,122,0.95),
+    rgba(199,162,74,0.85)
+  );
+  opacity: 0.9;
+}
+
+#pivot .overlay .lede,
+#pivot .overlay .pfusa-response-line,
+#pivot .overlay .pfusa-scripture p {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+}
+
+#support .card.pad,
+#faq .card.pad,
+#contact .card.pad {
+  max-width: 900px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+#support .btns,
+#faq .btns,
+#contact .btns {
+  justify-content: flex-start;
+}
+
+.inheritance-card{
+  text-align: center;
+}
+
+.interrogatives-book-title{
+  position: relative;
+
+  padding:
+    8px 18px 34px 58px;
+
+  margin-bottom: 20px;
+
+  border-bottom: 1px solid rgba(199,162,74,.18);
+
+  text-align: left;
+}
+
+.book-cover-mark{
+  margin: 0 auto 18px;
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(199,162,74,.42);
+  border-radius: 999px;
+
+  color: rgba(120,92,24,.92);
+  font-size: 1.35rem;
+
+  background: rgba(255,255,255,.46);
+}
+
+.book-title-card h3{
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.02;
+  font-weight: 700;
+
+  color: rgba(11,18,32,.96);
+  letter-spacing: -0.03em;
+}
+
+.book-title-card{
+  overflow: hidden;
+}
+
+.book-title-card::after{
+  content: "";
+  position: absolute;
+  inset: -40% -20% auto auto;
+
+  width: 70%;
+  height: 140%;
+
+  background:
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      transparent 38%,
+      rgba(199,162,74,.16) 39%,
+      rgba(199,162,74,.16) 45%,
+      transparent 46%,
+      transparent 100%
+    );
+
+  pointer-events: none;
+}
+
+.book-cover-mark,
+.book-title-card .interrogatives-book-kicker,
+.book-title-card h3{
+  position: relative;
+  z-index: 2;
+}
+
+.interrogatives-book-kicker{
+  margin-bottom: 10px;
+
+  font-size: .76rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+
+  color: rgba(120,92,24,.88);
+}
+
+.interrogatives-book-title h2{
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.05;
+  font-weight: 700;
+
+  color: rgba(11,18,32,.96);
+
+  letter-spacing: -0.02em;
+}
+
+.interrogatives-title{
+  max-width: 18ch;
+  margin: 0 auto 18px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.15;
+}
+
+.interrogatives-sequence{
+  position: relative;
+
+  width: 100%;
+  max-width: none;
+  margin: 0 auto 28px;
+
+  min-height: 520px;
+
+  padding: 0;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  overflow: visible;
+}
+
+.interrogatives-sequence::before{
+  content: "";
+
+  position: absolute;
+
+  top: 18px;
+  bottom: 18px;
+  left: 30px;
+
+  width: 10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(80,55,18,.22),
+      rgba(199,162,74,.28),
+      rgba(255,255,255,.18),
+      rgba(120,92,24,.22)
+    );
+
+  border-radius: 999px;
+
+  box-shadow:
+    inset 2px 0 4px rgba(80,55,18,.18),
+    inset -2px 0 4px rgba(255,255,255,.25),
+    4px 0 14px rgba(2,6,23,.08);
+
+  opacity: .95;
+}
+
+.interrogatives-sequence{
+  perspective: 1200px;
+}
+
+.interrogative-card{
+  position: relative;
+  display: none;
+  padding: 10px 14px 10px 58px;
+  min-height: 520px;
+}
+
+.interrogative-card.active{
+  display: block;
+}
+
+.interrogative-card.active:not(.book-title-card){
+  padding-top: 48px;
+}
+
+.interrogative-card:not(.book-title-card):not(.final-card){
+  padding-top: 26px;
+  padding-bottom: 26px;
+}
+
+.interrogative-card:not(.book-title-card):not(.final-card) p{
+  font-size: clamp(20px, 1.75vw, 25px);
+  line-height: 1.55;
+
+  max-width: 24ch;
+}
+
+.interrogatives-sequence.turning-back .interrogative-card.active{
+  animation-name: pageTurnBackIn;
+}
+
+.book-title-card.active{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-title-card.active .book-cover-inner{
+  transform: translateY(0);
+}
+
+.interrogative-card.active:not(.book-title-card)::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255,255,255,.32) 18%,
+      rgba(120,92,24,.16) 28%,
+      rgba(15,23,42,.10) 36%,
+      transparent 52%
+    );
+
+  transform: translateX(105%);
+  animation: pageSweepRightToLeft 850ms ease both;
+}
+
+@keyframes pageSweepRightToLeft{
+  from{
+    transform: translateX(105%);
+    opacity: 0;
+  }
+
+  20%{
+    opacity: 1;
+  }
+
+  to{
+    transform: translateX(-105%);
+    opacity: 0;
+  }
+}
+
+.interrogative-card h3{
+  margin-bottom: 18px;
+
+  font-size: clamp(24px, 2.5vw, 34px);
+
+  line-height: 1.15;
+
+  letter-spacing: .06em;
+  text-transform: uppercase;
+
+  color: rgba(120,92,24,.95);
+}
+
+.book-title-card h3{
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.02;
+  font-weight: 700;
+
+  letter-spacing: -0.03em;
+  text-transform: none;
+
+  color: rgba(11,18,32,.96);
+}
+
+.interrogative-card p{
+  max-width: 46ch;
+
+  margin: 0 auto;
+
+  font-size: clamp(21px, 1.8vw, 28px);
+
+  line-height: 1.72;
+
+  color: rgba(11,18,32,.90);
+}
+
+.final-card{
+  border-color: inherit;
+  background: transparent;
+}
+
+.final-card-divider{
+  width: 72px;
+  height: 1px;
+
+  margin: 22px 0 20px;
+
+  border: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(199,162,74,.72),
+      transparent
+    );
+}
+
+.inheritance-controls{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.inheritance-btn{
+  border: 1px solid rgba(15,23,42,.18);
+  background: rgba(255,255,255,.62);
+  color: rgba(11,18,32,.86);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.inheritance-btn.primary{
+  background: linear-gradient(180deg, var(--gold2), var(--gold));
+  border-color: rgba(199,162,74,.65);
+  color: #0b1220;
+}
+
+.inheritance-btn:disabled{
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.inheritance-progress{
+  min-width: 58px;
+  font-weight: 800;
+  color: rgba(15,23,42,.62);
+}
+
+@keyframes pageTurnIn{
+  from{
+    opacity: 0;
+    transform: rotateY(-16deg) translateX(24px);
+    filter: blur(1px);
+  }
+  to{
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes pageTurnBackIn{
+  from{
+    opacity: 0;
+    transform: rotateY(12deg) translateX(-18px);
+    filter: blur(1px);
+  }
+  to{
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0);
+    filter: blur(0);
+  }
+}
+ 
+#foundations{
+  margin-top: 72px;
+}
+
+#what .pfusa-scripture{
+  opacity: 1 !important;
+}
+
+#what .pfusa-scripture p{
+  color: rgba(11,18,32,.92) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+#what .pfusa-scripture footer{
+  color: rgba(15,23,42,.72) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+#what .pfusa-scripture{
+  max-width: 660px !important;
+  width: 100%;
+  margin: 24px auto 28px !important;
+  padding: 26px 32px !important;
+}
+
+#what .pfusa-scripture p{
+  text-align: center;
+}
+
+#what .pfusa-scripture footer{
+  text-align: left;
+}
+
+
+.down-mark{
+  width: 6px;
+  height: 6px;
+
+  display: block;
+
+  border-right: 3px solid #a67c00;
+  border-bottom: 3px solid #a67c00;
+
+  transform: rotate(45deg);
+
+  margin-top: -2px;
+}
+
+.scroll-cue {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+#what .eyebrow,
+#what .pfusa-purpose-eyebrow,
+#what .pfusa-promise-intro.eyebrow{
+    color: rgba(120,92,24,.82) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: .13em !important;
+    text-transform: uppercase !important;
+    line-height: 1.2 !important;
+    justify-content: flex-start !important;
+}
+
+#what .eyebrow .dot{
+    background: rgba(120,92,24,.72) !important;
+}
+
+/* WHAT SECTION — readability refinement */
+#what{
+  padding-top: clamp(28px, 4vw, 46px);
+  padding-bottom: clamp(28px, 4vw, 46px);
+}
+
+#what .card.pad{
+  padding: clamp(26px, 4.5vw, 48px);
+}
+
+#what .pfusa-copy{
+  max-width: 620px;
+  margin: 18px auto 0;
+}
+
+#what .pfusa-copy p{
+  margin-bottom: 22px;
+  line-height: 1.82;
+}
+
+#what .pfusa-copy p:last-child{
+  margin-bottom: 0;
+}
+
+#what .pfusa-urgency-line{
+  max-width: 620px;
+  margin: 18px auto 20px;
+  line-height: 1.72;
+}
+
+#what .pfusa-headline{
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#what .pfusa-headline-brand {
+  display: block;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  color: rgba(15, 23, 42, 0.72);
+}
+
+#what .pfusa-headline-call {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+/* CONTACT — email primary, YouTube secondary */
+.contact-links{
+  margin-top: 12px;
+}
+
+.contact-email{
+  margin: 0 0 8px;
+  font-weight: 800;
+  color: rgba(15,23,42,.90);
+}
+
+.contact-youtube{
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.contact-youtube a{
+  color: rgba(120,92,24,.86);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(120,92,24,.28);
+}
+
+.contact-youtube a:hover{
+  color: rgba(120,92,24,1);
+  border-bottom-color: rgba(120,92,24,.55);
+}
+
+/* WHAT SECTION — editorial rhythm */
+#what .card {
+  padding: clamp(34px, 5vw, 56px);
+}
+
+#what .pfusa-headline {
+  max-width: 820px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+#what .pfusa-purpose-eyebrow,
+#what .pfusa-promise-intro.eyebrow {
+  margin-top: 34px;
+  margin-bottom: 14px;
+}
+
+#what .pfusa-urgency-line {
+  max-width: 680px;
+  margin: 0 0 28px;
+  padding: 18px 22px;
+  border-left: 4px solid rgba(199,162,74,.75);
+  background: rgba(199,162,74,.10);
+  border-radius: 10px;
+  font-size: clamp(1.08rem, 1.6vw, 1.25rem);
+  line-height: 1.55;
+  font-weight: 850;
+}
+
+#what .pfusa-copy {
+  max-width: 660px;
+  margin: 0 0 34px;
+}
+
+#what .pfusa-copy p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin: 0 0 1.35rem;
+}
+
+#what .pfusa-scripture {
+  max-width: 760px;
+  margin: 0 0 34px;
+  padding: 28px 30px;
+  border-left: 5px solid rgba(199,162,74,.80);
+  background: rgba(255,255,255,.62);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(2,6,23,.08);
+}
+
+#what .pfusa-final-line {
+  max-width: 760px;
+  margin: 34px auto 30px;
+  padding: 28px;
+  text-align: center;
+  border: 1px solid rgba(199,162,74,.30);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(226,197,122,.18), transparent 55%),
+    rgba(255,255,255,.58);
+}
+
+#what .pfusa-final-line p {
+  margin: 0;
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  line-height: 1.45;
+  font-weight: 850;
+}
+
+#what .pfusa-final-line p + p {
+  margin-top: 8px;
+}
+
+/* FINAL OVERRIDE — What Is Prayer Force USA editorial layout */
+#what .card.pad.cinematic-section {
+  padding: clamp(38px, 5vw, 60px) !important;
+}
+
+#what .pfusa-headline {
+  max-width: 820px !important;
+  margin: 0 auto 44px !important;
+  text-align: center !important;
+}
+
+#what .pfusa-purpose-eyebrow,
+#what .pfusa-promise-intro.eyebrow {
+  margin: 34px 0 14px !important;
+}
+
+#what .pfusa-urgency-line {
+  max-width: 680px !important;
+  margin: 0 0 30px !important;
+  padding: 20px 24px !important;
+  border-left: 5px solid rgba(199,162,74,.78) !important;
+  background: rgba(199,162,74,.12) !important;
+  border-radius: 12px !important;
+  font-size: clamp(1.1rem, 1.7vw, 1.3rem) !important;
+  line-height: 1.55 !important;
+  font-weight: 850 !important;
+}
+
+#what .pfusa-copy {
+  max-width: 660px !important;
+  margin: 0 0 38px !important;
+}
+
+#what .pfusa-copy p {
+  font-size: 1.06rem !important;
+  line-height: 1.9 !important;
+  margin: 0 0 1.45rem !important;
+}
+
+#what .pfusa-scripture {
+  max-width: 760px !important;
+  margin: 0 0 38px !important;
+  padding: 30px 32px !important;
+  border-left: 5px solid rgba(199,162,74,.78) !important;
+  background: rgba(255,255,255,.66) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 14px 34px rgba(2,6,23,.09) !important;
+}
+
+#what .pfusa-scripture p {
+  color: rgba(11,18,32,.90) !important;
+  text-shadow: none !important;
+  font-size: clamp(1.05rem, 1.45vw, 1.22rem) !important;
+  line-height: 1.85 !important;
+  font-style: italic !important;
+  text-align: left !important;
+}
+
+#what .pfusa-scripture footer {
+  color: rgba(120,92,24,.88) !important;
+  text-align: left !important;
+}
+
+#what .pfusa-final-line {
+  max-width: 760px !important;
+  margin: 38px auto 34px !important;
+  padding: 30px 28px !important;
+  text-align: center !important;
+  border: 1px solid rgba(199,162,74,.32) !important;
+  border-radius: 18px !important;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(226,197,122,.20), transparent 55%),
+    rgba(255,255,255,.62) !important;
+}
+
+#what .pfusa-final-line p {
+  margin: 0 !important;
+  font-size: clamp(1.25rem, 2vw, 1.75rem) !important;
+  line-height: 1.45 !important;
+  font-weight: 850 !important;
+}
+
+/* WHAT SECTION — editorial two-column layout */
+#what .what-editorial-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.82fr);
+  gap: clamp(28px, 4vw, 52px);
+  align-items: start;
+  max-width: 980px;
+  margin: 0 auto 42px;
+}
+
+#what .what-editorial-copy,
+#what .what-editorial-scripture {
+  min-width: 0;
+}
+
+#what .pfusa-urgency-line {
+  margin-bottom: 24px !important;
+}
+
+#what .pfusa-copy {
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+#what .pfusa-scripture {
+  margin: 0 !important;
+}
+
+@media (max-width: 850px) {
+  #what .what-editorial-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pfusa-response-label {
+  margin-top: 28px;
+  margin-bottom: 14px;
+  color: rgba(226,197,122,.95);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.pfusa-response-divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+
+  width: min(520px, 92%);
+  margin: 36px auto 28px;
+  padding: 10px 18px;
+
+  border: 1px solid rgba(226,197,122,.28);
+  border-radius: 999px;
+
+  background: rgba(8,12,20,.42);
+  backdrop-filter: blur(6px);
+
+  box-shadow: 0 10px 28px rgba(0,0,0,.22);
+}
+
+.pfusa-response-divider span{
+  flex:1;
+  max-width:120px;
+  height:1px;
+  background:rgba(226,197,122,.52);
+}
+
+.pfusa-response-label{
+  color:rgba(245,225,160,.98);
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+/* QUESTIONS BOOK COVER — incense logo refinement */
+.book-title-card .book-cover-mark{
+  display: none;
+}
+
+.book-title-card .book-cover-logo{
+  position: relative;
+  z-index: 2;
+
+  display: block;
+  width: clamp(135px, 18vw, 205px);
+  height: auto;
+
+  margin: 18px auto 12px;
+  transform: translateX(-34px);
+
+  opacity: .88;
+  filter: saturate(.88) contrast(.96) brightness(1.04);
+
+  pointer-events: none;
+}
+
+@media (max-width: 700px){
+  .book-title-card .book-cover-logo{
+    width: clamp(118px, 38vw, 165px);
+    transform: translateX(-14px);
+    opacity: .9;
+  }
+}
+
+/* WIDE FEATURE SECTIONS — escape main column */
+#home .hero,
+#interrogatives .inheritance-card,
+#mural .mural,
+#mural .mural-invite{
+  width: min(1500px, calc(100vw - 64px));
+  max-width: none;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+/* MURAL INVITATION */
+.mural-invite{
+  font-size: 1.18rem;
+  font-weight: 600;
+  line-height: 1.7;
+
+  color: rgba(30,30,30,.90);
+
+  text-align: center;
+
+  margin-bottom: 28px;
+}
+
+/* HERO EMPHASIS — "That reality demands a response." */
+.hero-sub.r3{
+  font-size: clamp(1.7rem, 2.8vw, 2rem);
+  font-weight: 700;
+  line-height: 1.45;
+
+  margin-top: 8px;
+  margin-bottom: 20px;
+
+  max-width: 28rem;
+}
+
+/* QUESTIONS SECTION — floating book treatment */
+#interrogatives .inheritance-card{
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+#interrogatives .interrogatives-sequence{
+  overflow: visible;
+}
+
+#interrogatives .interrogative-card.book-title-card{
+  background:
+    linear-gradient(180deg, rgba(247,244,239,.96), rgba(239,232,218,.92));
+  border: 1px solid rgba(199,162,74,.34);
+  border-radius: 18px;
+
+  box-shadow:
+    0 28px 80px rgba(2,6,23,.18),
+    0 8px 22px rgba(120,92,24,.10);
+
+  transform: translateY(-4px);
+}
+
+/* QUESTIONS — true floating treatment + restored book size */
+#interrogatives .inheritance-card{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  padding-top: 34px;
+  padding-bottom: 30px;
+}
+
+#interrogatives .interrogatives-sequence{
+  overflow: visible !important;
+}
+
+#interrogatives .interrogative-card.book-title-card{
+  width: min(1080px, 100%) !important;
+  min-height: clamp(340px, 36vw, 520px);
+
+  margin-left: auto;
+  margin-right: auto;
+
+  background:
+    linear-gradient(180deg, rgba(247,244,239,.96), rgba(239,232,218,.92));
+
+  border: 1px solid rgba(199,162,74,.34);
+  border-radius: 20px;
+
+  box-shadow:
+    0 34px 90px rgba(2,6,23,.22),
+    0 10px 28px rgba(120,92,24,.12);
+
+  transform: translateY(-6px);
+}
+
+/* QUESTIONS — floating system with preserved book cover */
+#interrogatives .inheritance-card{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  padding: 28px 0 34px !important;
+}
+
+#interrogatives .interrogatives-sequence{
+  width: min(1500px, calc(100vw - 64px)) !important;
+  max-width: none !important;
+  margin-left: 50% !important;
+  transform: translateX(-50%) !important;
+
+  min-height: clamp(420px, 38vw, 560px);
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+/* Default question slides */
+#interrogatives .interrogative-card{
+  display: none;
+  width: 100% !important;
+  min-height: clamp(420px, 38vw, 560px);
+
+  padding: clamp(34px, 5vw, 72px);
+
+  background: rgba(247,244,239,.90);
+  border: 1px solid rgba(199,162,74,.28);
+  border-radius: 22px;
+
+  box-shadow:
+    0 30px 90px rgba(2,6,23,.18),
+    0 10px 28px rgba(120,92,24,.10);
+}
+
+#interrogatives .interrogative-card.active{
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Slide 1 only — preserve book-cover composition */
+#interrogatives .interrogative-card.book-title-card{
+  display: none;
+  width: 100% !important;
+  min-height: clamp(420px, 38vw, 560px);
+
+  padding: clamp(36px, 5vw, 64px) clamp(54px, 7vw, 96px);
+
+  background:
+    linear-gradient(180deg, rgba(247,244,239,.96), rgba(239,232,218,.92));
+
+  border: 1px solid rgba(199,162,74,.34);
+  border-radius: 22px;
+
+  box-shadow:
+    0 34px 90px rgba(2,6,23,.22),
+    0 10px 28px rgba(120,92,24,.12);
+}
+
+#interrogatives .interrogative-card.book-title-card.active{
+  display: grid !important;
+  grid-template-columns: 0.75fr 1.25fr;
+  align-items: center;
+  column-gap: clamp(42px, 6vw, 90px);
+}
+
+#interrogatives .book-title-card .book-cover-logo{
+  width: clamp(150px, 15vw, 230px);
+  transform: translateX(-18px);
+  opacity: .88;
+}
+
+#interrogatives .book-title-card .interrogatives-book-kicker{
+  justify-self: start;
+}
+
+#interrogatives .book-title-card h3{
+  justify-self: start;
+  max-width: 14ch;
+  text-align: left;
+}
+
+
+ </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PXCWLMJFC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4PXCWLMJFC');
+  </script>
+</head>
+
+<body>
+  <div class="wrap" id="top">
+
+    <header class="banner">
+      <div class="inner">
+        <div class="brand" aria-label="Prayer Force USA">
+<img src="assets/pfusa-shield-logo.png" alt="Prayer Force USA logo" />          <strong>Prayer Force USA</strong>
+        </div>
+
+ <nav aria-label="Primary">
+  <a href="#home">Home</a>
+  <a href="#what">What is PFUSA</a>
+  <a href="#mission">Our Convictions</a>
+  <a href="#take-your-place">Take Your Place</a>
+
+  <details class="nav-more">
+    <summary aria-label="Open more navigation links">More</summary>
+<div class="menu" role="menu" aria-label="More links">
+  <a href="#anchors" role="menuitem">Historical Anchors</a>
+  <a href="#pivot" role="menuitem">Our Turn</a>
+ <a href="#branches" role="menuitem">One Mission. Two Branches.</a>
+  <a href="#support" role="menuitem">Support</a>
+</div>
+  </details>
+</nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home">
+        <div class="hero" role="region" aria-label="Hero">
+          <div class="content">
+            <div>
+<div class="kicker reveal r1">Prayer Force USA</div>
+
+<h1 class="reveal r2">America does not drift without consequence.</h1>
+
+<p class="hero-sub reveal r3">That reality demands a response.</p>
+
+<p class="hero-sub reveal r4">Prayer Force USA is that response.</p>
+
+<p class="hero-sub reveal r5">Active prayer, faith-full declarations—together, wherever you are.</p>
+
+<p class="hero-sub reveal r6">Intercession for the land we love in the name of Jesus Christ.</p>
+
+<div class="hero-cta reveal r7">
+  <a href="#what" class="btn primary">Learn more. See if it’s a fit.</a>
+</div>
+
+<div class="hero-microlinks reveal r8">
+  <a href="our-posture.html" class="micro-link">Read Our Prayer Posture</a>
+</div>
+             
+              </div>
+            </div>        
+        </div>
+</section>
+<section id="what">
+  <div class="card pad cinematic-section">
+
+    <div class="eyebrow reveal reveal-1">
+  <span class="dot"></span>What is Prayer Force USA?
+</div>
+
+<h2 class="pfusa-headline reveal reveal-2">
+  <span class="pfusa-headline-brand">Prayer Force USA.</span>
+  <span class="pfusa-headline-call">
+    A call to stand in the gap for our nation<br>
+    and declare the Word of the Lord<br>
+    over America—together.
+  </span>
+</h2>
+
+<div class="what-editorial-grid">
+
+  <div class="what-editorial-copy">
+    <div class="eyebrow pfusa-purpose-eyebrow reveal reveal-4">
+      <span class="dot"></span>
+      <span>OUR PURPOSE</span>
+    </div>
+
+    <p class="pfusa-urgency-line reveal reveal-3">
+      Our country is divided, and our need is clear: we must turn back to God.
+    </p>
+
+    <div class="pfusa-copy">
+      <p class="reveal reveal-4">
+        Prayer Force USA exists to lift the United States before the throne of grace,
+        seeking God's help and mercy for this nation.
+      </p>
+
+      <p class="reveal reveal-5">
+        From America's earliest beginnings, many who came to this land acknowledged
+        their dependence on God.
+      </p>
+
+      <p class="reveal reveal-6">
+        We carry that inheritance forward through prayer, humility, and faithful intercession.
+      </p>
+    </div>
+  </div>
+
+  <div class="what-editorial-scripture">
+    <div class="eyebrow pfusa-promise-intro reveal reveal-7">
+      <span class="dot"></span>
+      <span>God’s Promise Still Stands</span>
+    </div>
+
+    <blockquote class="pfusa-scripture reveal reveal-8">
+      <p>
+        “If my people, which are called by my name, shall humble themselves, and pray,
+        and seek my face, and turn from their wicked ways; then will I hear from heaven,
+        and will forgive their sin, and will heal their land.”
+      </p>
+      <footer>— 2 Chronicles 7:14 (KJV)</footer>
+    </blockquote>
+  </div>
+
+</div>
+
+<div class="pfusa-final-line reveal reveal-9">
+  <p>Prayer is not passive.</p>
+  <p>It is active and effectual.</p>
+  <p>It is our way to partner with God for the deliverance of our nation.</p>
+</div>
+
+
+    <div class="down reveal reveal-14">
+      <a href="#mural" aria-label="Scroll to Pilgrims mural">↓</a>
+    </div>
+
+  </div>
+</section>
+
+        <hr class="divider" />
+
+<section id="mural" aria-label="Pilgrims Mural">
+<div class="mural-invite">
+  <span class="dot"></span>
+  <strong>Pause over the image.</strong>
+  When you are ready, touch the mural to follow the story.
+</div>
+
+<div class="mural interactive" aria-label="Pilgrims mural interactive">      
+  <img src="assets/Pilgrims_on_the_rocky_shore.png" alt="Pilgrims arrive" />
+  <!-- PFUSA HOTSPOT SYSTEM -->
+<div class="pf-hotspots">
+
+  <button class="pf-hotspot hs-where"
+    data-title="Voyage"
+    data-text="They crossed a vast and dangerous ocean to worship Christ freely."
+    aria-label="Voyage"></button>
+
+  <button class="pf-hotspot hs-who"
+    data-title="Contrast"
+    data-text="Other nations adopted Christianity after centuries.&#10;America began in pursuit of the freedom to live it."
+    aria-label="Contrast"></button>
+
+  <button class="pf-hotspot hs-how"
+    data-title="Purpose"
+    data-text="Their purpose was clear: to live out their faith."
+    aria-label="Purpose"></button>
+
+  <button class="pf-hotspot hs-what"
+    data-title="Practice"
+    data-text="From the Pilgrims to the Continental Congress, leaders openly sought God—and it did not end there."
+    aria-label="Practice"></button>
+
+  <button class="pf-hotspot hs-when"
+    data-title="Devotion"
+    data-text="Before building, before governing—before all else—they knelt in prayer."
+    aria-label="Devotion"></button>
+
+<button class="pf-hotspot hs-welcome"
+  data-title="Continuation"
+ data-text="It continues now.&#10;Prayer Force USA takes it up."
+  aria-label="Continuation"></button>
+
+</div>
+
+<!-- FLOATING OVERLAY CARD -->
+<div class="pf-overlay-card" id="pf-overlay-card" hidden>
+  <h4 id="pf-overlay-title"></h4>
+  <p id="pf-overlay-text"></p>
+</div>
+      <!-- OLD HOTSPOTS DISABLED FOR PFUSA HOTSPOT REBUILD
+      <div class="mural-hotspots" aria-hidden="false">
+        <button
+          type="button"
+          class="mural-hotspot is-active"
+          data-pos="heaven"
+          data-title="Look Up"
+          data-copy="Prayer begins by turning our eyes upward. From the beginning, this land’s story has included appeals for God’s help and guidance."
+          data-cta-label="Pray Now"
+          data-cta-href="#take-your-place"
+          aria-label="Look Up"
+          aria-pressed="true">
+        </button>
+
+        <button
+          type="button"
+          class="mural-hotspot"
+          data-pos="people"
+          data-title="Take Your Place"
+          data-copy="The call to pray is not abstract. It is personal. This work belongs to people who are willing to stand and intercede."
+          data-cta-label="Take Your Place"
+          data-cta-href="#take-your-place"
+          aria-label="Take Your Place"
+          aria-pressed="false">
+        </button>
+
+        <button
+          type="button"
+          class="mural-hotspot"
+          data-pos="nation"
+          data-title="Pray for the Nation"
+          data-copy="Prayer Force USA calls believers to pray for this nation with clarity, steadiness, and conviction."
+          data-cta-label="The Mission"
+          data-cta-href="#mission"
+          aria-label="Pray for the Nation"
+          aria-pressed="false">
+        </button>
+
+        <button
+          type="button"
+          class="mural-hotspot"
+          data-pos="path"
+          data-title="Move Forward"
+          data-copy="Learn the mission. Choose your place. Step forward in united prayer for our nation."
+          data-cta-label="Begin Here"
+          data-cta-href="#foundations"
+          aria-label="Move Forward"
+          aria-pressed="false">
+        </button>
+      </div>
+      -->
+
+      <div class="down mural-down">
+        <a href="#foundations" aria-label="Scroll to Our Foundations">↓</a>
+      </div>
+  
+    <!-- OLD PANEL DISABLED FOR PFUSA HOTSPOT REBUILD
+    <div class="mural-panel" id="muralPanel" aria-live="polite">
+      <div class="mural-panel-kicker">
+        <span class="dot"></span>
+        Explore the story
+      </div>
+
+      <h3 id="muralPanelTitle">Look Up</h3>
+      <p id="muralPanelCopy">
+        Prayer begins by turning our eyes upward. From the beginning, this land’s story has included appeals for God’s help and guidance.
+      </p>
+
+      <div class="mural-panel-actions">
+        <a id="muralPanelCta" class="btn small primary" href="#take-your-place">Pray Now</a>
+      </div>
+
+      <div class="mural-panel-note">
+        Hover or tap different parts of the mural to explore its themes.
+      </div>
+    </div>
+    -->
+  </div>
+</section>
+
+
+<hr class="divider" />
+
+
+<hr class="divider" />
+
+<section id="anchors">
+  <div class="card pad">
+    <div class="eyebrow"><span class="dot"></span>Historical Anchors</div>
+    <h2>Faith expressed publicly</h2>
+
+    <div class="anchors-strip-wrap">
+      <div class="anchors-strip" aria-label="Historical anchors">
+        <article class="anchor-strip-card anchor-strip-feature">
+          <div class="tag">11 Nov 1620</div>
+          <h3>Mayflower Compact</h3>
+          <p>“…for the Glory of God, and advancement of the Christian Faith…”</p>
+        </article>
+        
+        <article class="anchor-strip-card anchor-strip-medium">
+          <div class="tag">1789 — Inaugural Address</div>
+          <h3>George Washington</h3>
+          <p class="anchor-strip-quote">
+            “It would be peculiarly improper to omit, in this first official act, my fervent supplications to that Almighty Being…”
+          </p>
+        </article>
+
+        <article class="anchor-strip-card">
+          <div class="tag">18 June 1813 — Letter to Jefferson</div>
+          <h3>John Adams</h3>
+          <p>“The general principles on which the fathers achieved independence were the general principles of Christianity.”</p>
+        </article>
+
+        <article class="anchor-strip-card anchor-strip-medium">
+          <div class="tag">19 Sep 1796 — Farewell Address</div>
+          <h3>George Washington</h3>
+          <p>“Religion and morality are indispensable supports of political prosperity.”</p>
+        </article>
+        
+       <article class="anchor-strip-card anchor-strip-city-hill">
+  <div class="tag">1630 — John Winthrop, aboard the Arbella</div>
+  <h3>“A City Upon a Hill”</h3>
+  <p>
+“For we must consider that we shall be as a city upon a hill. The eyes of all people are upon us; so that if we shall deal falsely with our God in this work we have undertaken, and so cause Him to withdraw His present help from us, we shall be made a story and a byword through the world.”  </p>
+</article>
+
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      ← More historical anchors →
+    </div>
+
+    <div class="down">
+      <a href="#pivot" aria-label="Scroll to Present Day">↓</a>
+    </div>
+
+  </div>
+</section>
+
+
+<hr class="divider" />
+
+<section id="pivot">
+
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span>OUR TURN</span>
+  </div>
+
+  <div class="pivot" role="region" aria-label="Present Day Pivot">
+    <div class="img" style="background-image:url('assets/Quiet_DC_morning.png')"></div>
+    <div class="wash"></div>
+
+    <div class="overlay">
+
+<h2 class="lede pivot-return-line">It is time to return.</h2>
+      <div class="pfusa-scripture">
+        <p>
+          “If my people who are called by my name<br>
+          humble themselves, and pray,<br>
+          and <span class="pfusa-echo">seek my face</span>,<br>
+          and turn from their wicked ways,<br><br>
+
+          then I will hear from heaven,<br>
+          and will forgive their sin<br>
+          and heal their land.”
+        </p>
+        <footer>2 Chronicles 7:14</footer>
+      </div>
+
+     <div class="pfusa-response-divider">
+  <span></span>
+  <div class="pfusa-response-label">OUR RESPONSE</div>
+  <span></span>
+</div>
+
+      <div class="pfusa-scripture">
+        <p>
+          <span class="pfusa-response-line">You have said, “<span class="pfusa-echo">Seek my face</span>.”</span><br>
+          My heart says to you,<br>
+          “Your face, Lord, do I seek.”
+        </p>
+        <footer>Psalm 27:8</footer>
+      </div>
+
+      <div class="down dark">
+<a href="#mission" aria-label="Scroll to Our Convictions">
+<span class="down-mark" aria-hidden="true"></span></a>       
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section id="mission">
+  <div class="card pad">
+    <div class="eyebrow"><span class="dot"></span>OUR CONVICTIONS</div>
+
+    <h2>Prayer Force USA exists to intercede before God, the Father of our Lord Jesus Christ, for the well-being and longevity of our nation.</h2>
+
+    <div class="grid2">
+      <div class="mini">
+        <div class="top">
+          <div class="tag">We Are</div>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" fill="rgba(199,162,74,.95)"/>
+          </svg>
+        </div>
+
+        <ul class="mission-list">
+          <li>Christ-centered</li>
+          <li>Scripture-anchored</li>
+          <li>Focused on prayer and declaring God’s Word over America</li>
+          <li>Devoted to Jesus Christ, the Son of God</li>
+          <li>pro-America</li>
+        </ul>
+      </div>
+
+      <div class="mini">
+        <div class="top">
+          <div class="tag">We Are Not</div>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" fill="rgba(199,162,74,.95)"/>
+          </svg>
+        </div>
+
+        <ul class="mission-list">
+          <li>Aligned with any political party</li>
+          <li>Driven by outrage or division</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="down">
+      <a href="#branches" aria-label="Scroll to Two Branches">↓</a>
+    </div>
+  </div>
+</section>
+
+<section id="interrogatives">
+  <div class="card pad inheritance-card">
+
+    <div class="eyebrow">
+      <span class="dot"></span>The Questions Before Us
+    </div>
+
+
+
+    <div class="interrogatives-sequence" data-inheritance-sequence>
+      
+<div class="interrogative-card active book-title-card">
+  <img
+  class="book-cover-logo"
+  src="assets/incense-logo - no-BG.png"
+  alt="Prayer Force USA incense logo"
+/>
+  <div class="interrogatives-book-kicker">
+    Prayer Force USA
+  </div>
+
+  <h3>The Questions Before Us</h3>
+</div>
+      <div class="interrogative-card">
+        <h3>WHO ARE WE?</h3>
+        <p>
+          We are those who love America and stand together in the gap before God,
+          through our Lord Jesus Christ, in prayer for our nation.
+        </p>
+      </div>
+
+      <div class="interrogative-card">
+        <h3>HOW DO WE APPROACH?</h3>
+        <p>
+          We approach God with humility and repentance, dependence and joy.
+        </p>
+      </div>
+
+      <div class="interrogative-card">
+        <h3>WHAT DO WE SEEK?</h3>
+        <p>
+          We seek the mercy and grace of God for our country and the turning of hearts to Him.
+        </p>
+      </div>
+
+      <div class="interrogative-card">
+        <h3>WHEN DO WE PRAY?</h3>
+        <p>
+          We join together regularly for Standing in the Gap and gather weekly for Prayer Watch
+          to intercede in harmony for our nation.
+        </p>
+      </div>
+
+      <div class="interrogative-card">
+        <h3>WHERE DO WE GATHER?</h3>
+        <p>
+          We gather online through Prayer Force USA, joining together in prayer across the nation.
+        </p>
+      </div>
+
+<div class="interrogative-card final-card">
+  <h3>TO THOSE WHOSE HEARTS AGREE</h3>
+  <p>
+  If this is your heart as well,<br>
+  come stand with us.
+</p>
+
+<hr class="final-card-divider">
+
+<p>
+  You are welcome here.
+</p>
+</div>
+
+    </div>
+
+    <div class="inheritance-controls">
+      <button type="button" class="inheritance-btn" data-inheritance-prev disabled>
+        Previous
+      </button>
+
+      <div class="inheritance-progress" aria-live="polite">
+        <span data-inheritance-current>1</span> / <span data-inheritance-total>7</span>
+      </div>
+
+      <button type="button" class="inheritance-btn primary" data-inheritance-next>
+        Next
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider" />
+<section id="branches">
+  <div class="card pad">
+    <div class="eyebrow"><span class="dot"></span>One Mission. Two Branches.</div>
+    <p class="pfusa-bridge">Two ways to stand in prayer and declare God’s Word over America.</p>
+
+    <div class="pathways-grid">
+
+      <article class="pathway-card pathway-card-sitgap">
+        <div class="pathway-image"></div>
+        <div class="pathway-wash"></div>
+        <div class="pathway-content">
+          <div class="tag">Standing in the Gap</div>
+          <div class="pfusa-branch-sub">Regular · Flexible</div>
+          <p>
+            Regular prayer focused on current events and cultural issues affecting American life.
+            The format is fluid—Prayer Warriors join and depart as their schedules allow.
+          </p>
+        </div>
+      </article>
+
+      <article class="pathway-card pathway-card-watch">
+        <div class="pathway-image" style="background-image:url('assets/quiet-watch.jpg');"></div>
+        <div class="pathway-wash"></div>
+        <div class="pathway-content">
+          <div class="tag">The Prayer Watch</div>
+          <div class="pfusa-branch-sub">Weekly · Structured</div>
+          <p>
+            Weekly, structured prayer echoing the emphasis of the <a href="https://www.whitehouse.gov/freedom250/america-prays/?utm_source=pfusa&utm_medium=referral&utm_campaign=prayer_watch" target="_blank" rel="noopener noreferrer">America Prays initiative</a>. We gather for one hour to pray through enduring themes that shape our national identity: faith, family, freedom, justice, and leadership.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- TAKE YOUR PLACE (NEW SECTION) -->
+<section id="take-your-place" class="take-place-section" aria-labelledby="take-place-heading">
+  <div class="take-place-shell">
+
+    <div class="take-place-poster" aria-hidden="true">
+      <div class="take-place-poster-inner">
+        <div class="take-place-poster-frame"></div>
+
+        <div class="take-place-poster-content">
+          <p class="take-place-kicker">YOUR INVITATION</p>
+
+          <h2 class="take-place-poster-title">
+            Take<br>
+            Your<br>
+            Place
+          </h2>
+        </div>
+
+        <div class="take-place-poster-image" aria-hidden="true">
+          <img src="assets/Nat'l_Prayer_Call-up_Poster_NBG.png" alt="">
+        </div>
+
+        <div class="take-place-bridge">
+          <p class="take-place-poster-subtext">
+            Continuing the work they began in prayer—seeking God’s covering and divine favor over our nation.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="take-place-content">
+      <div class="take-place-content-inner">
+        <p class="take-place-eyebrow">A PERSONAL RESPONSE</p>
+
+        <h2 id="take-place-heading" class="take-place-heading">
+          Take your place.
+        </h2>
+
+        <div class="take-place-bridge-line">
+          It’s our turn, now.
+        </div>
+
+        <p class="take-place-intro">
+          Prayer Force USA calls those who are ready to stand in prayer for our country with steadiness, purpose, and unity—for the glory of God.
+        </p>
+
+        <div class="take-place-options">
+          <div class="take-place-option">
+            <div class="card-title">Standing in the Gap</div>
+            <div class="card-text">Respond to urgent needs across our nation as they arise.</div>
+          </div>
+
+          <div class="take-place-option">
+            <div class="card-title">The Prayer Watch</div>
+            <div class="card-text">Keep a steady, weekly rhythm of watchful prayer.</div>
+          </div>
+        </div>
+
+        <div class="typp-branch-select" aria-labelledby="typp-branch-heading">
+          <p class="typp-branch-title" id="typp-branch-heading">Your response</p>
+
+          <fieldset class="typp-branch-fieldset">
+            <legend class="sr-only">Choose your place:</legend>
+
+            <label class="typp-branch-option" for="branch-sitgap">
+              <input id="branch-sitgap" type="radio" name="prayer_path" value="sitgap" data-href="thank-you/?path=sitgap">
+              <span class="typp-branch-copy">
+                <span class="typp-branch-main">I will Stand in the Gap.</span>
+                <span class="typp-branch-sub">Pray with us for the needs of the nation as they arise.</span>
+              </span>
+            </label>
+
+            <label class="typp-branch-option" for="branch-tpw">
+              <input id="branch-tpw" type="radio" name="prayer_path" value="watch" data-href="thank-you/?path=watch">
+              <span class="typp-branch-copy">
+                <span class="typp-branch-main">I will keep the Prayer Watch.</span>
+                <span class="typp-branch-sub">Join a weekly rhythm of watchful prayer.</span>
+              </span>
+            </label>
+
+            <label class="typp-branch-option" for="branch-both">
+              <input id="branch-both" type="radio" name="prayer_path" value="both" data-href="thank-you/?path=both">
+              <span class="typp-branch-copy">
+                <span class="typp-branch-main">I will stand in the gap and keep the Watch.</span>
+                <span class="typp-branch-sub">Serve in both—responsive and watchful.</span>
+              </span>
+            </label>
+          </fieldset>
+
+          <div class="typp-branch-actions">
+            <a class="btn primary typp-continue-link" id="typpContinueLink" href="#" aria-disabled="true">
+              Continue
+            </a>
+          </div>
+        </div>
+
+        <p class="take-place-confirm-note">
+          Continue to confirm your signup and receive your Welcome Email and next steps.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<hr class="divider" />
+
+<section id="support">
+  <div class="inner">
+    <div class="card pad">
+      <div class="eyebrow"><span class="dot"></span>Support</div>
+      <h2>Support</h2>
+
+    <p>
+  Support opportunities are still to come, but participation is&mdash;and will remain&mdash;free.
+  Learn more in the <a href="#about">About</a> section.
+</p>
+
+      <div class="down">
+        <a href="#contact" aria-label="Scroll to Contact">↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+  
+        <section id="faq">
+          <div class="inner">
+        <div class="card pad">
+          <div class="eyebrow"><span class="dot"></span>About</div>
+          <h2>About Prayer Force USA</h2>
+
+          <div class="faq">
+            <details>
+              <summary>What is Prayer Force USA?</summary>
+              <p>
+                Prayer Force USA is a united prayer network—believers across America taking their place in steady, Scripture-centered intercession for our nation.
+              </p>
+            </details>
+
+            <details>
+              <summary>Do I have to choose one branch?</summary>
+              <p>
+                No. You are welcome to participate through Standing in the Gap, The Prayer Watch, or both—according to your schedule and calling.
+              </p>
+            </details>
+
+            <details>
+              <summary>How do I get session links and updates?</summary>
+              <p>
+                When you choose a branch in the <em>Take Your Place</em> section, you will receive a Welcome Email with session links and next steps.
+                You can also follow our YouTube channel for additional updates.
+              </p>
+            </details>
+
+            <details>
+              <summary>Is there a cost to participate?</summary>
+              <p>
+                There is no financial cost. Participation requires only your time—freely given—because you believe prayer matters.
+              </p>
+            </details>
+
+            <details>
+              <summary>Is Prayer Force USA a political movement?</summary>
+              <p>
+                Prayer Force USA is not a political party. We pray about the real conditions of our nation—some of them difficult and contested—while remaining anchored in Scripture rather than partisan conflict.
+              </p>
+            </details>
+
+            <details>
+              <summary>Is Prayer Force USA still growing?</summary>
+              <p>
+                Yes, indeed! Prayer Force USA is in its early stages of development. As it grows, we plan to add new prayer resources and opportunities to participate. The core mission will remain the same, but you'll likely see the site and its offerings continue to evolve. Thank you for being part of the journey!
+              </p>
+            </details>
+
+            <details>
+              <summary>Why does Prayer Force USA accept financial support?</summary>
+              <p>
+                Prayer Force USA is offered freely to all who wish to participate. Financial support is voluntary and helps sustain the work long term.
+              </p>
+            </details>
+
+            <details>
+              <summary>Is financial support required to participate?</summary>
+              <p>
+                No. Participation in Prayer Force USA does not require financial contribution. Prayer remains open and accessible to all who wish to stand with us.
+              </p>
+            </details>
+
+            <details>
+              <summary>How can I support the work?</summary>
+              <p>
+              Those who wish to support Prayer Force USA may do so financially once contribution options are made available. Support may also take the form of faithful engagement, sharing sessions with others, subscribing, and inviting friends or family to join in prayer.
+              </p>
+            </details>
+          </div>
+
+          <div class="btns">
+            <a class="btn small" href="#contact">Still have a question? Contact us</a>
+          </div>
+
+          <div class="down">
+            <a href="#contact" aria-label="Scroll to Contact">↓</a>
+          </div>
+        </div>
+      </div>
+      </section>
+
+      <hr class="divider" />
+      
+      <section id="contact">
+        <div class="inner">
+          <div class="card pad">
+            <div class="eyebrow"><span class="dot"></span>Contact</div>
+            <h2>Get in touch</h2>
+
+            <p>
+              Email us for updates, questions, or to connect.
+            </p>
+
+           <div class="contact-links">
+  <p class="contact-email">
+    Email: <a href="mailto:contact@prayerforceusa.net">contact@prayerforceusa.net</a>
+  </p>
+
+  <p class="contact-youtube">
+    <a href="https://www.youtube.com/@prayerforceusa" target="_blank" rel="noopener">
+      Prefer to watch first? Visit our YouTube channel →
+    </a>
+  </p>
+</div>
+
+            <p style="margin-top:10px;">
+              Prayer Force USA is an independent initiative and is not affiliated with any organization using similar names.
+            </p>
+
+            <div class="btns">
+              <a class="btn small" href="#faq">Support</a>
+              <a class="btn small" href="#top">Back to top ↑</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+
+ <footer aria-label="Footer">
+  <div class="inner">
+    <div>© Prayer Force USA</div>
+    <div class="links">
+      <span id="last-updated">Last updated: loading...</span>
+    </div>
+  </div>
+</footer>
+  </div>
+
+  <script>
+  console.log("MURAL JS RUNNING");
+    
+
+    (function(){
+      const el = document.getElementById("pfusaNextGathering");
+      if(!el) return;
+
+      const override = (el.getAttribute("data-override") || "").trim();
+      if(override){
+        el.textContent = override;
+        return;
+      }
+
+      const weekdayTarget = (el.getAttribute("data-weekday") || "Thursday").trim();
+      const timeText = (el.getAttribute("data-time") || "7:00 PM").trim();
+      const tzLabel = (el.getAttribute("data-tzlabel") || "ET").trim();
+      const suffix = (el.getAttribute("data-suffix") || "— online").trim();
+
+      const tz = "America/New_York";
+      const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      const weekdayIndex = { Sunday:0, Monday:1, Tuesday:2, Wednesday:3, Thursday:4, Friday:5, Saturday:6 };
+
+      const now = new Date();
+      const parts = new Intl.DateTimeFormat("en-US", { timeZone: tz, year:"numeric", month:"numeric", day:"numeric", weekday:"long" })
+        .formatToParts(now)
+        .reduce((acc,p)=>{ acc[p.type]=p.value; return acc; }, {});
+      const y = Number(parts.year);
+      const m = Number(parts.month);
+      const d = Number(parts.day);
+      const todayW = parts.weekday;
+
+      const targetIdx = weekdayIndex[weekdayTarget];
+      const todayIdx = weekdayIndex[todayW];
+
+      let delta = (targetIdx - todayIdx + 7) % 7;
+      if(delta === 0) delta = 7;
+
+      const anchorUTC = new Date(Date.UTC(y, m - 1, d, 12, 0, 0));
+      const nextUTC = new Date(anchorUTC.getTime() + delta * 86400000);
+
+      const nextParts = new Intl.DateTimeFormat("en-US", { timeZone: tz, year:"numeric", month:"numeric", day:"numeric", weekday:"long" })
+        .formatToParts(nextUTC)
+        .reduce((acc,p)=>{ acc[p.type]=p.value; return acc; }, {});
+      const nextWeekday = nextParts.weekday;
+      const nextMonthName = months[Number(nextParts.month) - 1];
+      const nextDayNum = Number(nextParts.day);
+
+      el.textContent = `Next gathering: ${nextWeekday}, ${nextDayNum} ${nextMonthName} at ${timeText} (${tzLabel}) ${suffix}`;
+    })();
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const mural = document.querySelector(".mural.interactive");
+  const hotspotWrap = document.querySelector(".pf-hotspots");
+  const hotspots = Array.from(document.querySelectorAll(".pf-hotspot"));
+  const card = document.getElementById("pf-overlay-card");
+  card.style.position = "absolute";
+  console.log("CARD ELEMENT:", card);
+  const title = document.getElementById("pf-overlay-title");
+  const text = document.getElementById("pf-overlay-text");
+
+if (!mural || !hotspotWrap || !hotspots.length) return;
+  let hotspotsRevealed = false;
+
+const hotspotOrder = [
+  ".hs-where",    // Voyage
+  ".hs-who",      // Contrast
+  ".hs-when",     // Devotion
+  ".hs-how",      // Purpose
+  ".hs-what",     // Practice
+  ".hs-welcome"   // Continuation
+];
+
+const orderedHotspots = hotspotOrder
+  .map(selector => document.querySelector(selector))
+  .filter(Boolean); 
+  
+function revealHotspotsSequentially() {
+  console.log("revealHotspotsSequentially ran");
+
+  if (hotspotsRevealed) return;
+  hotspotsRevealed = true;
+
+  hotspotWrap.classList.add("is-revealed");
+hotspotWrap.classList.add("guided");
+
+  orderedHotspots.forEach((hotspot, index) => {
+    setTimeout(() => {
+      hotspot.classList.add("is-visible");
+
+      if (index === 0) {
+        hotspot.classList.add("is-next");
+      }
+    }, index * 220);
+  });
+}
+
+mural.addEventListener("click", function firstReveal(event) {
+  console.log("mural click handler ran");
+  revealHotspotsSequentially();
+
+  setTimeout(() => {
+    const firstHotspot = document.querySelector(".hs-where");
+    if (!firstHotspot) return;
+    firstHotspot.click();
+  }, 520);
+}, { once: true });
+
+mural.addEventListener("click", function () {
+  if (!hotspotsRevealed) return;
+  if (!card.classList.contains("show")) return;
+
+  hotspots.forEach(h => h.classList.remove("active"));
+  card.classList.remove("show");
+
+  setTimeout(() => {
+    card.hidden = true;
+  }, 220);
+});
+
+
+function setCardPosition(hotspot) {
+
+   if (hotspot.classList.contains("hs-where")) {
+    // Voyage
+    card.style.left = "20%";
+    card.style.top = "22%";
+
+  } else if (hotspot.classList.contains("hs-who")) {
+  card.style.left = "34%";
+  card.style.top = "34%";
+
+} else if (hotspot.classList.contains("hs-how")) {
+  // Purpose
+  card.style.left = "30%";
+  card.style.top = "74%";
+
+  } else if (hotspot.classList.contains("hs-what")) {
+    // Practice
+    card.style.left = "42%";
+    card.style.top = "42%";
+
+  } else if (hotspot.classList.contains("hs-when")) {
+    // Devotion 
+    card.style.left = "56%";
+  card.style.top = "76%";
+
+  } else if (hotspot.classList.contains("hs-welcome")) {
+    // Continuation
+    card.style.left = "58%";
+    card.style.top = "28%";
+  }
+}
+
+  hotspots.forEach(hotspot => {
+  hotspot.addEventListener("click", function (event) {
+    event.stopPropagation();
+    console.log("hotspot click handler ran", hotspot.dataset.title, hotspotsRevealed);
+
+    if (!hotspotsRevealed) {
+      return;
+    }
+
+hotspots.forEach(h => h.classList.remove("active"));
+card.classList.remove("show");
+card.hidden = false;
+
+hotspot.classList.add("active");
+
+orderedHotspots.forEach(h => h.classList.remove("is-next"));
+
+const clickedIndex = orderedHotspots.indexOf(hotspot);
+const storyComplete = hotspotWrap.classList.contains("story-complete");
+
+if (!storyComplete && clickedIndex > -1 && clickedIndex < orderedHotspots.length - 1) {
+  orderedHotspots[clickedIndex + 1].classList.add("is-next");
+}
+
+if (!storyComplete && clickedIndex === orderedHotspots.length - 1) {
+  setTimeout(() => {
+    hotspotWrap.classList.remove("guided");
+    hotspotWrap.classList.add("story-complete");
+
+    orderedHotspots.forEach(h => {
+      h.classList.remove("is-next");
+      h.classList.add("is-visible");
+    });
+  }, 900);
+}
+
+card.classList.remove("panel-contrast", "panel-continuation");
+
+if (hotspot.classList.contains("hs-who")) {
+  card.classList.add("panel-contrast");
+}
+
+if (hotspot.classList.contains("hs-welcome")) {
+  card.classList.add("panel-continuation");
+}
+
+card.dataset.panel = hotspot.dataset.title.toLowerCase();
+
+title.textContent = hotspot.dataset.title;
+text.textContent = hotspot.dataset.text;
+
+      setCardPosition(hotspot);
+
+card.hidden = false;
+
+setTimeout(() => {
+  requestAnimationFrame(() => {
+    card.classList.add("show");
+  });
+}, 90);
+    });
+  });
+});
+</script>       
+  <script>
+(function(){
+  const options = Array.from(document.querySelectorAll(".take-place-option"));
+  const titleEl = document.getElementById("takePlaceResponseTitle");
+  const copyEl = document.getElementById("takePlaceResponseCopy");
+  const btnEl = document.getElementById("takePlaceResponseBtn");
+
+  if(!options.length || !titleEl || !copyEl || !btnEl) return;
+
+  function activate(option){
+    options.forEach((btn) => {
+      const active = btn === option;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+
+    titleEl.textContent = option.dataset.title || "";
+    copyEl.textContent = option.dataset.copy || "";
+    btnEl.textContent = option.dataset.cta || "Learn more";
+    btnEl.setAttribute("href", option.dataset.href || "#take-your-place");
+  }
+
+  options.forEach((option) => {
+    option.addEventListener("click", function(){
+      activate(option);
+    });
+
+    option.addEventListener("mouseenter", function(){
+      activate(option);
+    });
+
+    option.addEventListener("focus", function(){
+      activate(option);
+    });
+  });
+})();
+</script>
+<script>
+(function () {
+  const radios = document.querySelectorAll('input[name="prayer_path"]');
+  const continueLink = document.getElementById('typpContinueLink');
+
+  if (!radios.length || !continueLink) return;
+
+  function updateContinueLink() {
+    const selected = Array.from(radios).find(radio => radio.checked);
+
+    if (!selected) {
+      continueLink.href = '#';
+      continueLink.setAttribute('aria-disabled', 'true');
+      continueLink.classList.add('is-disabled');
+      return;
+    }
+
+    continueLink.href = selected.dataset.href;
+    continueLink.setAttribute('aria-disabled', 'false');
+    continueLink.classList.remove('is-disabled');
+  }
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', updateContinueLink);
+  });
+
+  continueLink.addEventListener('click', function (event) {
+    if (continueLink.getAttribute('aria-disabled') === 'true') {
+      event.preventDefault();
+    }
+  });
+
+  updateContinueLink();
+})();
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const reveals = document.querySelectorAll(".reveal");
+
+    if (!("IntersectionObserver" in window)) {
+      reveals.forEach(el => el.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: "0px 0px -8% 0px"
+    });
+
+    reveals.forEach(el => observer.observe(el));
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sequence = document.querySelector("[data-inheritance-sequence]");
+    if (!sequence) return;
+
+    const cards = Array.from(sequence.querySelectorAll(".interrogative-card"));
+    const prevBtn = document.querySelector("[data-inheritance-prev]");
+    const nextBtn = document.querySelector("[data-inheritance-next]");
+    const currentEl = document.querySelector("[data-inheritance-current]");
+    const totalEl = document.querySelector("[data-inheritance-total]");
+
+    let currentIndex = 0;
+
+    if (totalEl) totalEl.textContent = cards.length;
+
+    function showCard(index, direction) {
+      sequence.classList.toggle("turning-back", direction === "back");
+
+      cards.forEach((card, i) => {
+        card.classList.toggle("active", i === index);
+      });
+
+      if (currentEl) currentEl.textContent = index + 1;
+      if (prevBtn) prevBtn.disabled = index === 0;
+      if (nextBtn) nextBtn.textContent = index === cards.length - 1 ? "Begin Again" : "Next";
+    }
+
+  
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        if (currentIndex > 0) {
+          currentIndex -= 1;
+          showCard(currentIndex);
+        }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        if (currentIndex < cards.length - 1) {
+          currentIndex += 1;
+        } else {
+          currentIndex = 0;
+        }
+
+        showCard(currentIndex);
+      });
+    }
+
+    showCard(currentIndex);
+  });
+</script>
+
+<script>
+  const lastUpdated = document.getElementById("last-updated");
+
+  if (lastUpdated) {
+    const modifiedDate = new Date(document.lastModified);
+
+    const formattedDate = modifiedDate.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric"
+    });
+
+    lastUpdated.textContent = `Last updated: ${formattedDate}`;
+  }
+
+</script>
+
+</body>
+</html>
