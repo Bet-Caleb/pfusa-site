@@ -1910,11 +1910,14 @@ section{
 }
 
 #take-your-place .take-place-shell {
+  transform: translateX(-140px);
   width: min(1180px, calc(100vw - 72px));
   max-width: none;
   margin: 0 auto;
+  position: relative;
+  left: -24px;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); 
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   background: #f7f4ef;
   border: 1px solid rgba(26,26,26,0.16);
   box-shadow: 0 28px 70px rgba(2,6,23,0.16);
@@ -1974,6 +1977,10 @@ section{
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(26,26,26,0.58);
+}
+
+#take-your-place .take-place-content .take-place-eyebrow {
+  margin-bottom: 0.45rem;
 }
 
 #take-your-place .take-place-poster-title {
@@ -2167,6 +2174,35 @@ section{
   #take-your-place .take-place-poster-image img {
     width: min(430px, 100%);
   }
+
+.pf-response-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #0b1f3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.pf-response-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.pf-response-icon .pf-icon-svg {
+  fill: #ffffff;
+}
+
+.pf-response-icon .pf-clock-icon {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}  
 }
 
 /* REVEAL PROFILE: CINEMATIC */
@@ -4155,6 +4191,75 @@ min-width: 280px;
   text-align: left;
 }
 
+.take-place-option .pf-response-icon {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 50% !important;
+  background: #0b1f3a !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 18px !important;
+}
+
+.take-place-option .pf-response-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  display: block !important;
+}
+
+.take-place-option .pf-response-icon .pf-icon-svg {
+  fill: #ffffff !important;
+}
+
+.take-place-option .pf-response-icon .pf-clock-icon {
+  fill: none !important;
+  stroke: #ffffff !important;
+  stroke-width: 2 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+.take-place-option {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.card-content {
+    flex: 1;
+}
+
+.pf-response-icon {
+    flex: 0 0 34px;
+    margin-bottom: 0;
+}
+
+#take-your-place .pf-bridge-icon {
+  width: 22px !important;
+  height: 22px !important;
+  fill: none !important;
+  stroke: #ffffff !important;
+  stroke-width: 2.1 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+#take-your-place .take-place-bridge-line {
+  margin-top: 0.35rem;
+}
+
+#take-your-place .typp-continue-link.is-disabled {
+  opacity: 0.45;
+  filter: grayscale(0.45);
+  pointer-events: none;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.support-note {
+    font-size: 0.97em;
+}
 
  </style>
 
@@ -4772,16 +4877,33 @@ min-width: 280px;
         </p>
 
         <div class="take-place-options">
-          <div class="take-place-option">
-            <div class="card-title">Standing in the Gap</div>
-            <div class="card-text">Respond to urgent needs across our nation as they arise.</div>
-          </div>
+  <div class="take-place-option">
+   <span class="pf-response-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24" class="pf-icon-svg pf-bridge-icon">
+  <path d="M4 16h16"></path>
+  <path d="M6 16V9"></path>
+  <path d="M18 16V9"></path>
+  <path d="M6 9c3 3 9 3 12 0"></path>
+  <path d="M8 11v5"></path>
+  <path d="M12 12v4"></path>
+  <path d="M16 11v5"></path>
+</svg>
+    </span>
+    <div class="card-title">Standing in the Gap</div>
+    <div class="card-text">Respond to urgent needs across our nation as they arise.</div>
+  </div>
 
-          <div class="take-place-option">
-            <div class="card-title">The Prayer Watch</div>
-            <div class="card-text">Keep a steady, weekly rhythm of watchful prayer.</div>
-          </div>
-        </div>
+  <div class="take-place-option">
+    <span class="pf-response-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" class="pf-icon-svg pf-clock-icon">
+        <circle cx="12" cy="12" r="7"></circle>
+        <path d="M12 8v4l3 2"></path>
+      </svg>
+    </span>
+    <div class="card-title">The Prayer Watch</div>
+    <div class="card-text">Keep a steady, weekly rhythm of watchful prayer.</div>
+  </div>
+</div>
 
         <div class="typp-branch-select" aria-labelledby="typp-branch-heading">
           <p class="typp-branch-title" id="typp-branch-heading">Your response</p>
@@ -4790,24 +4912,21 @@ min-width: 280px;
             <legend class="sr-only">Choose your place:</legend>
 
             <label class="typp-branch-option" for="branch-sitgap">
-              <input id="branch-sitgap" type="radio" name="prayer_path" value="sitgap" data-href="thank-you/?path=sitgap">
-              <span class="typp-branch-copy">
+<input id="branch-sitgap" type="radio" name="prayer_path" value="sitgap" data-href="take-your-place.html?path=sitgap">            <span class="typp-branch-copy">
                 <span class="typp-branch-main">I will Stand in the Gap.</span>
                 <span class="typp-branch-sub">Pray with us for the needs of the nation as they arise.</span>
               </span>
             </label>
 
             <label class="typp-branch-option" for="branch-tpw">
-              <input id="branch-tpw" type="radio" name="prayer_path" value="watch" data-href="thank-you/?path=watch">
-              <span class="typp-branch-copy">
+<input id="branch-tpw" type="radio" name="prayer_path" value="watch" data-href="take-your-place.html?path=watch">              <span class="typp-branch-copy">
                 <span class="typp-branch-main">I will keep the Prayer Watch.</span>
                 <span class="typp-branch-sub">Join a weekly rhythm of watchful prayer.</span>
               </span>
             </label>
 
             <label class="typp-branch-option" for="branch-both">
-              <input id="branch-both" type="radio" name="prayer_path" value="both" data-href="thank-you/?path=both">
-              <span class="typp-branch-copy">
+<input id="branch-both" type="radio" name="prayer_path" value="both" data-href="take-your-place.html?path=both">              <span class="typp-branch-copy">
                 <span class="typp-branch-main">I will stand in the gap and keep the Watch.</span>
                 <span class="typp-branch-sub">Serve in both—responsive and watchful.</span>
               </span>
@@ -4815,8 +4934,7 @@ min-width: 280px;
           </fieldset>
 
           <div class="typp-branch-actions">
-            <a class="btn primary typp-continue-link" id="typpContinueLink" href="#" aria-disabled="true">
-              Continue
+<a class="btn primary typp-continue-link is-disabled" id="typpContinueLink" href="#" aria-disabled="true">              Continue
             </a>
           </div>
         </div>
@@ -4904,8 +5022,7 @@ min-width: 280px;
             <details>
               <summary>Why does Prayer Force USA accept financial support?</summary>
               <p>
-                Prayer Force USA is offered freely to all who wish to participate. Financial support is voluntary and helps sustain the work long term.
-              </p>
+Prayer requires no financial payment, but it is never without cost. It asks for our time, our faithfulness, and our hearts. Developing prayer resources, maintaining the website, strengthening communication, and mobilizing others for the mission also require practical tools and ongoing effort. Voluntary financial support helps make those things possible, to gather and unite a prayer force of faithful intercessors for our nation.              </p>
             </details>
 
             <details>
@@ -4918,8 +5035,19 @@ min-width: 280px;
             <details>
               <summary>How can I support the work?</summary>
               <p>
-              Those who wish to support Prayer Force USA may do so financially once contribution options are made available. Support may also take the form of faithful engagement, sharing sessions with others, subscribing, and inviting friends or family to join in prayer.
-              </p>
+  You can support Prayer Force USA by helping this mission reach farther:
+</p>
+
+<ul>
+  <li>Join the prayer sessions.</li>
+  <li>Subscribe to the channel(s).</li>
+  <li>Engage with Prayer Force USA on YouTube and other social media.</li>
+  <li>Share prayer sessions with others who may be called to join.</li>
+  <li>Invite friends and family to stand together in intercession for the United States of America.</li>
+</ul>
+
+<p class="support-note">
+If you would also like to support this mission financially, opportunities to do so will be available soon.</p>
             </details>
           </div>
 
