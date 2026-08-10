@@ -1283,6 +1283,18 @@ section{
       align-items:center;
     }
 
+footer .links a{
+  color:inherit;
+  text-decoration:none;
+}
+
+footer .links a:hover,
+footer .links a:focus-visible{
+  color:var(--navy);
+  text-decoration:underline;
+  text-underline-offset:3px;
+} 
+
     @media (max-width: 980px){
       .hero .content{ grid-template-columns: 1fr; }
       .hero .right{ align-items:flex-start; }
@@ -4261,6 +4273,31 @@ min-width: 280px;
     font-size: 0.97em;
 }
 
+#what .pfusa-headline-and {
+  color: rgba(15, 23, 42, 0.72);
+}
+
+.mural-wave-inline {
+  border: none;
+  background: transparent;
+  padding: 0 2px;
+  margin-left: 6px;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: .72;
+}
+
+.mural-wave-inline:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.mural-wave-note {
+  font-size: .9rem;
+  opacity: .72;
+}
+
  </style>
 
   <!-- Google tag (gtag.js) -->
@@ -4339,11 +4376,10 @@ min-width: 280px;
 
 <h2 class="pfusa-headline reveal reveal-2">
   <span class="pfusa-headline-brand">Prayer Force USA.</span>
-  <span class="pfusa-headline-call">
-    A call to stand in the gap for our nation<br>
-    and declare the Word of the Lord<br>
-    over America—together.
-  </span>
+<span class="pfusa-headline-call">
+  A call to stand in the gap for our nation<br>
+<span class="pfusa-headline-and">and</span> declare the Word of the Lord<br>  over America—together.
+</span>
 </h2>
 
 <div class="what-editorial-grid">
@@ -4412,12 +4448,27 @@ min-width: 280px;
 <section id="mural" aria-label="Pilgrims Mural">
 <div class="mural-invite">
   <span class="dot"></span>
-  <strong>Pause over the image.</strong>
-  When you are ready, touch the mural to follow the story.
+<strong>Pause over the image.</strong>
+When you are ready, touch the mural to follow the story.
+<button
+  id="waveToggle"
+  class="mural-wave-inline"
+  type="button"
+  aria-label="Ocean Waves"
+  title="Ocean Waves">
+  🌊
+</button>
+<span class="mural-wave-note">for gentle sound</span>
 </div>
+
+  <audio id="muralWaves" preload="none" loop>
+    <source src="assets/ocean-waves.mp3" type="audio/mpeg">
+  </audio>
 
 <div class="mural interactive" aria-label="Pilgrims mural interactive">      
   <img src="assets/Pilgrims_on_the_rocky_shore.png" alt="Pilgrims arrive" />
+
+
   <!-- PFUSA HOTSPOT SYSTEM -->
 <div class="pf-hotspots">
 
@@ -5104,6 +5155,7 @@ If you would also like to support this mission financially, opportunities to do 
   <div class="inner">
     <div>© Prayer Force USA</div>
     <div class="links">
+<a href="content-independence.html">Content &amp; Independence</a>
       <span id="last-updated">Last updated: loading...</span>
     </div>
   </div>
@@ -5494,6 +5546,65 @@ setTimeout(() => {
     lastUpdated.textContent = `Last updated: ${formattedDate}`;
   }
 
+</script>
+
+<script>
+const waveButton = document.getElementById("waveToggle");
+const waveAudio  = document.getElementById("muralWaves");
+
+let fadeAnimation;
+
+function fadeOutWaves() {
+  cancelAnimationFrame(fadeAnimation);
+
+  const startVolume = waveAudio.volume;
+  const duration = 3000;
+  const startTime = performance.now();
+
+  function fade(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    waveAudio.volume = startVolume * (1 - progress);
+
+    if (progress < 1) {
+      fadeAnimation = requestAnimationFrame(fade);
+    } else {
+      waveAudio.pause();
+      waveAudio.currentTime = 0;
+      waveAudio.volume = 0.30;
+      waveButton.textContent = "🌊";
+      waveButton.classList.remove("playing");
+    }
+  }
+
+  fadeAnimation = requestAnimationFrame(fade);
+}
+
+waveButton.addEventListener("click", async () => {
+  if (waveAudio.paused) {
+    waveAudio.volume = 0.30;
+    await waveAudio.play();
+    waveButton.textContent = "🔊";
+    waveButton.classList.add("playing");
+  } else {
+  fadeOutWaves();
+  }
+});
+
+const mural = document.querySelector(".mural.interactive");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting && !waveAudio.paused) {
+     fadeOutWaves();
+    }
+  });
+}, {
+  threshold: 0.25
+});
+
+observer.observe(mural);
 </script>
 
 </body>
