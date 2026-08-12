@@ -709,9 +709,11 @@ section{
 }
 
 .hero .kicker{
+    color: var(--gold2);
     font-size: .98rem;
     font-weight: 700;
     letter-spacing: .18em;
+    text-shadow: 0 2px 10px rgba(0,0,0,.55);
 }
 
 .hero h1{
@@ -5242,6 +5244,48 @@ body {
   #interrogatives .book-final-cta {
     width: min(230px, 100%);
     min-height: 54px;
+  }
+}
+
+/* MOBILE HERO — align image, panel, and text within one frame */
+@media (max-width: 700px) {
+  #home .hero {
+    width: calc(100vw - 24px) !important;
+    margin-left: 50% !important;
+    transform: translateX(-50%) !important;
+    overflow: hidden;
+    border-radius: 18px;
+  }
+
+  #home .hero::before {
+    inset: 0 !important;
+    transform: none;
+    background-position: center right;
+  }
+
+  #home .hero .content {
+    width: 100%;
+    padding: 12px !important;
+  }
+
+  #home .hero .content > div:first-child {
+    width: 100%;
+    max-width: none;
+    padding: 24px 20px;
+  }
+
+  #home .hero .hero-sub.r3 {
+    font-size: 1.35rem;
+    line-height: 1.4;
+  }
+
+  #home .hero .hero-cta .btn.primary {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    line-height: 1.35;
+    text-align: center;
+    text-decoration: none;
   }
 }
 
