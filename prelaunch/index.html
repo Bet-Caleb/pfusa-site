@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Prayer Force USA | The Watch Is Coming</title>
+
+  <style>
+
+    /* =========================================================
+       BASE
+       ========================================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      background: #020d1c;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+
+    /* =========================================================
+       PAGE CONTAINER
+       Artwork and signup section share THIS parent.
+       ========================================================= */
+
+    .prelaunch {
+      width: 96vw;
+      max-width: 1800px;
+      margin: 0 auto;
+      background: #020d1c;
+    }
+
+
+    /* =========================================================
+       CLEAN ARTWORK
+       Normal document flow.
+       NO overlay positioning.
+       ========================================================= */
+
+.artwork-frame {
+  width: 100%;
+  aspect-ratio: 1200 / 900;
+  overflow: hidden;
+}
+
+.prelaunch-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+
+    /* =========================================================
+       SIGNUP SECTION
+       Begins immediately AFTER artwork.
+       ========================================================= */
+
+    .signup-section {
+      width: 100%;
+      margin: 0;
+      padding: 8px 0 34px;
+      background: #020d1c;
+    }
+
+
+    /* =========================================================
+       FORM
+       92% of SAME parent width used by artwork.
+       ========================================================= */
+
+    .inside-track-form {
+      position: static;
+      width: 93%;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+
+    /* =========================================================
+       SIGNUP ROW
+       ========================================================= */
+
+    .signup-row {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(260px, 0.82fr)
+        minmax(0, 1fr);
+
+      gap: 18px;
+
+      width: 100%;
+      margin: 0;
+
+      align-items: stretch;
+    }
+
+    .name-wrap,
+    .email-wrap {
+      width: 100%;
+      min-width: 0;
+    }
+
+
+    /* =========================================================
+       INPUT FIELDS + BUTTON
+       One shared physical size.
+       ========================================================= */
+
+.signup-field,
+.signup-button {
+  width: 100%;
+  height: 120px;
+  border-radius: 9px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+
+    /* =========================================================
+       INPUT FIELDS
+       ========================================================= */
+
+    .signup-field {
+      display: block;
+
+      padding: 0 24px;
+
+      border: 1.5px solid #e8c36d;
+
+      background: #031426;
+      color: #f5e9cf;
+
+      font-size: 32px;
+
+      outline: none;
+    }
+
+    .signup-field::placeholder {
+      color: rgba(245, 233, 207, 0.72);
+      opacity: 1;
+    }
+
+    .signup-field:focus {
+      border-color: #f6d88e;
+
+      box-shadow:
+        0 0 10px rgba(232, 195, 109, 0.22);
+    }
+
+
+    /* =========================================================
+       BUTTON
+       ========================================================= */
+
+    .signup-button {
+      position: relative;
+
+      padding:
+        0 58px
+        0 24px;
+
+      border: 1.5px solid #f2cf7a;
+
+      background:
+        linear-gradient(
+          180deg,
+          #f7dda0 0%,
+          #e9bd62 55%,
+          #c88a2d 100%
+        );
+
+      color: #171008;
+
+      font-size: 32px;
+      font-weight: 700;
+
+      letter-spacing: 0.035em;
+      line-height: 1.05;
+
+      text-align: center;
+
+      cursor: pointer;
+    }
+
+    .signup-button:hover {
+      filter: brightness(1.06);
+    }
+
+    .signup-button:focus-visible {
+      outline: 2px solid #f6d88e;
+      outline-offset: 3px;
+    }
+
+
+    /* =========================================================
+       BUTTON ARROW
+       ========================================================= */
+
+    .button-arrow {
+      position: absolute;
+
+      right: 24px;
+      top: 50%;
+
+      transform: translateY(-52%);
+
+      font-family: Arial, sans-serif;
+
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+
+    /* =========================================================
+       PRIVACY LINE
+       ========================================================= */
+
+    .signup-privacy {
+      margin: 20px auto 0;
+
+      color: #f5e9cf;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 24px;
+      line-height: 1.35;
+
+      text-align: center;
+    }
+
+
+    /* =========================================================
+       MAILCHIMP ANTI-BOT FIELD
+       ========================================================= */
+
+    .mc-honeypot {
+      position: absolute;
+
+      left: -5000px;
+
+      width: 1px;
+      height: 1px;
+
+      overflow: hidden;
+    }
+
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 600px) {
+
+      .signup-section {
+        padding: 12px 0 30px;
+      }
+
+      .inside-track-form {
+        width: 90%;
+      }
+
+      .signup-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .name-wrap {
+        grid-row: 1;
+      }
+
+      .email-wrap {
+        grid-row: 2;
+      }
+
+      .signup-button {
+        grid-row: 3;
+      }
+
+      .signup-field,
+      .signup-button {
+        height: 60px;
+      }
+
+      .signup-field {
+        font-size: 17px;
+      }
+
+      .signup-button {
+        font-size: 17px;
+      }
+
+      .signup-privacy {
+        margin-top: 13px;
+        padding: 0 10px;
+        font-size: 14px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <main class="prelaunch">
+
+
+    <!-- =====================================================
+         CLEAN ARTWORK
+         PNG remains untouched.
+         ===================================================== -->
+
+<div class="artwork-frame">
+  <img
+    class="prelaunch-art"
+    src="prelaunch-background-clean.png"
+    alt="Prayer Force USA — The Watch Is Coming"
+  >
+</div>
+
+
+    <!-- =====================================================
+         SIGNUP SECTION
+         Real HTML/CSS.
+         Normal document flow.
+         NO overlay.
+         ===================================================== -->
+
+    <section
+      class="signup-section"
+      aria-label="Prayer Force USA signup"
+    >
+
+      <form
+        class="inside-track-form"
+        action="https://prayerforceusa.us7.list-manage.com/subscribe/post?u=16a4cb34364f2b62e04130823&amp;id=ab88258810&amp;f_id=0054ade0f0"
+        method="post"
+        target="_blank"
+      >
+
+
+        <div class="signup-row">
+
+
+          <!-- FIRST NAME -->
+
+          <div class="name-wrap">
+
+            <input
+              class="signup-field"
+              type="text"
+              name="FNAME"
+              autocomplete="given-name"
+              placeholder="First name (optional)"
+              aria-label="First name (optional)"
+            >
+
+          </div>
+
+
+          <!-- SUBMIT BUTTON -->
+
+          <button
+            class="signup-button"
+            type="submit"
+            name="subscribe"
+          >
+
+            STAND WITH US<br>
+            IN PRAYER
+
+            <span
+              class="button-arrow"
+              aria-hidden="true"
+            >›</span>
+
+          </button>
+
+
+          <!-- EMAIL -->
+
+          <div class="email-wrap">
+
+            <input
+              class="signup-field"
+              type="email"
+              name="EMAIL"
+              autocomplete="email"
+              placeholder="Enter your email address"
+              aria-label="Email address"
+              required
+            >
+
+          </div>
+
+
+        </div>
+
+
+        <!-- PRIVACY MESSAGE -->
+
+        <p class="signup-privacy">
+          🔒 We’ll only use your email to send prayer updates about the launch of Prayer Force USA.
+        </p>
+
+
+        <!-- MAILCHIMP INSIDE TRACK TAG -->
+
+        <input
+          type="hidden"
+          name="tags"
+          value="3507053"
+        >
+
+
+        <!-- MAILCHIMP ANTI-BOT FIELD -->
+
+        <div
+          class="mc-honeypot"
+          aria-hidden="true"
+        >
+
+          <input
+            type="text"
+            name="b_16a4cb34364f2b62e04130823_ab88258810"
+            tabindex="-1"
+            value=""
+          >
+
+        </div>
+
+
+      </form>
+
+    </section>
+
+
+  </main>
+
+</body>
+
+</html>
